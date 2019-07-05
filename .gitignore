@@ -1,0 +1,22 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore the default SQLite database
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles
+/log/*.log
+/tmp
+
+# Ignore RVM files
+.rvmrc
+
+# Ignore Mac image garbage
+.DS_Store
+
+# Ignore Redis dump
+dump.rdb
+
+# Ignore TextMate properties
+.tm_properties
