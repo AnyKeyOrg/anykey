@@ -20,3 +20,9 @@ dump.rdb
 
 # Ignore TextMate properties
 .tm_properties
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
