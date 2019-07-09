@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
-  root to: 'pledge#index'
+  resources :pledges, only: [:index, :create]
+  
+  root to: 'pledges#index'
   
 end
