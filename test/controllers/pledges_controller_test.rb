@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PledgeControllerTest < ActionDispatch::IntegrationTest
+class PledgesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
