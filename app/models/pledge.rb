@@ -1,6 +1,6 @@
 class Pledge < ApplicationRecord
   
-  before_create :set_signed_on
+  before_create :ensure_signed_on_set
   before_save   :screen_twitch_username
   
   validates_presence_of    :first_name, :last_name, :email
@@ -9,7 +9,7 @@ class Pledge < ApplicationRecord
 
 
   private
-    def set_signed_on
+    def ensure_signed_on_set
       if !self.signed_on.present?
         self.signed_on = Time.now
       end

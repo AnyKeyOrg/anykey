@@ -24,5 +24,4 @@ class PledgesController < ApplicationController
       params.require(:pledge).permit(:first_name, :last_name, :email, :twitch_username)
     end
   
-  
 end
