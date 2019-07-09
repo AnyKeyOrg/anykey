@@ -5,7 +5,7 @@ class PledgesController < ApplicationController
   end
   
   def create
-    @pledge = Pledge.new(pledge_params.reject{|_, v| v.blank?})        
+    @pledge = Pledge.new(pledge_params)
         
     if @pledge.save
       flash[:notice] = "Successfully pledged"
