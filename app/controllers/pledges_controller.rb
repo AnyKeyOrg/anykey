@@ -1,5 +1,8 @@
 class PledgesController < ApplicationController
   
+  before_action :find_pledge, only: [ :show ]
+  
+  
   def index
     @pledge = Pledge.new
   end
@@ -8,19 +11,13 @@ class PledgesController < ApplicationController
     @pledge = Pledge.find_by(email: pledge_params[:email])
     
     if @pledge    
-      # If no Twitch is linked, prompt for Twitch bage actication
+      redirect_to pledge_url(@pledge, params: {status: 'returning'})
       
-      # If Twitch is linked
-      flash.now[:alert] = "ima handle this"
-      render(action: :index)
-  
     else  
       @pledge = Pledge.new(pledge_params)
             
       if @pledge.save
-        # Show thanks and prompt for Twitch badge activation
-        flash[:notice] = "Successfully pledged"
-        redirect_to root_path
+        redirect_to pledge_url(@pledge)
       else
         flash.now[:alert] ||= ""
         @pledge.errors.full_messages.each do |message|
@@ -31,6 +28,17 @@ class PledgesController < ApplicationController
     end
   end
   
+  def show
+  end
+  
+  protected
+    def find_pledge
+      @pledge = Pledge.find_by(identifier: params[:id])
+      unless @pledge
+        redirect_to root_url
+      end
+    end
+
   private
     def pledge_params
       params.require(:pledge).permit(:first_name, :last_name, :email)
