@@ -1,5 +1,3 @@
-i am the pledge.<br><br>
-
 <form action="<%= pledges_path %>" id="new_pledge" method="POST" enctype="multipart/form-data" class="pledge-form flexbox vertical stretch">
   <div style="hidden">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -13,5 +11,8 @@ i am the pledge.<br><br>
   <div class="item flexbox horizontal center">
     <input id="pledge_email" name="pledge[email]" class="text-field" type="text" value="<%= @pledge.email %>" autocomplete="off" placeholder="Email Address" tabindex="3">
   </div>
+  
+  <%= display_notifications %>
+  
   <input id="pledge_submit" name="commit" type="submit" class="button" value="Take the Pledge" tabindex="4">
 </form>

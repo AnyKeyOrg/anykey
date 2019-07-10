@@ -142,6 +142,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    uniquify (0.1.0)
     web-console (4.0.0)
       actionview (>= 6.0.0.a)
       activemodel (>= 6.0.0.a)
@@ -165,6 +166,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 6.0.0.rc1)
   tzinfo-data
+  uniquify
   web-console (>= 3.3.0)
 
 RUBY VERSION
