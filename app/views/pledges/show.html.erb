@@ -1,7 +1,14 @@
 <% if params[:status] == 'returning' %>
-i'm back
+i'm back<br><br>
 <% else %>
-i'm fresh
+i'm fresh<br><br>
+<% end %>
+
+
+<% if @pledge.twitch_id.present? %>
+i'm linked to twitch<br><br>
+<% else %>
+i'm not linked to twitch <%= link_to('Link to Twitch', "https://api.twitch.tv/kraken/oauth2/authorize?client_id=***REMOVED***&redirect_uri=http://localhost&response_type=code&scope=user:read:email") %><br>
 <% end %>
 
 i'm constant

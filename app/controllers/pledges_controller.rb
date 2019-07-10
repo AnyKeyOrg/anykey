@@ -1,6 +1,7 @@
 class PledgesController < ApplicationController
   
   before_action :find_pledge, only: [ :show ]
+  before_action :handle_twitch_auth, only: [ :show ]
   
   
   def index
@@ -37,6 +38,17 @@ class PledgesController < ApplicationController
       unless @pledge
         redirect_to root_url
       end
+    end
+    
+    def handle_twitch_auth
+      if params[:code].present?
+        # POST https://id.twitch.tv/oauth2/token
+        #     ?client_id=<your client ID>
+        #     &client_secret=<your client secret>
+        #     &code=<authorization code received above>
+        #     &grant_type=authorization_code
+        #     &redirect_uri=<your registered redirect URI>
+    
     end
 
   private
