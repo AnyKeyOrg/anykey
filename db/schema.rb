@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_203449) do
+ActiveRecord::Schema.define(version: 2019_07_10_231946) do
 
   create_table "pledges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "twitch_username"
+    t.string "twitch_display_name"
     t.integer "twitch_id"
     t.datetime "signed_on"
     t.boolean "badge_revoked", default: false
