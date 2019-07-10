@@ -21,7 +21,7 @@ class PledgesController < ApplicationController
   
   private
     def pledge_params
-      params.require(:pledge).permit(:first_name, :last_name, :email, :twitch_username)
+      params.require(:pledge).permit(:first_name, :last_name, :email)
     end
   
 end
