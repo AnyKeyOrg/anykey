@@ -71,6 +71,8 @@ class PledgesController < ApplicationController
             @pledge.twitch_display_name = twitch_user["display_name"]
             @pledge.twitch_email        = twitch_user["email"]
             
+            #TODO: set pledge badge here 
+            
             if @pledge.save
               redirect_to pledge_url(@pledge)
             else

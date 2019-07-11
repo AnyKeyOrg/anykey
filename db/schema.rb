@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_231946) do
+ActiveRecord::Schema.define(version: 2019_07_11_215756) do
 
   create_table "pledges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_231946) do
     t.datetime "updated_at", null: false
     t.string "twitch_email"
     t.string "identifier"
+    t.datetime "twitch_authed_on"
   end
 
 end
