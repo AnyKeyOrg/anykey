@@ -65,8 +65,10 @@ class PledgesController < ApplicationController
         # Use token to view Twitch credentials and store for validation
         if response["access_token"].present?
           twitch_user = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/user"), headers: {Accept: 'application/vnd.twitchtv.v5+json', Authorization: "OAuth #{response['access_token']}", "Client-ID": ENV['TWITCH_CLIENT_ID']})
-          
+                    
           if twitch_user.present?
+            #TODO: check if this Twitch user has already authed, and... do something if they have
+            
             @pledge.twitch_id           = twitch_user["_id"]
             @pledge.twitch_display_name = twitch_user["display_name"]
             @pledge.twitch_email        = twitch_user["email"]
