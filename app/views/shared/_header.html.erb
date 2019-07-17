@@ -3,10 +3,10 @@
     <a class="logo" href="/">AnyKey</a>
     <div id="full-menu" class="flexbox vertical end flex-1">
       <div class="flexbox horizontal center">
-        <%= link_to('glhf PLEDGE', pledges_path, class: "item") %>
-        <%= link_to('Affiliates', root_path, class: "item") %>
-        <%= link_to('Resources', root_path, class: "item") %>
-        <%= link_to('Stories', root_path, class: "item last") %>
+        <%= link_to('glhf PLEDGE', pledges_path, class: controller_name == 'pledges' ? 'selected item' : 'item') %>
+        <%= link_to('Affiliates', root_path, class: 'item') %>
+        <%= link_to('Resources', root_path, class: 'item') %>
+        <%= link_to('Stories', root_path, class: 'item last') %>
       </div>
     </div>
     <div id="veggieburger" class="flexbox vertical end flex-1">      
@@ -16,7 +16,7 @@
 </div>
 <div id="veggieburger-menu" class="flexbox vertical start" style="display: none">
   <div class="row">
-    <%= link_to('glhf PLEDGE', pledges_path) %>
+    <%= link_to('glhf PLEDGE', pledges_path, class: controller_name == 'pledges' ? 'selected' : '') %>
   </div>
   <div class="row">
     <%= link_to('Affiliates', root_path) %>
