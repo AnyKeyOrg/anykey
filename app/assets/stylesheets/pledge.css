@@ -1,4 +1,11 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+#pledge {
+  
+}
+
+#pledge .page-header {
+  margin-top: 5px;
+  width: 100%;
+  height: 574px;
+  background: url('/images/pledge-header.jpg') 80% center no-repeat;
+  background-size: cover;
+}

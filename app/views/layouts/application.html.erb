@@ -14,10 +14,8 @@
   <body>
     <div id="site-container" class="flexbox vertical stretch">
       <%= render(partial: "shared/header") %>
-      <div class="flexbox vertical center flex-1">
-        <div id="main-container"  class="flexbox vertical stretch">
-          <%= yield %>
-        </div>
+      <div class="flexbox vertical stretch flex-1">
+        <%= yield %>
       </div>
       <%= render(partial: "shared/footer") %>
     </div>

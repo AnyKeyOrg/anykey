@@ -25,9 +25,6 @@ body {
   min-height: 100%;
   font-family: var(--body-font);
   font-weight: 400;
-}
-
-#site-container {
   background: var(--white-color);
 }
 

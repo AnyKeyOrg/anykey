@@ -1,18 +1,6 @@
-<form action="<%= pledges_path %>" id="new_pledge" method="POST" enctype="multipart/form-data" class="pledge-form flexbox vertical stretch">
-  <div style="hidden">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<div id="pledge" class="flexbox vertical center">
+  <div class="page-header flexbox vertical">
   </div>
-  <div class="item flexbox horizontal center">
-    <input id="pledge_first_name" name="pledge[first_name]" class="text-field" type="text" value="<%= @pledge.first_name %>" autocomplete="off" placeholder="First Name" tabindex="1">
-  </div>
-  <div class="item flexbox horizontal center">
-    <input id="pledge_last_name" name="pledge[last_name]" class="text-field" type="text" value="<%= @pledge.last_name %>" autocomplete="off" placeholder="Last Name" tabindex="2">
-  </div>
-  <div class="item flexbox horizontal center">
-    <input id="pledge_email" name="pledge[email]" class="text-field" type="text" value="<%= @pledge.email %>" autocomplete="off" placeholder="Email Address" tabindex="3">
-  </div>
-  
-  <%= display_notifications %>
-  
-  <input id="pledge_submit" name="commit" type="submit" class="button" value="Take the Pledge" tabindex="4">
-</form>
+  <%= render(partial: "pledges/form") %>
+</div>  
+
