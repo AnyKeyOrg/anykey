@@ -9,3 +9,91 @@
   background: url('/images/pledge-header.jpg') 80% center no-repeat;
   background-size: cover;
 }
+
+#pledge .page-header .inner {
+  max-width: 80em; 
+  width: 100%;
+}
+
+#pledge #tapestry {
+  position: relative;
+  background: var(--bright-green-color);
+  display: inline-block;
+  height: 450px;
+  width: 280px;
+  margin-left: 1em;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+  border-bottom: 5px solid white;
+}
+
+#pledge #tapestry:before {
+  position: absolute;
+  top: 455px;
+  left: -5px;
+  border-left: 145px solid transparent;
+  border-right: 145px solid transparent;
+  border-top: 50.5px solid var(--white-color);
+  content: "";
+  height: 0;
+  width: 0;
+}
+
+#pledge #tapestry:after {
+  position: absolute;
+  top: 450px;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 50px solid var(--bright-green-color);
+  content: "";
+  height: 0;
+  width: 0;
+}
+
+
+#pledge #tapestry .title-line-a {
+  font-family: var(--title-font);
+  color: var(--dark-green-color);
+  font-size: 7.8em;
+  margin-top: .9em;
+}
+
+#pledge #tapestry .title-line-b {
+  font-family: var(--title-font);
+  color: var(--white-color);
+  font-size: 3.2em;
+  margin-top: .2em;
+}
+
+@media (max-width:44em) {
+  #pledge #tapestry {
+    height: 300px;
+    width: 186px;
+    border-bottom: 4px solid white;
+  }
+
+  #pledge #tapestry:before {
+    top: 304px;
+    left: -5px;
+    border-left: 98px solid transparent;
+    border-right: 98px solid transparent;
+    border-top: 34px solid var(--white-color);
+  }
+
+  #pledge #tapestry:after {
+    top: 300px;
+    border-left: 93px solid transparent;
+    border-right: 93px solid transparent;
+    border-top: 33px solid var(--bright-green-color);
+  }
+
+  #pledge #tapestry .title-line-a {
+    font-size: 5em;
+    margin-top: .9em;
+  }
+
+  #pledge #tapestry .title-line-b {
+    font-size: 2em;
+    margin-top: .2em;
+  }
+}
