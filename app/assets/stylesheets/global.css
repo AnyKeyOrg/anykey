@@ -47,9 +47,9 @@ body {
   width: 100%;
 }
 
-@media (min-width:56.25em) {
+@media (min-width:75em) {
   #header-content {
-    width: 56.25em;
+    width: 75em;
   }
 }
 
@@ -163,9 +163,9 @@ body {
   width: 100%;
 }
 
-@media (min-width:56.25em) {
+@media (min-width:75em) {
   #footer-content {
-    width: 56.25em;
+    width: 75em;
   }
 }
 
