@@ -59,6 +59,10 @@ body {
   border-bottom: none;
 }
 
+#header-content a.logo img {
+  margin-right: 0.2em;
+}
+
 #header-content a.item {
   color: var(--white-color);
   text-decoration: none;
@@ -126,7 +130,7 @@ body {
   border-bottom: 2px solid var(--bright-green-color);
 }
 
-@media (max-width:30em) {  
+@media (max-width:34em) {  
   #header-content #full-menu {
     display: none;
   }
@@ -136,7 +140,7 @@ body {
   }
 }
 
-@media (min-width:30em) {  
+@media (min-width:34em) {  
   #veggieburger-menu {
     display: none !important;
   }
