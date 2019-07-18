@@ -108,8 +108,8 @@
 }
 
 .page-section .inner {
-  margin-right: 1.2em;
-  margin-left: 1.2em;
+  margin-right: 1.4em;
+  margin-left: 1.4em;
 }
 
 .page-section .headline {
@@ -120,12 +120,12 @@
 }
 
 .page-section div p {
-  font-size: 1.3em;
+  font-size: 1.2em;
   line-height: 1.4em;
 }
 
 .page-section div p:not(:first-child) {
-  margin-top: 0.5em;
+  margin-top: 0.6em;
 }
 
 .page-section .half-width {
@@ -133,9 +133,16 @@
   width: 100%;
 }
 
-@media (max-width:80em) {
+@media (max-width:60em) {
   .page-section .half-width {
     max-width: none;
+    min-width: 30em;
+  }
+}
+
+@media (max-width:34em) {
+  .page-section .half-width {
+    min-width: 16em;
   }
 }
 

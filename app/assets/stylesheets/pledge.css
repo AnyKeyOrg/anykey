@@ -35,12 +35,21 @@
 /************************************/
 
 #pledge .page-section .trailer-video {
-  max-width: 34em;
+  max-width: 32em;
   width: 100%;
+  margin-left: 2em;
 }
 
-@media (max-width:80em) {
+@media (max-width:60em) {
   #pledge .page-section .trailer-video {
-    margin-top: 3em;
+    margin-bottom: 3em;
+    margin-left: 0em;
+    min-width: 30em;
+  }
+}
+
+@media (max-width:34em) {
+  #pledge .page-section .trailer-video {
+    min-width: 16em;
   }
 }
