@@ -78,7 +78,7 @@
   margin-top: .2em;
 }
 
-@media (max-width:44em) {
+@media (max-width:48em) {
   #pledge #tapestry {
     transform-origin: top left;
     -moz-transform: scale(.6);
