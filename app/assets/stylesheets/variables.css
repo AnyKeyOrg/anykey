@@ -7,5 +7,6 @@
   --bright-green-color:    #2FC872;
   --dark-green-color:      #005E4A;
   --light-black-color:     #2E2230;
-  --gray-color:            #84848C;
+  --gray-color:            #84848C;  
+  --transparent-overlay:   rgba(22,9,25,0.6);  
 }

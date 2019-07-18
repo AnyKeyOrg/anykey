@@ -53,3 +53,22 @@
     min-width: 16em;
   }
 }
+
+#pledge #glhf-section {
+  width: 100%;
+  height: 800px;
+  transition: height;
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+  background: url('/images/pledge-background-a.jpg') 40% center no-repeat;
+  background-size: cover;
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#pledge #glhf-section .background-overlay {
+  background-color: var(--transparent-overlay);
+  width: 100%;
+  height: 100%;
+}
