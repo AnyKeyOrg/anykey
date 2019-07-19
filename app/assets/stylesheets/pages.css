@@ -119,6 +119,12 @@
   margin-bottom: 1em;
 }
 
+.page-section .section-title {
+  font-family: var(--title-font);
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
 .page-section div p {
   font-size: 1.2em;
   line-height: 1.4em;
@@ -156,6 +162,7 @@
   padding-bottom: 56.25%;
   width: 100%;
 }
+
 .page-section iframe {
   position: absolute;
   width: 100%;

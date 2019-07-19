@@ -2,11 +2,19 @@
   --title-font:            'Nevis';
   --alt-title-font:        'Rubik';
   --body-font:             'Gotham';
+  
   --black-color:           #160919;
+  --light-black-color:     #2E2230;
+  --gray-color:            #84848C;
+  --light-gray-color:      #D0CED1;
   --white-color:           #FFFFFF;
+  
   --bright-green-color:    #2FC872;
   --dark-green-color:      #005E4A;
-  --light-black-color:     #2E2230;
-  --gray-color:            #84848C;  
-  --transparent-overlay:   rgba(22,9,25,0.6);  
+  --orange-color:          #F5902C;
+  --blue-color:            #3887F9;
+  --fuchsia-color:         #B11478;
+  
+  
+  --transparent-overlay:   rgba(22,9,25,0.6);
 }

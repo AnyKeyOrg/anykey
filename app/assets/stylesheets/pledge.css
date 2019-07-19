@@ -57,18 +57,201 @@
 #pledge #glhf-section {
   width: 100%;
   height: 800px;
-  transition: height;
-  -moz-transition-duration: .5s;
-  -webkit-transition-duration: .5s;
-  transition-duration: .5s;
   background: url('/images/pledge-background-a.jpg') 40% center no-repeat;
   background-size: cover;
   margin-top: 5em;
   color: var(--white-color);
 }
 
+@media (max-width:70em) {
+  #pledge #glhf-section {
+    height: 1300px;
+  }
+}
+
+@media (max-width:52em) {
+  #pledge #glhf-section {
+    height: 1400px;
+  }
+}
+
 #pledge #glhf-section .background-overlay {
   background-color: var(--transparent-overlay);
   width: 100%;
   height: 100%;
+}
+
+#pledge #glhf-section .page-section {
+  margin-top: 5em;
+}
+
+@media (max-width:70em) {
+  #pledge #glhf-section .page-section .half-width {
+    max-width: none;
+    min-width: 30em;
+  }
+}
+
+@media (max-width:60em) {
+  #pledge #glhf-section .page-section .half-width {
+    max-width: none;
+    min-width: 30em;
+  }
+}
+
+@media (max-width:34em) {
+  #pledge #glhf-section .page-section .half-width {
+    min-width: 16em;
+  }
+}
+
+#pledge .promise-list .promise:not(:first-child) {
+  margin-top: 2em;
+}
+
+#pledge .promise-list .number {
+  width: 29px;
+  height: 29px;
+  min-width: 29px;
+  min-height: 29px;
+  border-radius: 50%;
+  background: var(--bright-green-color);
+  border: 3px solid var(--white-color);
+  font-size: 1.3em;
+  font-family: var(--title-font);
+  color: var(--dark-green-color);
+  text-align: center;
+  line-height: 32px;
+  margin-right: 0.5em;
+}
+
+#pledge .promise-list .text {
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 1.29em;
+  line-height: 1.3em;
+}
+
+@media (max-width:30em) {
+  #pledge .promise-list .text {
+    font-size: 1em;
+  }
+}
+
+
+
+/************************************/
+/*        Pledge Form Style         */
+/************************************/
+
+#pledge form {
+  border: 5px solid var(--white-color);
+  background: var(--bright-green-color);
+  padding: 3em 3em 3.5em 3em;
+}
+
+@media (max-width:70em) {
+  #pledge form {
+    margin-top: 4em;
+  }
+}
+
+#pledge form .item {
+  margin-bottom: 1.2em;
+  overflow: hidden;
+}
+
+#pledge form label.text-field {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 0.8em;
+  margin-bottom: 0.3em;
+}
+
+#pledge form input.text-field {
+  color: var(--black-color);
+  background: var(--white-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.3em;
+  border: 5px solid var(--dark-green-color);
+  outline: none;
+  padding: 0.8em 1em 0.7em 1em;
+  width: 13em;
+}
+
+#pledge form input.text-field:hover {
+  border: 5px solid var(--orange-color);
+}
+
+#pledge form input.text-field:focus {
+  border: 5px solid var(--blue-color);
+}
+
+#pledge form input[type="text"]:-moz-placeholder,
+#pledge form input[type="url"]:-moz-placeholder{
+  color: var(--light-gray-color);
+}
+
+#pledge form input[type="text"]::-webkit-input-placeholder,
+#pledge form input[type="url"]::-webkit-input-placeholder{
+  color: var(--light-gray-color);
+}
+
+#pledge form .flash {
+  width: 20em;
+  text-align: center;
+  margin-top: 0.75em;
+}
+
+#pledge form .button {
+  border: 5px solid var(--white-color);
+  background-color: var(--dark-green-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-size: 1.5em;
+  padding: .75em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+#pledge form .button:hover {
+  cursor: pointer;
+  background-color: var(--orange-color);
+}
+
+#pledge form .button:focus {
+  cursor: pointer;
+  background-color: var(--blue-color);  
+  outline: none;
+}
+
+#pledge form .button::-moz-focus-inner {
+  border: 0 !important;
+} 
+
+@media (max-width:30em) {
+  #pledge form {
+    padding: 2em 2em 2.5em 2em;
+  }
+  
+  #pledge form input.text-field {
+    font-size: 1.2em;
+  }
+
+  #pledge form .button {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width:26em) {
+  
+  #pledge form input.text-field {
+    font-size: 1em;
+    width: 11em;
+  }
+
+  #pledge form .button {
+    font-size: 1.1em;
+  }
 }
