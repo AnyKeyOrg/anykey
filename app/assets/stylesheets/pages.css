@@ -20,9 +20,9 @@
 #tapestry {
   position: relative;
   background: var(--bright-green-color);
-  display: inline-block !important;
-  height: 450px !important;
-  width: 280px !important;
+  display: inline-block;
+  height: 450px;
+  width: 280px;
   margin-left: 1em;
   border-left: 5px solid white;
   border-right: 5px solid white;
@@ -34,6 +34,7 @@
   -moz-transition-duration: .5s;
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
+  text-align: center;
 }
 
 #tapestry:before {
@@ -51,6 +52,7 @@
 #tapestry:after {
   position: absolute;
   top: 450px;
+  left: 0px;
   border-left: 140px solid transparent;
   border-right: 140px solid transparent;
   border-top: 50px solid var(--bright-green-color);
