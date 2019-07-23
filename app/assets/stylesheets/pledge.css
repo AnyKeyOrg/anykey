@@ -189,9 +189,9 @@
   border: 5px solid var(--blue-color);
 }
 
-#pledge form input[type="text"]:-moz-placeholder,
-#pledge form input[type="url"]:-moz-placeholder{
-  color: var(--light-gray-color);
+#pledge form input[type="text"]::-moz-placeholder,
+#pledge form input[type="url"]::-moz-placeholder{
+  color: var(--gray-color);
 }
 
 #pledge form input[type="text"]::-webkit-input-placeholder,
