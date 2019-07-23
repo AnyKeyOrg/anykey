@@ -20,9 +20,9 @@
 #tapestry {
   position: relative;
   background: var(--bright-green-color);
-  display: inline-block;
-  height: 450px;
-  width: 280px;
+  display: inline-block !important;
+  height: 450px !important;
+  width: 280px !important;
   margin-left: 1em;
   border-left: 5px solid white;
   border-right: 5px solid white;
