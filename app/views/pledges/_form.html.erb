@@ -3,17 +3,17 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   </div>
   <div class="item flexbox vertical start">
-    <label for="first_name" class="text-field">First Name</label>
+    <label for="first_name" class="text-field"><%= t(".first-name") %></label>
     <input id="pledge_first_name" name="pledge[first_name]" class="text-field" type="text" value="<%= @pledge.first_name %>" autocomplete="off" placeholder="Bjorn" tabindex="1">
   </div>
   <div class="item flexbox vertical start">
-    <label for="first_name" class="text-field">Last Name</label>
+    <label for="first_name" class="text-field"><%= t(".last-name") %></label>
     <input id="pledge_last_name" name="pledge[last_name]" class="text-field" type="text" value="<%= @pledge.last_name %>" autocomplete="off" placeholder="Disway" tabindex="2">
   </div>
   <div class="item flexbox vertical start">
-    <label for="first_name" class="text-field">Email Address</label>
+    <label for="first_name" class="text-field"><%= t(".email-address") %></label>
     <input id="pledge_email" name="pledge[email]" class="text-field" type="text" value="<%= @pledge.email %>" autocomplete="off" placeholder="bjorn@anykey.org" tabindex="3">
   </div>
   <%= display_notifications %>
-  <input id="pledge_submit" name="commit" type="submit" class="button" value="Take the Pledge" tabindex="4">
+  <input id="pledge_submit" name="commit" type="submit" class="button" value="<%= t(".button") %>" tabindex="4">
 </form>

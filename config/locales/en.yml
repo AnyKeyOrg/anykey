@@ -1,33 +1,20 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  pledges:
+    index:
+      headline: "Good luck, have fun.<br>Make gaming inclusive for everyone."
+      intro-paragraph-a: "Video games and esports should be welcoming and inclusive to all. Diverse player communities are more fun and more competitive."
+      intro-paragraph-b: "We invite you to join us in creating a gaming ecosystem that welcomes everyone and includes all, no matter their shape, size, color, gender, background, disability, or beliefs."
+      intro-paragraph-c: "By taking this pledge, you promise to make a difference as a positive and inclusive citizen in your own gaming spaces."
+      glhf-title: "GLHF is a promise to..."
+      glhf-promise-1: "Be a good sport whether I win or lose"
+      glhf-promise-2: "Know that people online are real people and my words have real impact"
+      glhf-promise-3: "Set a positive example with my behavior"
+      glhf-promise-4: "Speak up against discrimination, hate speech, harassment, and abuse"
+      glhf-promise-5: "Show integrity by honoring the rules, my opponents, and my teammates"
+      glhf-promise-6: "Stop, listen, and reassess if I’m told that my words or actions are harmful"
+      glhf-promise-7: "Respect others, even if their sincere opinions are different from my own"
+    form:
+      first-name: "First Name"
+      last-name: "Last Name"
+      email-address: "Email Address"
+      button: "Take the Pledge"

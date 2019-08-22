@@ -1,0 +1,22 @@
+it:
+  activerecord:
+    attributes:
+      pledge:
+        first_name: "Nome"
+        last_name: "Cognome"
+        email: "Email"
+    errors:
+      models:
+        pledge:
+          attributes:            
+            first_name:
+              blank: "è obbligatorio"
+            last_name:
+              blank: "è obbligatorio"  
+            email:
+              blank: "è obbligatorio"
+              invalid: "deve essere valido"
+  pledges:
+    index:
+      headline: "Good luck, have fun.<br>Rendi videogiochi inclusivi per tutti."
+      

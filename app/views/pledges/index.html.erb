@@ -14,14 +14,13 @@
   <div class="page-section flexbox vertical stretch flex-1">
     <div class="inner flexbox vertical stretch">
       <div class="headline">
-        Good luck, have fun.<br>
-        Make gaming inclusive for everyone.
+        <%= t(".headline").html_safe %>
       </div>  
       <div class="flexbox horizontal center wrap-reverse justify-space-around">    
         <div class="half-width flexbox vertical flex-1">
-          <p>Video games and esports should be welcoming and inclusive to all. Diverse player communities are more fun and more competitive.</p>
-          <p>We invite you to join us in creating a gaming ecosystem that welcomes everyone and includes all, no matter their shape, size, color, gender, background, disability, or beliefs.</p>
-          <p>By taking this pledge, you promise to make a difference as a positive and inclusive citizen in your own gaming spaces.</p>
+          <p><%= t(".intro-paragraph-a") %></p>
+          <p><%= t(".intro-paragraph-b") %></p>
+          <p><%= t(".intro-paragraph-c") %></p>
         </div>
         <div class="trailer-video flexbox vertical flex-1">
           <div class="framed-element">
@@ -41,35 +40,35 @@
         
           <div class="flexbox horizontal wrap center justify-space-around">
             <div class="half-width flexbox vertical start">
-              <div class="section-title">GLHF is a promise to...</div>
+              <div class="section-title"><%= t(".glhf-title") %></div>
               <div class="promise-list">
                 <div class="promise flexbox horizontal center">
                   <div class="number">1</div>
-                  <div class="text">Be a good sport whether I win or lose</div>
+                  <div class="text"><%= t(".glhf-promise-1") %></div>
                 </div>
                 <div class="promise flexbox horizontal center">
                   <div class="number">2</div>
-                  <div class="text">Remember that people online are still real people</div>
+                  <div class="text"><%= t(".glhf-promise-2") %></div>
                 </div>
                 <div class="promise flexbox horizontal center">
                   <div class="number">3</div>
-                  <div class="text">Know that my actions and words can have real impact</div>
+                  <div class="text"><%= t(".glhf-promise-3") %></div>
                 </div>
                 <div class="promise flexbox horizontal center">
                   <div class="number">4</div>
-                  <div class="text">Speak up against hate speech, harassment, abuse, and assault of any kind</div>
+                  <div class="text"><%= t(".glhf-promise-4") %></div>
                 </div>
                 <div class="promise flexbox horizontal center">
                   <div class="number">5</div>
-                  <div class="text">Show integrity by respecting the rules, opponents, and my teammates</div>
+                  <div class="text"><%= t(".glhf-promise-5") %></div>
                 </div>
                 <div class="promise flexbox horizontal center">
                   <div class="number">6</div>
-                  <div class="text">Stop, listen, and reassess if I’m told that my words or actions are harmful</div>
+                  <div class="text"><%= t(".glhf-promise-6") %></div>
                 </div>
                 <div class="promise flexbox horizontal center">
                   <div class="number">7</div>
-                  <div class="text">Respect the sincere opinions of others, even if they're different from my own</div>
+                  <div class="text"><%= t(".glhf-promise-7") %></div>
                 </div>
               </div>
             </div>
