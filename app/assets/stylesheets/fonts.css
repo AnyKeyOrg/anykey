@@ -6,7 +6,7 @@
          url('/type/Nevis.woff') format('woff'),
          url('/type/Nevis.ttf') format('truetype'),
          url('/type/Nevis.svg#webfontbold') format('svg');
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
 }
 

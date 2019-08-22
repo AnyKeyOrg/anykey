@@ -210,6 +210,7 @@
   background-color: var(--dark-green-color);
   color: var(--white-color);
   font-family: var(--title-font);
+  font-weight: 500;
   font-size: 1.5em;
   padding: .75em;
   margin-top: 1.5em;

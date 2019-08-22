@@ -1,3 +1,6 @@
+# TODO: complete this translation
+# Currently this file just demonstrates the tricky i18n bits are working
+
 it:
   activerecord:
     attributes:
@@ -19,4 +22,9 @@ it:
   pledges:
     index:
       headline: "Good luck, have fun.<br>Rendi videogiochi inclusivi per tutti."
-      
+      glhf-title: "GLHF è una promessa di ...."
+    form:
+      first-name: "Nome"
+      last-name: "Cognome"
+      email-address: "Indirizzo Email"
+      button: "Prendi l'impegno"      
