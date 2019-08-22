@@ -13,6 +13,10 @@ en:
       glhf-promise-5: "Show integrity by honoring the rules, my opponents, and my teammates"
       glhf-promise-6: "Stop, listen, and reassess if I’m told that my words or actions are harmful"
       glhf-promise-7: "Respect others, even if their sincere opinions are different from my own"
+      twitch-title: "Show off your pledge on Twitch"
+      twitch-text-a: "Take the GLHF pledge and link your Twitch ID to unlock the exclusive GLHF global chat badge on Twitch!"
+      twitch-text-b: "Once connected, you can equip the badge in your profile and show your support for inclusive gaming and positive communities in any Twitch chat."
+      
     form:
       first-name: "First Name"
       last-name: "Last Name"

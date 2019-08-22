@@ -22,9 +22,9 @@ it:
   pledges:
     index:
       headline: "Good luck, have fun.<br>Rendi videogiochi inclusivi per tutti."
-      glhf-title: "GLHF è una promessa di ...."
+      glhf-title: "GLHF è una promessa di ..."
     form:
       first-name: "Nome"
       last-name: "Cognome"
       email-address: "Indirizzo Email"
-      button: "Prendi l'impegno"      
+      button: "Prendi l'Impegno"      

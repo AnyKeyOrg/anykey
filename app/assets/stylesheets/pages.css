@@ -156,6 +156,31 @@
   }
 }
 
+.page-section .two-thirds-width {
+  max-width: 48em;
+  width: 100%;
+}
+
+@media (max-width:60em) {
+  .page-section .two-thirds-width {
+    max-width: none;
+    min-width: 40em;
+  }
+}
+
+@media (max-width:50em) {
+  .page-section .two-thirds-width {
+    max-width: none;
+    min-width: 30em;
+  }
+}
+
+@media (max-width:34em) {
+  .page-section .two-thirds-width {
+    min-width: 16em;
+  }
+}
+
 .page-section .framed-element {
   padding: 5px;
   border: 4px solid var(--light-black-color);
