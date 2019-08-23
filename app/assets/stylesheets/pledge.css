@@ -191,13 +191,12 @@
 }
 
 #pledge .twitter-section .tweets {
-  height: 840px;
   width: 100%;
 }
 
 #pledge .twitter-section twitter-widget.twitter-tweet {
-  margin-top: 0.5em !important;
-  margin-bottom: 0.5em !important;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
   margin-left: 0.5em;
   margin-right: 0.5em;  
 }
@@ -215,7 +214,7 @@
 
 @media (max-width:67.3em) {
   #pledge .twitter-section {
-    height: 1880px;
+    height: 2000px;
   }
 }
 
@@ -304,7 +303,7 @@
   }
   
   #pledge .twitter-section {
-    height: 2140px;
+    height: 2180px;
   }
   
   #pledge .twitter-section twitter-widget.twitter-tweet {
@@ -330,5 +329,9 @@
   
   #pledge .twitter-section twitter-widget.twitter-tweet {
     width: 300px !important;
+  }
+  
+  #pledge .twitter-section {
+    height: 2260px;
   }
 }
