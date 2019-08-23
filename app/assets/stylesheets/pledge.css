@@ -56,7 +56,7 @@
   margin-left: 2em;
 }
 
-#pledge .glhf-section {
+#pledge #glhf-section {
   width: 100%;
   height: 800px;
   background: url('/images/pledge-background-a.jpg') 40% center no-repeat;
@@ -65,13 +65,13 @@
   color: var(--white-color);
 }
 
-#pledge .glhf-section .background-overlay {
+#pledge #glhf-section .background-overlay {
   background-color: var(--transparent-overlay);
   width: 100%;
   height: 100%;
 }
 
-#pledge .glhf-section .page-section {
+#pledge #glhf-section .page-section {
   margin-top: 5em;
 }
 
@@ -81,7 +81,7 @@
   margin-right: 2em;
 }
 
-#pledge .glhf-section .section-title {
+#pledge #glhf-section .section-title {
   text-shadow: var(--black-color) 0px 0px 20px;
 }
 
@@ -166,35 +166,35 @@
   margin-bottom: 1em; 
 }
 
-#pledge .twitter-section {
+#pledge #twitter-section {
   width: 100%;
-  height: 1140px;
+  height: 1160px;
   background: url('/images/pledge-background-b.jpg') 50% center no-repeat;
   background-size: cover;
   margin-top: 5em;
   color: var(--white-color);
 }
 
-#pledge .twitter-section .background-overlay {
+#pledge #twitter-section .background-overlay {
   background-color: var(--transparent-overlay);
   width: 100%;
   height: 100%;
 }
 
-#pledge .twitter-section .page-section {
+#pledge #twitter-section .page-section {
   margin-top: 5em;
 }
 
-#pledge .twitter-section .section-title {
+#pledge #twitter-section .section-title {
   text-shadow: var(--black-color) 0px 0px 20px;
   text-align: center;
 }
 
-#pledge .twitter-section .tweets {
+#pledge #twitter-section .tweets {
   width: 100%;
 }
 
-#pledge .twitter-section twitter-widget.twitter-tweet {
+#pledge #twitter-section twitter-widget.twitter-tweet {
   margin-top: 1em !important;
   margin-bottom: 1em !important;
   margin-left: 0.5em;
@@ -228,12 +228,6 @@
   }
 }
 
-@media (max-width:67.3em) {
-  #pledge .twitter-section {
-    height: 2000px;
-  }
-}
-
 @media (max-width:60em) {
   #pledge .intro-section {
     max-width: none;
@@ -250,11 +244,7 @@
     max-width: none;
     min-width: 40em;
   }
-  
-  #pledge .glhf-section {
-    height: 1300px;
-  }
-  
+    
   #pledge .promise-section {
     max-width: none;
     min-width: 30em;
@@ -279,22 +269,10 @@
   }
 }
 
-@media (max-width:52em) {
-  #pledge .glhf-section {
-    height: 1440px;
-  }
-}
-
 @media (max-width:50em) {
   #pledge .twitch-section {
     max-width: none;
     min-width: 30em;
-  }
-}
-
-@media (max-width:40em) {
-  #pledge .glhf-section {
-    height: 1580px;
   }
 }
 
@@ -322,12 +300,8 @@
   #pledge .rules-section {
     min-width: 16em;
   }
-  
-  #pledge .twitter-section {
-    height: 2180px;
-  }
-  
-  #pledge .twitter-section twitter-widget.twitter-tweet {
+    
+  #pledge #twitter-section twitter-widget.twitter-tweet {
     width: 340px !important;
   }
   
@@ -352,11 +326,7 @@
     font-size: 1.1em;
   }
   
-  #pledge .twitter-section twitter-widget.twitter-tweet {
+  #pledge #twitter-section twitter-widget.twitter-tweet {
     width: 300px !important;
-  }
-  
-  #pledge .twitter-section {
-    height: 2260px;
   }
 }
