@@ -1,4 +1,6 @@
 /* Hide Twitter's calls to action on embedded tweets */
+/* Need to wait until shadow DOM loads this widgets,
+   but this way of doing it is hacky */
 
 $(document).ready(function() {
   setTimeout(function(){
@@ -8,5 +10,5 @@ $(document).ready(function() {
       var root = item.shadowRoot;
       root.querySelector(".CallToAction").style.display = 'none';
     });
-  }, 1000);
+  }, 2000);
 });
