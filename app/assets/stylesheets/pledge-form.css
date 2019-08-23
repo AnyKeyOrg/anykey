@@ -1,0 +1,124 @@
+/************************************/
+/*        Pledge Form Style         */
+/************************************/
+
+#pledge form {
+  border: 5px solid var(--white-color);
+  background: var(--bright-green-color);
+  padding: 3em 3em 3.5em 3em;
+}
+
+#pledge form .item {
+  margin-bottom: 1.2em;
+  overflow: hidden;
+}
+
+#pledge form label.text-field {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 0.8em;
+  margin-bottom: 0.3em;
+}
+
+#pledge form input.text-field {
+  color: var(--black-color);
+  background: var(--white-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.3em;
+  border: 5px solid var(--dark-green-color);
+  outline: none;
+  padding: 0.8em 1em 0.7em 1em;
+  width: 13em;
+}
+
+#pledge form input.text-field:hover {
+  border: 5px solid var(--bright-orange-color);
+}
+
+#pledge form input.text-field:focus {
+  border: 5px solid var(--bright-blue-color);
+}
+
+#pledge form input[type="text"]::-moz-placeholder,
+#pledge form input[type="url"]::-moz-placeholder{
+  color: var(--gray-color);
+}
+
+#pledge form input[type="text"]::-webkit-input-placeholder,
+#pledge form input[type="url"]::-webkit-input-placeholder{
+  color: var(--light-gray-color);
+}
+
+#pledge form .flash {
+  width: 20em;
+  text-align: center;
+  margin-top: 0.75em;
+}
+
+#pledge form .button {
+  border: 5px solid var(--white-color);
+  background-color: var(--dark-green-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.5em;
+  padding: .75em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+
+#pledge form .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+}
+
+#pledge form .button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#pledge form .button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:70em) {
+  #pledge form {
+    margin-top: 2.4em;
+  }
+}
+
+@media (max-width:30em) {
+  #pledge form {
+    padding: 2em 2em 2.5em 2em;
+  }
+  
+  #pledge form input.text-field {
+    font-size: 1.2em;
+  }
+
+  #pledge form .button {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width:26em) {
+  #pledge form input.text-field {
+    font-size: 1em;
+    width: 11em;
+  }
+
+  #pledge form .button {
+    font-size: 1.1em;
+  }
+  
+  #pledge form .flash {
+    width: 13.7em;
+  }
+}

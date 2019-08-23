@@ -1,6 +1,6 @@
 <div id="pledge" class="flexbox vertical center">
   <div class="page-header flexbox vertical center">
-    <div class="inner flexbox vertical">    
+    <div class="inner flexbox vertical">
       <div id="tapestry">
         <div class="title-line-a">
           glhf
@@ -16,8 +16,8 @@
       <div class="headline">
         <%= t(".headline").html_safe %>
       </div>  
-      <div class="flexbox horizontal center wrap-reverse justify-space-around">    
-        <div class="half-width flexbox vertical flex-1">
+      <div class="flexbox horizontal center wrap-reverse justify-space-around">
+        <div class="intro-section flexbox vertical flex-1">
           <p><%= t(".intro-paragraph-a") %></p>
           <p><%= t(".intro-paragraph-b") %></p>
           <p><%= t(".intro-paragraph-c") %></p>
@@ -32,12 +32,26 @@
       </div>
     </div>
   </div>
-  <div id="glhf-section" class="flexbox vertical center">
+  <div class="page-section flexbox vertical stretch flex-1">
+    <div class="inner flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <div class="flexbox vertical start">
+          <%= image_tag("/images/anykey-cap-512.svg", size: "256x256", class: "twitch-badge") %>
+        </div>
+        <div class="twitch-section flexbox vertical start flex-1">
+          <div class="section-title"><%= t(".twitch-title") %></div>
+          <p><%= t(".twitch-text-a") %></p>
+          <p><%= t(".twitch-text-b") %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="glhf-section flexbox vertical center">
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical stretch flex-1">
         <div class="inner flexbox vertical stretch">
           <div class="flexbox horizontal wrap center justify-space-around">
-            <div class="half-width flexbox vertical start">
+            <div class="promise-section flexbox vertical start flex-1">
               <div class="section-title"><%= t(".glhf-title") %></div>
               <div class="promise-list">
                 <div class="promise flexbox horizontal center">
@@ -78,20 +92,53 @@
       </div>
     </div>
   </div>
-  
-  <div class="page-section flexbox vertical stretch flex-1">
-    <div class="inner flexbox vertical stretch">
-      <div class="flexbox horizontal center wrap justify-space-around">    
-        <div class="flexbox vertical start">
-          <%= image_tag("/images/anykey-cap-512.svg", size: "256x256", class: "twitch-badge") %>
+  <div class="page-section flexbox vertical center">
+    <div class="inner flexbox vertical start">
+      <div class="section-title"><%= t(".reporting-title") %></div>
+      <div class="flexbox horizontal start wrap justify-space-around">
+        <div class="reporting-section flexbox vertical center flex-1">
+          <p><%= t(".reporting-paragraph-a") %></p>
+          <p><%= t(".reporting-paragraph-b") %></p>
+          <%= link_to('File a Report', root_path, class: 'report-button') %>
         </div>
-        <div class="two-thirds-width flexbox vertical start flex-1">
-          <div class="section-title"><%= t(".twitch-title") %></div>
-          <p><%= t(".twitch-text-a") %></p>
-          <p><%= t(".twitch-text-b") %></p>
+        <div class="rules-section flexbox vertical start">
+          <p><strong><%= t(".rules-subtitle-a") %></strong></p>
+          <ul>
+            <li><%= t(".rules-text-a") %></li>
+            <li><%= t(".rules-text-b") %></li>
+            <li><%= t(".rules-text-c") %></li>
+            <li><%= t(".rules-text-d") %></li>
+            <li><%= t(".rules-text-e") %></li>
+            <li><%= t(".rules-text-f") %></li>
+          </ul>
+          <p><strong><%= t(".rules-subtitle-b") %></strong></p>
+          <ul>
+            <li><%= t(".rules-text-g") %></li>
+            <li><%= t(".rules-text-h") %></li>
+            <li><%= t(".rules-text-i") %></li>
+          </ul>
         </div>
       </div>
-    </div>  
+    </div>
   </div>
   
-</div>  
+  <div class="twitter-section flexbox vertical center">
+    <div class="background-overlay flexbox vertical center">
+      <div class="page-section flexbox vertical stretch flex-1">
+        <div class="inner flexbox vertical center">
+          <div class="section-title"><%= t(".twitter-title") %></div>
+          <div class="tweets flexbox horizontal wrap start justify-space-around">
+            <div class="flexbox vertical center">
+              <%= render(partial: "pledges/tweets-a") %>
+            </div>
+            <div class="flexbox vertical center">
+              <%= render(partial: "pledges/tweets-b") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+  
+    
+</div>
