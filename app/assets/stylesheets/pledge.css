@@ -201,6 +201,22 @@
   margin-right: 0.5em;  
 }
 
+#pledge .about-section {
+  max-width: 40em;
+  width: 100%;
+  margin-right: 2em;
+}
+
+#pledge img.about-image {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  max-width: 408px;
+  max-height: 248px;
+  width: 95%;
+  height: auto;
+}
+
+
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
@@ -255,6 +271,12 @@
     min-width: 30em;
     margin-top: 2em;
   }
+  
+  #pledge .about-section {
+    max-width: none;
+    min-width: 30em;
+    margin-right: 0em;
+  }
 }
 
 @media (max-width:52em) {
@@ -268,7 +290,6 @@
     max-width: none;
     min-width: 30em;
   }
-  
 }
 
 @media (max-width:40em) {
@@ -308,6 +329,10 @@
   
   #pledge .twitter-section twitter-widget.twitter-tweet {
     width: 340px !important;
+  }
+  
+  #pledge .about-section {
+    min-width: 16em;
   }
 }
 
