@@ -12,15 +12,7 @@ function resizeBackgrounds() {
 
 $(document).ready(function() {
 
-  /* Here we wait fir the twitter-widegets to load before doing any resizing */
-  
-  var interval = setInterval(function() {
-    var twitterWidgets = document.querySelectorAll("twitter-widget"); 
-     if (twitterWidgets.length > 0) {
-       resizeBackgrounds();
-      clearInterval(interval);
-     }
-   }, 100);
+  resizeBackgrounds();
 
   $(window).resize(function () {    
     resizeBackgrounds();   

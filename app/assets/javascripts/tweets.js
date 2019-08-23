@@ -6,12 +6,12 @@ $(document).ready(function() {
   var interval = setInterval(function() {
     var twitterWidgets = document.querySelectorAll("twitter-widget"); 
     
-     if (twitterWidgets.length > 0) {
+     if (twitterWidgets[0].shadowRoot.querySelector(".CallToAction") != null) {
        twitterWidgets.forEach(function(item) {
          var root = item.shadowRoot;
          root.querySelector(".CallToAction").style.display = 'none';
        });
       clearInterval(interval);
      }
-   }, 100);
+   }, 500);
 });
