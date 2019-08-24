@@ -5,9 +5,7 @@
         <%= t(".title") %>
       </div>
       <div class="flexbox vertical center flex-1">
-        <p>
-          <%= t(".text") %>
-        </p>
+        <p><%= t(".text") %></p>
         <%= render(partial: "pledges/twitch_auth", locals: { pledge: @pledge }) %>
       </div>
     </div>

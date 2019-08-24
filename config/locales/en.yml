@@ -42,17 +42,26 @@ en:
       button: "Take the Pledge"
     new_badgeless:
       title: "Thank you for taking the GLHF pledge!"
-      text: "If you want to show off your pledge on Twitch, just click the button to link your Twitch account. Once you've authenticated, the badge will appear in your chat settings."
+      text: "If you want to show off your pledge on Twitch, just click the button to link your account. Once you've authenticated, the AnyKey badge will appear in your chat settings."
     new_badged:
       title: "Your badge has been activated!"
-      text: "Now head over to Twitch to equip the badge in your chat settings. Please follow the instructions below if it's your first time sporting a badge. Need more help? Just contact us."
+      text: "Now head over to Twitch to equip the AnyKey badge in your chat settings. Please follow the instructions below if it's your first time sporting a badge. Need more help? Just %{href}."
+      link-text: "contact us"
     returning_badgeless:
-      title: "Looks like you've already taken the GLHF pledge"
-      text: "But thanks for your enthusiasm! If you are trying to show off your pledge on Twitch, just click the button to link your Twitch account. Once you've authenticated, the badge will appear in your chat settings. Need more help? Just contact us."
+      title: "Looks like you've already taken the GLHF pledge..."
+      text: "If you are trying to show off your pledge on Twitch, just click the button to link your account. Once you've authenticated, the AnyKey badge will appear in your chat settings. Need more help? Just %{href}."
+      link-text: "contact us"
     returning_badged:
-      title: "Looks like you've already taken the GLHF pledge"
-      text: "But thanks for your enthusiasm! Your Twitch badge has been activated. If you are having difficulty equipping your badge on Twitch, please follow the instructions below. Need more help? Just contact us."
+      title: "Looks like you've already taken the GLHF pledge and activated your badge..."
+      text: "If you are having difficulty equipping your AnyKey badge on Twitch, please follow the instructions below. Need more help? Just %{href}."
+      text-revoked: "But unfortunately your AnyKey badge has been revoked on Twitch due to misconduct. If you’d like to appeal that decision you can %{href}."
+      link-text: "contact us"
     twitch_auth:
       twitch-button: "Activate Twitch Badge"
+    twitch_instructions:
+      text-a: "Open a Twitch stream with a browser"
+      text-b: "Open the chat settings by clicking the gear icon"
+      text-c: "Click Edit next to your username in the Chat Identity section"
+      text-d: "Click the AnyKey badge under Default Global Badges to equip it"
 
 

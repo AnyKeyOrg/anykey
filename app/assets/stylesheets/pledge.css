@@ -250,13 +250,26 @@
 
 #pledge .twitch-button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
+  border: 5px solid var(--dark-blue-color);
   outline: none;
 }
 
 #pledge .twitch-button::-moz-focus-inner {
   border: 0 !important;
 } 
+
+#pledge .twitch-instructions {
+  margin-top: 2em;
+}
+
+#pledge .twitch-instructions ol {
+  list-style-position: outside;
+  font-size: 0.95em;
+  line-height: 1.4em;
+  margin-left: 1em;
+  margin-top: 0.4em;
+}
 
 
 /***********************************/

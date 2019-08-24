@@ -4,10 +4,13 @@
       <div class="section-title">
         <%= t(".title") %>
       </div>
-      <div class="flexbox vertical center flex-1">
-        <p>
-          <%= t(".text") %>
-        </p>
+      <div class="flexbox vertical start flex-1">
+        <% if @pledge.badge_revoked? %>
+          <p><%= t(".text-revoked", href: link_to(t(".link-text"), root_path, class: "inline")).html_safe %> </p>        
+        <% else %>
+          <p><%= t(".text", href: link_to(t(".link-text"), root_path, class: "inline")).html_safe %> </p>        
+          <%= render(partial: "pledges/twitch_instructions") %>
+        <% end %>
       </div>
     </div>
   </div>
