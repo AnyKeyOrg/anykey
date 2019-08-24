@@ -1,0 +1,15 @@
+<div id="pledge" class="flexbox vertical center">
+  <div class="page-section narrow flexbox vertical center">
+    <div class="inner flexbox vertical start">
+      <div class="section-title">
+        <%= t(".title") %>
+      </div>
+      <div class="flexbox vertical center flex-1">
+        <p>
+          <%= t(".text") %>
+        </p>
+        <%= render(partial: "pledges/twitch_auth", locals: { pledge: @pledge }) %>
+      </div>
+    </div>
+  </div>
+</div>  

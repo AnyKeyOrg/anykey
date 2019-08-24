@@ -217,6 +217,48 @@
 }
 
 
+/************************************/
+/*        Pledge Show Style         */
+/************************************/
+
+#pledge .button-wrap {
+  width: 100%;
+  margin-right: 1.4em;
+  margin-left: 1.4em;
+}
+
+#pledge .twitch-button {
+  border: 5px solid var(--dark-green-color);
+  background-color: var(--bright-green-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.5em;
+  padding: .75em 1.5em .75em 1.5em;
+  margin-top: 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+}
+
+#pledge .twitch-button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+  border: 5px solid var(--dark-orange-color);
+  
+}
+
+#pledge .twitch-button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#pledge .twitch-button::-moz-focus-inner {
+  border: 0 !important;
+} 
+
+
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
@@ -319,6 +361,10 @@
     font-size: 1.3em;
     padding: .75em 2em .75em 2em;
   }
+  
+  #pledge .twitch-button {
+    font-size: 1.3em;
+  }
 }
 
 @media (max-width:26em) {
@@ -328,5 +374,10 @@
   
   #pledge #twitter-section twitter-widget.twitter-tweet {
     width: 300px !important;
+  }
+  
+  #pledge .twitch-button {
+    font-size: 1.1em;
+    padding: 1em .75em 1em .75em;
   }
 }

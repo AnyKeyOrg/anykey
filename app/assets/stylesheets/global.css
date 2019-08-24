@@ -43,12 +43,12 @@ input {
 /*           Link Style             */
 /************************************/
 
-a:not(.logo):not(.anchorpoint):not(.veggieburger):not(.report-button) {
+a:not(.logo):not(.anchorpoint):not(.veggieburger):not(.button) {
   color: inherit;
   text-decoration: none;
 }
 
-a:not(.logo):not(.anchorpoint):not(.veggieburger):not(.report-button):hover {
+a:not(.logo):not(.anchorpoint):not(.veggieburger):not(.button):hover {
   cursor: pointer;
   color: inherit;
   text-decoration: none;

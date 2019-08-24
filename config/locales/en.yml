@@ -19,6 +19,7 @@ en:
       reporting-title: "Be the key to a better community"
       reporting-paragraph-a: "By signing this pledge, you vow to help make your online gaming spaces more inclusive for everyone. You have agreed to play by these seven promises and to hold other pledge-takers to the same standard. That means you will stand up, speak out, and report when you see harassment and discrimination happening in your communities."
       reporting-paragraph-b: "If you see someone sporting the badge causing trouble in a stream, please file a report so that our moderation team can review the situation. To ensure that AnyKey represents a universal symbol of respect and inclusion, we will permanently revoke the badge from anyone who is seen to be abusing it."
+      report-button: "File a Report"
       rules-subtitle-a: "Harassment means actions such as:"
       rules-text-a: "Discrimination, hate speech, offensive behavior, or verbal abuse related to sex, gender identity and expression, sexual orientation, race, ethnicity, disability, physical appearance, body size, age, or religion"
       rules-text-b: "Stalking or intimidation either physically or online"
@@ -34,9 +35,24 @@ en:
       about-title: "About AnyKey"
       about-paragraph-a: "AnyKey is an advocacy group that supports diversity, inclusion, and fairness in competitive gaming. We amplify, connect, and empower underrepresented players and their allies through research and strategic initiatives."
       about-paragraph-b: "Through our programs we aim to increase representation, improve participation, and foster more positive community spaces in gaming for players of any kind. AnyKey is made possible through a partnership between ESL and Intel."
-      
     form:
       first-name: "First Name"
       last-name: "Last Name"
       email-address: "Email Address"
       button: "Take the Pledge"
+    new_badgeless:
+      title: "Thank you for taking the GLHF pledge!"
+      text: "If you want to show off your pledge on Twitch, just click the button to link your Twitch account. Once you've authenticated, the badge will appear in your chat settings."
+    new_badged:
+      title: "Your badge has been activated!"
+      text: "Now head over to Twitch to equip the badge in your chat settings. Please follow the instructions below if it's your first time sporting a badge. Need more help? Just contact us."
+    returning_badgeless:
+      title: "Looks like you've already taken the GLHF pledge"
+      text: "But thanks for your enthusiasm! If you are trying to show off your pledge on Twitch, just click the button to link your Twitch account. Once you've authenticated, the badge will appear in your chat settings. Need more help? Just contact us."
+    returning_badged:
+      title: "Looks like you've already taken the GLHF pledge"
+      text: "But thanks for your enthusiasm! Your Twitch badge has been activated. If you are having difficulty equipping your badge on Twitch, please follow the instructions below. Need more help? Just contact us."
+    twitch_auth:
+      twitch-button: "Activate Twitch Badge"
+
+

@@ -1,14 +1,13 @@
 <% if params[:status] == 'returning' %>
-i'm back<br><br>
+  <% if @pledge.twitch_id.present? %>
+    <%= render(partial: "pledges/returning_badged") %>
+  <% else %>
+    <%= render(partial: "pledges/returning_badgeless") %>
+  <% end %>  
 <% else %>
-i'm fresh<br><br>
+  <% if @pledge.twitch_id.present? %>
+    <%= render(partial: "pledges/new_badged") %>
+  <% else %>
+    <%= render(partial: "pledges/new_badgeless") %>  
+  <% end %>
 <% end %>
-
-
-<% if @pledge.twitch_id.present? %>
-i'm linked to twitch<br><br>
-<% else %>
-i'm not linked to twitch <%= link_to('Link to Twitch', "#{ENV['TWITCH_API_BASE_URL']}/oauth2/authorize?client_id=#{ENV['TWITCH_CLIENT_ID']}&redirect_uri=http://localhost:9292/pledge&response_type=code&scope=user_read&state=#{@pledge.identifier}") %><br>
-<% end %>
-
-i'm constant
