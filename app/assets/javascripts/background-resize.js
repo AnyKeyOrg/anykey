@@ -10,10 +10,10 @@ function resizeBackgrounds() {
 };
 
 
-$(document).ready(function() {
+$(window).load(function() {
 
   resizeBackgrounds();
-
+ 
   $(window).resize(function () {    
     resizeBackgrounds();   
   });
