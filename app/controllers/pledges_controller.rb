@@ -6,6 +6,7 @@ class PledgesController < ApplicationController
   
   def index
     @pledge = Pledge.new
+    @pledges_count = Pledge.count
   end
   
   def create

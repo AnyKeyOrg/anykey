@@ -31,7 +31,7 @@ en:
       rules-text-g: "Sharing hurtful or mean-spirited memes"
       rules-text-h: "Making casually bigoted comments or jokes (e.g. “that’s so gay”, “you play like a girl”, etc.)"
       rules-text-i: "Trash-talking in a way that focuses on someone’s personal traits instead of on their gaming skill"
-      twitter-title: "Join XXX of your fellow gamers sporting the badge"
+      twitter-title: "Join %{pledges_count} of your fellow gamers sporting the badge"
       about-title: "About AnyKey"
       about-paragraph-a: "AnyKey is an advocacy group that supports diversity, inclusion, and fairness in competitive gaming. We amplify, connect, and empower underrepresented players and their allies through research and strategic initiatives."
       about-paragraph-b: "Through our programs we aim to increase representation, improve participation, and foster more positive community spaces in gaming for players of any kind. AnyKey is made possible through a partnership between ESL and Intel."
