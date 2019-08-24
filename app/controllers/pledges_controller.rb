@@ -68,13 +68,18 @@ class PledgesController < ApplicationController
                     
           if twitch_user.present?
             #TODO: check if this Twitch user has already authed, and... do something if they have
+            #TODO: consider the case were a user who has authed and had their badge revoked comes back under a new email
+            #TODO: consider the case were a user has honestly authed under another email and comes back under a new email
+            #TODO: probably just dump all dupe-auths to an error page saying that twitch id exists, contact us for help
+            #TODO: or... if badge hasn't been revoked, move auth from old pledge email to new one?
             
             @pledge.twitch_id           = twitch_user["_id"]
             @pledge.twitch_display_name = twitch_user["display_name"]
             @pledge.twitch_email        = twitch_user["email"]
             
             #TODO: set pledge badge here 
-            
+            #TODO: set twitch_authed_on here 
+
             if @pledge.save
               redirect_to pledge_url(@pledge)
             else
