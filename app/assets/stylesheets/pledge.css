@@ -91,13 +91,20 @@
 }
 
 #pledge .twitch-section {
-  max-width: 48em;
+  max-width: 59em;
   width: 100%;
 }
 
 #pledge .twitch-badge {
   margin-right: 2em;
-  margin-left: 2em;
+  margin-bottom: 1em;
+  width: 220px;
+  height: 220px;
+}
+
+#pledge .twitch-badge img {
+  width: 100%;
+  height: auto;
 }
 
 #pledge #glhf-section {
@@ -289,7 +296,6 @@
   cursor: pointer;
   background-color: var(--bright-orange-color);
   border: 5px solid var(--dark-orange-color);
-  
 }
 
 #pledge .twitch-button:focus {
@@ -320,13 +326,6 @@
 /*         Responsiveness          */
 /***********************************/
 
-
-@media (max-width:70.75em) {
-  #pledge .twitch-badge {
-    margin-bottom: 2em;
-  }
-}
-
 @media (max-width:60em) {
   #pledge .intro-section {
     max-width: none;
@@ -341,9 +340,14 @@
   
   #pledge .twitch-section {
     max-width: none;
-    min-width: 40em;
+    min-width: 16em;
   }
-    
+  
+  #pledge .twitch-badge {
+    width: 160px;
+    height: 160px;
+  }
+  
   #pledge .promise-section {
     max-width: none;
     min-width: 30em;
@@ -368,10 +372,23 @@
   }
 }
 
-@media (max-width:50em) {
-  #pledge .twitch-section {
-    max-width: none;
-    min-width: 30em;
+@media (max-width:48em) {
+  #pledge #glhf-section {
+    margin-top: 3em;
+  }
+
+  #pledge #glhf-section .page-section {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  
+  #pledge #twitter-section {
+    margin-top: 3em;
+  }
+  
+  #pledge #twitter-section .page-section {
+    margin-top: 3em;
+    margin-bottom: 3em;
   }
 }
 
@@ -385,10 +402,6 @@
   }
   
   #pledge .promise-section {
-    min-width: 16em;
-  }
-  
-  #pledge .twitch-section {
     min-width: 16em;
   }
   

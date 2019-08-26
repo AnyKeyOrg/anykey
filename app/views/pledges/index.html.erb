@@ -33,14 +33,14 @@
       </div>
     </div>
   </div>
-  <div class="page-section flexbox vertical stretch flex-1">
-    <div class="inner flexbox vertical stretch">
+  <div class="page-section flexbox vertical center">
+    <div class="inner flexbox vertical start">
+      <div class="section-title tight-bottom"><%= t(".twitch-title") %></div>
       <div class="flexbox horizontal center wrap justify-space-around">
-        <div class="flexbox vertical start">
-          <%= image_tag("/images/anykey-cap-512.svg", size: "256x256", class: "twitch-badge") %>
+        <div class="twitch-badge flexbox vertical start">
+          <%= image_tag("/images/anykey-cap-512.svg") %>
         </div>
         <div class="twitch-section flexbox vertical start flex-1">
-          <div class="section-title"><%= t(".twitch-title") %></div>
           <p><%= t(".twitch-text-a") %></p>
           <p><%= t(".twitch-text-b") %></p>
         </div>

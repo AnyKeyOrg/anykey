@@ -61,52 +61,6 @@
   width: 0;
 }
 
-@media (max-width:48em) {
-  #tapestry {
-    transform-origin: top left;
-    -moz-transform: scale(.6);
-    -webkit-transform: scale(.6);
-    transform: scale(.6);
-    -moz-transition-duration: .5s;
-    -webkit-transition-duration: .5s;
-    transition-duration: .5s;
-  }
-  
-  .page-header {
-    height: 350px;
-    margin-top: 3px;
-    transition: height;
-    -moz-transition-duration: .5s;
-    -webkit-transition-duration: .5s;
-    transition-duration: .5s;
-  }
-}
-
-@media (max-width:34em) {
-  .page-header {
-    margin-top: 2px;
-  }
-  
-  #tapestry {
-    transform-origin: top left;
-    -moz-transform: scale(.45);
-    -webkit-transform: scale(.45);
-    transform: scale(.45);
-    -moz-transition-duration: .5s;
-    -webkit-transition-duration: .5s;
-    transition-duration: .5s;
-  }
-  
-  .page-header {
-    height: 260px;
-    margin-top: 3px;
-    transition: height;
-    -moz-transition-duration: .5s;
-    -webkit-transition-duration: .5s;
-    transition-duration: .5s;
-  }
-}
-
 
 /************************************/
 /*        Page Section Style        */
@@ -142,6 +96,10 @@
   margin-bottom: 1em;
 }
 
+.page-section .section-title.tight-bottom {
+  margin-bottom: 0.2em;
+}
+
 .page-section div p {
   font-size: 1.2em;
   line-height: 1.4em;
@@ -167,4 +125,79 @@
   width: 100%;
   height: 100%;
 }
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:48em) {
+  #tapestry {
+    transform-origin: top left;
+    -moz-transform: scale(.6);
+    -webkit-transform: scale(.6);
+    transform: scale(.6);
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+  }
+  
+  .page-header {
+    height: 350px;
+    margin-top: 3px;
+    transition: height;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+  }
+  
+  .page-section {
+    margin-top: 3em;
+  }
+  
+  .page-section .headline {
+    font-size: 2.2em;
+  }
+
+  .page-section .section-title {
+    font-size: 1.9em;
+    margin-bottom: .6em;
+  }
+
+  .page-section div p {
+    font-size: 1em;
+  }
+
+}
+
+@media (max-width:34em) {
+  .page-header {
+    margin-top: 2px;
+  }
+  
+  #tapestry {
+    transform-origin: top left;
+    -moz-transform: scale(.45);
+    -webkit-transform: scale(.45);
+    transform: scale(.45);
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+  }
+  
+  .page-header {
+    height: 260px;
+    margin-top: 3px;
+    transition: height;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+  }
+  
+  .page-section .headline {
+    font-size: 2.1em;
+  }
+  
+}
+
 
