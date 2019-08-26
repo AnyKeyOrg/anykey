@@ -25,6 +25,7 @@ class PledgesController < ApplicationController
         @pledge.errors.full_messages.each do |message|
           flash.now[:alert] << message + ". "
         end
+        @pledges_count = Pledge.count
         render(action: :index)
       end
     end
