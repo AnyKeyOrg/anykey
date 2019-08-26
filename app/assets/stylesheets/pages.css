@@ -96,6 +96,15 @@
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
   }
+  
+  .page-header {
+    height: 280px;
+    margin-top: 3px;
+    transition: height;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+  }
 }
 
 
