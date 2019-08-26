@@ -9,6 +9,5 @@ $(window).load(function() {
       var root = item.shadowRoot;
       root.querySelector(".CallToAction").style.display = 'none';
     });
-    resizeBackgrounds();
   }
 });
