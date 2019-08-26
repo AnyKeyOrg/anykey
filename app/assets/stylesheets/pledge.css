@@ -19,7 +19,7 @@
   font-family: var(--title-font);
   color: var(--dark-green-color);
   font-size: 7em;
-  margin-top: .9em;
+  margin-top: .85em;
 }
 
 #pledge #tapestry .title-line-b {
@@ -29,6 +29,50 @@
   margin-top: .2em;
   margin-bottom: 2.6em;
 }
+
+#pledge #tapestry .pledge-button {
+  position: relative;
+  display: inline-block;
+  top: 45px;
+  border: 5px solid var(--white-color);
+  background-color: var(--dark-green-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.2em;
+  padding: .3em .99em .5em .99em;
+  margin-top: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#pledge #tapestry .pledge-button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+}
+
+#pledge #tapestry .pledge-button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#pledge #tapestry .pledge-button::-moz-focus-inner {
+  border: 0 !important;
+} 
+
+#pledge #tapestry .pledge-button .detail-text {
+  color: var(--bright-green-color);
+  font-size: 0.8em;
+  line-height: 1.5em;
+  text-transform: none;  
+}
+
+#pledge #tapestry .pledge-button:hover .detail-text,
+#pledge #tapestry .pledge-button:focus .detail-text {
+  color: var(--white-color);
+}
+
 
 
 /************************************/

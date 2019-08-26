@@ -1,6 +1,7 @@
 en:
   pledges:
     index:
+      pledge-button: "<span class=\"detail-text\">Join %{pledges_count} Gamers</span><br>Take the Pledge"
       headline: "Good luck, have fun.<br>Make gaming inclusive for everyone."
       intro-paragraph-a: "Video games and esports should be welcoming and inclusive to all. Diverse player communities are more fun and more competitive."
       intro-paragraph-b: "We invite you to join us in creating a gaming ecosystem that welcomes everyone and includes all, no matter their shape, size, color, gender, background, disability, or beliefs."
