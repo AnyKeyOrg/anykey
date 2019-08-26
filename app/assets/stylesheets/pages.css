@@ -98,7 +98,7 @@
   }
   
   .page-header {
-    height: 280px;
+    height: 260px;
     margin-top: 3px;
     transition: height;
     -moz-transition-duration: .5s;
