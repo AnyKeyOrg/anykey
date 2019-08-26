@@ -58,7 +58,6 @@
 
 #pledge #glhf-section {
   width: 100%;
-  height: 800px;
   background: url('/images/pledge-background-a.jpg') 40% center no-repeat;
   background-size: cover;
   margin-top: 5em;
@@ -73,6 +72,7 @@
 
 #pledge #glhf-section .page-section {
   margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 #pledge .promise-section {
@@ -168,7 +168,6 @@
 
 #pledge #twitter-section {
   width: 100%;
-  height: 1160px;
   background: url('/images/pledge-background-b.jpg') 50% center no-repeat;
   background-size: cover;
   margin-top: 5em;
@@ -183,6 +182,7 @@
 
 #pledge #twitter-section .page-section {
   margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 #pledge #twitter-section .section-title {
