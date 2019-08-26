@@ -12,11 +12,11 @@ function resizeBackgrounds() {
 };
 
 
-$(window).onload(function() {
+window.onload = function() {
 
   resizeBackgrounds();
  
   $(window).resize(function () {    
     resizeBackgrounds();   
   });
-});
+};
