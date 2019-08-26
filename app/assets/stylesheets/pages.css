@@ -21,9 +21,9 @@
   position: relative;
   background: var(--bright-green-color);
   display: inline-block;
-  height: 450px;
-  width: 280px;
-  margin-left: 1em;
+  height: 400px;
+  width: 240px;
+  margin-left: 1.5em;
   border-left: 5px solid white;
   border-right: 5px solid white;
   border-bottom: 5px solid white;
@@ -39,10 +39,10 @@
 
 #tapestry:before {
   position: absolute;
-  top: 455px;
+  top: 405px;
   left: -5px;
-  border-left: 145px solid transparent;
-  border-right: 145px solid transparent;
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
   border-top: 50.5px solid var(--white-color);
   content: "";
   height: 0;
@@ -51,10 +51,10 @@
 
 #tapestry:after {
   position: absolute;
-  top: 450px;
+  top: 400px;
   left: 0px;
-  border-left: 140px solid transparent;
-  border-right: 140px solid transparent;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
   border-top: 50px solid var(--bright-green-color);
   content: "";
   height: 0;
