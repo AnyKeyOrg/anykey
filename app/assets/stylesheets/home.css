@@ -1,4 +1,30 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+/************************************/
+/*        Home Page Header          */
+/************************************/
+
+#home .page-header {
+  background: url('/images/home-header-a.jpg') 50% center no-repeat;
+  background-size: cover;
+  max-height: 500px;
+}
+
+#home .page-header .title {
+  margin-left: 1.4em;
+  color: var(--white-color);
+  text-shadow: var(--dark-blue-color) 0px 0px 30px;
+}
+
+#home .page-header .title .line-a {
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 3em;
+  line-height: 1.1em;
+  margin-bottom: 1em;
+}
+
+#home .page-header .title .line-b {
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 1.4em;
+  line-height: 1.4em;
+}
