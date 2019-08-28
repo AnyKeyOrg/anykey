@@ -1,0 +1,32 @@
+/************************************/
+/*        Stories Page Header       */
+/************************************/
+
+#stories .page-header {
+  background: url('/images/stories-header.jpg') 80% center no-repeat;
+  background-size: cover;
+  max-height: 500px;
+}
+
+#stories #tapestry {
+  background: var(--bright-fuchsia-color);
+}
+
+#stories #tapestry:after {
+  border-top: 50px solid var(--bright-fuchsia-color);
+}
+
+#stories #tapestry .title-line-a {
+  font-family: var(--title-font);
+  color: var(--dark-fuchsia-color);
+  font-size: 3.8em;
+  margin-top: 2.2em;
+}
+
+#stories #tapestry .title-line-b {
+  font-family: var(--title-font);
+  color: var(--white-color);
+  font-size: 3.5em;
+  margin-top: .1em;
+  margin-bottom: 2.6em;
+}

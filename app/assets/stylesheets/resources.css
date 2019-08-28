@@ -1,0 +1,32 @@
+/************************************/
+/*      Resources Page Header       */
+/************************************/
+
+#resources .page-header {
+  background: url('/images/resources-header.jpg') 80% center no-repeat;
+  background-size: cover;
+  max-height: 500px;
+}
+
+#resources #tapestry {
+  background: var(--bright-blue-color);
+}
+
+#resources #tapestry:after {
+  border-top: 50px solid var(--bright-blue-color);
+}
+
+#resources #tapestry .title-line-a {
+  font-family: var(--title-font);
+  color: var(--dark-blue-color);
+  font-size: 3em;
+  margin-top: 2.9em;
+}
+
+#resources #tapestry .title-line-b {
+  font-family: var(--title-font);
+  color: var(--white-color);
+  font-size: 2.7em;
+  margin-top: .2em;
+  margin-bottom: 2.6em;
+}

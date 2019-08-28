@@ -1,0 +1,32 @@
+/************************************/
+/*      Affiliates Page Header      */
+/************************************/
+
+#affiliates .page-header {
+  background: url('/images/affiliates-header.jpg') 80% center no-repeat;
+  background-size: cover;
+  max-height: 500px;
+}
+
+#affiliates #tapestry {
+  background: var(--bright-orange-color);
+}
+
+#affiliates #tapestry:after {
+  border-top: 50px solid var(--bright-orange-color);
+}
+
+#affiliates #tapestry .title-line-a {
+  font-family: var(--title-font);
+  color: var(--dark-orange-color);
+  font-size: 3.3em;
+  margin-top: 2.7em;
+}
+
+#affiliates #tapestry .title-line-b {
+  font-family: var(--title-font);
+  color: var(--white-color);
+  font-size: 2em;
+  margin-top: .2em;
+  margin-bottom: 2.6em;
+}

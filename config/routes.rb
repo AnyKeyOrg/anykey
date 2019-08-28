@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    resources :pledges, only: [:index, :create, :show], path: :pledge
-    root to: 'pledges#index'
-  end  
+    resources :pledges,     only: [:index, :create, :show], path: :pledge
+    resources :affiliates,  only: [:index]
+    resources :resources,   only: [:index]
+    resources :stories,     only: [:index]
+
+    root to: 'home#index'
+  end
+  
     
 end
