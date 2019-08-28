@@ -1,30 +1,38 @@
 <div id="header" class="flexbox vertical center">
   <div id="header-content" class="flexbox horizontal center">
+    <% if controller_name == 'affiliates' %>
+    <%= link_to(image_tag("/images/anykey-cap-orange-64.svg", size: "32x32")+"AnyKey", root_path, class: 'logo flexbox horizontal center') %>    
+    <% elsif controller_name == 'resources' %>
+    <%= link_to(image_tag("/images/anykey-cap-blue-64.svg", size: "32x32")+"AnyKey", root_path, class: 'logo flexbox horizontal center') %>
+    <% elsif controller_name == 'stories' %>
+    <%= link_to(image_tag("/images/anykey-cap-fuchsia-64.svg", size: "32x32")+"AnyKey", root_path, class: 'logo flexbox horizontal center') %>    
+    <% else %>
     <%= link_to(image_tag("/images/anykey-cap-64.svg", size: "32x32")+"AnyKey", root_path, class: 'logo flexbox horizontal center') %>
+    <% end %>
     <div id="full-menu" class="flexbox vertical end flex-1">
       <div class="flexbox horizontal center">
-        <%= link_to('glhf PLEDGE', pledges_path, class: controller_name == 'pledges' ? 'selected item' : 'item') %>
-        <%= link_to('Affiliates', affiliates_path, class: controller_name == 'affiliates' ? 'selected item' : 'item') %>
-        <%= link_to('Resources', resources_path, class: controller_name == 'resources' ? 'selected item' : 'item') %>
-        <%= link_to('Stories', stories_path, class: controller_name == 'stories' ? 'selected item last' : 'item last') %>        
+        <%= link_to('glhf PLEDGE', pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'pledge item') %>
+        <%= link_to('Affiliates', affiliates_path, class: (controller_name == 'affiliates' ? 'selected ' : '') + 'affiliates item') %>
+        <%= link_to('Resources', resources_path, class: (controller_name == 'resources' ? 'selected ' : '') + 'resources item')  %>
+        <%= link_to('Stories', stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'stories item last') %>        
       </div>
     </div>
-    <div id="veggieburger" class="flexbox vertical end flex-1">      
+    <div id="veggieburger" class="flexbox vertical end flex-1">
        <a class="veggieburger">☰</a>
     </div>
-  </div>    
+  </div>
 </div>
 <div id="veggieburger-menu" class="flexbox vertical start" style="display: none">
   <div class="row">
-    <%= link_to('glhf PLEDGE', pledges_path, class: controller_name == 'pledges' ? 'selected' : '') %>
+    <%= link_to('glhf PLEDGE', pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'pledge') %>
   </div>
   <div class="row">
-    <%= link_to('Affiliates', affiliates_path, class: controller_name == 'affiliates' ? 'selected' : '') %>
-  </div>  
+    <%= link_to('Affiliates', affiliates_path, class: (controller_name == 'affiliates' ? 'selected ' : '') + 'affiliates') %>
+  </div>
   <div class="row">
-    <%= link_to('Resources', resources_path, class: controller_name == 'resources' ? 'selected' : '') %>    
-  </div>  
+    <%= link_to('Resources', resources_path, class: (controller_name == 'resources' ? 'selected ' : '') + 'resources')  %>
+  </div>
   <div class="row">
-    <%= link_to('Stories', stories_path, class: controller_name == 'stories' ? 'selected' : '') %>     
+    <%= link_to('Stories', stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'stories') %>    
   </div>
 </div>

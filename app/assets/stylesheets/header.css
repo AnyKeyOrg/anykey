@@ -45,11 +45,6 @@
   margin-right: 1.9em;
 }
 
-#header-content a.item.selected {
-  margin-bottom: -2px;
-  border-bottom: 2px solid var(--bright-green-color);
-}
-
 #header-content #veggieburger {
   display: none;
   color: var(--white-color);
@@ -95,8 +90,32 @@
   margin-left: 1.75em;
 }
 
-#veggieburger-menu a.selected {
+#header-content a.item.selected.pledge,
+#header-content a.item.pledge:hover,
+#veggieburger-menu a.selected.pledge {
+  margin-bottom: -2px;
   border-bottom: 2px solid var(--bright-green-color);
+}
+
+#header-content a.item.selected.affiliates,
+#header-content a.item.affiliates:hover,
+#veggieburger-menu a.selected.affiliates {
+  margin-bottom: -2px;
+  border-bottom: 2px solid var(--bright-orange-color);
+}
+
+#header-content a.item.selected.resources,
+#header-content a.item.resources:hover,
+#veggieburger-menu a.selected.resources {
+  margin-bottom: -2px;
+  border-bottom: 2px solid var(--bright-blue-color);
+}
+
+#header-content a.item.selected.stories,
+#header-content a.item.stories:hover,
+#veggieburger-menu a.selected.stories  {
+  margin-bottom: -2px;
+  border-bottom: 2px solid var(--bright-fuchsia-color);
 }
 
 @media (max-width:34em) {  

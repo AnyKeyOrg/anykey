@@ -74,6 +74,9 @@ class PledgesController < ApplicationController
             #TODO: consider the case were a user has honestly authed under another email and comes back under a new email
             #TODO: probably just dump all dupe-auths to an error page saying that twitch id exists, contact us for help
             #TODO: or... if badge hasn't been revoked, move auth from old pledge email to new one?
+            #TODO: conclusion: dump all dupe-auths to an error page saying that twitch id exists, contact us for help
+
+            
             
             @pledge.twitch_id           = twitch_user["_id"]
             @pledge.twitch_display_name = twitch_user["display_name"]
