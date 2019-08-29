@@ -3,7 +3,6 @@ class PledgesController < ApplicationController
   before_action :find_pledge, only: [ :show ]
   before_action :handle_twitch_auth, only: [ :index ]
   
-  
   def index
     @pledge = Pledge.new
     @pledges_count = Pledge.count

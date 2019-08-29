@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reporter_email: MyString
+  reporter_twitch_name: MyString
+  reported_twitch_name: MyString
+  image_uid: MyString
+  incident_stream: MyString
+  incident_occurred: 2019-08-28 23:47:20
+  incident_description: MyText
+  desired_outcome: MyText
+
+two:
+  reporter_email: MyString
+  reporter_twitch_name: MyString
+  reported_twitch_name: MyString
+  image_uid: MyString
+  incident_stream: MyString
+  incident_occurred: 2019-08-28 23:47:20
+  incident_description: MyText
+  desired_outcome: MyText

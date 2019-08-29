@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_183826) do
+ActiveRecord::Schema.define(version: 2019_08_29_051145) do
 
   create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name"
@@ -41,6 +41,20 @@ ActiveRecord::Schema.define(version: 2019_08_28_183826) do
     t.string "twitch_email"
     t.string "identifier"
     t.datetime "twitch_authed_on"
+  end
+
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.string "reporter_email"
+    t.string "reporter_twitch_name"
+    t.string "reported_twitch_name"
+    t.string "image_uid"
+    t.string "incident_stream"
+    t.datetime "incident_occurred"
+    t.text "incident_description"
+    t.text "desired_outcome"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "timezone"
   end
 
   create_table "stories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
