@@ -92,28 +92,32 @@
 
 #header-content a.item.selected.pledge,
 #header-content a.item.pledge:hover,
-#veggieburger-menu a.selected.pledge {
+#veggieburger-menu a.selected.pledge,
+#veggieburger-menu a.pledge:hover {
   margin-bottom: -2px;
   border-bottom: 2px solid var(--bright-green-color);
 }
 
 #header-content a.item.selected.affiliates,
 #header-content a.item.affiliates:hover,
-#veggieburger-menu a.selected.affiliates {
+#veggieburger-menu a.selected.affiliates,
+#veggieburger-menu a.affiliates:hover {
   margin-bottom: -2px;
   border-bottom: 2px solid var(--bright-orange-color);
 }
 
 #header-content a.item.selected.resources,
 #header-content a.item.resources:hover,
-#veggieburger-menu a.selected.resources {
+#veggieburger-menu a.selected.resources,
+#veggieburger-menu a.resources:hover {
   margin-bottom: -2px;
   border-bottom: 2px solid var(--bright-blue-color);
 }
 
 #header-content a.item.selected.stories,
 #header-content a.item.stories:hover,
-#veggieburger-menu a.selected.stories  {
+#veggieburger-menu a.selected.stories,
+#veggieburger-menu a.stories:hover {
   margin-bottom: -2px;
   border-bottom: 2px solid var(--bright-fuchsia-color);
 }
