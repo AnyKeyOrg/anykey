@@ -1,4 +1,44 @@
 en:
+  activerecord:
+    attributes:
+      pledge:
+        first_name: "First name"
+        last_name: "Last name"
+        email: "Email"    
+      report:  
+        reporter_email: "Your email"
+        reported_twitch_name: "Reported Twitch username"
+        incident_stream: "Incident stream"
+        incident_occurred: "Incident date and time"
+        timezone: "Your timezone"
+        incident_descriptio: "Incident description"
+    errors:
+      models:
+        pledge:
+          attributes:
+            first_name:
+              blank: "is required"
+            last_name:
+              blank: "is required"  
+            email:
+              blank: "is required"
+              invalid: "must be valid"
+        report:
+          attributes:
+            reporter_email:
+              blank: "is required"
+              invalid: "must be valid"
+            reported_twitch_name:
+              blank: "is required"
+            incident_stream:
+              blank: "is required"
+            incident_occurred:
+              blank: "is required"
+            timezone:
+              blank: "is required"
+            incident_descriptio:
+              blank: "is required"
+              
   pledges:
     index:
       pledge-button: "<span class=\"detail-text\">Join %{pledges_count} Gamers</span><br>Take the Pledge"

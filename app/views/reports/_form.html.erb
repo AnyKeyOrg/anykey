@@ -27,12 +27,25 @@
   </div>
   <div class="item flexbox vertical stretch">
     <label for="incident_description" class="text-field">Description of the Incident</label>
-    <textarea id="report_incident_description" name="report[incident_description]" class="text-field" type="text" value="<%= @report.incident_description %>" autocomplete="off" tabindex="5"></textarea>
+    <textarea id="report_incident_description" name="report[incident_description]" class="text-field" type="text" autocomplete="off" tabindex="5"><%= @report.incident_description %></textarea>
   </div>
   <div class="item flexbox vertical stretch">
     <label for="desired_outcome" class="text-field">What Do You Think We Should Do?</label>
-    <textarea id="report_desired_outcome" name="report[desired_outcome]" class="text-field" type="text" value="<%= @report.desired_outcome %>" autocomplete="off" tabindex="6"></textarea>
+    <textarea id="report_desired_outcome" name="report[desired_outcome]" class="text-field" type="text" autocomplete="off" tabindex="6"><%= @report.desired_outcome %></textarea>
   </div>
+  
+  
+  
+  <div class="item flexbox vertical start">
+    <label for="image" class="text-field">Screenshot of incident</label>
+    <div class="description">Please include as much chat context as possible</div>
+    <%= image_tag(report_image_src(@report, :thumb)) %>
+    <input id="report_image" name="report[image]" type="file">
+  </div>
+  
+  
+  
+  
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="reporter_email" class="text-field">Your Email Address</label>
