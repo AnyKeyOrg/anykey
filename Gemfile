@@ -65,3 +65,11 @@ gem 'mysql2'
 gem 'jquery-rails'
 gem 'uniquify'
 gem 'httparty'
+
+# Using Dragonfly v0.9 for files & images
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', :git => "https://github.com/deadroxy/dragonfly.git" # Old version finally needed to be patched with a newer bugfix
+gem 'fog'
+gem 'redis'
+gem 'redis-namespace'
+gem 'nokogiri'
