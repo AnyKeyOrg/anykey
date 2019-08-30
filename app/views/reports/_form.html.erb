@@ -34,29 +34,23 @@
     <textarea id="report_desired_outcome" name="report[desired_outcome]" class="text-field" type="text" autocomplete="off" tabindex="6"><%= @report.desired_outcome %></textarea>
   </div>
   
-  
-  
   <div class="item flexbox vertical start">
     <label for="image" class="text-field">Screenshot of incident</label>
     <div class="description">Please include as much chat context as possible</div>
-    <%= image_tag(report_image_src(@report, :thumb)) %>
-    <input id="report_image" name="report[image]" type="file">
+    <input id="report_image" name="report[image]" type="file" tabindex="7">
   </div>
-  
-  
-  
   
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="reporter_email" class="text-field">Your Email Address</label>
-      <input id="report_reporter_email" name="report[reporter_email]" class="text-field" type="text" value="<%= @report.reporter_email %>" tabindex="7">
+      <input id="report_reporter_email" name="report[reporter_email]" class="text-field" type="text" value="<%= @report.reporter_email %>" tabindex="8">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="reporter_twitch_name" class="text-field">Your Twitch Name</label>
-      <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" tabindex="8">
+      <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" tabindex="9">
     </div>
   </div>
 
   <%= display_notifications %>
-  <input id="reportsubmit" name="commit" type="submit" class="button" value="Send Report" tabindex="9">
+  <input id="reportsubmit" name="commit" type="submit" class="button" value="Send Report" tabindex="10">
 </form>
