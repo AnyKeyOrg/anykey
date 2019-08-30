@@ -1,23 +1,26 @@
-<form action="<%= reports_path %>" id="new_report" method="POST" enctype="multipart/form-data" class="report-form flexbox vertical stretch">
+<form action="<%= reports_path %>" id="new_report" method="POST" enctype="multipart/form-data" class="report-form flexbox vertical">
   <div style="hidden">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   </div>
+  <div class="title flexbox vertical center">
+    Badge Abuse Report
+  </div>  
   <div class="flexbox horizontal wrap justify-space-between">
-    <div class="item flexbox vertical start">
+    <div class="item half-width flexbox vertical stretch">
       <label for="reported_twitch_name" class="text-field">Twitch User You're Reporting</label>
       <input id="report_reported_twitch_name" name="report[reported_twitch_name]" class="text-field" type="text" value="<%= @report.reported_twitch_name %>" autocomplete="off" tabindex="1">
     </div>
-    <div class="item flexbox vertical start">
+    <div class="item half-width flexbox vertical stretch">
       <label for="incident_stream" class="text-field">Stream Where Incident Happened</label>
       <input id="report_incident_stream" name="report[incident_stream]" class="text-field" type="text" value="<%= @report.incident_stream %>" autocomplete="off" tabindex="2">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
-    <div class="item flexbox vertical start">
+    <div class="item half-width flexbox vertical stretch">
       <label for="incident_occurred" class="text-field">Date and Time of Incident</label>
       <input id="report_incident_occurred" name="report[incident_occurred]" class="text-field small-font" type="datetime-local" value="<%= !@report.incident_occurred.nil? ? @report.incident_occurred.strftime("%Y-%m-%dT%H:%M") : '' %>" autocomplete="off" tabindex="3">
     </div>
-    <div class="item flexbox vertical start">
+    <div class="item half-width flexbox vertical stretch">
       <label for="timezone" class="text-field">Your Timezone</label>
       <%= time_zone_select :report, :timezone, nil, { include_blank: false, default: ActiveSupport::TimeZone::MAPPING.key(cookies[:browser_timezone]) }, id: 'report_timezone', tabindex: "4" %>
     </div>
@@ -31,11 +34,11 @@
     <textarea id="report_desired_outcome" name="report[desired_outcome]" class="text-field" type="text" value="<%= @report.desired_outcome %>" autocomplete="off" tabindex="6"></textarea>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
-    <div class="item flexbox vertical start">
+    <div class="item half-width flexbox vertical stretch">
       <label for="reporter_email" class="text-field">Your Email Address</label>
       <input id="report_reporter_email" name="report[reporter_email]" class="text-field" type="text" value="<%= @report.reporter_email %>" tabindex="7">
     </div>
-    <div class="item flexbox vertical start">
+    <div class="item half-width flexbox vertical stretch">
       <label for="reporter_twitch_name" class="text-field">Your Twitch Name</label>
       <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" tabindex="8">
     </div>
