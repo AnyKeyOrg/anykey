@@ -9,7 +9,7 @@ class Thumbnail
   self.redis ||= Redis::Namespace.new('thumbnails', :redis => $redis)
 
   def self.find(id)
-    if uid = redis[id]
+    if uid = redis.get(id)
       self.new(:id => id, :uid => uid)
     end
   end
@@ -37,7 +37,7 @@ class Thumbnail
 
   def save
     if id && uid
-      redis[id] = uid
+      redis.set(id, uid)
       return id
     else
       return false
@@ -45,7 +45,7 @@ class Thumbnail
   end
 
   def destroy
-    Dragonfly.app.datastore.destroy(uid)
+    Dragonfly[:images].datastore.destroy(uid)
     redis.del(id)
   end
 end
