@@ -13,8 +13,12 @@ class Report < ApplicationRecord
 
    validates_format_of      :reporter_email,
                             with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,
-                            if: lambda { |x| x.reporter_email.present? } 
+                            if: lambda { |x| x.reporter_email.present? }
 
+   validates                :incident_description,
+                            :desired_outcome,
+                            length: { maximum: 1000 }
+                            
   image_accessor :image
 
   def image_url(style = :thumb)

@@ -26,20 +26,24 @@
     </div>
   </div>
   <div class="item flexbox vertical stretch">
-    <label for="incident_description" class="text-field">Description of the Incident</label>
+    <div class="flexbox horizontal wrap justify-space-between">
+      <label for="incident_description" class="text-field">Description of the Incident</label>
+      <div id="incident-descripton-counter" data-max-length="1000">1000</div>
+    </div>  
     <textarea id="report_incident_description" name="report[incident_description]" class="text-field" type="text" autocomplete="off" tabindex="5"><%= @report.incident_description %></textarea>
   </div>
   <div class="item flexbox vertical stretch">
+    <div class="flexbox horizontal wrap justify-space-between">
     <label for="desired_outcome" class="text-field">What Do You Think We Should Do?</label>
+      <div id="desired-outcome-counter" data-max-length="1000">1000</div>
+    </div>
     <textarea id="report_desired_outcome" name="report[desired_outcome]" class="text-field" type="text" autocomplete="off" tabindex="6"><%= @report.desired_outcome %></textarea>
   </div>
-  
   <div class="item flexbox vertical start">
     <label for="image" class="text-field">Screenshot of incident</label>
     <div class="description">Please include as much chat context as possible</div>
     <input id="report_image" name="report[image]" type="file" tabindex="7">
   </div>
-  
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="reporter_email" class="text-field">Your Email Address</label>
@@ -50,7 +54,6 @@
       <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" tabindex="9">
     </div>
   </div>
-
   <%= display_notifications %>
   <input id="reportsubmit" name="commit" type="submit" class="button" value="Send Report" tabindex="10">
 </form>

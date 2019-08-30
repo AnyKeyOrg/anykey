@@ -31,6 +31,14 @@
   margin-bottom: 0.3em;
 }
 
+#report form #incident-descripton-counter,
+#report form #desired-outcome-counter {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.8em;
+  color: var(--black-color);
+}
+
 #report form .description {
   font-family: var(--body-font);
   font-weight: 400;

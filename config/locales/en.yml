@@ -11,7 +11,8 @@ en:
         incident_stream: "Incident stream"
         incident_occurred: "Incident date and time"
         timezone: "Your timezone"
-        incident_descriptio: "Incident description"
+        incident_description: "Incident description"
+        desired_outcome: "Your recommendation"
     errors:
       models:
         pledge:
@@ -36,9 +37,11 @@ en:
               blank: "is required"
             timezone:
               blank: "is required"
-            incident_descriptio:
+            incident_description:
               blank: "is required"
-              
+              too_long: "must be less than 1,000 characters"
+            desired_outcome:
+              too_long: "must be less than 1,000 characters"    
   pledges:
     index:
       pledge-button: "<span class=\"detail-text\">Join %{pledges_count} Gamers</span><br>Take the Pledge"
