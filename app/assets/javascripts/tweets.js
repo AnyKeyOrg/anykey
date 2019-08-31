@@ -1,6 +1,8 @@
-/* Hide Twitter's calls to action on embedded tweets */
-/* Need to wait until shadow DOM loads these widgets,
-   so we check every 100ms until the tweets are ready */
+/* 
+ * Hide Twitter's calls to action on embedded tweets
+ * Need to wait until shadow DOM loads these widgets,
+ * so we check every 100ms until the tweets are ready
+ */
 
 $(window).load(function() {
   if (document.getElementById("twitter-widget-0") != null) {

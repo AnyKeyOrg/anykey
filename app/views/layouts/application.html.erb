@@ -15,6 +15,7 @@
     <div id="site-container" class="flexbox vertical stretch">
       <%= render(partial: "shared/header") %>
       <div class="flexbox vertical stretch flex-1">
+        <%= display_notices %>
         <%= yield %>
       </div>
       <%= render(partial: "shared/footer") %>

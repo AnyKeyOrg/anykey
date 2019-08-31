@@ -1,14 +1,25 @@
 module LayoutHelper  
-  def display_notifications
-    [ :notice, :alert ].map do |status|
+
+  def display_alerts
 html = <<-HTML
-<div class="flash" id="#{status}">
+<div class="flash" id="#{:alert}">
     <div class="text">
-      #{flash[status]}
+      #{flash[:alert]}
   </div>
 </div>
 HTML
-      html.html_safe if flash[status]
-    end.compact.join("\n").html_safe
+    html.html_safe if flash[:alert]
   end
+  
+  def display_notices
+html = <<-HTML
+<div class="flash" id="#{:notice}">
+    <div class="text">
+      #{flash[:notice]}
+  </div>
+</div>
+HTML
+    html.html_safe if flash[:notice]
+  end
+    
 end

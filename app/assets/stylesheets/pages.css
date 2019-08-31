@@ -171,10 +171,6 @@
 }
 
 @media (max-width:34em) {
-  .page-header {
-    margin-top: 2px;
-  }
-  
   #tapestry {
     transform-origin: top left;
     -moz-transform: scale(.45);

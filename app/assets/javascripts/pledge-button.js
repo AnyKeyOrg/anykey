@@ -1,4 +1,7 @@
-/* Smoothly scrolls to pledge form from header */
+/*
+ * Smoothly scrolls to
+ * pledge form from header
+ */
 
 function setupPledgeButton() {
   $(".pledge-button").click(function(e) {

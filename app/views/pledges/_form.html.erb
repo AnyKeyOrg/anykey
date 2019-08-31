@@ -14,6 +14,6 @@
     <label for="first_name" class="text-field"><%= t(".email-address") %></label>
     <input id="pledge_email" name="pledge[email]" class="text-field" type="text" value="<%= @pledge.email %>" autocomplete="off" placeholder="bjorn@anykey.org" tabindex="3">
   </div>
-  <%= display_notifications %>
+  <%= display_alerts %>
   <input id="pledge_submit" name="commit" type="submit" class="button" value="<%= t(".button") %>" tabindex="4">
 </form>
