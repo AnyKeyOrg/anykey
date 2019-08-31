@@ -66,6 +66,8 @@ gem 'jquery-rails'
 gem 'uniquify'
 gem 'httparty'
 gem 'devise'
+gem 'devise_invitable'
+
 
 # Using Dragonfly v0.9 for files & images
 # Because I can never get v1.0 to work with PJ's caching solution
