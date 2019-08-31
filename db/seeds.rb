@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Set up the admin user
+user = User.where(first_name: "Bjorn", last_name: "Disway", username: "bjornadmin", email: "bjorn@anykey.org").first_or_create(password: "changeme")
+user.update_attribute(:is_admin, true)
