@@ -4,7 +4,7 @@
 
 #report form {
   border: 5px solid var(--dark-fuchsia-color);
-  background: #f2f2f2;
+  background: var(--dark-white-color);
   padding: 2em 2em 2.5em 2em;
 }
 

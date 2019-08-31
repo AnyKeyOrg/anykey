@@ -5,7 +5,6 @@
 #stories .page-header {
   background: url('/images/stories-header.jpg') 80% center no-repeat;
   background-size: cover;
-  max-height: 500px;
 }
 
 #stories #tapestry {

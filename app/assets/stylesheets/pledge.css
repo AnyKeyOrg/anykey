@@ -34,7 +34,7 @@
   position: relative;
   display: inline-block;
   top: 45px;
-  border: 5px solid var(--white-color);
+  border: 5px solid var(--bright-green-color);
   background-color: var(--dark-green-color);
   color: var(--white-color);
   font-family: var(--title-font);
@@ -48,12 +48,14 @@
 
 #pledge #tapestry .pledge-button:hover {
   cursor: pointer;
-  background-color: var(--bright-orange-color);
+  border: 5px solid var(--dark-white-color);
+  background-color: var(--bright-green-color);
 }
 
 #pledge #tapestry .pledge-button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  border: 5px solid var(--dark-white-color);
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
