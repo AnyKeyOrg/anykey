@@ -53,8 +53,6 @@ input {
   text-align: center;
   font-size: 0.9em;
   padding: 1.5em 3.5em 1.5em 3.5em;
-  margin-left: 3em;
-  margin-right: 3em;
   border: 5px solid var(--white-color);
   background-color: var(--bright-green-color);
   color: var(--white-color);
