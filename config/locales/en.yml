@@ -7,7 +7,7 @@ en:
         email: "Email"    
       report:  
         reporter_email: "Your email"
-        reported_twitch_name: "Reported Twitch username"
+        reported_twitch_name: "Twitch user"
         incident_stream: "Incident stream"
         incident_occurred: "Incident date and time"
         timezone: "Your timezone"

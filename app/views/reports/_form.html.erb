@@ -5,6 +5,7 @@
   <div class="title flexbox vertical center">
     Badge Abuse Report
   </div>  
+  <%= display_notifications %>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="reported_twitch_name" class="text-field">Twitch User You're Reporting</label>
@@ -54,6 +55,5 @@
       <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" tabindex="9">
     </div>
   </div>
-  <%= display_notifications %>
   <input id="reportsubmit" name="commit" type="submit" class="button" value="Send Report" tabindex="10">
 </form>
