@@ -65,10 +65,13 @@ gem 'mysql2'
 gem 'jquery-rails'
 gem 'uniquify'
 gem 'httparty'
+gem 'devise'
 
 # Using Dragonfly v0.9 for files & images
+# Because I can never get v1.0 to work with PJ's caching solution
+# Also, finally had to patch gem with a bug fix from the newer version
 gem 'rack-cache', :require => 'rack/cache'
-gem 'dragonfly', :git => "https://github.com/deadroxy/dragonfly.git" # Old version finally needed to be patched with a newer bugfix
+gem 'dragonfly', :git => "https://github.com/deadroxy/dragonfly.git"
 gem 'fog'
 gem 'redis'
 gem 'redis-namespace'
