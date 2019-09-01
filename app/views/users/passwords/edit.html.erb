@@ -1,25 +1,31 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="session-box flexbox vertical stretch">
+      <form action="<%= user_password_path %>" id="edit_user_password" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">      
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="put">
+          <input type="hidden" name="user[reset_password_token]" value="<%= @user.reset_password_token %>" id="user_reset_password_token">
+        </div> 
+        <div class="title">
+          Change your password
+        </div>
+        <% devise_error_messages! %>
+        <%= display_alerts %>
+        <div class="item flexbox vertical stretch">
+          <input id="user_password" name="user[password]" class="text-field" type="password" value="<%= @user.password %>" autocomplete="off" tabindex="1" autofocus>
+          <label for="user_password" class="text-field">New Password</label>
+        </div>
+        
+        <div class="item flexbox vertical stretch">
+          <input id="user_password_confirmation" name="user[password_confirmation]" class="text-field" type="password" value="<%= @user.password_confirmation %>" autocomplete="off" tabindex="2">
+          <label for="user_password_confirmation" class="text-field">Confirm Password</label>
+        </div>
+        <div class="last-item flexbox horizontal center justify-space-between">
+          <%= link_to("Know your password?", new_user_session_path) %>
+          <input id="user_password_submit" name="commit" type="submit" class="button" value="Confirm" tabindex="3">
+        </div>
+      </form>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
