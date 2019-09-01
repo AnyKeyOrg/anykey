@@ -1,2 +1,9 @@
-Admin dashboard<br>
-<%= link_to("Logout", destroy_user_session_path, method: :delete) %>
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="session-box flexbox vertical start">
+      <p><strong>Staff dashboard</strong></p>
+      <p><%= link_to("Invite staff", new_user_invitation_path(back: request.fullpath)) %></p>
+      <p><%= link_to("Logout", destroy_user_session_path, method: :delete) %></p>
+    </div>
+  </div>
+</div>
