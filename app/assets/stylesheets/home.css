@@ -10,7 +10,7 @@
 #home .page-header .title {
   margin-left: 1.4em;
   color: var(--white-color);
-  text-shadow: var(--dark-blue-color) 0px 0px 30px;
+  text-shadow: var(--black-color) 0px 0px 30px;
 }
 
 #home .page-header .title .line-a {
@@ -18,12 +18,12 @@
   font-weight: 600;
   font-size: 3em;
   line-height: 1.1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.1em;
 }
 
 #home .page-header .title .line-b {
   font-family: var(--body-font);
   font-weight: 500;
-  font-size: 1.4em;
+  font-size: 2em;
   line-height: 1.4em;
 }
