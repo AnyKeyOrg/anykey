@@ -1,7 +1,34 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
-    <div class="login-box flexbox vertical stretch">
-      <%= render(partial: "users/sessions/form") %>
+    <div class="session-box flexbox vertical stretch">
+      <form action="<%= user_session_path %>" id="new_user_session" method="POST" enctype="multipart/form-data" class="create-form flexbox vertical stretch">
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div> 
+        <div class="title">
+          Login
+        </div>
+        <%= display_alerts %>
+        <div class="item flexbox vertical stretch">
+          <input id="user_email" name="user[email]" class="text-field" type="text" value="<%= @user.email %>" tabindex="1" autofocus> 
+          <label for="user_email" class="text-field">Email</label> 
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="user_password" name="user[password]" class="text-field" type="password" value="<%= @user.password %>" autocomplete="off" tabindex="2">
+          <label for="user_password" class="text-field">Password</label> 
+        </div>
+        <div class="item flexbox vertical end flex-1">
+          <div class="flexbox horizontal center">
+            <input name="user[remember_me]" type="hidden" value="0">
+            <input id="user_remember_me" name="user[remember_me]" class="checkbox" type="checkbox" value="1">
+            <label for="user_remember_me" class="checkbox">Remember me</label>
+          </div>
+        </div>
+        <div class="last-item flexbox horizontal center justify-space-between">
+          <%= link_to "Forgot your password?", new_user_password_path %>
+          <input id="user_session_submit" name="commit" type="submit" class="button" value="Login" tabindex="3">
+        </div>
+      </form>
     </div>
   </div>
 </div>

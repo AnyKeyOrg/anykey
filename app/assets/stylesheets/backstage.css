@@ -2,7 +2,7 @@
 /*       Backstage Page Style       */
 /************************************/
 
-#backstage-container .login-box {
+#backstage-container .session-box {
   width: 24em;
   background: #ffffff;
   padding: 2em 3em 2em 3em;
@@ -14,7 +14,7 @@
 /***********************************/
 
 @media (max-width:34em) {
-  #backstage-container .login-box {
+  #backstage-container .session-box {
     width: auto;
     padding: 2em 2em 2em 2em;
   }

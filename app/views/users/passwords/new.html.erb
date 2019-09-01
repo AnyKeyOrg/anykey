@@ -1,16 +1,23 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="session-box flexbox vertical stretch">
+      <form action="<%= user_password_path %>" id="new_user_password" method="POST" enctype="multipart/form-data" class="create-form flexbox vertical stretch">
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div> 
+        <div class="title">
+          Forgot your password?
+        </div>
+        <%= display_alerts %>
+        <div class="item flexbox vertical stretch">
+          <input id="user_email" name="user[email]" class="text-field" type="text" value="<%= @user.email %>" tabindex="1" autofocus> 
+          <label for="user_email" class="text-field">Email</label> 
+        </div>
+        <div class="last-item flexbox horizontal center justify-space-between">
+          <%= link_to("Know your password?", new_user_session_path) %>          
+          <input id="user_password_submit" name="commit" type="submit" class="button" value="Send Reset" tabindex="2">
+        </div>
+      </form>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
     
   devise_for :users,
-             controllers: { invitations: "users/invitations", sessions: "users/sessions" },
+             controllers: { invitations: "users/invitations" },
              path_names: { sign_in: "login", sign_out: "logout" }
   
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
