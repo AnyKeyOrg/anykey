@@ -21,7 +21,8 @@ body {
   -ms-text-size-adjust:100%;
 }
 
-#site-container {
+#site-container,
+#backstage-container {
   position: relative;
   width: 100%;
   height: 100%;
@@ -33,11 +34,23 @@ body {
   background: var(--white-color);
 }
 
+#backstage-container {
+  background: var(--dark-white-color);
+}
+
 input {
   border-radius: 0;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
 
 /************************************/
 /*        Flash Notice Style        */

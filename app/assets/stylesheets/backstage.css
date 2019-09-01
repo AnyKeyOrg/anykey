@@ -1,0 +1,21 @@
+/************************************/
+/*       Backstage Page Style       */
+/************************************/
+
+#backstage-container .login-box {
+  width: 24em;
+  background: #ffffff;
+  padding: 2em 3em 2em 3em;
+  border: solid 5px var(--black-color);
+}
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:34em) {
+  #backstage-container .login-box {
+    width: auto;
+    padding: 2em 2em 2em 2em;
+  }
+}
