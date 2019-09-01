@@ -61,9 +61,9 @@
 
 #backstage-container form .flash {
   text-align: center;
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
   font-size: 0.85em;
-  color: var(--bright-fuchsia-color);
+  color: var(--alert-red-color);
 }
 
 #backstage-container form .button {

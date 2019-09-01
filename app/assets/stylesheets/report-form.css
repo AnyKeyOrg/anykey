@@ -127,7 +127,7 @@
   text-align: center;
   margin-bottom: 2.5em;
   font-size: 0.85em;
-  color: var(--bright-fuchsia-color);
+  color: var(--alert-red-color);
 }
 
 #report form .button {

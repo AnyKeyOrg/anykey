@@ -18,6 +18,8 @@
   --dark-blue-color:        #2026CC;
   --bright-fuchsia-color:   #B11478;
   --dark-fuchsia-color:     #57145B;
+  
+  --alert-red-color:        #DD1444;
                             
   --transparent-overlay:    rgba(22,9,25,0.6);
 }
