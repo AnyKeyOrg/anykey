@@ -1,8 +1,7 @@
 var backgrounds = [
   '/images/home-header-a.jpg',
   '/images/home-header-b.jpg',
-  '/images/home-header-c.jpg',
-  '/images/home-header-d.jpg'
+  '/images/home-header-c.jpg'
 ];
 
 var bgIndex = 0;
