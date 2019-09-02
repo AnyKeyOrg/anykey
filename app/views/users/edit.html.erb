@@ -1,38 +1,49 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="session-box flexbox vertical stretch">
+      
+      <form action="<%= user_path(@user) %>" id="edit_user_<%= @user.id %>" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input name="_method" type="hidden" value="patch" />
+        </div>
+        
+        <div class="title">
+          Edit profile
+        </div>
+        <%= display_alerts %>
+  
+        <div class="item flexbox vertical stretch">
+          <input id="user_email" name="user[email]" class="text-field read-only" type="text" value="<%= @user.email %>" autocomplete="off" tabindex="-1" readonly="true">
+        </div>
+  
+        <div class="item flexbox vertical stretch">
+          <input id="user_username" name="user[username]" class="text-field" type="text" value="<%= @user.username %>" autocomplete="off" tabindex="1">
+        </div>
+  
+        <div class="item flexbox vertical stretch">
+          <input id="user_first_name" name="user[first_name]" class="text-field" type="text" value="<%= @user.first_name %>" autocomplete="off" tabindex="2">
+        </div>
+  
+        <div class="item flexbox vertical stretch">
+          <input id="user_last_name" name="user[last_name]" class="text-field" type="text" value="<%= @user.last_name %>" autocomplete="off" tabindex="3">
+        </div>
 
-<form action="<%= user_path(@user) %>" id="edit_user_<%= @user.id %>" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
-  <div style="hidden">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input name="_method" type="hidden" value="patch" />
-  </div>
+        <div class="item flexbox vertical stretch">
+          <div class="avatar">
+            <%= image_tag(user_image_src(@user, :large), class: "user-avatar", size: "160x160") %>
+          </div>
+          <input id="user_image" name="user[image]" type="file" tabindex="5">
+        </div>
   
-  <div class="item flexbox horizontal center">
-    <input id="user_email" name="user[email]" class="text-field read-only" type="text" value="<%= @user.email %>" autocomplete="off" tabindex="-1" readonly="true">
-  </div>
-  
-  <div class="item flexbox horizontal center">
-    <input id="user_username" name="user[username]" class="text-field" type="text" value="<%= @user.username %>" autocomplete="off" tabindex="1">
-  </div>
-  
-  <div class="item flexbox horizontal center">
-    <input id="user_first_name" name="user[first_name]" class="text-field" type="text" value="<%= @user.first_name %>" autocomplete="off" tabindex="2">
-  </div>
-  
-  <div class="item flexbox horizontal center">
-    <input id="user_last_name" name="user[last_name]" class="text-field" type="text" value="<%= @user.last_name %>" autocomplete="off" tabindex="3">
-  </div>
-
-  <div class="item flexbox vertical end">
-    <div class="avatar">
-      <%= image_tag(user_image_src(@user, :large), class: "user-avatar", size: "240x240") %>
+        <div class="buttons flexbox vertical end">
+        <div class="flexbox horizontal center">
+          <div class="cancel">
+            <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, tabindex: "7") %>
+          </div>
+          <input id="user_submit" name="commit" type="submit" class="button left-padded" value="Update" tabindex="6">
+        </div>  
+      </form>
     </div>
-    <input id="user_image" name="user[image]" type="file" tabindex="5">
   </div>
-  
-  <div class="buttons flexbox vertical end">
-  <div class="flexbox horizontal center">
-    <div class="cancel">
-      <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, :class => "cancel", :tabindex => "7") %>
-    </div>
-    <input id="user_submit" name="commit" type="submit" class="button" value="Update" tabindex="6">
-  </div>  
-</form>
+</div>

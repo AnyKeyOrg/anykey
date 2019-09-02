@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   
   private
     def choose_layout
-      if devise_controller? || controller_name == "staff"
+      if devise_controller? || controller_name == "staff" || controller_name == "users"
         "backstage"
       else
         "application"
