@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_user,             only: [ :edit, :update ]
-  before_action :ensure_owner,          only: [ :edit, :update ]
+  before_action :find_user,             only: [ :edit, :update, :remove_avatar ]
+  before_action :ensure_owner,          only: [ :edit, :update, :remove_avatar ]
   
   def edit
   end
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:notice] = "Successfully updated #{@user.display_name}'s profile."
-      redirect_to staff_index_path
+      redirect_to edit_user_path(@user)
     else
       flash.now[:alert] ||= ""
       @user.errors.full_messages.each do |message|
@@ -17,6 +17,20 @@ class UsersController < ApplicationController
       end
       render(:action => :edit)
     end
+  end
+  
+  def remove_avatar
+    @user.image = nil
+    
+    if @user.save
+      flash[:notice] = "Successfully updated #{@user.display_name}'s profile."
+    else
+      flash.now[:alert] ||= ""
+      @user.errors.full_messages.each do |message|
+        flash.now[:alert] << message + ". "
+      end
+    end
+    redirect_to edit_user_path(@user)
   end
   
   protected

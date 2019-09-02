@@ -2,22 +2,18 @@
   <div class="inner flexbox vertical center">
     <div class="session-box flexbox vertical stretch">
       
-      <form action="<%= user_path(@user) %>" id="edit_user_<%= @user.id %>" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
+      <form action="<%= user_path(@user) %>" id="edit_user_form" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
         <div style="hidden">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input name="_method" type="hidden" value="patch" />
         </div>
-        
         <div class="flexbox horizontal center wrap justify-space-between">
           <div class="title">
             Edit profile
           </div>
-        
           <div class="item flexbox vertical flex-0">
             <div id="editable-avatar" class="flexbox horizontal center">
-              <div class="avatar">
-                <%= image_tag(user_image_src(@user, :small), class: "user-avatar", size: "120x120") %>                
-              </div>
+              <%= image_tag(user_image_src(@user, :small), class: "user-avatar", size: "120x120") %>
               <div id="avatar-overlay" style="display:none">
                 <div class="action">
                   Change Image
@@ -25,11 +21,11 @@
                 <div id="edit-avatar-container" class="flexbox vertical center" style="display:none">
                   <div class="outer-caret"></div>
                   <div class="inner-caret"></div>
-                  <div class="edit-avatar flexbox vertical stretch">                    
+                  <div class="edit-avatar flexbox vertical stretch">
                     <input id="user_image" name="user[image]" type="file" class="edit-avatar-upload" tabindex="2">
                     <label for="user_image">Upload</label>   
                     <% unless @user.image.nil? %>
-                    <%= link_to("Remove", "", method: :post, class: "menu-item") %>
+                    <%= link_to("Remove", remove_avatar_path(@user), method: :post, class: "menu-item") %>
                     <%= link_to("Show Original", @user.image_url(:original), target: :blank, class: "menu-item") %>
                     <% end %>
                   </div>
@@ -59,10 +55,11 @@
 
   
         <div class="buttons flexbox vertical end">
-        <div class="flexbox horizontal center">
-          <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, class: "stealth", tabindex: "7") %>
-          <input id="user_submit" name="commit" type="submit" class="button left-padded" value="Update" tabindex="6">
-        </div>  
+          <div class="flexbox horizontal center">
+            <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, class: "stealth", tabindex: "7") %>
+            <input id="user_submit" name="commit" type="submit" class="button left-padded" value="Update" tabindex="6">
+          </div>  
+        </div>
       </form>
     </div>
   </div>

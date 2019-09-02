@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     # Authenticated users only
     resources :staff,       only: [ :index ]
     resources :users,       only: [ :edit, :update ]
+    post '/users/:id/remove_avatar', to: 'users#remove_avatar', as: :remove_avatar
+    
   end
     
 end

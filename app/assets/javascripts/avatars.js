@@ -48,7 +48,7 @@ function setupAvatarUploadListener() {
   	input.addEventListener( 'change', function( e )
   	{
   		if( e.target.value )
-        $("form#edit_avatar_form").submit();
+        $("form#edit_user_form").submit();
   	});
   });
 }

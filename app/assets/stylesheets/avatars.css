@@ -59,7 +59,7 @@
 
 #edit-avatar-container .edit-avatar a.menu-item,
 .edit-avatar input.edit-avatar-upload + label {
-  padding: 0.75em;
+  padding: 0.75em 1em 0.75em 1em;
   margin-left: 0em;
   margin-right: 0em;
   font-size: 0.7em;
