@@ -28,7 +28,7 @@ class User < ApplicationRecord
   def display_name
     if !self.username.blank?
       return self.username
-    elsif !self.friend_name.blank?
+    elsif !self.friendo_name.blank?
       return self.friendo_name
     else
       return self.email
