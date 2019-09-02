@@ -1,0 +1,97 @@
+/**********************************************/
+/*          Avatar on Page Editing            */
+/**********************************************/
+
+#editable-avatar {
+  position: relative;
+}
+
+#editable-avatar #avatar-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--transparent-overlay);
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+#editable-avatar #avatar-overlay .action {
+  background-color: var(--white-overlay);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.7em;
+  text-align: center;
+  color: var(--white-color);
+  padding: 0.8em 1em 0.8em 1em;
+}
+
+#edit-avatar-container {
+  position: absolute;
+  width: 100%;
+}
+
+#edit-avatar-container .outer-caret {
+  width: 0px;
+  height: 0px;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid var(--light-black-color);
+}
+
+#edit-avatar-container .inner-caret {
+  width: 0px;
+  height: 0px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--white-color);
+  z-index: 100;
+  margin-top: -10px;
+  margin-bottom: -4px;
+}
+
+#edit-avatar-container .edit-avatar {
+  background-color: var(--white-color);
+  border: 3px solid var(--light-black-color);
+}
+
+#edit-avatar-container .edit-avatar a.menu-item,
+.edit-avatar input.edit-avatar-upload + label {
+  padding: 0.75em;
+  margin-left: 0em;
+  margin-right: 0em;
+  font-size: 0.7em;
+  font-family: var(--body-font);
+  color: var(--black-color);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+#edit-avatar-container .edit-avatar a.menu-item:link,
+#edit-avatar-container .edit-avatar a.menu-item:visited {
+  color: var(--black-color);
+}
+
+#edit-avatar-container .edit-avatar a.menu-item:hover,
+.edit-avatar input.edit-avatar-upload:focus + label,
+.edit-avatar input.edit-avatar-upload + label:hover  {
+  background-color: var(--bright-orange-color);
+  color: var(--white-color);
+}
+
+#edit-avatar-container .edit-avatar a.menu-item:active {
+  background-color: var(--bright-blue-color);
+  color: var(--white-color);
+}
+
+.edit-avatar input.edit-avatar-upload {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}

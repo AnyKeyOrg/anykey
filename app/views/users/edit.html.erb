@@ -8,10 +8,36 @@
           <input name="_method" type="hidden" value="patch" />
         </div>
         
-        <div class="title">
-          Edit profile
+        <div class="flexbox horizontal center wrap justify-space-between">
+          <div class="title">
+            Edit profile
+          </div>
+        
+          <div class="item flexbox vertical flex-0">
+            <div id="editable-avatar" class="flexbox horizontal center">
+              <div class="avatar">
+                <%= image_tag(user_image_src(@user, :small), class: "user-avatar", size: "120x120") %>                
+              </div>
+              <div id="avatar-overlay" style="display:none">
+                <div class="action">
+                  Change Image
+                </div>
+                <div id="edit-avatar-container" class="flexbox vertical center" style="display:none">
+                  <div class="outer-caret"></div>
+                  <div class="inner-caret"></div>
+                  <div class="edit-avatar flexbox vertical stretch">                    
+                    <input id="user_image" name="user[image]" type="file" class="edit-avatar-upload" tabindex="2">
+                    <label for="user_image">Upload</label>   
+                    <% unless @user.image.nil? %>
+                    <%= link_to("Remove", "", method: :post, class: "menu-item") %>
+                    <%= link_to("Show Original", @user.image_url(:original), target: :blank, class: "menu-item") %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <%= display_alerts %>
   
         <div class="item flexbox vertical stretch">
           <input id="user_email" name="user[email]" class="text-field read-only" type="text" value="<%= @user.email %>" autocomplete="off" tabindex="-1" readonly="true">
@@ -29,18 +55,12 @@
           <input id="user_last_name" name="user[last_name]" class="text-field" type="text" value="<%= @user.last_name %>" autocomplete="off" tabindex="3">
         </div>
 
-        <div class="item flexbox vertical stretch">
-          <div class="avatar">
-            <%= image_tag(user_image_src(@user, :small), class: "user-avatar", size: "160x160") %>
-          </div>
-          <input id="user_image" name="user[image]" type="file" tabindex="5">
-        </div>
+        <%= display_alerts %>
+
   
         <div class="buttons flexbox vertical end">
         <div class="flexbox horizontal center">
-          <div class="cancel">
-            <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, tabindex: "7") %>
-          </div>
+          <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, class: "stealth", tabindex: "7") %>
           <input id="user_submit" name="commit" type="submit" class="button left-padded" value="Update" tabindex="6">
         </div>  
       </form>
