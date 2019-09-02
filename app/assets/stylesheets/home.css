@@ -53,9 +53,9 @@
 
 @media (max-width:22em) {
   #home .page-header .title .line-a {
-    font-size: 1.6em;
+    font-size: 1.5em;
   }
   #home .page-header .title .line-b {
-    font-size: 1.05em;
+    font-size: 1.0em;
   }
 }
