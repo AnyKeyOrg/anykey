@@ -2,9 +2,37 @@
 /*        Home Page Header          */
 /************************************/
 
-#home .page-header {
-  background: url('/images/home-header-a.jpg') 50% center no-repeat;
+@keyframes anime {
+  0%   { opacity: 1; }
+  30%  { opacity: 1; }
+  33%  { opacity: 0; }
+  97%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#home .page-header .background:nth-of-type(1) {
+  background-image: url('/images/home-header-c.jpg');
+  animation-delay: 11s;
+}
+#home .page-header .background:nth-of-type(2) {
+  background-image: url('/images/home-header-b.jpg');
+  animation-delay: 5.5s;
+}
+#home .page-header .background:nth-of-type(3) {
+  background-image: url('/images/home-header-a.jpg');
+  animation-delay: 0s;
+}
+
+#home .page-header .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  animation: anime 16.5s linear infinite 0s;
+  color: transparent;  
+  backface-visibility: hidden;
   background-size: cover;
+  background-position: center center;
 }
 
 #home .page-header .title {

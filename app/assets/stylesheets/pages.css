@@ -3,6 +3,7 @@
 /************************************/
 
 .page-header {
+  position: relative;
   margin-top: 5px;
   width: 100%;
   height: 500px;
