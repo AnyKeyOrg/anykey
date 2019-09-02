@@ -71,6 +71,11 @@ input:-webkit-autofill:active  {
   color: var(--white-color);
 }
 
+#backstage-container .flash#notice {
+  position: relative;
+  margin-bottom: -2em;
+}
+
 @media (max-width:48em) {
   .flash#notice {
     border: 3px solid var(--white-color);

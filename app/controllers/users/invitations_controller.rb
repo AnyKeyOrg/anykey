@@ -3,7 +3,7 @@ class Users::InvitationsController < Devise::InvitationsController
   before_action :ensure_admin, only: [ :new, :create ]
 
   def after_invite_path_for(user)
-    users_path
+    staff_index_path
   end
   
   def after_accept_path_for(user)
