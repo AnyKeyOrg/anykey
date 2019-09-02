@@ -4,6 +4,7 @@ class StaffController < ApplicationController
   before_action :ensure_staff
   
   def index
+    @user = current_user
   end
   
   private
