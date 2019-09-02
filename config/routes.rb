@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
 
     # get '/admin' => 'admin#index', :as => :admin
-    resources :admin,      only: [ :index ]
+    resources :staff,      only: [ :index ]
 
   end
     
