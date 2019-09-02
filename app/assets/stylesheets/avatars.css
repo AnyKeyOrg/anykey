@@ -4,6 +4,7 @@
 
 #editable-avatar {
   position: relative;
+  margin-bottom: 1.5em;
 }
 
 #editable-avatar #avatar-overlay {

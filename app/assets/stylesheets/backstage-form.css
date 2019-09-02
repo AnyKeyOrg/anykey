@@ -25,6 +25,10 @@
   margin-top: 0.5em;
 }
 
+#backstage-container form label.text-field.read-only {
+  color: var(--light-gray-color);
+}
+
 #backstage-container form input.text-field {
   color: var(--black-color);
   background: var(--white-color);
@@ -43,6 +47,15 @@
 
 #backstage-container form input.text-field:focus {
   border-bottom: 4px solid var(--bright-blue-color);
+}
+
+#backstage-container form input.read-only.text-field {
+  color: var(--gray-color);
+  border-bottom: 4px solid var(--light-gray-color);
+}
+
+#backstage-container form input.read-only.text-field:hover {
+  border-bottom: 4px solid var(--light-gray-color);
 }
 
 #backstage-container form label.checkbox {
