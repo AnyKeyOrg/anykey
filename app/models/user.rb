@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   
   IMAGE_STYLES = {
-     thumb:     { resize: "120x120",  size: "120x120" }
+     thumb:     { resize: "120x120#",  size: "120x120" },
+     small:     { resize: "160x160#",  size: "160x160" }
    }.freeze
   
   # Include selected devise modules. Others available are:
@@ -47,8 +48,8 @@ class User < ApplicationRecord
   end
   
   private
-    def process_image(style) 
-      self.image.process(:auto_orient).thumb(Report::IMAGE_STYLES[style][:resize])
+    def process_image(style)
+      self.image.process(:auto_orient).thumb(User::IMAGE_STYLES[style][:resize])
     end
          
 end
