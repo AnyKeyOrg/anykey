@@ -1,16 +1,26 @@
-<h2><%= t "devise.invitations.new.header" %></h2>
-
-<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <% resource.class.invite_key_fields.each do |field| -%>
-    <div class="field">
-      <%= f.label field %><br />
-      <%= f.text_field field %>
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="session-box flexbox vertical stretch">
+      <form action="<%= user_invitation_path %>" id="new_user" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">      
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div>
+        <div class="title">
+          Invite staff
+        </div>
+        <% devise_error_messages! %>
+        <%= display_alerts %>
+        <div class="item flexbox vertical stretch">
+          <input id="user_email" name="user[email]" class="text-field" type="text" value="<%= @user.email %>" autocomplete="off" tabindex="1" autofocus> 
+          <label for="user_email" class="text-field">Email</label> 
+        </div>
+        <div class="last-item flexbox horizontal vertical end flex-1">
+          <div class="flexbox horizontal center">
+            <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, tabindex: "3") %>
+            <input id="user_invitation_submit" name="commit" type="submit" class="button" value="Send" tabindex="2">
+          </div>
+        </div>
+      </form>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit t("devise.invitations.new.submit_button") %>
   </div>
-<% end %>
+</div>
