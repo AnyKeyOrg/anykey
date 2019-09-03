@@ -7,6 +7,9 @@ class StaffController < ApplicationController
     @user = current_user
   end
   
+  def reports
+  end
+  
   private
     def ensure_staff
       unless current_user.is_moderator? || current_user.is_admin?

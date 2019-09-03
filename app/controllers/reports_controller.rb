@@ -1,11 +1,7 @@
 class ReportsController < ApplicationController
   
-  before_action :authenticate_user!,    only: [ :index ]
   around_action :adjust_timezone,       only: [ :create ]
-  
-  def index
-  end
-  
+    
   def new
     @report = Report.new
   end
