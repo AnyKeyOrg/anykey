@@ -1,7 +1,6 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
     <div class="session-box flexbox vertical stretch">
-      
       <form action="<%= user_path(@user) %>" id="edit_user_form" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
         <div style="hidden">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -34,7 +33,6 @@
             </div>
           </div>
         </div>
-  
         <div class="item flexbox vertical stretch">
           <input id="user_email" name="user[email]" class="text-field read-only" type="text" value="<%= @user.email %>" autocomplete="off" tabindex="-1" readonly="true">
           <label for="user_email" class="text-field read-only">Email</label> 
@@ -51,9 +49,7 @@
           <input id="user_last_name" name="user[last_name]" class="text-field" type="text" value="<%= @user.last_name %>" autocomplete="off" tabindex="3">
           <label for="user_last_name" class="text-field">Last Name</label>
         </div>
-
         <%= display_alerts %>
-
         <div class="buttons flexbox vertical end">
           <div class="flexbox horizontal center">
             <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, class: "stealth", tabindex: "7") %>

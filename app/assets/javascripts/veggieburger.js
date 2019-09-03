@@ -1,6 +1,11 @@
+/* 
+ * Shows and hides dropdown menu
+ * when veggieburger icon in header
+ * is clicked.
+ */
+
 var veggieBurgerMenuVisible = false;
 
-/* Show/hide dropdown menu when clicking veggieburger icon */
 function setupVeggieBurgerMenuToggle() {
   $("#veggieburger").click(function() {
     if (!veggieBurgerMenuVisible) {

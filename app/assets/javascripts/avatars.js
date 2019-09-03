@@ -1,3 +1,9 @@
+/*
+ * Shows, hides and handles input from
+ * avatar upload function for user profiles.
+ */
+
+
 var avatarMenuVisible = false;
 
 function setupAvatarOverlay() { 
@@ -41,13 +47,11 @@ function setupAvatarMenuHide() {
 }
 
 function setupAvatarUploadListener() { 
-  var inputs = document.querySelectorAll( '.edit-avatar-upload' );
+  var inputs = document.querySelectorAll('.edit-avatar-upload');
 
-  Array.prototype.forEach.call( inputs, function( input )
-  {
-  	input.addEventListener( 'change', function( e )
-  	{
-  		if( e.target.value )
+  Array.prototype.forEach.call(inputs, function(input) {
+  	input.addEventListener('change', function(e) {
+  		if(e.target.value)
         $("form#edit_user_form").submit();
   	});
   });

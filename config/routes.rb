@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :resources,   only: [ :index ]
     resources :stories,     only: [ :index ]
     resources :reports,     only: [ :new, :create ], path: :report
+    resources :reports,     only: [ :index ]
     
     # Authenticated users only
     resources :staff,       only: [ :index ]
