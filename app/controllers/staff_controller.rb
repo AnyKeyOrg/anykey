@@ -7,7 +7,6 @@ class StaffController < ApplicationController
   
   
   def index
-    @user = current_user
   end
   
   def reports
@@ -63,13 +62,10 @@ class StaffController < ApplicationController
       flash[:notice] = "You undismissed the report about #{@report.reported_twitch_name}. It can now be reviewed again."
       redirect_to staff_reports_path
     else
-    
       flash.now[:alert] ||= ""
       @report.errors.full_messages.each do |m|
         flash.now[:alert] << m + ". "
-      end
-      Rails.logger.info("something has gone wrong")
-      
+      end      
        Rails.logger.info(flash.now[:alert])
       redirect_to staff_reports_path
     end

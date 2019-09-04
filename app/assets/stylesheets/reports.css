@@ -65,8 +65,8 @@
 
 #report-screenshot #screenshot-overlay .action {
   background-color: var(--white-overlay);
-  font-family: var(--body-font);
-  font-weight: 500;
+  font-family: var(--alt-title-font);
+  font-weight: 400;
   font-size: 0.7em;
   text-align: center;
   color: var(--white-color);
@@ -143,6 +143,7 @@
 #backstage-container .report-buttons .button::-moz-focus-inner {
   border: 0 !important;
 }
+
 
 /***********************************/
 /*         Responsiveness          */

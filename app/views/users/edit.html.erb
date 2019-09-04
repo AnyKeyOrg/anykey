@@ -12,7 +12,7 @@
           </div>
           <div class="item flexbox vertical flex-0">
             <div id="editable-avatar" class="flexbox horizontal center">
-              <%= image_tag(user_image_src(@user, :thumb), class: "user-avatar") %>
+              <%= image_tag(user_image_src(@user, :thumb), size: "120x120", class: "user-avatar") %>
               <div id="avatar-overlay" style="display:none">
                 <div class="action">
                   Change Image

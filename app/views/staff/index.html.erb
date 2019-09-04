@@ -3,7 +3,7 @@
     <div class="control-panel flexbox vertical start">
       <div class="panel-title">Staff dashboard</div>
       <div class="panel-menu flexbox horizontal center wrap">
-        <%= link_to("Edit profile", edit_user_path(@user, back: request.fullpath), class: "stealth") %>
+        <%= link_to("Edit profile", edit_user_path(current_user, back: request.fullpath), class: "stealth") %>
         <%= link_to("Invite staff", new_user_invitation_path(back: request.fullpath), class: "stealth") %>
         <%= link_to("View reports", staff_reports_path, class: "stealth") %>
         <%= link_to("Logout", destroy_user_session_path, method: :delete, class: "stealth last") %>

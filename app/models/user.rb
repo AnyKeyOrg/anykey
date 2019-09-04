@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   
   IMAGE_STYLES = {
+     tiny:      { resize: "28x28#" },
      thumb:     { resize: "120x120#" }
    }.freeze
   

@@ -21,7 +21,7 @@
 
 #editable-avatar #avatar-overlay .action {
   background-color: var(--white-overlay);
-  font-family: var(--body-font);
+  font-family: var(--alt-title-font);
   font-weight: 400;
   font-size: 0.7em;
   text-align: center;
@@ -64,7 +64,7 @@
   margin-left: 0em;
   margin-right: 0em;
   font-size: 0.7em;
-  font-family: var(--body-font);
+  font-family: var(--alt-title-font);
   color: var(--black-color);
   text-decoration: none;
   text-align: center;
@@ -79,7 +79,7 @@
 #edit-avatar-container .edit-avatar a.menu-item:hover,
 .edit-avatar input.edit-avatar-upload:focus + label,
 .edit-avatar input.edit-avatar-upload + label:hover  {
-  background-color: var(--bright-orange-color);
+  background-color: var(--orange-overlay);
   color: var(--white-color);
 }
 

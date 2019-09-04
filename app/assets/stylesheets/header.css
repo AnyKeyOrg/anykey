@@ -90,6 +90,10 @@
   margin-left: 1.75em;
 }
 
+#header-content a.item.selected,
+#header-content a.item:hover,
+#veggieburger-menu a.selected,
+#veggieburger-menu a:hover,
 #header-content a.item.selected.pledge,
 #header-content a.item.pledge:hover,
 #veggieburger-menu a.selected.pledge,
@@ -121,6 +125,96 @@
   margin-bottom: -2px;
   border-bottom: 2px solid var(--bright-fuchsia-color);
 }
+
+#header-content #header-avatar-container {
+  width: 28px;
+  height: 28px;
+  margin-right: 2em;
+}
+
+#header-content #header-avatar-container:hover {
+  cursor: pointer;
+}
+
+#header-content img.header-avatar {
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+}
+
+#header-content #dropdown-container {
+  position: relative;
+  top: 0px;
+  right: -3px;
+}
+
+#header-content #dropdown-container .outer-caret {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 0px;
+  height: 0px;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 18px solid var(--black-color);
+}
+
+#header-content #dropdown-container .inner-caret {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 4px;
+  right: 4px;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid var(--white-color);
+  z-index: 100;
+}
+
+#header-content #dropdown-container .dropdown-menu {
+  position: relative;
+  top: 14px;
+  right: -14px;
+  background-color: var(--white-color);
+  border: 3px solid var(--black-color);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+#header-content #dropdown-container .dropdown-menu a.menu-item {
+  padding: 1em 1em 1em 1em;
+  margin-left: 0em;
+  margin-right: 0em;
+  font-size: 0.8em;
+  font-family: var(--alt-title-font);
+  font-weight: 500;
+  color: var(--black-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#header-content #dropdown-container .dropdown-menu a.menu-item:link,
+#header-content #dropdown-container .dropdown-menu a.menu-item:visited {
+  color: var(--black-color);
+}
+
+#header-content #dropdown-container .dropdown-menu a.menu-item:hover {
+  background-color: var(--orange-overlay);
+  color: var(--white-color);
+}
+
+#header-content #dropdown-container .dropdown-menu a.menu-item:active {
+  background-color: var(--bright-blue-color);
+  color: var(--white-color);
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
 
 @media (max-width:34em) {  
   #header-content #full-menu {
