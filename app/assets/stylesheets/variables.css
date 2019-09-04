@@ -7,7 +7,8 @@
   --light-black-color:      #2E2230;
   --gray-color:             #84848C;
   --light-gray-color:       #D0CED1;
-  --dark-white-color:       #F2F2F2;
+  --dark-white-color:       #F3F2F3;
+  --medium-white-color:     #FDFCFD;
   --white-color:            #FFFFFF;
                             
   --bright-green-color:     #2FC872;
@@ -23,4 +24,6 @@
                             
   --transparent-overlay:    rgba(22,9,25,0.6);
   --white-overlay:          rgba(255,255,255,0.6);
+  --orange-overlay:         rgba(245,144,44,0.6);
+
 }

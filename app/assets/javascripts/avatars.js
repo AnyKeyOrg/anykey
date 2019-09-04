@@ -3,7 +3,6 @@
  * avatar upload function for user profiles.
  */
 
-
 var avatarMenuVisible = false;
 
 function setupAvatarOverlay() { 

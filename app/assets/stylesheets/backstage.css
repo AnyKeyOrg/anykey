@@ -10,20 +10,24 @@
 }
 
 #backstage-container .control-panel {
-  width: 48em;
+  max-width: 54em;
+  width: 100%;
   background: #ffffff;
   padding: 2em 3em 2em 3em;
   border: solid 5px var(--black-color);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
-#backstage-container .control-panel .title {
+#backstage-container .panel-title {
   font-family: var(--title-font);
   font-weight: 500;
   font-size: 2em;
   margin-bottom: 0.2em;
 }
 
-#backstage-container .control-panel .main-menu a {
+#backstage-container .panel-menu a {
   font-family: var(--body-font);
   font-weight: 400;
   font-size: 1em;
@@ -31,24 +35,49 @@
   margin-right: 2em;
 }
 
-#backstage-container .control-panel .main-menu a.last {
-  margin-right: 0em;
+#backstage-container .panel-filters {
+  font-size: 0.75em;
+  font-weight: 500;
+  color: var(--gray-color);
 }
+
+#backstage-container .panel-filters a {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#backstage-container .panel-filters a.selected {
+  font-weight: 700;
+  color: var(--light-black-color); 
+}
+
+#backstage-container .panel-filters a:hover {
+  color: var(--bright-orange-color);
+}
+
+
+
 
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
 
-@media (max-width:56em) {
+@media (max-width:60em) {
   #backstage-container .control-panel {
-    width: auto;
-    padding: 2em 2em 2em 2em;
+    max-width: none;
+    min-width: 30em;
   }
 }
 
 @media (max-width:34em) {
-  #backstage-container .session-boxl {
+  #backstage-container .session-box {
     width: auto;
+    padding: 2em 2em 2em 2em;
+  }
+  
+  #backstage-container .control-panel {
+    min-width: 16em;
     padding: 2em 2em 2em 2em;
   }
 }
