@@ -47,6 +47,40 @@
 /************************************/
 /*     Backstage Report Review      */
 /************************************/
+#report-screenshot {
+  position: relative;
+}
+
+#report-screenshot #screenshot-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--transparent-overlay);
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+#report-screenshot #screenshot-overlay .action {
+  background-color: var(--white-overlay);
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 0.7em;
+  text-align: center;
+  color: var(--white-color);
+  padding: 0.8em 1em 0.8em 1em;
+}
+
+
+
+
+
+
+
+
+
 
 #backstage-container .report-item {
   margin-top: 1.25em;
@@ -79,7 +113,6 @@
   margin-top: 2em;
   margin-right: 2em;
 }
-
 
 #backstage-container .button.dismiss-button {
   background-color: var(--bright-green-color);

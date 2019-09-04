@@ -22,20 +22,30 @@
             <div class="item-title">Date &amp; Time of Incident</div>
             <div class="item-text small"><%= l(@report.incident_occurred, format: "%b. %-d, %Y · %-l:%M%P") %></div>
           </div>
-          <div class="report-item flexbox vertical stretch">
-            <div class="item-title">Incident Description</div>
-            <div class="item-text small"><%= @report.incident_description %></div>
-          </div>
-          <div class="report-item flexbox vertical stretch">
-            <div class="item-title">Reporter's Recommended Response</div>
-            <div class="item-text small"><%= @report.recommended_response.blank? ? '-' : @report.recommended_response %></div>
-          </div>
         </div>
         <div class="report-item flexbox vertical stretch">
-          <div class="item-title">Screenshot</div>
-          <%= image_tag(report_image_src(@report, :preview)) %>
+          <div id="report-screenshot" class="flexbox horizontal center" data-url="<%= @report.image_url(:original) %>">
+            <%= image_tag(report_image_src(@report, :preview)) %>
+            <div id="screenshot-overlay" style="display:none">
+              <div class="action">
+                Show Original
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
+      
+      <div class="report-item flexbox vertical stretch">
+        <div class="item-title">Incident Description</div>
+        <div class="item-text small"><%= @report.incident_description %></div>
+      </div>
+      <div class="report-item flexbox vertical stretch">
+        <div class="item-title">Reporter's Recommended Response</div>
+        <div class="item-text small"><%= @report.recommended_response.blank? ? '-' : @report.recommended_response %></div>
+      </div>
+      
+      
       <div class="report-buttons flexbox horizontal center wrap">
         <%= link_to("Dismiss", "", class: 'dismiss-button button') %>
         <%= link_to("Warn", "", class: 'warn-button button') %>
