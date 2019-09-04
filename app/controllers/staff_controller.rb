@@ -31,15 +31,18 @@ class StaffController < ApplicationController
     reported_twitch_user = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
     
     if reported_twitch_user["users"].empty?
-      # That twitch user doesn't exist
-      Rails.logger.info("# That twitch user doesn't exist")    
+      @message = "The reported Twitch user does not exist."
+      @actionable = false
     elsif pledge = Pledge.find_by(twitch_id: reported_twitch_user["users"][0]["_id"])
-      # That twitch user signed our pledge as pledge.twitch_username    
-      Rails.logger.info("# That twitch user signed our pledge as: " + pledge.twitch_display_name)    
+      @message = "The reported Twitch user signed the pledge as " + pledge.twitch_display_name + " on " + pledge.signed_on.strftime('%b. %-d, %Y.')
+      @actionable = true
     else
-      # That twitch user didn't sign our pledge
-      Rails.logger.info("# That twitch user didn't sign our pledge")
-    end    
+      @message = "The reported Twitch user did not sign the pledge."
+      @actionable = false
+    end
+    
+    
+    
   end
   
   protected

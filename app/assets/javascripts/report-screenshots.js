@@ -16,7 +16,6 @@ function setupScreenshotOverlay() {
     e.preventDefault();
     window.open($(this).data('url'), "_blank");
   });
-  
 }
 
 $(document).ready(function() {

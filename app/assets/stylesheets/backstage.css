@@ -87,4 +87,8 @@
     min-width: 16em;
     padding: 2em 2em 2em 2em;
   }
+  
+  #backstage-container .panel-descriptor {
+    text-align: left;
+  }
 }

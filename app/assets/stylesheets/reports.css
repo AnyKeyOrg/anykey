@@ -73,15 +73,6 @@
   padding: 0.8em 1em 0.8em 1em;
 }
 
-
-
-
-
-
-
-
-
-
 #backstage-container .report-item {
   margin-top: 1.25em;
 }
@@ -100,7 +91,20 @@
   font-size: 0.9em;
 }
 
-#backstage-container .button {
+#backstage-container hr.report-spacer {
+  background-color: var(--black-color);
+  border: none;
+  height: 4px;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+#backstage-container .report-buttons {
+  margin-top: 2em;
+}
+
+#backstage-container .report-buttons .button {
   border: 4px solid var(--light-black-color);
   color: var(--white-color);
   font-family: var(--title-font);
@@ -110,35 +114,51 @@
   text-transform: uppercase;
   text-align: center;
   min-width: 4.5em;
-  margin-top: 2em;
-  margin-right: 2em;
+  margin-left: 2em;
 }
 
-#backstage-container .button.dismiss-button {
+#backstage-container .report-buttons .button.dismiss-button {
   background-color: var(--bright-green-color);
 }
 
-#backstage-container .button.warn-button {
+#backstage-container .report-buttons .button.warn-button {
   background-color: var(--bright-orange-color);
 }
 
-#backstage-container .button.revoke-button {
+#backstage-container .report-buttons .button.revoke-button {
   background-color: var(--alert-red-color);
 }
 
-#backstage-container .button:hover {
+#backstage-container .report-buttons .button:hover {
   cursor: pointer;
   background-color: var(--bright-blue-color);
 }
 
-#backstage-container .button:focus {
+#backstage-container .report-buttons .button:focus {
   cursor: pointer;
   background-color: var(--bright-blue-color);  
   outline: none;
 }
 
-#backstage-container .dismiss-button::-moz-focus-inner {
+#backstage-container .report-buttons .button::-moz-focus-inner {
   border: 0 !important;
 }
 
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
 
+@media (max-width:46em) {
+  #backstage-container .report-buttons .button {
+    width: 100%;
+    margin-left: 0em;
+    margin-top: 2em;
+  }
+  
+  #backstage-container .report-buttons a.stealth {
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid var(--bright-green-color);
+    margin-bottom: -2px;
+  }
+}

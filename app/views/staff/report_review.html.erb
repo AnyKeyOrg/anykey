@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="report-item flexbox vertical stretch">
-          <div id="report-screenshot" class="flexbox horizontal center" data-url="<%= @report.image_url(:original) %>">
+          <div id="report-screenshot" class="flexbox horizontal center" data-url="<%= report_image_src(@report, :original) %>">
             <%= image_tag(report_image_src(@report, :preview)) %>
             <div id="screenshot-overlay" style="display:none">
               <div class="action">
@@ -32,10 +32,8 @@
               </div>
             </div>
           </div>
-          
         </div>
       </div>
-      
       <div class="report-item flexbox vertical stretch">
         <div class="item-title">Incident Description</div>
         <div class="item-text small"><%= @report.incident_description %></div>
@@ -44,17 +42,20 @@
         <div class="item-title">Reporter's Recommended Response</div>
         <div class="item-text small"><%= @report.recommended_response.blank? ? '-' : @report.recommended_response %></div>
       </div>
+      <div class="report-facts flexbox vertical stretch">
+        <hr class="report-spacer">
+        Keybot says: <%= @message %>
+      </div>  
       
       
-      <div class="report-buttons flexbox horizontal center wrap">
-        <%= link_to("Dismiss", "", class: 'dismiss-button button') %>
-        <%= link_to("Warn", "", class: 'warn-button button') %>
+      <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
+        <% if @actionable %>
         <%= link_to("Revoke", "", class: 'revoke-button button') %>
-        
+        <%= link_to("Warn", "", class: 'warn-button button') %>
+        <% end %>
+        <%= link_to("Dismiss", "", class: 'dismiss-button button') %>
+        <%= link_to('cancel', staff_reports_path, class: "stealth" ) %>
       </div>
-
-            
-        
     </div>
   </div>
 </div>
