@@ -12,11 +12,11 @@
         <div class="flexbox vertical">
           <div class="report-item flexbox vertical stretch">
             <div class="item-title">Reported Twitch Username</div>
-            <div class="item-text"><%= @report.reported_twitch_name %></div>
+            <div class="item-text"><%= link_to(@report.reported_twitch_name, "https://twitch.tv/#{@report.reported_twitch_name}", class: "inline", target: "blank") %></div>
           </div>
           <div class="report-item flexbox vertical stretch">
             <div class="item-title">Stream Where Incident Occurred</div>
-            <div class="item-text"><%= @report.incident_stream %></div>
+            <div class="item-text"><%= link_to(@report.incident_stream, "https://twitch.tv/#{@report.incident_stream}", class: "inline", target: "blank") %></div>
           </div>
           <div class="report-item flexbox vertical stretch">
             <div class="item-title">Date &amp; Time of Incident</div>
@@ -46,8 +46,6 @@
         <hr class="report-spacer">
         Keybot says: <%= @message %>
       </div>  
-      
-      
       <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
         <% if @actionable %>
         <%= link_to("Revoke", "", class: 'revoke-button button') %>

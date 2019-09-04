@@ -20,9 +20,6 @@ class StaffController < ApplicationController
       @reports = Report.all.order(created_at: :desc)
       @filter_category = "all"
     end
-    
-    
-    
   end
   
   def report_review
@@ -41,8 +38,7 @@ class StaffController < ApplicationController
       @actionable = false
     end
     
-    
-    
+    # TODO: check is reporter has pledged (lookup email/Twitch name)
   end
   
   protected
