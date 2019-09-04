@@ -60,7 +60,8 @@ class PledgesController < ApplicationController
           redirect_to root_url
         end
         
-        # Request an access token from Twitch        
+        # Request an access token from Twitch
+        # TODO: change redirect URL to anykey.org  
         response = HTTParty.post(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&code=#{params[:code]}&grant_type=authorization_code&redirect_uri=http://localhost:9292/pledge"))
 
         # Use token to view Twitch credentials and store for validation
