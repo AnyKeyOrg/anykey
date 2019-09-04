@@ -8,7 +8,7 @@ class CreateReports < ActiveRecord::Migration[6.0]
       t.string :incident_stream
       t.datetime :incident_occurred
       t.text :incident_description
-      t.text :desired_outcome
+      t.text :recommended_response
 
       t.timestamps
     end

@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
 
   private
     def report_params
-      params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reported_twitch_name, :incident_stream, :incident_occurred, :timezone, :incident_description, :desired_outcome, :image)
+      params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reported_twitch_name, :incident_stream, :incident_occurred, :timezone, :incident_description, :recommended_response, :image)
     end
     
     def adjust_timezone

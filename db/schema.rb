@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_034714) do
+ActiveRecord::Schema.define(version: 2019_09_04_053235) do
 
   create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_034714) do
     t.string "incident_stream"
     t.datetime "incident_occurred"
     t.text "incident_description"
-    t.text "desired_outcome"
+    t.text "recommended_response"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "timezone"

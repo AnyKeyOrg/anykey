@@ -1,7 +1,46 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
-    <div class="control-panel flexbox vertical start">
-      I am the report review for report #<%= @report.id %>.
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Report Review</div>
+        <div class="panel-descriptor">
+          Filed on <%= l(@report.created_at, format: "%b. %-d, %Y · %-l:%M%P").upcase %><br>
+          by <%= @report.reporter_email %> <%= @report.reporter_twitch_name.blank? ? '' : '('+@report.reporter_twitch_name+')'%>
+        </div>
+      </div>
+      
+      <div class="flexbox horizontal end wrap-reverse justify-space-between">
+        <div class="flexbox vertical">
+          <div class="report-item flexbox vertical stretch">
+            <div class="item-title">Reported Twitch Username</div>
+            <div class="item-text"><%= @report.reported_twitch_name %></div>
+          </div>
+          <div class="report-item flexbox vertical stretch">
+            <div class="item-title">Stream Where Incident Occurred</div>
+            <div class="item-text"><%= @report.incident_stream %></div>
+          </div>
+          <div class="report-item flexbox vertical stretch">
+            <div class="item-title">Date &amp; Time of Incident</div>
+            <div class="item-text"><%= l(@report.incident_occurred, format: "%b. %-d, %Y · %-l:%M%P") %></div>
+          </div>
+          <div class="report-item flexbox vertical stretch">
+            <div class="item-title">Incident Description</div>
+            <div class="item-text small"><%= @report.incident_description %></div>
+          </div>
+          <div class="report-item flexbox vertical stretch">
+            <div class="item-title">Reporter's Recommended Response</div>
+            <div class="item-text small"><%= @report.recommended_response.blank? ? '-' : @report.recommended_response %></div>
+          </div>
+        </div>
+        <div class="report-item flexbox vertical stretch">
+          <div class="item-title">Screenshot</div>
+          <%= image_tag(report_image_src(@report, :preview)) %>
+        </div>
+      </div>
+      
+
+            
+        
     </div>
   </div>
 </div>

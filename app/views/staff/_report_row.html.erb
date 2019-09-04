@@ -1,6 +1,6 @@
 <div class="report-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= staff_report_review_path(report) %>">
   <div class="flexbox horizontal center wrap justify-space-between">
     <div class="row-title"><%= report.reported_twitch_name %></div>
-    <div class="row-detail"><%= l(report.created_at, format: "%-m/%-d/%Y at %-l:%M%P") %></div>
+    <div class="row-detail"><%= l(report.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %></div>
   </div>
 </div>

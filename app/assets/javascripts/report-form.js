@@ -19,7 +19,7 @@ $(document).ready(function() {
     }
   });
   
-  var text_b       = $("#report_desired_outcome");
+  var text_b       = $("#report_recommended_response");
   var counter_b    = $("#desired-outcome-counter");
   var max_length_b = counter_b.data("max-length");
 

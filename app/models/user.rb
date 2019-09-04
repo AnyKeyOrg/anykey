@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   
   IMAGE_STYLES = {
-     thumb:     { resize: "120x120#",  size: "120x120" },
-     small:     { resize: "160x160#",  size: "160x160" }
+     thumb:     { resize: "120x120#" }
    }.freeze
   
   # Include selected devise modules. Others available are:

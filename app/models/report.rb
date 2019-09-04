@@ -9,7 +9,8 @@ class Report < ApplicationRecord
   }.freeze
     
   IMAGE_STYLES = {
-     thumb:     { resize: "120x120",  size: "120x120" }
+     thumb:    { resize: "120x120" },
+     preview:  { resize: "240x240" }
    }.freeze
   
    validates_presence_of    :reported_twitch_name,
@@ -24,7 +25,7 @@ class Report < ApplicationRecord
                             if: lambda { |x| x.reporter_email.present? }
 
    validates                :incident_description,
-                            :desired_outcome,
+                            :recommended_response,
                             length: { maximum: 1000 }
                             
   image_accessor :image

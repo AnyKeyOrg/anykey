@@ -8,7 +8,7 @@ one:
   incident_stream: MyString
   incident_occurred: 2019-08-28 23:47:20
   incident_description: MyText
-  desired_outcome: MyText
+  recommended_response: MyText
 
 two:
   reporter_email: MyString
@@ -18,4 +18,4 @@ two:
   incident_stream: MyString
   incident_occurred: 2019-08-28 23:47:20
   incident_description: MyText
-  desired_outcome: MyText
+  recommended_response: MyText

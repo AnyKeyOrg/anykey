@@ -27,6 +27,15 @@
   margin-bottom: 0.2em;
 }
 
+#backstage-container .panel-descriptor {
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 0.7em;
+  color: var(--gray-color);
+  text-align: right;
+  line-height: 1.5em;
+}
+
 #backstage-container .panel-menu a {
   font-family: var(--body-font);
   font-weight: 400;
@@ -57,13 +66,11 @@
 }
 
 
-
-
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
 
-@media (max-width:60em) {
+@media (max-width:56em) {
   #backstage-container .control-panel {
     max-width: none;
     min-width: 30em;
