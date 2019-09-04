@@ -27,8 +27,10 @@ class Report < ApplicationRecord
   validates                 :incident_description,
                             :recommended_response,
                             length: { maximum: 1000 }
+  
+  # validates                 :ensure_sane_review
 
-  belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id
+  belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id, optional: true
                            
   image_accessor :image
   
@@ -38,7 +40,6 @@ class Report < ApplicationRecord
   scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
 
 
-
   def image_url(style = :thumb)
     if style == :original
       self.image.remote_url
@@ -46,6 +47,14 @@ class Report < ApplicationRecord
       process_image(style).url
     end
   end
+  
+  protected
+    # TODO: make sure multiple dimissed/warned/revoked flags can't be set
+    def ensure_sane_review
+      # if self.dismissed
+      #   errors.add(:end, "cannot be before start")
+      # end
+    end
   
   private
     def process_image(style) 

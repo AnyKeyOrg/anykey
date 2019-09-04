@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update_attributes(user_params)
-      flash[:notice] = "Successfully updated #{@user.display_name}'s profile."
+      flash[:notice] = "Your profile has been successfully updated."
       redirect_to edit_user_path(@user)
     else
       flash.now[:alert] ||= ""
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user.image = nil
     
     if @user.save
-      flash[:notice] = "Successfully updated #{@user.display_name}'s profile."
+      flash[:notice] = "Your profile has been successfully updated."
     else
       flash.now[:alert] ||= ""
       @user.errors.full_messages.each do |message|

@@ -2,7 +2,7 @@ class StaffController < ApplicationController
       
   before_action :authenticate_user!
   before_action :ensure_staff
-  before_action :find_report, only: [ :report_review ]
+  before_action :find_report, only: [ :report_review, :report_dismiss, :report_undismiss ]
   around_action :display_timezone
   
   
@@ -39,6 +39,40 @@ class StaffController < ApplicationController
     end
     
     # TODO: check is reporter has pledged (lookup email/Twitch name)
+  end
+  
+  def report_dismiss
+    @report.dismissed = true
+    @report.reviewer = current_user
+    if @report.save
+      flash[:notice] = "You dismissed the report about #{@report.reported_twitch_name}."
+      redirect_to staff_reports_path
+    else
+      flash.now[:alert] ||= ""
+      @report.errors.full_messages.each do |m|
+        flash.now[:alert] << m + ". "
+      end
+      redirect_to staff_reports_path
+    end
+  end
+  
+  def report_undismiss
+    @report.dismissed = false
+    @report.reviewer = nil
+    if @report.save
+      flash[:notice] = "You undismissed the report about #{@report.reported_twitch_name}. It can now be reviewed again."
+      redirect_to staff_reports_path
+    else
+    
+      flash.now[:alert] ||= ""
+      @report.errors.full_messages.each do |m|
+        flash.now[:alert] << m + ". "
+      end
+      Rails.logger.info("something has gone wrong")
+      
+       Rails.logger.info(flash.now[:alert])
+      redirect_to staff_reports_path
+    end
   end
   
   protected

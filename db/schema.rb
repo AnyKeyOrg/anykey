@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_101333) do
+ActiveRecord::Schema.define(version: 2019_09_04_102941) do
 
   create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_101333) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "timezone"
     t.bigint "reviewer_id"
+    t.boolean "dismissed", default: false
     t.index ["reviewer_id"], name: "index_reports_on_reviewer_id"
   end
 

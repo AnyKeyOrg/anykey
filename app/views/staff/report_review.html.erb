@@ -47,11 +47,15 @@
         Keybot says: <%= @message %>
       </div>  
       <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
-        <% if @actionable %>
-        <%= link_to("Revoke", "", class: 'revoke-button button') %>
-        <%= link_to("Warn", "", class: 'warn-button button') %>
+        <% if @report.dismissed %>
+          <%= link_to("Undismiss", staff_report_undismiss_path(@report), method: :post, class: 'dismiss-button button') %>
+        <% else %>
+          <% if @actionable %>
+          <%= link_to("Revoke", "", class: 'revoke-button button') %>
+          <%= link_to("Warn", "", class: 'warn-button button') %>
+          <% end %>
+          <%= link_to("Dismiss", staff_report_dismiss_path(@report), method: :post, class: 'dismiss-button button') %>
         <% end %>
-        <%= link_to("Dismiss", "", class: 'dismiss-button button') %>
         <%= link_to('cancel', staff_reports_path, class: "stealth" ) %>
       </div>
     </div>
