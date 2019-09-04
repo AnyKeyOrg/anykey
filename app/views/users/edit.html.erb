@@ -52,7 +52,7 @@
         <%= display_alerts %>
         <div class="buttons flexbox vertical end">
           <div class="flexbox horizontal center">
-            <%= link_to('cancel', params[:back].present? ? params[:back] : root_url, class: "stealth", tabindex: "7") %>
+            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "7") %>
             <input id="user_submit" name="commit" type="submit" class="button left-padded" value="Update" tabindex="6">
           </div>
         </div>
