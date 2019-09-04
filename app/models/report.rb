@@ -1,5 +1,13 @@
 class Report < ApplicationRecord
   
+  AVAILABLE_SCOPES = {
+    all:        "All",
+    dismissed:  "Dismissed",
+    warned:     "Warned",
+    revoked:    "Revoked",
+    unresolved: "Unresolved",
+  }.freeze
+    
   IMAGE_STYLES = {
      thumb:     { resize: "120x120",  size: "120x120" }
    }.freeze
@@ -20,6 +28,11 @@ class Report < ApplicationRecord
                             length: { maximum: 1000 }
                             
   image_accessor :image
+  
+  scope :dismissed,    lambda { where("#{table_name}.dismissed IS TRUE") }
+  scope :warned,       lambda { where("#{table_name}.warned IS TRUE") }
+  scope :revoked,      lambda { where("#{table_name}.revoked IS TRUE") }
+  scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
 
   def image_url(style = :thumb)
     if style == :original
