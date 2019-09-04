@@ -3,29 +3,23 @@
     <%= link_to(image_tag("/images/anykey-cap-64.svg", size: "32x32")+"AnyKey", staff_index_path, class: 'logo flexbox horizontal center') %>
     <div id="full-menu" class="flexbox vertical end flex-1">
       <div class="flexbox horizontal center">
-        <%= controller_name  %>
-        <% if user_signed_in? %>      
+        <% if user_signed_in? %>
         <%= link_to("Invites", new_user_invitation_path(back: request.fullpath), class: (controller_name == 'invitations' ? 'selected ' : '') + 'item') %>
-        <%= link_to("Reports", staff_reports_path, class: "item") %>
-        
+        <%= link_to("Reports", staff_reports_path, class: ((action_name == 'reports' || action_name == 'report_review') ? 'selected ' : '') + 'item') %> 
         <div id="header-avatar-container" class="flexbox vertical end">
-          <%= image_tag(user_image_src(current_user, :tiny), size: "28x28", class: "header-avatar") %>          
+          <%= image_tag(user_image_src(current_user, :tiny), size: "28x28", class: "header-avatar") %>
           <div id="dropdown-container" style="display:none">
             <div class="outer-caret"></div>
             <div class="inner-caret"></div>
             <div class="dropdown-menu flexbox vertical stretch">
-              <%= link_to("Edit Profile", edit_user_path(current_user), class: "menu-item") %>
+              <%= link_to("Edit Profile", edit_user_path(current_user, back: request.fullpath), class: "menu-item") %>
               <%= link_to("Logout", destroy_user_session_path, method: :delete, class: "menu-item") %>
             </div>
           </div>
         </div>
-        
-        
-        
         <% else %>
-          <%= link_to("Staff Login", new_user_session_path) %>
+          <%= link_to("Staff Login", new_user_session_path, class:"item last") %>
         <% end %>
-        
       </div>
     </div>
     <div id="veggieburger" class="flexbox vertical end flex-1">
@@ -34,16 +28,22 @@
   </div>
 </div>
 <div id="veggieburger-menu" class="flexbox vertical start" style="display: none">
+  <% if user_signed_in? %>
   <div class="row">
-    <%= link_to('glhf PLEDGE', pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'pledge') %>
+    <%= link_to("Invites", new_user_invitation_path(back: request.fullpath), class: controller_name == 'invitations' ? 'selected ' : '') %>
   </div>
   <div class="row">
-    <%= link_to('Affiliates', affiliates_path, class: (controller_name == 'affiliates' ? 'selected ' : '') + 'affiliates') %>
+    <%= link_to("Reports", staff_reports_path, class: (action_name == 'reports' || action_name == 'report_review') ? 'selected ' : '') %> 
+  </div>  
+  <div class="row">
+    <%= link_to("Edit Profile", edit_user_path(current_user, back: request.fullpath)) %>
   </div>
   <div class="row">
-    <%= link_to('Resources', resources_path, class: (controller_name == 'resources' ? 'selected ' : '') + 'resources')  %>
+    <%= link_to("Logout", destroy_user_session_path, method: :delete) %>
   </div>
+  <% else %>
   <div class="row">
-    <%= link_to('Stories', stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'stories') %>
+    <%= link_to("Staff Login", new_user_session_path) %>
   </div>
+  <% end %>
 </div>
