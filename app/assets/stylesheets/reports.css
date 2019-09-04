@@ -66,4 +66,46 @@
   font-size: 0.9em;
 }
 
+#backstage-container .button {
+  border: 4px solid var(--light-black-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.2em;
+  padding: 0.75em 1em 0.75em 1em;
+  text-transform: uppercase;
+  text-align: center;
+  min-width: 4.5em;
+  margin-top: 2em;
+  margin-right: 2em;
+}
+
+
+#backstage-container .button.dismiss-button {
+  background-color: var(--bright-green-color);
+}
+
+#backstage-container .button.warn-button {
+  background-color: var(--bright-orange-color);
+}
+
+#backstage-container .button.revoke-button {
+  background-color: var(--alert-red-color);
+}
+
+#backstage-container .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);
+}
+
+#backstage-container .button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#backstage-container .dismiss-button::-moz-focus-inner {
+  border: 0 !important;
+}
+
 

@@ -8,7 +8,6 @@
           by <%= @report.reporter_email %> <%= @report.reporter_twitch_name.blank? ? '' : '('+@report.reporter_twitch_name+')'%>
         </div>
       </div>
-      
       <div class="flexbox horizontal end wrap-reverse justify-space-between">
         <div class="flexbox vertical">
           <div class="report-item flexbox vertical stretch">
@@ -37,7 +36,12 @@
           <%= image_tag(report_image_src(@report, :preview)) %>
         </div>
       </div>
-      
+      <div class="report-buttons flexbox horizontal center wrap">
+        <%= link_to("Dismiss", "", class: 'dismiss-button button') %>
+        <%= link_to("Warn", "", class: 'warn-button button') %>
+        <%= link_to("Revoke", "", class: 'revoke-button button') %>
+        
+      </div>
 
             
         
