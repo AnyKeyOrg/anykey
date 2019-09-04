@@ -9,6 +9,8 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  has_many :reviewed_reports, class_name: :Report, foreign_key: :reviewer_id
+  
   image_accessor :image
 
   def image_url(style = :thumb)
