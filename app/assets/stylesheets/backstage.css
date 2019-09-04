@@ -9,12 +9,45 @@
   border: solid 5px var(--black-color);
 }
 
+#backstage-container .control-panel {
+  width: 48em;
+  background: #ffffff;
+  padding: 2em 3em 2em 3em;
+  border: solid 5px var(--black-color);
+}
+
+#backstage-container .control-panel .title {
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+#backstage-container .control-panel .main-menu a {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-right: 2em;
+}
+
+#backstage-container .control-panel .main-menu a.last {
+  margin-right: 0em;
+}
+
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
 
+@media (max-width:56em) {
+  #backstage-container .control-panel {
+    width: auto;
+    padding: 2em 2em 2em 2em;
+  }
+}
+
 @media (max-width:34em) {
-  #backstage-container .session-box {
+  #backstage-container .session-boxl {
     width: auto;
     padding: 2em 2em 2em 2em;
   }

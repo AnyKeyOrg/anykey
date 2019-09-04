@@ -1,0 +1,1 @@
+<a class="report-row <%= cycle "odd", "even", name: "report-cycler" %> flexbox vertical stretch" href="<%= staff_report_review_path(report) %>"> <%= report.reported_twitch_name %> reported on <%= l(report.created_at, format: "%b. %-d, %Y at %-l:%M%P") %></a><br>

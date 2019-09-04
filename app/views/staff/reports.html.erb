@@ -1,6 +1,6 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
-    <div class="session-box flexbox vertical start">
+    <div class="control-panel flexbox vertical start">
       
         <div class="filters horizontal center">
           <% Report::AVAILABLE_SCOPES.each do |filter| %>
@@ -15,9 +15,7 @@
         
         <div class="vertical start">
           <% if @reports.present? %>
-          <ul>
-            <%= render(partial: "staff/report_list_item", collection: @reports, as: :report) %>
-          </ul>  
+          <%= render(partial: "staff/report_preview", collection: @reports, as: :report) %>
           <% else %>
           <div class="empty">
             No reports found.
