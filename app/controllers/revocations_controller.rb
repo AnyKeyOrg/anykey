@@ -1,4 +1,5 @@
 class RevocationsController < ApplicationController
+
   layout "backstage"
   
   before_action :authenticate_user!

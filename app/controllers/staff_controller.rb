@@ -1,4 +1,6 @@
 class StaffController < ApplicationController
+  
+  layout "backstage"
       
   before_action :authenticate_user!
   before_action :ensure_staff

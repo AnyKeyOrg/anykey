@@ -1,4 +1,5 @@
 class WarningsController < ApplicationController
+  
   layout "backstage"
   
   before_action :authenticate_user!
