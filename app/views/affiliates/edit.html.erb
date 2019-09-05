@@ -1,17 +1,33 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
     <div class="session-box flexbox vertical stretch">
-      <form action="<%= affiliates_path %>" id="new_affiliate" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
+      <form action="<%= affiliate_path(@affiliate) %>" id="editable_avatar_form" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
         <div style="hidden">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input name="_method" type="hidden" value="patch" />
         </div>
         <div class="title">
-          Add Affiliate
+          Edit Affiliate
         </div>
         <%= display_alerts %>
-        <div class="item flexbox vertical stretch">
-          <label for="image" class="text-field above">Featured Image</label>
-          <input id="affiliate_image" name="affiliate[image]" type="file" tabindex="1">
+        <div class="item flexbox vertical start flex-0">
+          <div id="editable-avatar" class="flexbox horizontal center">
+            <%= image_tag(affiliate_image_src(@affiliate, :thumb), size: "120x120") %>
+            <div id="avatar-overlay" style="display:none">
+              <div class="action">
+                Change Image
+              </div>
+              <div id="edit-avatar-container" class="flexbox vertical center" style="display:none">
+                <div class="outer-caret"></div>
+                <div class="inner-caret"></div>
+                <div class="edit-avatar flexbox vertical stretch">
+                  <input id="affiliate_image" name="affiliate[image]" type="file" class="edit-avatar-upload" tabindex="2">
+                  <label for="affiliate_image">Upload</label>   
+                  <%= link_to("Show Original", @affiliate.image_url(:original), target: :blank, class: "menu-item") %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="item flexbox vertical stretch">
           <input id="affiliate_name" name="affiliate[name]" class="text-field" type="text" value="<%= @affiliate.name %>" autocomplete="off" tabindex="2">
@@ -52,7 +68,7 @@
         <div class="buttons flexbox vertical end">
           <div class="flexbox horizontal center">
             <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "12") %>
-            <input id="affiliate_submit" name="commit" type="submit" class="button left-padded" value="Add" tabindex="11">
+            <input id="affiliate_submit" name="commit" type="submit" class="button left-padded" value="Update" tabindex="11">
           </div>
         </div>
       </form>

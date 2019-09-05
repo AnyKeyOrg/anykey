@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @user.errors.full_messages.each do |message|
         flash.now[:alert] << message + ". "
       end
-      render(:action => :edit)
+      render(action: :edit)
     end
   end
   

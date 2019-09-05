@@ -51,7 +51,7 @@ function setupAvatarUploadListener() {
   Array.prototype.forEach.call(inputs, function(input) {
   	input.addEventListener('change', function(e) {
   		if(e.target.value)
-        $("form#edit_user_form").submit();
+        $("form#editable_avatar_form").submit();
   	});
   });
 }

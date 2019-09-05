@@ -7,7 +7,7 @@
       </div>
       <div class="affiliates-list flexbox vertical stretch">
         <% if @affiliates.present? %>
-          Affiliates shown here.
+          <%= render(partial: "affiliates/row", collection: @affiliates, as: :affiliate) %>
         <% else %>
         <div class="empty">
           No affiliates found.

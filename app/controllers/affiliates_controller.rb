@@ -2,8 +2,8 @@ class AffiliatesController < ApplicationController
   
   layout "backstage"
   
-  before_action :authenticate_user!,        only: [ :edit, :update ]
-  before_action :ensure_staff,              only: [ :edit, :update ]
+  before_action :authenticate_user!,        only: [ :new, :create, :edit, :update ]
+  before_action :ensure_staff,              only: [ :new, :create, :edit, :update ]
   before_action :find_affiliate,            only: [ :edit, :update ]
   
   def index
@@ -36,9 +36,25 @@ class AffiliatesController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    if @affiliate.update_attributes(affiliate_params)
+      flash[:notice] = "Your successfully updated the affiliate."
+      redirect_to edit_affiliate_path(@affiliate)
+    else
+      flash.now[:alert] ||= ""
+      @affiliate.errors.full_messages.each do |message|
+        flash.now[:alert] << message + ". "
+      end
+      render(action: :edit)
+    end
+  end
+  
   protected
     def find_affiliate
-      @affiliate = Report.find(params[:id])
+      @affiliate = Affiliate.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to staff_index_path
     end
