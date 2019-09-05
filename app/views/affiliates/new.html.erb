@@ -1,0 +1,12 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="panel-title">Add Affiliate</div>
+      <form action="<%= affiliates_path() %>" id="new_affiliate" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

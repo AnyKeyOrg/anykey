@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   
     resources :pledges,        only: [ :index, :create, :show ], path: :pledge
-    resources :affiliates,     only: [ :index ]
+    resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
     resources :stories,        only: [ :index ]
     resources :reports,        only: [ :index, :show, :new, :create ] do
