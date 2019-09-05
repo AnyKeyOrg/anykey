@@ -25,6 +25,13 @@
   margin-top: 0.5em;
 }
 
+#backstage-container form label.text-field.above {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
 #backstage-container form label.text-field.read-only {
   color: var(--light-gray-color);
 }

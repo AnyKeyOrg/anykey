@@ -7,6 +7,8 @@ class AffiliatesController < ApplicationController
   before_action :find_affiliate,            only: [ :edit, :update ]
   
   def index
+    @affiliates = Affiliate.all
+    
     if public_view?
       render action: "public_index", layout: "application"
     else
@@ -53,7 +55,7 @@ class AffiliatesController < ApplicationController
     end
     
     def affiliate_params
-      params.require(:affiliate).permit()
+      params.require(:affiliate).permit(:name, :title, :bio, :website, :twitch, :twitter, :facebook, :instagram, :youtube, :image)
     end
   
 end

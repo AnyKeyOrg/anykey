@@ -1,10 +1,59 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
-    <div class="control-panel flexbox vertical stretch">
-      <div class="panel-title">Add Affiliate</div>
-      <form action="<%= affiliates_path() %>" id="new_affiliate" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+    <div class="session-box flexbox vertical stretch">
+      <form action="<%= affiliates_path %>" id="new_affiliate_form" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
         <div style="hidden">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div>
+        <div class="title">
+          Add Affiliate
+        </div>
+        <%= display_alerts %>
+        <div class="item flexbox vertical stretch">
+          <label for="image" class="text-field above">Featured Image</label>
+          <input id="affiliate_image" name="affiliate[image]" type="file" tabindex="1">
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="affiliate_name" name="affiliate[name]" class="text-field" type="text" value="<%= @affiliate.name %>" autocomplete="off" tabindex="2">
+          <label for="affiliate_name" class="text-field">Name</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="affiliate_title" name="affiliate[title]" class="text-field" type="text" value="<%= @affiliate.title %>" autocomplete="off" tabindex="3">
+          <label for="affiliate_title" class="text-field">Title</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <textarea id="affiliate_bio" name="affiliate[bio]" class="text-field" type="text" autocomplete="off" tabindex="4"><%= @affiliate.bio %></textarea>
+          <label for="affiliate_bio" class="text-field">Bio</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="affiliate_website" name="affiliate[website]" class="text-field" type="text" value="<%= @affiliate.website %>" autocomplete="off" tabindex="5">
+          <label for="affiliate_website" class="text-field">Website</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="affiliate_twitch" name="affiliate[twitch]" class="text-field" type="text" value="<%= @affiliate.twitch %>" autocomplete="off" tabindex="6">
+          <label for="affiliate_twitch" class="text-field">Twitch</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="affiliate_twitter" name="affiliate[twitter]" class="text-field" type="text" value="<%= @affiliate.twitter %>" autocomplete="off" tabindex="7">
+          <label for="affiliate_twitter" class="text-field">Twitter</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="affiliate_facebook" name="affiliate[facebook]" class="text-field" type="text" value="<%= @affiliate.facebook %>" autocomplete="off" tabindex="8">
+          <label for="affiliate_facebook" class="text-field">Facebook</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="affiliate_instagram" name="affiliate[instagram]" class="text-field" type="text" value="<%= @affiliate.instagram %>" autocomplete="off" tabindex="9">
+          <label for="affiliate_instagram" class="text-field">Instagram</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="affiliate_youtube" name="affiliate[youtube]" class="text-field" type="text" value="<%= @affiliate.youtube %>" autocomplete="off" tabindex="10">
+          <label for="affiliate_youtube" class="text-field">YouTube</label>
+        </div>
+        <div class="buttons flexbox vertical end">
+          <div class="flexbox horizontal center">
+            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "12") %>
+            <input id="affiliate_submit" name="commit" type="submit" class="button left-padded" value="Add" tabindex="11">
+          </div>
         </div>
       </form>
     </div>
