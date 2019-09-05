@@ -2,8 +2,9 @@ class StaffController < ApplicationController
       
   before_action :authenticate_user!
   before_action :ensure_staff
-  before_action :find_report,                 only: [ :report_review, :report_dismiss, :report_undismiss, :new_warning, :create_warning ]
-  before_action :find_reported_twitch_user,   only: [ :report_review, :new_warning, :create_warning ]
+  before_action :find_report,                 only: [ :report_review, :report_dismiss, :report_undismiss, :new_warning, :create_warning, :new_revocation, :create_revocation ]
+  before_action :ensure_sane_review,          only: [ :report_dismiss, :new_warning, :create_warning, :new_revocation, :create_revocation ]
+  before_action :find_reported_twitch_user,   only: [ :report_review, :new_warning, :create_warning, :new_revocation, :create_revocation ]
   around_action :display_timezone
   
   
@@ -14,7 +15,7 @@ class StaffController < ApplicationController
     # f is used to filter reports by scope
     if params[:f].present? && Report::AVAILABLE_SCOPES.key?(params[:f].to_sym)
       @reports = eval("Report."+params[:f]+".all.order(created_at: :desc)")
-      #paginate(page: params[:page], per_page: 30)
+      # TODO add: paginate(page: params[:page], per_page: 30)
       @filter_category = params[:f]
     else
       @reports = Report.unresolved.all.order(created_at: :desc)
@@ -32,7 +33,7 @@ class StaffController < ApplicationController
       @message = "The reported Twitch user did not sign the pledge."
     end
     
-    # TODO: check is reporter has pledged (lookup email/Twitch name)
+    # TODO: check is reporter has pledged (lookup email/Twitch name) and add info to keybot message
   end
   
   def report_dismiss
@@ -81,7 +82,6 @@ class StaffController < ApplicationController
         @report.save        
         
         flash[:notice] = "You sent a warning to #{@pledge.email} (#{@report.reported_twitch_name})."
-        
         redirect_to staff_reports_path
       else
         flash.now[:alert] ||= ""
@@ -89,6 +89,46 @@ class StaffController < ApplicationController
           flash.now[:alert] << message + ". "
         end
         render(action: :new_warning)
+      end
+    else
+      redirect_to staff_index_path
+    end
+  end
+
+  def new_revocation
+    if @reported_twitch_user == nil
+      redirect_to staff_index_path
+    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+      @revocation = Revocation.new
+    else
+      redirect_to staff_index_path
+    end
+  end
+  
+  def create_revocation
+    if @reported_twitch_user == nil
+      redirect_to staff_index_path
+    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+      @revocation = Revocation.new(revocation_params)
+      @revocation.report = @report
+      @revocation.pledge = @pledge
+      @revocation.reviewer = current_user
+          
+      if @revocation.save
+        # TODO: send email to reported pledger here
+        # TODO: revoke badge here
+        @report.revoked = true
+        @report.reviewer = current_user
+        @report.save        
+        
+        flash[:notice] = "You revoked the badge from #{@report.reported_twitch_name} and sent them a notification at #{@pledge.email}."
+        redirect_to staff_reports_path
+      else
+        flash.now[:alert] ||= ""
+        @revocation.errors.full_messages.each do |message|
+          flash.now[:alert] << message + ". "
+        end
+        render(action: :new_revocation)
       end
     else
       redirect_to staff_index_path
@@ -120,6 +160,12 @@ class StaffController < ApplicationController
       end
     end
     
+    def ensure_sane_review
+      unless !@report.dismissed && !@report.warned && !@report.revoked
+        redirect_to staff_index_path
+      end
+    end
+    
     def display_timezone
       timezone = Time.find_zone( cookies[:browser_timezone] )
       Time.use_zone(timezone) { yield }
@@ -127,6 +173,10 @@ class StaffController < ApplicationController
     
     def conduct_warning_params
       params.require(:conduct_warning).permit(:reason)
+    end
+    
+    def revocation_params
+      params.require(:revocation).permit(:reason)
     end
   
 end

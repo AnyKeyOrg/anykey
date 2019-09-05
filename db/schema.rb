@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_043524) do
+ActiveRecord::Schema.define(version: 2019_09_05_050215) do
 
   create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name"
@@ -68,7 +68,18 @@ ActiveRecord::Schema.define(version: 2019_09_05_043524) do
     t.bigint "reviewer_id"
     t.boolean "dismissed", default: false
     t.boolean "warned", default: false
+    t.boolean "revoked", default: false
     t.index ["reviewer_id"], name: "index_reports_on_reviewer_id"
+  end
+
+  create_table "revocations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.integer "pledge_id"
+    t.integer "report_id"
+    t.text "reason"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "reviewer_id"
+    t.index ["reviewer_id"], name: "index_revocations_on_reviewer_id"
   end
 
   create_table "stories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
@@ -117,4 +128,5 @@ ActiveRecord::Schema.define(version: 2019_09_05_043524) do
 
   add_foreign_key "conduct_warnings", "users", column: "reviewer_id"
   add_foreign_key "reports", "users", column: "reviewer_id"
+  add_foreign_key "revocations", "users", column: "reviewer_id"
 end

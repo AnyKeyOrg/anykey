@@ -28,7 +28,7 @@ class Report < ApplicationRecord
                             :recommended_response,
                             length: { maximum: 1000 }
   
-  # validates                 :ensure_sane_review
+  validate                  :ensure_sane_review
 
   belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id, optional: true
                            
@@ -37,11 +37,9 @@ class Report < ApplicationRecord
   scope :dismissed,    lambda { where("#{table_name}.dismissed IS TRUE") }
   scope :warned,       lambda { where("#{table_name}.warned IS TRUE") }
   scope :revoked,      lambda { where("#{table_name}.revoked IS TRUE") }
-  scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE") }
+  scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
   
-  #scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
-
-
+  
   def image_url(style = :thumb)
     if style == :original
       self.image.remote_url
@@ -51,11 +49,18 @@ class Report < ApplicationRecord
   end
   
   protected
-    # TODO: make sure multiple dimissed/warned/revoked flags can't be set
     def ensure_sane_review
-      # if self.dismissed
-      #   errors.add(:end, "cannot be before start")
-      # end
+      if (self.dismissed || self.warned || self.revoked) && !(self.dismissed ^ self.warned ^ self.revoked)
+        if self.dismissed
+          errors.add(:dismissed, "must be the only status flag set")
+        end
+        if self.warned
+          errors.add(:warned, "must be the only status flag set")
+        end
+        if self.revoked
+          errors.add(:revoked, "must be the only status flag set")
+        end
+      end
     end
   
   private

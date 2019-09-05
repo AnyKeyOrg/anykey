@@ -16,9 +16,13 @@
       <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
         <% if @report.dismissed %>
           <%= link_to("Undismiss", staff_report_undismiss_path(@report), method: :post, class: 'dismiss-button button') %>
+        <% elsif @report.warned %>
+          <div class="resolved-button button">Warned</div>
+        <% elsif @report.revoked %>
+          <div class="resolved-button button">Revoked</div>  
         <% else %>
           <% if @pledge %>
-          <%= link_to("Revoke", "", class: 'revoke-button button') %>
+          <%= link_to("Revoke", staff_new_revocation_path(@report, back: request.fullpath), class: 'revoke-button button') %>
           <%= link_to("Warn", staff_new_warning_path(@report, back: request.fullpath), class: 'warn-button button') %>
           <% end %>
           <%= link_to("Dismiss", staff_report_dismiss_path(@report), method: :post, class: 'dismiss-button button') %>

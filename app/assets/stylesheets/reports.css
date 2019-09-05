@@ -129,6 +129,15 @@
   background-color: var(--alert-red-color);
 }
 
+#backstage-container .report-buttons .button.resolved-button,
+#backstage-container .report-buttons .button.resolved-button:hover,
+#backstage-container .report-buttons .button.resolved-button:focus {
+  cursor: default;
+  background-color: var(--light-gray-color);
+  border: 4px solid var(--dark-white-color);
+  color: var(--gray-color);
+}
+
 #backstage-container .report-buttons .button:hover {
   cursor: pointer;
   background-color: var(--bright-blue-color);
