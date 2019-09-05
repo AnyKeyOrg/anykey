@@ -6,16 +6,16 @@
         <div class="panel-filters flexbox horizontal center wrap">
           <% Report::AVAILABLE_SCOPES.each do |filter| %>
             <% if @filter_category.to_s == filter[0].to_s %>
-              <%= link_to("#{filter[1]} [#{@reports.count}]", staff_reports_path(f: filter[0]), class: "filter selected") %>
+              <%= link_to("#{filter[1]} [#{@reports.count}]", reports_path(f: filter[0]), class: "filter selected") %>
             <% else %>
-             <%= link_to(filter[1], staff_reports_path(f: filter[0]), class: "filter") %>
+             <%= link_to(filter[1], reports_path(f: filter[0]), class: "filter") %>
             <% end %>
           <% end %>
         </div>
       </div>
       <div class="reports-list flexbox vertical stretch">
         <% if @reports.present? %>
-        <%= render(partial: "staff/report_row", collection: @reports, as: :report) %>
+        <%= render(partial: "reports/report_row", collection: @reports, as: :report) %>
         <% else %>
         <div class="empty">
           No reports found.

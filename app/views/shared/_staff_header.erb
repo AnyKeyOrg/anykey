@@ -5,7 +5,7 @@
       <div class="flexbox horizontal center">
         <% if user_signed_in? %>
         <%= link_to("Invites", new_user_invitation_path(back: request.fullpath), class: (controller_name == 'invitations' ? 'selected ' : '') + 'item') %>
-        <%= link_to("Reports", staff_reports_path, class: ((action_name.match /report|warning|revocation/) ? 'selected ' : '') + 'item') %> 
+        <%= link_to("Reports", reports_path, class: ((action_name.match /report|warning|revocation/) ? 'selected ' : '') + 'item') %> 
         <div id="header-avatar-container" class="flexbox vertical end">
           <%= image_tag(user_image_src(current_user, :tiny), size: "28x28", class: "header-avatar") %>
           <div id="dropdown-container" style="display:none">
@@ -33,7 +33,7 @@
     <%= link_to("Invites", new_user_invitation_path(back: request.fullpath), class: controller_name == 'invitations' ? 'selected ' : '') %>
   </div>
   <div class="row">
-    <%= link_to("Reports", staff_reports_path, class: (action_name.match /report|warning|revocation/) ? 'selected ' : '') %> 
+    <%= link_to("Reports", reports_path, class: (action_name.match /report|warning|revocation/) ? 'selected ' : '') %> 
   </div>  
   <div class="row">
     <%= link_to("Edit Profile", edit_user_path(current_user, back: request.fullpath)) %>

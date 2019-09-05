@@ -13,25 +13,22 @@ Rails.application.routes.draw do
       root to: "home#index"
     end
   
-    resources :pledges,                           only: [ :index, :create, :show ], path: :pledge
-    resources :affiliates,                        only: [ :index ]
-    resources :resources,                         only: [ :index ]
-    resources :stories,                           only: [ :index ]
-    resources :reports,                           only: [ :new, :create ], path: :report
+    resources :pledges,        only: [ :index, :create, :show ], path: :pledge
+    resources :affiliates,     only: [ :index ]
+    resources :resources,      only: [ :index ]
+    resources :stories,        only: [ :index ]
+    resources :reports,        only: [ :index, :show, :new, :create ] do
+      member do
+        post :dismiss
+        post :undismiss        
+      end
+      resources :warnings,     only: [ :new, :create ]
+      resources :revocations,  only: [ :new, :create ]
+    end
                                                    
-    # Authenticated users only                     
-    resources :staff,                             only: [ :index ]
-    get  '/staff/reports'    ,                    to: 'staff#reports',               as: :staff_reports
-    get  '/staff/reports/:id',                    to: 'staff#report_review',         as: :staff_report_review
-    post '/staff/reports/:id/dismiss',            to: 'staff#report_dismiss',        as: :staff_report_dismiss
-    post '/staff/reports/:id/undismiss',          to: 'staff#report_undismiss',      as: :staff_report_undismiss
-    get  '/staff/reports/:id/new_warning',        to: 'staff#new_warning',           as: :staff_new_warning
-    post '/staff/reports/:id/create_warning',     to: 'staff#create_warning',        as: :staff_create_warning
-    get  '/staff/reports/:id/new_revocation',     to: 'staff#new_revocation',        as: :staff_new_revocation
-    post '/staff/reports/:id/create_revocation',  to: 'staff#create_revocation',     as: :staff_create_revocation
-                                           
-    resources :users,                             only: [ :edit, :update ]
-    post '/users/:id/remove_avatar',              to: 'users#remove_avatar',         as: :remove_avatar
+    resources :staff,          only: [ :index ]                              
+    resources :users,          only: [ :edit, :update ]
+    post '/users/:id/remove_avatar', to: 'users#remove_avatar',         as: :remove_avatar
     
   end
     
