@@ -15,7 +15,7 @@
       </div>
       <div class="reports-list flexbox vertical stretch">
         <% if @reports.present? %>
-        <%= render(partial: "reports/report_row", collection: @reports, as: :report) %>
+        <%= render(partial: "reports/row", collection: @reports, as: :report) %>
         <% else %>
         <div class="empty">
           No reports found.

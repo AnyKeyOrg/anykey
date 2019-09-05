@@ -3,9 +3,9 @@
     <div class="control-panel flexbox vertical start">
       <div class="panel-title">Staff dashboard</div>
       <div class="panel-menu flexbox horizontal center wrap">
-        <%= link_to("Invite staff", new_user_invitation_path(back: request.fullpath), class: "stealth") %>
-        <%= link_to("View reports", reports_path, class: "stealth") %>
         <%= link_to("Manage Affiliates", affiliates_path, class: "stealth") %>
+        <%= link_to("View reports", reports_path, class: "stealth") %>
+        <%= link_to("Invite staff", new_user_invitation_path(back: request.fullpath), class: "stealth") %>
       </div>
     </div>
   </div>
