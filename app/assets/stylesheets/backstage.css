@@ -27,6 +27,14 @@
   margin-bottom: 0.2em;
 }
 
+#backstage-container .panel-text {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
 #backstage-container .panel-descriptor {
   font-family: var(--body-font);
   font-weight: 500;

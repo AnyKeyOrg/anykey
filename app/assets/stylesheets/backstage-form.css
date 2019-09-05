@@ -58,6 +58,28 @@
   border-bottom: 4px solid var(--light-gray-color);
 }
 
+#backstage-container form textarea {
+  color: var(--black-color);
+  background: var(--white-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 1.2em;
+  border: 4px solid var(--black-color);
+  outline: none;
+  padding: 0.7em 0.6em 0.7em 0.6em;
+  height: 6em;
+  resize: none;
+}
+
+#backstage-container form textarea:hover {
+  border: 4px solid var(--bright-orange-color);
+}
+
+#backstage-container form textarea:focus {
+  border: 4px solid var(--bright-blue-color);
+}
+
 #backstage-container form label.checkbox {
   font-family: var(--body-font);
   font-weight: 600;

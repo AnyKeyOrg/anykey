@@ -1,0 +1,40 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Conduct Warning</div>
+        <div class="panel-descriptor">
+          Will be sent to <%= @pledge.email %> (<%= @report.reported_twitch_name %>)
+        </div>
+      </div>
+      <div class="panel-text">
+        Describe to the pledge-taker why they are being warned. The reason you provide will be included in the warning email, so be clear and considerate! 
+      </div>
+      <form action="<%= staff_create_warning_path(@report, :data => {:confirm => "Are you sure you want to warn #{@pledge.email} (#{@report.reported_twitch_name})?\n\nThere's no undo for this, friend.\n" }) %>" id="new_warning" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div>
+        <div class="item flexbox vertical stretch">
+          <textarea id="conduct_warning_reason" name="conduct_warning[reason]" class="text-field" type="text" autocomplete="off" tabindex="1"><%= @warning.reason %></textarea>
+          <label for="reason" class="text-field">Reason for warning</label>
+        </div>
+        <%= display_alerts %>
+        <div class="buttons flexbox vertical end">
+          <div class="flexbox horizontal center">
+            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "3") %>
+            <input id="warning_submit" name="commit" type="submit" class="button left-padded" value="Issue Warning" data-confirm="<%="Are you sure you want to warn #{@pledge.email} (#{@report.reported_twitch_name})?\nRemember, there's no way to unsend an email 😉" %>" tabindex="2">
+          </div>
+        </div>
+      </form>
+      <hr class="spacer">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Original Report</div>
+        <div class="panel-descriptor">
+          Filed on <%= l(@report.created_at, format: "%b. %-d, %Y · %-l:%M%P").upcase %><br>
+          by <%= @report.reporter_email %> <%= @report.reporter_twitch_name.blank? ? '' : '('+@report.reporter_twitch_name+')'%>
+        </div>
+      </div>
+      <%= render(partial: "staff/report_body") %>
+    </div>
+  </div>
+</div>

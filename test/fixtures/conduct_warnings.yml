@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pledge_id: 1
+  report_id: 1
+  reason: MyText
+
+two:
+  pledge_id: 1
+  report_id: 1
+  reason: MyText

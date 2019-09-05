@@ -2,7 +2,8 @@ class StaffController < ApplicationController
       
   before_action :authenticate_user!
   before_action :ensure_staff
-  before_action :find_report, only: [ :report_review, :report_dismiss, :report_undismiss ]
+  before_action :find_report,                 only: [ :report_review, :report_dismiss, :report_undismiss, :new_warning, :create_warning ]
+  before_action :find_reported_twitch_user,   only: [ :report_review, :new_warning, :create_warning ]
   around_action :display_timezone
   
   
@@ -16,25 +17,19 @@ class StaffController < ApplicationController
       #paginate(page: params[:page], per_page: 30)
       @filter_category = params[:f]
     else
-      @reports = Report.all.order(created_at: :desc)
-      @filter_category = "all"
+      @reports = Report.unresolved.all.order(created_at: :desc)
+      @filter_category = "unresolved"
     end
   end
   
   def report_review
-    # Check if reported_twitch_name exists on Twitch
-    # And if so, look up Twitch ID and check if they have pledged
-    reported_twitch_user = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
-    
-    if reported_twitch_user["users"].empty?
+    # Create keybot advice message
+    if @reported_twitch_user == nil
       @message = "The reported Twitch user does not exist."
-      @actionable = false
-    elsif pledge = Pledge.find_by(twitch_id: reported_twitch_user["users"][0]["_id"])
-      @message = "The reported Twitch user signed the pledge as " + pledge.twitch_display_name + " on " + pledge.signed_on.strftime('%b. %-d, %Y.')
-      @actionable = true
+    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+      @message = "The reported Twitch user signed the pledge as " + @pledge.twitch_display_name + " on " + @pledge.signed_on.strftime('%b. %-d, %Y.')
     else
       @message = "The reported Twitch user did not sign the pledge."
-      @actionable = false
     end
     
     # TODO: check is reporter has pledged (lookup email/Twitch name)
@@ -45,14 +40,8 @@ class StaffController < ApplicationController
     @report.reviewer = current_user
     if @report.save
       flash[:notice] = "You dismissed the report about #{@report.reported_twitch_name}."
-      redirect_to staff_reports_path
-    else
-      flash.now[:alert] ||= ""
-      @report.errors.full_messages.each do |m|
-        flash.now[:alert] << m + ". "
-      end
-      redirect_to staff_reports_path
     end
+    redirect_to staff_reports_path
   end
   
   def report_undismiss
@@ -60,14 +49,49 @@ class StaffController < ApplicationController
     @report.reviewer = nil
     if @report.save
       flash[:notice] = "You undismissed the report about #{@report.reported_twitch_name}. It can now be reviewed again."
+      redirect_to staff_report_review_path(@report)
+    else    
       redirect_to staff_reports_path
+    end
+  end
+  
+  def new_warning
+    if @reported_twitch_user == nil
+      redirect_to staff_index_path
+    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+      @warning = ConductWarning.new
     else
-      flash.now[:alert] ||= ""
-      @report.errors.full_messages.each do |m|
-        flash.now[:alert] << m + ". "
-      end      
-       Rails.logger.info(flash.now[:alert])
-      redirect_to staff_reports_path
+      redirect_to staff_index_path
+    end
+  end
+  
+  def create_warning
+    if @reported_twitch_user == nil
+      redirect_to staff_index_path
+    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+      @warning = ConductWarning.new(conduct_warning_params)
+      @warning.report = @report
+      @warning.pledge = @pledge
+      @warning.reviewer = current_user
+          
+      if @warning.save
+        # TODO: send email to reported pledger here
+        @report.warned = true
+        @report.reviewer = current_user
+        @report.save        
+        
+        flash[:notice] = "You sent a warning to #{@pledge.email} (#{@report.reported_twitch_name})."
+        
+        redirect_to staff_reports_path
+      else
+        flash.now[:alert] ||= ""
+        @warning.errors.full_messages.each do |message|
+          flash.now[:alert] << message + ". "
+        end
+        render(action: :new_warning)
+      end
+    else
+      redirect_to staff_index_path
     end
   end
   
@@ -76,6 +100,17 @@ class StaffController < ApplicationController
       @report = Report.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to staff_index_path
+    end
+    
+    def find_reported_twitch_user
+      # Check if reported_twitch_name exists on Twitch
+      response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
+      
+      if response["users"].empty?
+       @reported_twitch_user = nil
+      else
+        @reported_twitch_user = response["users"][0]["_id"]
+      end
     end
     
   private
@@ -88,6 +123,10 @@ class StaffController < ApplicationController
     def display_timezone
       timezone = Time.find_zone( cookies[:browser_timezone] )
       Time.use_zone(timezone) { yield }
+    end
+    
+    def conduct_warning_params
+      params.require(:conduct_warning).permit(:reason)
     end
   
 end
