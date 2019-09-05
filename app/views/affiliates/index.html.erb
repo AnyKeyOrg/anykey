@@ -1,3 +1,18 @@
-<div id="affiliates" class="flexbox vertical center">
-I'm this area
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Affiliates</div>
+      </div>
+      <div class="affiliates-list flexbox vertical stretch">
+        <% if @affiliates.present? %>
+          Affiliates shown here.
+        <% else %>
+        <div class="empty">
+          No affiliates found.
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

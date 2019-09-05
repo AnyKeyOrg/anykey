@@ -15,6 +15,25 @@ class AffiliatesController < ApplicationController
     end  
   end
   
+  def new
+    @affiliate = Affiliate.new
+  end
+  
+  def create
+    @affiliate = Affiliate.new(affiliate_params)
+  
+    if @affiliate.save
+      flash[:notice] = "You've added a new affilate."
+      redirect_to affiliates_path
+    else      
+      flash.now[:alert] ||= ""
+      @affiliate.errors.full_messages.each do |message|
+        flash.now[:alert] << message + ". "
+      end      
+      render(action: :new)
+    end
+  end
+  
   protected
     def find_affiliate
       @affiliate = Report.find(params[:id])
@@ -23,9 +42,6 @@ class AffiliatesController < ApplicationController
     end
     
     def public_view?
-      Rails.logger.info("*********")
-      Rails.logger.info(current_user == nil)
-
       current_user == nil
     end
 
@@ -34,6 +50,10 @@ class AffiliatesController < ApplicationController
       unless current_user.is_moderator? || current_user.is_admin?
         redirect_to root_url
       end
+    end
+    
+    def affiliate_params
+      params.require(:affiliate).permit()
     end
   
 end
