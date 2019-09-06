@@ -31,6 +31,7 @@ class RevocationsController < ApplicationController
       if @revocation.save
         # TODO: send email to reported pledger here
         # TODO: revoke badge here
+        # TODO: set pledge status as badge revoked here
         @report.revoked = true
         @report.reviewer = current_user
         @report.save        
