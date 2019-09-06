@@ -127,6 +127,15 @@
   height: 100%;
 }
 
+hr.spacer {
+  background-color: var(--black-color);
+  border: none;
+  height: 4px;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 
 /***********************************/
 /*         Responsiveness          */
