@@ -20,7 +20,7 @@ $(document).ready(function() {
   });
   
   var text_b       = $("#report_recommended_response");
-  var counter_b    = $("#desired-outcome-counter");
+  var counter_b    = $("#recommended-response-counter");
   var max_length_b = counter_b.data("max-length");
 
   text_b.keyup(function() {
