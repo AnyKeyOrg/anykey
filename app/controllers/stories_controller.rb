@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
     else
       authenticate_user!
       ensure_staff
-    end  
+    end
   end
   
   def new

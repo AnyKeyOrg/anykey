@@ -1,0 +1,16 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="panel-title">Pledges</div>
+      <div class="records-list flexbox vertical stretch">
+        <% if @pledges.present? %>
+          <%= render(partial: "pledges/row", collection: @pledges, as: :pledge) %>
+        <% else %>
+        <div class="empty">
+          No pledges found.
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,14 @@
 class PledgesController < ApplicationController
   
+  layout "backstage", only: [ :index ]
+  
+  before_action :authenticate_user!, only: [ :index ]
+  before_action :ensure_staff, only: [ :index ]
   before_action :find_pledge, only: [ :show ]
   before_action :handle_twitch_auth, only: [ :new ]
   
   def index
+    @pledges = Pledge.all    
   end
   
   def new
@@ -80,8 +85,6 @@ class PledgesController < ApplicationController
             #TODO: probably just dump all dupe-auths to an error page saying that twitch id exists, contact us for help
             #TODO: or... if badge hasn't been revoked, move auth from old pledge email to new one?
             #TODO: conclusion: dump all dupe-auths to an error page saying that twitch id exists, contact us for help
-
-            
             
             @pledge.twitch_id           = twitch_user["_id"]
             @pledge.twitch_display_name = twitch_user["display_name"]
@@ -109,6 +112,12 @@ class PledgesController < ApplicationController
     end
 
   private
+    def ensure_staff
+      unless current_user.is_moderator? || current_user.is_admin?
+        redirect_to root_url
+      end
+    end
+      
     def pledge_params
       params.require(:pledge).permit(:first_name, :last_name, :email)
     end
