@@ -13,7 +13,7 @@
           <% end %>
         </div>
       </div>
-      <div class="reports-list flexbox vertical stretch">
+      <div class="records-list flexbox vertical stretch">
         <% if @reports.present? %>
         <%= render(partial: "reports/row", collection: @reports, as: :report) %>
         <% else %>

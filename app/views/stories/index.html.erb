@@ -1,19 +1,19 @@
-<div id="stories" class="flexbox vertical center">
-  <div class="page-header flexbox vertical center">
-    <div class="inner flexbox vertical">
-      <div id="tapestry">
-        <div class="title-line-a">
-          Story
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Stories</div>
+        <%= link_to("Add Story", new_story_path, class: "stealth") %>
+      </div>
+      <div class="records-list flexbox vertical stretch">
+        <% if @stories.present? %>
+          <%= render(partial: "stories/row", collection: @stories, as: :story) %>
+        <% else %>
+        <div class="empty">
+          No stories found.
         </div>
-        <div class="title-line-b">
-          FEED
-        </div>      
+        <% end %>
       </div>
     </div>
   </div>
-  <div class="page-section flexbox vertical stretch flex-1">
-    <div class="inner flexbox vertical stretch">
-      Stories text
-    </div>
-  </div>
-</div>  
+</div>

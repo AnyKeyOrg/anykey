@@ -5,7 +5,7 @@
         <div class="panel-title">Affiliates</div>
         <%= link_to("Add Affiliate", new_affiliate_path, class: "stealth") %>
       </div>
-      <div class="affiliates-list flexbox vertical stretch">
+      <div class="records-list flexbox vertical stretch">
         <% if @affiliates.present? %>
           <%= render(partial: "affiliates/row", collection: @affiliates, as: :affiliate) %>
         <% else %>

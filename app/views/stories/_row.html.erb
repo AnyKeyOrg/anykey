@@ -1,0 +1,6 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= edit_story_path(story, back: request.fullpath) %>">
+  <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="row-title"><%= story.headline %></div>
+    <div class="row-detail"><%= truncate(story.link, length: 30) %></div>
+  </div>
+</div>

@@ -1,10 +1,10 @@
 /*
- * Handles clicks on report rows in
+ * Handles clicks on record rows in
  * staff dashboard.
  */
 
 $(document).ready(function() {
-  $(".report-row").click(function(e) {
+  $(".record-row").click(function(e) {
     e.preventDefault();
     window.location = $(this).data('url');
   });

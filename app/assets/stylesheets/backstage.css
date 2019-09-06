@@ -73,6 +73,38 @@
   color: var(--bright-orange-color);
 }
 
+#backstage-container .records-list {
+  margin-top: 1em;
+}
+
+#backstage-container .record-row {
+  padding: 0.5em 1.25em 0.5em 1.25em;
+  font-size: 0.85em;
+  line-height: 1.75em;
+}
+
+#backstage-container .record-row.even {
+  background: var(--medium-white-color);
+}
+
+#backstage-container .record-row.odd {
+  background: var(--dark-white-color);
+}
+
+#backstage-container .record-row:hover {
+  cursor: pointer;
+  background: var(--orange-overlay); 
+}
+
+#backstage-container .record-row .row-title {
+  font-weight: 500;
+  margin-right: 1em;
+}
+
+#backstage-container .record-row .row-detail {
+  font-size: 0.8em;
+}
+
 
 /***********************************/
 /*         Responsiveness          */

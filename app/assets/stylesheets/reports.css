@@ -8,43 +8,6 @@
 
 
 /************************************/
-/*      Backstage Reports Panel     */
-/************************************/
-
-#backstage-container .reports-list {
-  margin-top: 1em;
-}
-
-#backstage-container .report-row {
-  padding: 0.5em 1.25em 0.5em 1.25em;
-  font-size: 0.85em;
-  line-height: 1.75em;
-}
-
-#backstage-container .report-row.even {
-  background: var(--medium-white-color);
-}
-
-#backstage-container .report-row.odd {
-  background: var(--dark-white-color);
-}
-
-#backstage-container .report-row:hover {
-  cursor: pointer;
-  background: var(--orange-overlay); 
-}
-
-#backstage-container .report-row .row-title {
-  font-weight: 500;
-  margin-right: 1em;
-}
-
-#backstage-container .report-row .row-detail {
-  font-size: 0.8em;
-}
-
-
-/************************************/
 /*     Backstage Report Review      */
 /************************************/
 #report-screenshot {

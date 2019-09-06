@@ -1,0 +1,37 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="session-box flexbox vertical stretch">
+      <form action="<%= stories_path %>" id="new_story" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div>
+        <div class="title">
+          Add Story
+        </div>
+        <%= display_alerts %>
+        <div class="item flexbox vertical stretch">
+          <label for="image" class="text-field above">Featured Image</label>
+          <input id="story_image" name="story[image]" type="file" tabindex="1">
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="story_headline" name="story[headline]" class="text-field" type="text" value="<%= @story.headline %>" autocomplete="off" tabindex="2">
+          <label for="story_headline" class="text-field">Headline</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <textarea id="story_description" name="story[description]" class="text-field" type="text" autocomplete="off" tabindex="3"><%= @story.description %></textarea>
+          <label for="story_description" class="text-field">Description</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="story_link" name="story[link]" class="text-field" type="text" value="<%= @story.link %>" autocomplete="off" tabindex="4">
+          <label for="story_link" class="text-field">Link</label>
+        </div>
+        <div class="buttons flexbox vertical end">
+          <div class="flexbox horizontal center">
+            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "6") %>
+            <input id="story_submit" name="commit" type="submit" class="button left-padded" value="Add" tabindex="5">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

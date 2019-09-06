@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :pledges,        only: [ :index, :create, :show ], path: :pledge
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
-    resources :stories,        only: [ :index ]
+    resources :stories,        only: [ :index, :new, :create, :edit, :update ]
     resources :reports,        only: [ :index, :show, :new, :create ] do
       member do
         post :dismiss

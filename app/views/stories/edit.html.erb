@@ -1,0 +1,53 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="session-box flexbox vertical stretch">
+      <form action="<%= story_path(@story) %>" id="editable_avatar_form" method="POST" enctype="multipart/form-data" class="flexbox vertical stretch">
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input name="_method" type="hidden" value="patch" />
+        </div>
+        <div class="title">
+          Edit Story
+        </div>
+        <%= display_alerts %>
+        <div class="item flexbox vertical start flex-0">
+          <div id="editable-avatar" class="flexbox horizontal center">
+            <%= image_tag(story_image_src(@story, :thumb), size: "240x135") %>
+            <div id="avatar-overlay" style="display:none">
+              <div class="action">
+                Change Image
+              </div>
+              <div id="edit-avatar-container" class="flexbox vertical center" style="display:none">
+                <div class="outer-caret"></div>
+                <div class="inner-caret"></div>
+                <div class="edit-avatar flexbox vertical stretch">
+                  <input id="story_image" name="story[image]" type="file" class="edit-avatar-upload" tabindex="2">
+                  <label for="story_image">Upload</label>   
+                  <%= link_to("Show Original", @story.image_url(:original), target: :blank, class: "menu-item") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="story_headline" name="story[headline]" class="text-field" type="text" value="<%= @story.headline %>" autocomplete="off" tabindex="2">
+          <label for="story_headline" class="text-field">Headline</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <textarea id="story_description" name="story[description]" class="text-field" type="text" autocomplete="off" tabindex="3"><%= @story.description %></textarea>
+          <label for="story_description" class="text-field">Description</label>
+        </div>
+        <div class="item flexbox vertical stretch">
+          <input id="story_link" name="story[link]" class="text-field" type="text" value="<%= @story.link %>" autocomplete="off" tabindex="4">
+          <label for="story_link" class="text-field">Link</label>
+        </div>
+        <div class="buttons flexbox vertical end">
+          <div class="flexbox horizontal center">
+            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "6") %>
+            <input id="story_submit" name="commit" type="submit" class="button left-padded" value="Update" tabindex="5">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
