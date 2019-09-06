@@ -32,7 +32,7 @@
 }
 
 #report form #incident-descripton-counter,
-#report form #desired-outcome-counter {
+#report form #recommended-response-counter {
   font-family: var(--body-font);
   font-weight: 400;
   font-size: 0.8em;
