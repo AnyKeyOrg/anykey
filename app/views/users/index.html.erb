@@ -1,0 +1,19 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Staff</div>
+        <%= link_to("Invite Staff", new_user_invitation_path(back: request.fullpath), class: "stealth") %>        
+      </div>
+      <div class="records-list flexbox vertical stretch">
+        <% if @users.present? %>
+          <%= render(partial: "users/row", collection: @users, as: :user) %>
+        <% else %>
+        <div class="empty">
+          No staff found.
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

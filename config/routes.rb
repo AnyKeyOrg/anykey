@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     end
 
     resources :staff,          only: [ :index ]
-    resources :users,          only: [ :edit, :update ]
+    resources :users,          only: [ :index, :edit, :update ]
     post '/users/:id/remove_avatar', to: 'users#remove_avatar', as: :remove_avatar
     
   end

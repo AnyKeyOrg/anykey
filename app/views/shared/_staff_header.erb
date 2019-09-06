@@ -5,9 +5,9 @@
       <div class="flexbox horizontal center">
         <% if user_signed_in? %>
         <%= link_to("Affiliates", affiliates_path, class: (controller_name == 'affiliates' ? 'selected ' : '') + 'item') %>
-        <%= link_to("Invites", new_user_invitation_path(back: request.fullpath), class: (controller_name == 'invitations' ? 'selected ' : '') + 'item') %>
         <%= link_to("Pledges", pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'item') %>
         <%= link_to("Reports", reports_path, class: (controller_name == 'reports' ? 'selected ' : '') + 'item') %>
+        <%= link_to("Staff", users_path, class: ((controller_name == 'users' || controller_name == 'invitations') ? 'selected ' : '') + 'item') %>
         <%= link_to("Stories", stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'item') %>        
         <div id="header-avatar-container" class="flexbox vertical end">
           <%= image_tag(user_image_src(current_user, :tiny), size: "28x28", class: "header-avatar") %>
@@ -43,6 +43,9 @@
   </div>
   <div class="row">
     <%= link_to("Reports", reports_path, class: controller_name == 'reports' ? 'selected ' : '') %> 
+  </div>
+  <div class="row">
+    <%= link_to("Staff", users_path, class: (controller_name == 'users' || controller_name == 'invitations') ? 'selected ' : '') %>
   </div>
   <div class="row">
     <%= link_to("Stories", stories_path, class: controller_name == 'stories' ? 'selected ' : '') %>        
