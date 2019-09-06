@@ -1,31 +1,35 @@
 class PledgesController < ApplicationController
   
   before_action :find_pledge, only: [ :show ]
-  before_action :handle_twitch_auth, only: [ :index ]
+  before_action :handle_twitch_auth, only: [ :new ]
   
   def index
+  end
+  
+  def new
     @pledge = Pledge.new
     @pledges_count = Pledge.count
   end
+  
   
   def create
     @pledge = Pledge.find_by(email: pledge_params[:email])
     
     if @pledge    
-      redirect_to pledge_url(@pledge, params: {status: 'returning'})
+      redirect_to pledge_path(@pledge, params: {status: 'returning'})
       
     else  
       @pledge = Pledge.new(pledge_params)
             
       if @pledge.save
-        redirect_to pledge_url(@pledge)
+        redirect_to pledge_path(@pledge)
       else
         flash.now[:alert] ||= ""
         @pledge.errors.full_messages.each do |message|
           flash.now[:alert] << message + ". "
         end
         @pledges_count = Pledge.count
-        render(action: :index)
+        render(action: :new)
       end
     end
   end
@@ -87,7 +91,7 @@ class PledgesController < ApplicationController
             #TODO: set twitch_authed_on here 
 
             if @pledge.save
-              redirect_to pledge_url(@pledge)
+              redirect_to pledge_path(@pledge)
             else
               #TODO: catch failure and send to an error page
             end

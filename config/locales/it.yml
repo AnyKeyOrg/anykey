@@ -20,7 +20,7 @@ it:
               blank: "è obbligatorio"
               invalid: "deve essere valido"
   pledges:
-    index:
+    new:
       headline: "Good luck, have fun.<br>Rendi videogiochi inclusivi per tutti."
       glhf-title: "GLHF è una promessa di ..."
     form:

@@ -11,7 +11,7 @@
     <% end %>
     <div id="full-menu" class="flexbox vertical end flex-1">
       <div class="flexbox horizontal center">
-        <%= link_to('glhf PLEDGE', pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'pledge item') %>
+        <%= link_to('glhf PLEDGE', new_pledge_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'pledge item') %>
         <%= link_to('Affiliates', affiliates_path, class: (controller_name == 'affiliates' ? 'selected ' : '') + 'affiliates item') %>
         <%= link_to('Resources', resources_path, class: (controller_name == 'resources' ? 'selected ' : '') + 'resources item')  %>
         <%= link_to('Stories', stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'stories item last') %>        
@@ -24,7 +24,7 @@
 </div>
 <div id="veggieburger-menu" class="flexbox vertical start" style="display: none">
   <div class="row">
-    <%= link_to('glhf PLEDGE', pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'pledge') %>
+    <%= link_to('glhf PLEDGE', new_pledge_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'pledge') %>
   </div>
   <div class="row">
     <%= link_to('Affiliates', affiliates_path, class: (controller_name == 'affiliates' ? 'selected ' : '') + 'affiliates') %>

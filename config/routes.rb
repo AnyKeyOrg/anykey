@@ -13,22 +13,23 @@ Rails.application.routes.draw do
       root to: "home#index"
     end
   
-    resources :pledges,        only: [ :index, :create, :show ], path: :pledge
+    resources :pledges,        only: [ :index, :create, :show ]
+    get '/pledge',             to: 'pledges#new', as: :new_pledge
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
     resources :stories,        only: [ :index, :new, :create, :edit, :update ]
     resources :reports,        only: [ :index, :show, :new, :create ] do
       member do
         post :dismiss
-        post :undismiss        
+        post :undismiss
       end
       resources :warnings,     only: [ :new, :create ]
       resources :revocations,  only: [ :new, :create ]
     end
-                                                   
-    resources :staff,          only: [ :index ]                              
+
+    resources :staff,          only: [ :index ]
     resources :users,          only: [ :edit, :update ]
-    post '/users/:id/remove_avatar', to: 'users#remove_avatar',         as: :remove_avatar
+    post '/users/:id/remove_avatar', to: 'users#remove_avatar', as: :remove_avatar
     
   end
     
