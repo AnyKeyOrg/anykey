@@ -1,6 +1,11 @@
-<div class="card flexbox vertical stretch">
+<div class="card flexbox vertical start">
   <div class="flexbox vertical">
-    <div class="row-title"><%= affiliate.name %></div>
-    <div class="row-detail"><%= affiliate.title %></div>
+    <div class="image">
+      <%= image_tag(affiliate_image_src(affiliate, :card)) %>
+    </div>
+    <div class="bottom">
+      <div class="row-title"><%= affiliate.name %></div>
+      <div class="row-detail"><%= affiliate.title %></div>
+    </div>  
   </div>
 </div>

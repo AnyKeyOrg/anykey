@@ -45,11 +45,42 @@
   margin: .7em;
   max-width: 20em;
   width: 100%;
-  height: 14em;
-  background-color: var(--light-gray-color);
+  border: 4px solid var(--dark-white-color);
 }
 
+#affiliates .card .image {
+  max-width: 20em;
+  max-height: 15em;
+  overflow: hidden;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
 
+#affiliates .card img {
+  margin: 0px;
+  width: 100%;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+#affiliates .card img:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+#affiliates .card .bottom {
+  background-color: var(--dark-white-color);
+  padding: 1em;
+}
 
 
 
