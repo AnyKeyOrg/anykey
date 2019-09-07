@@ -76,7 +76,6 @@
 }
 
 
-
 /************************************/
 /*       Pledge Page Sections       */
 /************************************/
@@ -115,12 +114,6 @@
   background-size: cover;
   margin-top: 5em;
   color: var(--white-color);
-}
-
-#pledge #glhf-section .background-overlay {
-  background-color: var(--transparent-overlay);
-  width: 100%;
-  height: 100%;
 }
 
 #pledge #glhf-section .page-section {
@@ -227,12 +220,6 @@
   color: var(--white-color);
 }
 
-#pledge #twitter-section .background-overlay {
-  background-color: var(--transparent-overlay);
-  width: 100%;
-  height: 100%;
-}
-
 #pledge #twitter-section .page-section {
   margin-top: 5em;
   margin-bottom: 5em;
@@ -267,6 +254,9 @@
   max-height: 248px;
   width: 95%;
   height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 

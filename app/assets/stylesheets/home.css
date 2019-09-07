@@ -56,10 +56,73 @@
   line-height: 1.4em;
 }
 
+
+/************************************/
+/*        Home Page Sections        */
+/************************************/
+
+#home .intro-section {
+  max-width: 38em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+#home img.feature-image {
+  margin: 1.5em;
+  max-width: 408px;
+  max-height: 248px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#home #glhf-section {
+  width: 100%;
+  background: url('/images/home-background-a.jpg') 40% 35% no-repeat;
+  background-size: cover;
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#home #glhf-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+
+#home .goal-section {
+  max-width: 20em;
+  width: 100%;
+}
+
+
+#home #about-section {
+  width: 100%;
+  background: url('/images/home-background-b.jpg') 40% 50% no-repeat;
+  background-size: cover;
+  margin-top: 5em;
+  color: var(--white-color);
+  margin-bottom: -3.6875em;
+}
+
+#home #about-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+
+
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
 
+@media (max-width:60em) {
+  #home .intro-section {
+    max-width: none;
+    min-width: 30em;
+  }
+}
 
 @media (max-width:48em) {
   #home .page-header .title .line-a {
@@ -67,6 +130,10 @@
   }
   #home .page-header .title .line-b {
     font-size: 1.6em;
+  }
+  
+  #home #about-section {
+    margin-bottom: -3.8125em;
   }
 }
   
@@ -76,6 +143,10 @@
   }
   #home .page-header .title .line-b {
     font-size: 1.1em;
+  }
+  
+  #home .intro-section {
+    min-width: 16em;
   }
 }
 
