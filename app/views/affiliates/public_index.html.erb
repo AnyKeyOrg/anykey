@@ -7,7 +7,7 @@
          </div>
          <div class="title-line-b">
            SHOWCASE
-         </div>      
+         </div>
        </div>
      </div>
    </div>
@@ -16,4 +16,17 @@
       Affiliates text
     </div>
   </div>
-</div>  
+  <div class="page-section flexbox vertical stretch flex-1">
+    <div class="inner flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <% if @affiliates.present? %>
+          <%= render(partial: "affiliates/card", collection: @affiliates, as: :affiliate) %>
+        <% else %>
+        <div class="empty">
+          No affiliates found.
+        </div>
+        <% end %>
+      </div>  
+    </div>
+  </div>
+</div>
