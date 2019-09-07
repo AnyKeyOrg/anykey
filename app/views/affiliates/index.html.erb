@@ -3,7 +3,11 @@
     <div class="control-panel flexbox vertical stretch">
       <div class="flexbox horizontal center wrap justify-space-between">
         <div class="panel-title">Affiliates</div>
-        <%= link_to("Add Affiliate", new_affiliate_path, class: "stealth") %>
+        <div class="flexbox horizontal">
+          <%= link_to("Add Affiliate", new_affiliate_path, class: "stealth") %>
+          &nbsp;&nbsp;&nbsp;
+          <%= link_to("Public Page", affiliates_path, class: "stealth") %>
+        </div>
       </div>
       <div class="records-list flexbox vertical stretch">
         <% if @affiliates.present? %>

@@ -26,7 +26,7 @@ class StoriesController < ApplicationController
   
     if @story.save
       flash[:notice] = "You've added a new story."
-      redirect_to stories_path
+      redirect_to stories_path(staff: true)
     else      
       flash.now[:alert] ||= ""
       @story.errors.full_messages.each do |message|
@@ -60,7 +60,7 @@ class StoriesController < ApplicationController
     end
     
     def public_view?
-      current_user == nil
+      params[:staff].blank?      
     end
 
   private

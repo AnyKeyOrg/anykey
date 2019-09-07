@@ -26,7 +26,7 @@ class AffiliatesController < ApplicationController
   
     if @affiliate.save
       flash[:notice] = "You've added a new affilate."
-      redirect_to affiliates_path
+      redirect_to affiliates_path(staff: true)
     else      
       flash.now[:alert] ||= ""
       @affiliate.errors.full_messages.each do |message|
@@ -60,7 +60,7 @@ class AffiliatesController < ApplicationController
     end
     
     def public_view?
-      current_user == nil
+      params[:staff].blank?      
     end
 
   private

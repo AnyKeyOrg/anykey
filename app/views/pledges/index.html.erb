@@ -1,7 +1,10 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
     <div class="control-panel flexbox vertical stretch">
-      <div class="panel-title">Pledges</div>
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Pledges</div>
+        <%= link_to("Public Page", new_pledge_path, class: "stealth") %>
+      </div>
       <div class="records-list flexbox vertical stretch">
         <% if @pledges.present? %>
           <%= render(partial: "pledges/row", collection: @pledges, as: :pledge) %>
