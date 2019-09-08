@@ -1,7 +1,7 @@
 class Story < ApplicationRecord
   
   IMAGE_STYLES = {
-     thumb:    { resize: "240x135" },
+     thumb:    { resize: "240x135#" },
      card:     { resize: "480x270#" }
    }.freeze
 
