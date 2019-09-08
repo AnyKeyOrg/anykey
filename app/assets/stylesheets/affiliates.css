@@ -30,6 +30,7 @@
   margin-bottom: 4.15em;
 }
 
+
 /************************************/
 /*      Affiliates Page Intro       */
 /************************************/
@@ -97,7 +98,7 @@
   transition-duration: .5s;
 }
 
-#affiliates .card-bottom {
+#affiliates .card-body {
   padding: 0.5em;
 }
 

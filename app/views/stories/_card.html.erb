@@ -1,0 +1,9 @@
+<div class="card flexbox horizontal center wrap justify-space-between">
+  <div class="flexbox vertical start">
+  <%= link_to(image_tag(story_image_src(story, :card)), story.link, class: "card-image") %>
+</div>
+  <div class="card-body flexbox vertical start flex-1">
+    <div class="card-headline"><%= story.headline %></div>
+    <div class="card-text"><%= story.description %></div>
+  </div>
+</div>

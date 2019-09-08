@@ -29,3 +29,78 @@
   margin-top: .1em;
   margin-bottom: 1.9em;
 }
+
+
+
+/************************************/
+/*        Stories Page Cards        */
+/************************************/
+
+#stories .card {
+  margin-bottom: 1em;
+}
+
+#stories .card-image {
+  min-width: 30em;
+  min-height: 16.875em;
+  overflow: hidden;
+}
+
+#stories .card-image img {
+  margin: 0px;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+#stories .card-image img:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+#stories .card-body {
+  margin-left: 2em;
+}
+
+#stories .card-headline {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 1.4em;
+  margin-top: 0.75em;
+  margin-bottom: 0.4em;
+}
+
+#stories .card-text {
+  color: var(--gray-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.85em;
+  line-height: 1.4;
+  margin-top: 1.5em;
+}
+
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:60em) {
+  #stories .card-body {
+    min-width: 30em;
+  }
+}
+
+
+
+
+
+
+

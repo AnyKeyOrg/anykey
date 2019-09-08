@@ -13,7 +13,25 @@
   </div>
   <div class="page-section flexbox vertical stretch flex-1">
     <div class="inner flexbox vertical stretch">
-      Stream mixing original site content with social media posts.
+      <div class="headline">
+        I am a headline
+      </div>
+      <div class="flexbox horizontal center wrap justify-space-between">      
+        <div class="intro-section">
+          <p>Stream mixing original site content with social media posts.</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>  
+  <div class="page-section flexbox vertical center">
+    <div class="inner flexbox vertical start">
+      <% if @stories.present? %>
+        <%= render(partial: "stories/card", collection: @stories, as: :story) %>
+      <% else %>
+      <div class="empty">
+        No stories found.
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
