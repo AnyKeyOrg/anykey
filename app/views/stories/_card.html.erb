@@ -5,5 +5,7 @@
   <div class="card-body flexbox vertical start flex-1">
     <div class="card-headline"><%= story.headline %></div>
     <div class="card-text"><%= story.description %></div>
+    <div class="card-descriptor"><%= l(story.created_at, format: "%b. %-d, %Y · %-l:%M%P ").upcase %></div>
+
   </div>
 </div>
