@@ -31,6 +31,14 @@
 }
 
 
+/************************************/
+/*        Stories Page Intro        */
+/************************************/
+
+#stories .page-section .headline {
+  margin-bottom: 0em;
+}
+
 
 /************************************/
 /*        Stories Page Cards        */
