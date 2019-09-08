@@ -6,13 +6,13 @@
   background: var(--black-color);
   color: var(--white-color);
   font-size: 1em;
-  height: 6em;
   margin-top: 4em;
 }
 
 #footer-content {
-  height: 6em;
   width: 100%;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 @media (min-width:80em) {
