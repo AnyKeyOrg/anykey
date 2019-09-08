@@ -71,7 +71,7 @@ class AffiliatesController < ApplicationController
     end
     
     def affiliate_params
-      params.require(:affiliate).permit(:name, :title, :bio, :website, :twitch, :twitter, :facebook, :instagram, :youtube, :image)
+      params.require(:affiliate).permit(:name, :title, :bio, :website, :twitch, :twitter, :facebook, :instagram, :youtube, :discord, :mixer, :image)
     end
   
 end

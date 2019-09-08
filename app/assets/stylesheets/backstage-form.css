@@ -65,6 +65,10 @@
   border-bottom: 4px solid var(--light-gray-color);
 }
 
+#backstage-container form input.small-text.text-field {
+  font-size: 0.9em;
+}
+
 #backstage-container form textarea {
   color: var(--black-color);
   background: var(--white-color);

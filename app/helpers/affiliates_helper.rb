@@ -26,10 +26,13 @@ module AffiliatesHelper
     if affiliate.youtube?
       links << ["&#xf167;", affiliate.youtube]
     end
-    # TODO: add ability to link discord and mixer
-    # if affiliate.discord?
-    #   links << ["&#xf392;", affiliate.discord]
-    # end
+    if affiliate.discord?
+      links << ["&#xf392;", affiliate.discord]
+    end
+    # TODO: find away to create the actual Mixer icon
+    if affiliate.mixer?
+      links << ["&#xf00d", affiliate.mixer]
+    end
     return links
   end
 

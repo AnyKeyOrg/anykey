@@ -1,5 +1,7 @@
-<div class="card flexbox vertical start">
-  <%= link_to(image_tag(affiliate_image_src(affiliate, :card)), !affiliate_links(affiliate).empty? ? affiliate_links(affiliate)[0][1] : '', class: "card-image") %>
+<div class="card flexbox vertical stretch">
+  <div class="flexbox vertical center">
+    <%= link_to(image_tag(affiliate_image_src(affiliate, :card)), !affiliate_links(affiliate).empty? ? affiliate_links(affiliate)[0][1] : '', class: "card-image") %>
+  </div>
   <div class="card-bottom">
     <div class="card-title"><%= affiliate.name %></div>
     <div class="card-subtitle"><%= affiliate.title.upcase %></div>
