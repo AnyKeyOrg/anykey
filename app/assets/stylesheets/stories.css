@@ -78,7 +78,7 @@
   font-weight: 600;
   font-size: 1.4em;
   margin-top: 0.75em;
-  margin-bottom: 0.4em;
+  margin-bottom: 1.5em;
 }
 
 #stories .card-text {
@@ -87,7 +87,6 @@
   font-weight: 400;
   font-size: 0.85em;
   line-height: 1.4;
-  margin-top: 1.5em;
 }
 
 
@@ -103,23 +102,17 @@
     padding: 0.5em;
     margin-bottom: 2em;
   }
+  
+  #stories .card-headline {
+    margin-bottom: .75em;
+  }
 }
 
-@media (max-width:60em) {
+@media (max-width:34em) {
   #stories .card-body {
     min-width: 16em;
   }
 }
-
-
-/*
-@media (max-width:50em) {
-#stories .card-image {
-  min-width: 15em;
-  min-height: 8.4375em;
-  overflow: hidden;
-}
-}*/
 
 
 
