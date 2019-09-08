@@ -1,62 +1,98 @@
 @font-face {
     font-family: 'Nevis';
-    src: url('/type/Nevis.eot');
-    src: url('/type/Nevis.eot?#iefix') format('embedded-opentype'),
-         url('/type/Nevis.woff2') format('woff2'),
-         url('/type/Nevis.woff') format('woff'),
-         url('/type/Nevis.ttf') format('truetype'),
-         url('/type/Nevis.svg#webfontbold') format('svg');
+    src: url('/type/nevis/Nevis.eot');
+    src: url('/type/nevis/Nevis.eot?#iefix') format('embedded-opentype'),
+         url('/type/nevis/Nevis.woff2') format('woff2'),
+         url('/type/nevis/Nevis.woff') format('woff'),
+         url('/type/nevis/Nevis.ttf') format('truetype'),
+         url('/type/nevis/Nevis.svg#webfontbold') format('svg');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gotham';
-    src: url('/type/Gotham-Book.eot');
-    src: url('/type/Gotham-Book.eot?#iefix') format('embedded-opentype'),
-         url('/type/Gotham-Book.woff2') format('woff2'),
-         url('/type/Gotham-Book.woff') format('woff'),
-         url('/type/Gotham-Book.ttf') format('truetype'),
-         url('/type/Gotham-Book.svg#Gotham-Book') format('svg');
+    src: url('/type/gotham/Gotham-Book.eot');
+    src: url('/type/gotham/Gotham-Book.eot?#iefix') format('embedded-opentype'),
+         url('/type/gotham/Gotham-Book.woff2') format('woff2'),
+         url('/type/gotham/Gotham-Book.woff') format('woff'),
+         url('/type/gotham/Gotham-Book.ttf') format('truetype'),
+         url('/type/gotham/Gotham-Book.svg#Gotham-Book') format('svg');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gotham';
-    src: url('/type/Gotham-BookItalic.eot');
-    src: url('/type/Gotham-BookItalic.eot?#iefix') format('embedded-opentype'),
-         url('/type/Gotham-BookItalic.woff2') format('woff2'),
-         url('/type/Gotham-BookItalic.woff') format('woff'),
-         url('/type/Gotham-BookItalic.ttf') format('truetype'),
-         url('/type/Gotham-BookItalic.svg#Gotham-BookItalic') format('svg');
+    src: url('/type/gotham/Gotham-BookItalic.eot');
+    src: url('/type/gotham/Gotham-BookItalic.eot?#iefix') format('embedded-opentype'),
+         url('/type/gotham/Gotham-BookItalic.woff2') format('woff2'),
+         url('/type/gotham/Gotham-BookItalic.woff') format('woff'),
+         url('/type/gotham/Gotham-BookItalic.ttf') format('truetype'),
+         url('/type/gotham/Gotham-BookItalic.svg#Gotham-BookItalic') format('svg');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Gotham';
-    src: url('/type/Gotham-Medium.eot');
-    src: url('/type/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
-         url('/type/Gotham-Medium.woff2') format('woff2'),
-         url('/type/Gotham-Medium.woff') format('woff'),
-         url('/type/Gotham-Medium.ttf') format('truetype'),
-         url('/type/Gotham-Medium.svg#Gotham-Medium') format('svg');
+    src: url('/type/gotham/Gotham-Medium.eot');
+    src: url('/type/gotham/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
+         url('/type/gotham/Gotham-Medium.woff2') format('woff2'),
+         url('/type/gotham/Gotham-Medium.woff') format('woff'),
+         url('/type/gotham/Gotham-Medium.ttf') format('truetype'),
+         url('/type/gotham/Gotham-Medium.svg#Gotham-Medium') format('svg');
     font-weight: 500;
     font-style: normal;
 }
 
-
 @font-face {
     font-family: 'Gotham';
-    src: url('/type/Gotham-Bold.eot');
-    src: url('/type/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
-         url('/type/Gotham-Bold.woff2') format('woff2'),
-         url('/type/Gotham-Bold.woff') format('woff'),
-         url('/type/Gotham-Bold.ttf') format('truetype'),
-         url('/type/Gotham-Bold.svg#Gotham-Bold') format('svg');
+    src: url('/type/gotham/Gotham-Bold.eot');
+    src: url('/type/gotham/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
+         url('/type/gotham/Gotham-Bold.woff2') format('woff2'),
+         url('/type/gotham/Gotham-Bold.woff') format('woff'),
+         url('/type/gotham/Gotham-Bold.ttf') format('truetype'),
+         url('/type/gotham/Gotham-Bold.svg#Gotham-Bold') format('svg');
     font-weight: 700;
     font-style: normal;
 }
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/type/fontawesome/fa-regular-400.eot');
+  src: url('/type/fontawesome/fa-regular-400.eot?#iefix') format('embedded-opentype'),
+       url('/type/fontawesome/fa-regular-400.woff2') format('woff2'),
+       url('/type/fontawesome/fa-regular-400.woff') format('woff'),
+       url('/type/fontawesome/fa-regular-400.ttf') format('truetype'),
+       url('/type/fontawesome/fa-regular-400.svg#fontawesome') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FontAwesomeSolid';
+  src: url("/type/fontawesome/fa-solid-900.eot");
+  src: url("/type/fontawesome/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+       url("/type/fontawesome/fa-solid-900.woff2") format("woff2"),
+       url("/type/fontawesome/fa-solid-900.woff") format("woff"),
+       url("/type/fontawesome/fa-solid-900.ttf") format("truetype"),
+       url("/type/fontawesome/fa-solid-900.svg#fontawesome") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FontAwesomeBrands';
+  src: url('/type/fontawesome/fa-brands-400.eot');
+  src: url('/type/fontawesome/fa-brands-400.eot?#iefix') format('embedded-opentype'),
+       url('/type/fontawesome/fa-brands-400.woff2') format('woff2'),
+       url('/type/fontawesome/fa-brands-400.woff') format('woff'),
+       url('/type/fontawesome/fa-brands-400.ttf') format('truetype'),
+       url('/type/fontawesome/fa-brands-400.svg#fontawesome') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 

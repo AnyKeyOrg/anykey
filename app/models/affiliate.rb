@@ -2,7 +2,7 @@ class Affiliate < ApplicationRecord
   
   IMAGE_STYLES = {
      thumb:    { resize: "240x135" },
-     card:     { resize: "320x240#" }
+     card:     { resize: "320x240" }
    }.freeze
 
   validates_presence_of    :name,

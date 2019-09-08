@@ -1,11 +1,15 @@
 <div class="card flexbox vertical start">
-  <div class="flexbox vertical">
-    <div class="image">
-      <%= image_tag(affiliate_image_src(affiliate, :card)) %>
+  <%= link_to(image_tag(affiliate_image_src(affiliate, :card)), !affiliate_links(affiliate).empty? ? affiliate_links(affiliate)[0][1] : '', class: "card-image") %>
+  <div class="card-bottom">
+    <div class="card-title"><%= affiliate.name %></div>
+    <div class="card-subtitle"><%= affiliate.title.upcase %></div>
+    <% unless affiliate_links(affiliate).empty? %>
+    <div class="card-links flexbox horizontal center wrap">
+      <% affiliate_links(affiliate).each do |link| %>
+        <%= link_to(link[0].html_safe, link[1])%>
+      <% end %>       
     </div>
-    <div class="bottom">
-      <div class="row-title"><%= affiliate.name %></div>
-      <div class="row-detail"><%= affiliate.title %></div>
-    </div>  
+    <% end %>
+    <div class="card-text"><%= affiliate.bio %></div>
   </div>
 </div>

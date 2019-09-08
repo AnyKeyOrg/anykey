@@ -34,30 +34,50 @@
 /*      Affiliates Page Intro       */
 /************************************/
 
+#affiliates .intro-section {
+  max-width: 38em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+#affiliates .join-box {
+  max-width: 22em;
+  width: 100%;
+  border: 5px solid var(--bright-orange-color);
+  background-color: var(--light-orange-overlay);
+  padding: 2.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+#affiliates .join-box .heading {
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+#affiliates .join-box p {
+  font-size: 1em;
+} 
 
 
 /************************************/
 /*      Affiliates Page Cards       */
 /************************************/
 
-
 #affiliates .card {
-  margin: .7em;
+  margin: 1em 1em 2em 1em;
   max-width: 20em;
   width: 100%;
-  border: 4px solid var(--dark-white-color);
 }
 
-#affiliates .card .image {
+#affiliates .card-image {
   max-width: 20em;
-  max-height: 15em;
   overflow: hidden;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; 
+  margin-bottom: -5px;
 }
 
-#affiliates .card img {
+#affiliates .card-image img {
   margin: 0px;
   width: 100%;
   -moz-transform: scale(1);
@@ -68,7 +88,7 @@
   transition-duration: .5s;
 }
 
-#affiliates .card img:hover {
+#affiliates .card-image img:hover {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
@@ -77,10 +97,82 @@
   transition-duration: .5s;
 }
 
-#affiliates .card .bottom {
-  background-color: var(--dark-white-color);
-  padding: 1em;
+#affiliates .card-bottom {
+  padding: 0.5em;
 }
+
+#affiliates .card-title {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 1.4em;
+  margin-top: 0.75em;
+  margin-bottom: 0.4em;
+}
+
+#affiliates .card-subtitle {
+  color: var(--gray-color);
+  font-family: var(--title-font);
+  font-size: 0.7em;
+  margin-bottom: 1em;
+}
+
+#affiliates .card-links a {
+  font-family: 'FontAwesomeBrands', 'FontAwesome', 'FontAwesomeSolid';
+  font-size: 1.1em;
+  color: var(--bright-orange-color);
+}
+
+#affiliates .card-links a:hover {
+  color: var(--dark-orange-color);  
+}
+
+#affiliates .card-links a:active {
+  color: var(--bright-blue-color);  
+}
+
+#affiliates .card-links a:not(:last-child) {
+  margin-right: 0.6em;
+}
+
+#affiliates .card-text {
+  color: var(--gray-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.85em;
+  line-height: 1.4;
+  margin-top: 1.5em;
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:68em) {
+  #affiliates .intro-section {
+    max-width: none;
+    min-width: 30em;
+    margin-bottom: 2em;
+  }
+}
+
+@media (max-width:34em) {
+  #affiliates .intro-section {
+    min-width: 16em;
+  }
+  
+  #affiliates .card {
+    margin: 0em 0em 2em 0em;
+  }
+}
+
+
+
+
+
+
+
+
 
 
 

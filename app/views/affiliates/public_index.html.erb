@@ -13,12 +13,25 @@
    </div>
   <div class="page-section flexbox vertical stretch flex-1">
     <div class="inner flexbox vertical stretch">
-      Showcase that shines the spotlight on our affiliates.
+      <div class="headline">
+        Spotlight on the role models<br>shaping the future of gaming.
+      </div>
+      <div class="flexbox horizontal center wrap justify-space-around">      
+        <div class="intro-section">
+          <p>Our AnyKey Affiliates represent some of the most inclusive communities, esports teams, and individual content creators in gaming.</p>
+          <p>If you’ve wondered where you might find women, people of color, LGBTQ+ gamers, and other marginalized players in esports, competitive gaming, or live streaming, our Affiliates Program is a good place to start.</p>
+          <p>The AnyKey affiliates team is full of people and communities who support our Keystone Code, and they happily welcome those willing to welcome others.</p>
+        </div>
+        <div class="join-box">
+          <div class="heading">Interested in becoming an affiliate?</div>
+          <p>We'll be opening a formal application process soon, but if you can't wait you can always... <%= link_to("contact us", "",  class: "inline") %>.</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="page-section flexbox vertical stretch flex-1">
     <div class="inner flexbox vertical stretch">
-      <div class="flexbox horizontal center wrap justify-space-between">
+      <div class="flexbox horizontal start wrap justify-space-around">
         <% if @affiliates.present? %>
           <%= render(partial: "affiliates/card", collection: @affiliates, as: :affiliate) %>
         <% else %>
