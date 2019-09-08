@@ -31,6 +31,12 @@ Rails.application.routes.draw do
     resources :users,          only: [ :index, :edit, :update ]
     post '/users/:id/remove_avatar', to: 'users#remove_avatar', as: :remove_avatar
     
+    get '/about',              to: 'about#index',        as: :about
+    get '/contact',            to: 'about#contact',      as: :contact
+    get '/data-policy',        to: 'about#data_policy',  as: :data_policy
+    
+    
+    
   end
     
 end
