@@ -41,12 +41,16 @@
 }
 
 #stories .card-image {
-  min-width: 30em;
-  min-height: 16.875em;
   overflow: hidden;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #stories .card-image img {
+  max-width: 30em;
+  height: auto;
+  width: 100%;
   margin: 0px;
   -moz-transform: scale(1);
   -webkit-transform: scale(1);
@@ -95,10 +99,27 @@
 @media (max-width:60em) {
   #stories .card-body {
     min-width: 30em;
+    margin-left: 0em;
+    padding: 0.5em;
+    margin-bottom: 2em;
+  }
+}
+
+@media (max-width:60em) {
+  #stories .card-body {
+    min-width: 16em;
   }
 }
 
 
+/*
+@media (max-width:50em) {
+#stories .card-image {
+  min-width: 15em;
+  min-height: 8.4375em;
+  overflow: hidden;
+}
+}*/
 
 
 
