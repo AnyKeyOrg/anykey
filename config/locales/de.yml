@@ -1,4 +1,4 @@
-en:
+de:
   activerecord:
     attributes:
       pledge:
@@ -81,5 +81,3 @@ en:
       text-b: "Öffne die Chat Einstellungen indem du auf das kleine Zahnrad Icon klickst"
       text-c: "Klicke auf Bearbeiten, welches rechts neben deinem Usernamen zu sehen ist. (Chat Identität)"
       text-d: "Klicke auf das AnyKey Abzeichen im “Anpassbares Abzeichen” Bereich, um das Abzeichen zu aktivieren"
-
-

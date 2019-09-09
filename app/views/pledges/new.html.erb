@@ -155,14 +155,13 @@
   </div>
   <div class="page-section flexbox vertical center">
     <div class="inner flexbox horizontal center">    
-      <%= link_to "Deutsch", params.permit!.merge(locale: "de", only_path: true) %>&nbsp;•&nbsp;
-      <%= link_to "English", params.permit!.merge(locale: "en", only_path: true) %>&nbsp;•&nbsp;
-      <%= link_to "Español", params.permit!.merge(locale: "es", only_path: true) %>&nbsp;•&nbsp;
-      <%= link_to "Français", params.permit!.merge(locale: "fr", only_path: true) %>&nbsp;•&nbsp;
-      <%= link_to "Italiano", params.permit!.merge(locale: "it", only_path: true) %>&nbsp;•&nbsp;
-      <%= link_to "Português", params.permit!.merge(locale: "pt", only_path: true) %>&nbsp;•&nbsp;
-      <%= link_to "Русский", params.permit!.merge(locale: "ru", only_path: true) %>
+      <%= link_to "Deutsch", new_pledge_path(locale: "de") %>&nbsp;•&nbsp;
+      <%= link_to "English", new_pledge_path(locale: "en") %>&nbsp;•&nbsp;
+      <%= link_to "Español", new_pledge_path(locale: "es") %>&nbsp;•&nbsp;
+      <%= link_to "Français", new_pledge_path(locale: "fr") %>&nbsp;•&nbsp;
+      <%= link_to "Italiano", new_pledge_path(locale: "it") %>&nbsp;•&nbsp;
+      <%= link_to "Português", new_pledge_path(locale: "pt") %>&nbsp;•&nbsp;
+      <%= link_to "Русский", new_pledge_path(locale: "ru") %>
     </div>
   </div>
-    
 </div>

@@ -1,0 +1,85 @@
+es:
+  activerecord:
+    attributes:
+      pledge:
+        first_name: "Nombre"
+        last_name: "Apellido"
+        email: "Correo electrónico"
+    errors:
+      models:
+        pledge:
+          attributes:
+            first_name:
+              blank: "requerido"
+            last_name:
+              blank: "requerido"  
+            email:
+              blank: "requerido"
+              invalid: "debe ser válido"  
+  pledges:
+    new:
+      pledge-button: "<span class=\"detail-text\">Únete a %{pledges_count} jugadores</span><br>Haz la promesa"
+      headline: "Good luck, have fun.<br>Haz que los juegos sean inclusivos para todos."
+      intro-paragraph-a: "Los videojuegos y los esports deben ser acogedores e inclusivos para todos. Los juegos son más divertidos y competitivos cuando las comunidades son diversas."
+      intro-paragraph-b: "Únete a nosotros para crear un ecosistema gaming que acoja e incluya a todos. Sin importar su forma, tamaño, color, género, origen, discapacidades o creencias."
+      intro-paragraph-c: "Con este compromiso, prometes marcar la diferencia siendo un ciudadano positivo e inclusivo en tu propio entorno de juegos."
+      twitch-title: "Muestra tu compromiso en Twitch"
+      twitch-text-a: "¡Haz la promesa GLHF y vincula tu Twitch ID para desbloquear la insignia global GLHF en el chat de Twitch!"
+      twitch-text-b: "Una vez conectado, puede activar su insignia en el perfil y mostrar su apoyo a la inclusividad en los videojuegos y las comunidades positivas en cualquier chat de Twitch."
+      glhf-title: "GLHF es la promesa de..."
+      glhf-promise-1: "Ser un buen jugador gane o pierda"
+      glhf-promise-2: "Saber que las personas con las que juegas son personas reales y mis palabras pueden tener un impacto real en ellas"
+      glhf-promise-3: "Ser un ejemplo positivo con mi comportamiento"
+      glhf-promise-4: "Hablar contra la discriminación, el odio, acoso y (el) abuso"
+      glhf-promise-5: "Mostrar integridad respetando las reglas, a mis oponentes y a mis compañeros de equipo"
+      glhf-promise-6: "Esperar, escuchar y volver a evaluar si me dicen que mis palabras o acciones son perjudiciales"
+      glhf-promise-7: "Respetar a otros incluso si su opinión es distinta a la mía"
+      reporting-title: "Eres la clave para una mejor comunidad"
+      reporting-paragraph-a: "Al firmar este compromiso, promete ayudar a que su entorno de juego sea más inclusivo para todos. Usted ha acordado jugar con estas siete promesas y mantener a las otras personas comprometidas con el mismo estándar. Eso significa que plantará cara, hablará e informará cuando vea acoso y discriminación en sus comunidades."
+      reporting-paragraph-b: "Si ves a alguien con una insignia causando problemas en una retransmisión, por favor, presente un informe para que nuestro equipo de moderadores pueda revisar la situación. Para garantizar que AnyKey represente un símbolo de respeto y aceptación. Quitaremos la insignia permanentemente a cualquier persona que se considere que esté abusando de ella."
+      report-button: "File a Report"
+      rules-subtitle-a: "Por acoso nos referimos a acciones que incluyen:"
+      rules-text-a: "Discriminación, odio, comportamiento ofensivo o abuso verbal relacionado con sexo, identidad de género y expresión, orientación sexual, raza, etnia, discapacidad, apariencia física, tamaño corporal, edad o religión"
+      rules-text-b: "Acoso o intimidación física o en línea"
+      rules-text-c: "Spam, asalto, secuestro o incitación a molestar en las retransmisiones o redes sociales"
+      rules-text-d: "Publicar o amenazar con publicar información personal de otras personas (“doxing”)"
+      rules-text-e: "Proposiciones sexuales indeseadas, incluidos comentarios, bromas e insinuaciones sexuales"
+      rules-text-f: "Abogar o alentar cualquiera de los comportamientos anteriores"
+      rules-subtitle-b: "La discriminación también incluye:"
+      rules-text-g: "Compartir memes hirientes o mezquinos"
+      rules-text-h: "Hacer comentarios o bromas intolerantes (por ejemplo, “eso es tan gay”, “juegas como una niña”, etc.)"
+      rules-text-i: "Hablar mal centrándose en los rasgos personales de alguien en lugar de en sus habilidades de juego"
+      twitter-title: "Únete a %{pledges_count} jugadores luciendo la insignia"
+      about-title: "Sobre AnyKey"
+      about-paragraph-a: "AnyKey es un grupo que defiende y apoya la diversidad, la inclusión y la equidad en los juegos competitivos. Amplificamos, conectamos y potenciamos a los jugadores poco representados y sus aliados a través de investigaciones e iniciativas estratégicas."
+      about-paragraph-b: "Nuestro objetivo, a través de nuestros programas, es aumentar la representación, mejorar la participación y fomentar comunidades más positivas para cualquier tipo de jugador. AnyKey es posible gracias a la asociación entre ESL e Intel."
+    form:
+      first-name: "Nombre"
+      last-name: "Apellido"
+      email-address: "Correo electrónico"
+      button: "Haz la promesa"
+    new_badgeless:
+      title: "¡Gracias por hacer la promesa GLHF!"
+      text: "Si quieres mostrar tu compromiso en Twitch, simplemente haz clic en el botón para vincular su cuenta de Twitch. Una vez que sea autentificado, la insignia aparecerá en la configuración de tu chat."
+    new_badged:
+      title: "¡Su insignia ha sido activada!"
+      text: "Ahora dirígete a Twitch para activar la insignia en la configuración de su chat. Por favor sigue las instrucciones que tiene a continuación si es la primera vez que luce una insignia. ¿Necesitas más ayuda? %{href}."
+      link-text: "Contacta con nosotros"
+    returning_badgeless:
+      title: "Parece que ya has aceptado el compromiso GLHF..."
+      text: "¡Gracias por su entusiasmo!  Si está intentando mostrar su compromiso en Twitch, sólo haz clic en el botón para vincular su cuenta de Twitch. Una vez que sea autentificado, la insignia aparecerá en la configuración de su chat. ¿Necesitas más ayuda? %{href}."
+      link-text: "Contacta con nosotros"
+    returning_badged:
+      title: "Parece que ya has aceptado el compromiso GLHF..."
+      text: "¡Gracias por su entusiasmo! Su insignia de Twitch ha sido activada. Si tiene algún problema para equiparte la insignia en Twitch, por favor, siga las siguientes instrucciones. ¿Necesitas más ayuda? %{href}."
+      text-revoked: "Lamentablemente su insignia de Twitch ha sido retirada debido a una mala conducta. Si desea apelar la decisión puede %{href}."
+      link-text: "Contacta con nosotros"
+    twitch_auth:
+      twitch-button: "Activa la insignia de Twitch"
+    twitch_instructions:
+      text-a: "Abre una retransmisión de Twitch mediante un navegador"
+      text-b: "Abre la configuración del chat haciendo clic en el icono del engranaje"
+      text-c: "Haz clic en Editar junto a su nombre de usuario en la sección Identidad"
+      text-d: "Haz clic en la insignia AnyKey debajo de Insignias globales predeterminada para equiparla"
+
+
