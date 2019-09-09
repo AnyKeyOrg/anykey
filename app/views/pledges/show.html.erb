@@ -1,4 +1,6 @@
-<% if params[:status] == 'returning' %>
+<% if params[:status] == 'duplicate' %>
+  <%= render(partial: "pledges/duplicate_badge") %>
+<% elsif params[:status] == 'returning' %>
   <% if @pledge.twitch_id.present? %>
     <%= render(partial: "pledges/returning_badged") %>
   <% else %>

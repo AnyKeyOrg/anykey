@@ -5,7 +5,7 @@
         <%= t(".title") %>
       </div>
       <div class="flexbox vertical center flex-1">
-        <p><%= t(".text", href: link_to(t(".link-text"), root_path, class: "inline")).html_safe %> </p>        
+        <p><%= t(".text", href: link_to(t(".link-text"), contact_path, class: "inline")).html_safe %></p>        
         <%= render(partial: "pledges/twitch_auth", locals: { pledge: @pledge }) %>
       </div>
     </div>

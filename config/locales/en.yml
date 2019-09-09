@@ -100,6 +100,10 @@ en:
       text: "If you are having difficulty equipping your AnyKey badge on Twitch, please follow the instructions below. Need more help? Just %{href}."
       text-revoked: "But unfortunately your AnyKey badge has been revoked on Twitch due to misconduct. If you’d like to appeal that decision you can %{href}."
       link-text: "contact us"
+    duplicate_badge:
+      title: "You have already activated a badge with that account..."
+      text: "If you are having difficulty equipping your AnyKey badge on Twitch, please follow the instructions below. Need more help? Just %{href}."
+      link-text: "contact us"
     twitch_auth:
       twitch-button: "Activate Twitch Badge"
     twitch_instructions:
