@@ -66,6 +66,8 @@
   padding: .75em;
   margin-top: 1.5em;
   text-transform: uppercase;
+  max-width: 13.5em;
+  white-space: normal;
 }
 
 #pledge form .button:hover {

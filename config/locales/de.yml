@@ -1,0 +1,85 @@
+en:
+  activerecord:
+    attributes:
+      pledge:
+        first_name: "Vorname"
+        last_name: "Nachname"
+        email: "Email"
+    errors:
+      models:
+        pledge:
+          attributes:
+            first_name:
+              blank: "muss ausgefüllt sein"
+            last_name:
+              blank: "muss ausgefüllt sein"  
+            email:
+              blank: "muss ausgefüllt sein"
+              invalid: "muss korrekte sein"
+  pledges:
+    new:
+      pledge-button: "<span class=\"detail-text\">Trete %{pledges_count} Spielern bei</span><br>Nimm das Versprechen an"
+      headline: "Good luck, have fun.<br>Make gaming inclusive for everyone."
+      intro-paragraph-a: "Videospiele und esports sollte jeden willkommen heißen und für jeden zugänglich sein. Spiele sind viel unterhaltsamer und konkurrenzfähiger, wenn die Community vielfältiger ist."
+      intro-paragraph-b: "Unterstütze uns bei der Erstellung eines Gaming Ökosystems, welches jeden willkommen heißt und für jeden zugänglich sein wird, wo Geschlecht, Größe, Hintergrund, Hautfarbe, Behinderung oder Glaubensrichtung keine Rolle spielt."
+      intro-paragraph-c: "Mit diesem Versprechen verpflichtest du dich den Unterschied auszumachen, als ein positiv eingestellter und offener Teil deiner Community zu agieren."
+      twitch-title: "Zeige dein Versprechen auf Twitch"
+      twitch-text-a: "Nimm das GLHF Versprechen an und linke deine Twitch ID um das exklusive GLHF Chat Abzeichen freizuschalten."
+      twitch-text-b: "Einmal verbunden, kannst du das Abzeichen auf deinem Profil aktivieren und deine Unterstützung für eine bessere Gaming Community im Twitch Chat zeigen."
+      glhf-title: "GLHF ist ein Versprechen um..."
+      glhf-promise-1: "Sei ein fairer Sportsmann, egal ob du gewinnst oder verlierst"
+      glhf-promise-2: "Sei dir immer bewusst das die Menschen, die du online triffst, reale Menschen sind und deine Worte einen Einfluss haben können"
+      glhf-promise-3: "Zeige immer ein vorbildliches Verhalten"
+      glhf-promise-4: "Erhebe deine Stimme gegen Rassismus, Hassreden, Mobbing und Misshandlung"
+      glhf-promise-5: "Zeige deine Integrität indem du die Regeln, deine Gegner und dein Team zu jedem Zeitpunkt achtest"
+      glhf-promise-6: "Halte inne, höre zu und reflektiere, wenn dir jemand sagt das deine Worte verletzend waren"
+      glhf-promise-7: "Respektiere andere, auch wenn diese eine andere Meinung haben als du"
+      reporting-title: "Du bist der Schlüssel für eine bessere Community"
+      reporting-paragraph-a: "Mit dem Unterschreiben dieses Versprechens verpflichtest du dich alles zu tun, um die Online Gaming Community für jeden zugänglich zu gestalten. Du hast zugestimmt nach diesen 7 Versprechen zu handeln und andere auf diese hinzuweisen, die dasselbe Versprechen abgegeben haben. Das bedeutet, dass du dich einsetzen wirst, sobald du Mobbing und Diskriminierungen in deiner Community entdeckst."
+      reporting-paragraph-b: "Solltest du jemanden sehen, der dieses Abzeichen trägt und Probleme in einem Stream bereitet, erstelle bitte einen Report damit sich unser Moderator Team um die Situation kümmern kann. Damit wir sicherstellen können, dass das AnyKey Symbol für Respekt und Eingliederung steht, werden wir jedem das Abzeichen lebenslang verwehren, sollte sich die Person nicht an die Regeln halten."
+      report-button: "File a Report"
+      rules-subtitle-a: "Diskriminierung bedeutet Aktionen wie:"
+      rules-text-a: "Diskriminierung, Hassreden, aggressives Verhalten oder verbale Angriffe aufgrund von Geschlecht, geschlechtliche Orientierung, ethnischer Zugehörigkeit, Behinderung, Körpergröße, Alter oder Religion"
+      rules-text-b: "Stalking oder Einschüchterung, egal ob physisch oder online"
+      rules-text-c: "Spamming, Raiding, Hacken oder jegliche Art von Unterbrechung von Streams oder auf Social Media Accounts"
+      rules-text-d: "Veröffentlichung oder die Androhung das man die persönlichen Daten preisgibt (“doxing”)"
+      rules-text-e: "Unwillkommene sexuelle Aufmerksamkeit inklusive sexuelle Anspielungen, Witze oder das aufdrängen"
+      rules-text-f: "Befürwortung oder das Unterstützen jegliches Verhalten wie oben beschrieben"
+      rules-subtitle-b: "Diskriminierung beinhaltet auch:"
+      rules-text-g: "Teilen von verletzenden und gemeinen Memes "
+      rules-text-h: "Intolerantes kommentieren oder Witze (z.B. “Das ist schwul”, “Du spielst wie ein Mädchen”, etc.)"
+      rules-text-i: "Trash-talking, welches auf persönliche Merkmale abzielt und nicht das spielerische Können"
+      twitter-title: "Trete einer Community mit %{pledges_count} anderen Spielern bei"
+      about-title: "Über AnyKey"
+      about-paragraph-a: "AnyKey ist eine Interessenvertretung, welche Vielfalt, Inklusion und Fairplay im kompetitiven Gaming unterstützt. Wir unterstützen, verbinden und sprechen unterrepräsentierten Spielern mit forschungs und strategischen Initiativen Mut zu."
+      about-paragraph-b: "Durch unsere Programme erhoffen wir uns die Community besser zu repräsentieren und die Communities in eine positive Umgebung für jegliche Spieler zu verwandeln. AnyKey ist möglich durch eine Partnerschaft zwischen ESL und Intel."
+    form:
+      first-name: "Vorname"
+      last-name: "Nachname"
+      email-address: "Email Adresse"
+      button: "Nimm das Versprechen an"
+    new_badgeless:
+      title: "Vielen Dank, dass du das GLHF Versprechen abgegeben hast!"
+      text: "Wenn du dein Versprechen auf Twitch zeigen willst, dann klicke hier, um deinen Twitch Account zu verlinken. Sobald du dich authentifiziert hast wird dein Abzeichen in deinen Chat Einstellungen zu sehen sein."
+    new_badged:
+      title: "Dein Twitch Abzeichen wurde aktiviert!"
+      text: "Jetzt gehe zu Twitch, um dein neues Abzeichen in den Chat Einstellungen zu aktivieren. Bitte folge den Anweisungen sollte es dein erstes Mal sein, das du ein Abzeichen erhältst. Brauchst du weitere Hilfe? %{href} einfach!"
+      link-text: "Kontaktiere uns"
+    returning_badgeless:
+      title: "Es sieht so aus als hast du dein GLHF Versprechen schon abgegeben."
+      text: "Vielen Dank für dein Enthusiasmus. Solltest du versuchen dein Versprechen auf Twitch anzuzeigen, dann klicke auf den Button, um dein Twitch Account zu verlinken. Sobald du dich verifiziert hast wird das Abzeichen in deinen Chat Einstellungen auftauchen. Brauchst du weitere Hilfe? %{href} einfach!"
+      link-text: "Kontaktiere uns"
+    returning_badged:
+      title: "Es sieht so aus als hättest du das GLHF Versprechen schon abgegeben."
+      text: "Vielen Dank für dein Enthusiasmus. Dein Twitch Abzeichen wurde soeben aktiviert. Solltest du Probleme haben dein Twitch Abzeichen zu aktivieren, dann folge den Anweisungen weiter unten. Brauchst du weitere Hilfe? %{href} einfach!"
+      text-revoked: "Leider müssen wir dir mitteilen, dass dir dein Twitch Abzeichen aufgrund eines Fehlverhaltens aberkannt wurde. Solltest du diese Entscheidung als Fehleinschätzung bewerten kannst du %{href}."
+      link-text: "Kontaktiere uns"
+    twitch_auth:
+      twitch-button: "Aktiviere dein Twitch Abzeichen"
+    twitch_instructions:
+      text-a: "Öffne einen Twitch Stream in einem Browser"
+      text-b: "Öffne die Chat Einstellungen indem du auf das kleine Zahnrad Icon klickst"
+      text-c: "Klicke auf Bearbeiten, welches rechts neben deinem Usernamen zu sehen ist. (Chat Identität)"
+      text-d: "Klicke auf das AnyKey Abzeichen im “Anpassbares Abzeichen” Bereich, um das Abzeichen zu aktivieren"
+
+
