@@ -1,0 +1,85 @@
+en:
+  activerecord:
+    attributes:
+      pledge:
+        first_name: "Le prénom"
+        last_name: "Le nom"
+        email: "L’adresse email"
+    errors:
+      models:
+        pledge:
+          attributes:
+            first_name:
+              blank: "est requis"
+            last_name:
+              blank: "est requis"  
+            email:
+              blank: "est requis"
+              invalid: "doit être valide"  
+  pledges:
+    new:
+      pledge-button: "<span class=\"detail-text\">Rejoignez %{pledges_count} joueurs</span><br>Faire la promesse"
+      headline: "Good luck, have fun.<br>Le Gaming pour tous, sans haine ou discrimination."
+      intro-paragraph-a: "Les jeux vidéo et l’esport devraient être accueillants et ouverts à tous. Les jeux sont plus distrayants et plus compétitifs quand les communautés de joueurs sont composées de joueurs de tous horizons et toutes origines."
+      intro-paragraph-b: "Rejoignez-nous pour créer un éco-système gaming ouvert à tous, sans distinction d’apparence, de taille, de couleur de peau, de genre, de vécu, de handicap ou de croyance."
+      intro-paragraph-c: "A travers cette promesse, vous vous engagez à faire la différence en devenant un citoyen engagé à l’attitude positive et avenante lors de toutes vos sessions de gaming."
+      twitch-title: "Affichez votre promesse sur Twitch"
+      twitch-text-a: "Faites la promesse GLHF et liez votre compte Twitch pour débloquer le badge Chat global exclusif GLHF sur Twitch !"
+      twitch-text-b: "Une fois connecté, vous pourrez afficher le badge dans votre profil et montrer votre soutien aux communautés Gaming avenantes et positives sur n’importe quel chat Twitch."
+      glhf-title: "La promesse GLHF, c’est..."
+      glhf-promise-1: "Être humble autant dans la victoire que dans la défaite"
+      glhf-promise-2: "Prendre conscience que les personnes en ligne sont réelles et que mes mots ont un impact réel sur elles"
+      glhf-promise-3: "Afficher un comportement positif exemplaire"
+      glhf-promise-4: "S’élever contre les discriminations, discours haineux, agressions et le harcèlement"
+      glhf-promise-5: "Faire preuve d’intégrité en respectant les règles, mes adversaires et coéquipiers"
+      glhf-promise-6: "S’arrêter, écouter et analyser si mes mots ou actions ont été blessants"
+      glhf-promise-7: "Respecter les autres, même si leurs opinions divergent des miennes"
+      reporting-title: "Vous êtes la clef pour une communauté bienveillante"
+      reporting-paragraph-a: "En signant cette promesse, vous vous engagez à faire tout ce qui est en votre pouvoir pour rendre la communauté de jeu en ligne accessible à tous. Vous avez accepté de vous conformer à ces 7 règles et de s’assurer que les autres personnes engagées dans cette promesse respectent également les mêmes normes. Cela signifie que vous vous impliquerez en parlant et en signalant des faits d’harcèlement ou de discrimination dans votre communauté."
+      reporting-paragraph-b: "Si vous voyez une personne avec le badge qui cause des problème sur un stream, merci de nous la signaler afin que notre équipe de modération puisse enquêter sur la situation. Afin de s’assurer qu’AnyKey représente un symbole universel de respect et d’intégrité, nous retirerons de manière permanente le badge à quiconque sera pris à ne pas respecter sa promesse."
+      report-button: "File a Report"
+      rules-subtitle-a: "Harassment means actions such as:"
+      rules-text-a: "Discrimination, discours haineux, comportement offensant ou violences verbales en rapport à leur sexe, identité sexuelle et son expression, orientation sexuelle, race, ethnie, handicap, apparence physique, taille, âge ou croyances"
+      rules-text-b: "Traquer ou intimider que ce soit physiquement ou en ligne"
+      rules-text-c: "Spammer, faire un raid, détourner ou inciter au détournement de stream, ou des réseaux sociaux"
+      rules-text-d: "Poster ou menacer de poster des informations personnelles d’autres personnes (“doxing”)"
+      rules-text-e: "Propositions importunes à caractère sexuel telles que les commentaires et blagues sexistes ou avances à caractère sexuel"
+      rules-text-f: "Promouvoir et/ou encourager n’importe quelle situation citée précédemment"
+      rules-subtitle-b: "Discrimination also includes:"
+      rules-text-g: "Partager des memes blessants ou mesquins"
+      rules-text-h: "Des remarques ou blagues sectaires (ex. “C’est trop gay”, “Tu joues comme une fille”, etc.)"
+      rules-text-i: "“Trash-talking” que mettre l’accent sur les traits personnels d’une personne au lieu de son niveau de jeu"
+      twitter-title: "Rejoignez les %{pledges_count} joueurs arborant le badge"
+      about-title: "A propos d’AnyKey"
+      about-paragraph-a: "AnyKey est un groupe de soutien qui promeut la diversité, l’inclusion et lZéquité dans la compétition dans les jeux vidéo. Nous amplifions, connectons et donnons une visibilité accrue aux joueurs sous-représentés et à leurs alliés grâce à la recherche et à des initiatives stratégiques."
+      about-paragraph-b: "Grâce à nos programmes, nous visons à accroître la représentation, à améliorer la participation et à créer des espaces communautaires plus positifs dans le jeu pour les joueurs de tous types. AnyKey est une initiative rendue possible grâce à un partenariat entre ESL et Intel."
+    form:
+      first-name: "Prénom"
+      last-name: "Nom de famille"
+      email-address: "Adresse email"
+      button: "Faire la promesse"
+    new_badgeless:
+      title: "Merci d’avoir fait la promesse GLHF !"
+      text: "Si vous souhaitez afficher votre promesse sur Twitch, il vous suffit de cliquer sur le bouton pour lier votre compte Twitch. Une fois connecté, le badge apparaîtra dans les paramètres de votre chat."
+    new_badged:
+      title: "Votre badge a été activé !"
+      text: "Maintenant, rendez-vous sur Twitch afin d’afficher le badge dans vos paramètres de chat. Merci de suivre les instructions ci-dessous si c’est la première fois que vous affichez un badge. Besoin d’aide ? %{href}."
+      link-text: "Contactez-nous"
+    returning_badgeless:
+      title: "On dirait que vous avez déjà fait la promesse GLHF..."
+      text: "Merci pour votre enthousiasme sans limite! Si vous tentez d’afficher votre promesse sur Twitch, il vous suffit de cliquer sur le bouton pour lier votre compte Twitch. Une fois connecté, le badge apparaîtra dans les paramètres de votre chat. Besoin d’aide ? %{href}."
+      link-text: "Contactez-nous"
+    returning_badged:
+      title: "On dirait que vous avez déjà fait la promesse GLHF..."
+      text: "Merci pour votre enthousiasme sans limite! Votre badge Twitch a déjà été activé. Si vous rencontrez des difficultés pour équiper votre badge sur Twitch, alors suivez les instructions ci-dessous. Besoin d’aide ? %{href}."
+      text-revoked: "Il semblerait que votre badge Twitch ait été retiré pour mauvaise conduite. Si vous souhaitez faire appel de cette décision, merci de %{href}."
+      link-text: "Contactez-nous"
+    twitch_auth:
+      twitch-button: "Activer le badge Twitch"
+    twitch_instructions:
+      text-a: "Rendez-vous sur une chaîne Twitch avec votre navigateur"
+      text-b: "Cliquez sur l’icône Engrenage pour afficher les paramètres du chat"
+      text-c: "Cliquez sur Modifier à côté de votre pseudonyme dans la section “Identité”"
+      text-d: "Cliquez sur le badge AnyKey dans la section Badges globaux par défaut pour l’afficher"
+
+
