@@ -50,6 +50,16 @@
   margin-right: 1em;
 }
 
+#footer-content .creators img:hover {
+  border-bottom: 2px solid var(--bright-green-color);
+  margin-bottom: -2px;
+}
+
+#footer-content .creators img:active {
+  border-bottom: 2px solid var(--bright-blue-color);
+  margin-bottom: -2px;
+}
+
 #footer-content .about-links a {
   font-size: 1em;
   font-weight: 500;

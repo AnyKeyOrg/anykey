@@ -96,6 +96,11 @@
   background: var(--orange-overlay); 
 }
 
+#backstage-container .record-row:active {
+  cursor: pointer;
+  background: var(--blue-overlay); 
+}
+
 #backstage-container .record-row .row-title {
   font-weight: 500;
   margin-right: 1em;
