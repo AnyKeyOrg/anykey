@@ -11,6 +11,7 @@
 
 #footer-content {
   width: 100%;
+  padding-top: 1em;
 }
 
 @media (min-width:80em) {
@@ -26,7 +27,7 @@
 #footer-content .about-links {
   margin-right: 1.8em;
   margin-left: 1.8em;
-  padding-top: 2em;
+  padding-top: 1em;
   padding-bottom: 2em;
 }
 
