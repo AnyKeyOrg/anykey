@@ -70,9 +70,7 @@ class PledgesController < ApplicationController
         end
         
         # Request an access token from Twitch
-        # TODO: change redirect URL to anykey.org
-        # TODO: Also in twitch_auth partial
-        response = HTTParty.post(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&code=#{params[:code]}&grant_type=authorization_code&redirect_uri=http://localhost:9292/pledge"))
+        response = HTTParty.post(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&code=#{params[:code]}&grant_type=authorization_code&redirect_uri=#{ENV['TWITCH_REDIRECT_URL']}"))
 
         # Use token to view Twitch credentials and store for validation
         if response["access_token"].present?
@@ -88,8 +86,10 @@ class PledgesController < ApplicationController
               @pledge.twitch_display_name = twitch_user["display_name"]
               @pledge.twitch_email        = twitch_user["email"]
               @pledge.twitch_authed_on    = Time.now
-              #TODO: set pledge badge here 
-
+              
+              # Set badge on Twitch
+              badge_result = HTTParty.put(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users/#{@pledge.twitch_id}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
+              
               if @pledge.save
                 redirect_to pledge_path(@pledge)
               else

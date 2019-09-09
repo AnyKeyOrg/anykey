@@ -30,8 +30,13 @@ class RevocationsController < ApplicationController
           
       if @revocation.save
         # TODO: send email to reported pledger here
-        # TODO: revoke badge here
-        # TODO: set pledge status as badge revoked here
+
+        # Revoke badge on Twitch
+        badge_result = HTTParty.delete(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users/#{@pledge.twitch_id}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
+        
+        @pledge.badge_revoked = true
+        @pledge.save
+        
         @report.revoked = true
         @report.reviewer = current_user
         @report.save        
