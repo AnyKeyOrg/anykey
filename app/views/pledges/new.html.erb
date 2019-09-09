@@ -139,7 +139,6 @@
       </div>
     </div>
   </div>
-  
   <div class="page-section flexbox vertical center">
     <div class="inner flexbox vertical center">
       <div class="flexbox horizontal center wrap justify-space-around">
@@ -154,6 +153,16 @@
       </div>
     </div>
   </div>
-  
+  <div class="page-section flexbox vertical center">
+    <div class="inner flexbox horizontal center">    
+      <%= link_to "Deutsch", params.permit!.merge(locale: "de", only_path: true) %>&nbsp;•&nbsp;
+      <%= link_to "English", params.permit!.merge(locale: "en", only_path: true) %>&nbsp;•&nbsp;
+      <%= link_to "Español", params.permit!.merge(locale: "es", only_path: true) %>&nbsp;•&nbsp;
+      <%= link_to "Français", params.permit!.merge(locale: "fr", only_path: true) %>&nbsp;•&nbsp;
+      <%= link_to "Italiano", params.permit!.merge(locale: "it", only_path: true) %>&nbsp;•&nbsp;
+      <%= link_to "Português", params.permit!.merge(locale: "pt", only_path: true) %>&nbsp;•&nbsp;
+      <%= link_to "Русский", params.permit!.merge(locale: "ru", only_path: true) %>
+    </div>
+  </div>
     
 </div>
