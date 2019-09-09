@@ -154,14 +154,16 @@
     </div>
   </div>
   <div class="page-section flexbox vertical center">
-    <div class="inner flexbox horizontal center">    
-      <%= link_to "Deutsch", new_pledge_path(locale: "de") %>&nbsp;•&nbsp;
-      <%= link_to "English", new_pledge_path(locale: "en") %>&nbsp;•&nbsp;
-      <%= link_to "Español", new_pledge_path(locale: "es") %>&nbsp;•&nbsp;
-      <%= link_to "Français", new_pledge_path(locale: "fr") %>&nbsp;•&nbsp;
-      <%= link_to "Italiano", new_pledge_path(locale: "it") %>&nbsp;•&nbsp;
-      <%= link_to "Português", new_pledge_path(locale: "pt") %>&nbsp;•&nbsp;
-      <%= link_to "Русский", new_pledge_path(locale: "ru") %>
+    <div class="inner flexbox vertical center">
+      <div class="locales-section flexbox horizontal center wrap justify-space-around">      
+        <%= link_to "Deutsch", new_pledge_path(locale: "de"), class: "stealth" %>
+        <%= link_to "English", new_pledge_path(locale: "en"), class: "stealth" %>
+        <%= link_to "Español", new_pledge_path(locale: "es"), class: "stealth" %>
+        <%= link_to "Français", new_pledge_path(locale: "fr"), class: "stealth" %>
+        <%= link_to "Italiano", new_pledge_path(locale: "it"), class: "stealth" %>
+        <%= link_to "Português", new_pledge_path(locale: "pt"), class: "stealth" %>
+        <%= link_to "Русский", new_pledge_path(locale: "ru"), class: "stealth" %>
+      </div>
     </div>
   </div>
 </div>

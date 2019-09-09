@@ -313,6 +313,19 @@
   margin-top: 0.4em;
 }
 
+#pledge .locales-section {
+  background: var(--black-color);
+  color: var(--white-color);
+  font-family: var(--body-font), var(--alt-title-font);
+  padding: 0.4em 1.4em 1.1em 1.4em;
+  font-weight: 500;
+}
+
+#pledge .locales-section a {
+  margin-top: 0.8em;
+  margin-right: 0.4em;
+  margin-left: 0.4em;
+}
 
 /***********************************/
 /*         Responsiveness          */
