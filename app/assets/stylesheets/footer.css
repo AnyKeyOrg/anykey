@@ -11,8 +11,6 @@
 
 #footer-content {
   width: 100%;
-  padding-top: 2em;
-  padding-bottom: 2em;
 }
 
 @media (min-width:80em) {
@@ -21,15 +19,58 @@
   }
 }
 
-#footer-content .left,
-#footer-content .right {
+#footer-content .creators,
+#footer-content .sponsors,
+#footer-content .social-links,
+#footer-content .reporting,
+#footer-content .about-links {
+  margin-right: 1.8em;
+  margin-left: 1.8em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+#footer-content .creators,
+#footer-content .sponsors {
   font-size: 0.85em;
 }
 
-#footer-content .left {
-  margin-left: 1.8em;
+#footer-content .reporting {
+  font-size: 0.85em;
 }
 
-#footer-content .right {
-  margin-right: 1.8em;
+#footer-content .reporting a {
+  margin-top: 0.7em;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+#footer-content img.left-logo {
+  margin-right: 1em;
+}
+
+#footer-content .about-links a {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+#footer-content .about-links a:not(:first-child) {
+  margin-top: 0.7em;
+}
+
+#footer-content .social-links a {
+  font-family: var(--icon-font);
+  font-size: 1.7em;
+}
+
+#footer-content .social-links a:hover {
+  color: var(--bright-green-color);  
+}
+
+#footer-content .social-links a:active {
+  color: var(--bright-blue-color);  
+}
+
+#footer-content .social-links a:not(:last-child) {
+  margin-right: 0.6em;
 }

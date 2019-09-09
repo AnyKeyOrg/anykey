@@ -1,30 +1,36 @@
 <div id="footer" class="flexbox vertical center">
-  <div id="footer-content" class="flexbox horizontal center wrap justify-space-around">
-    <div class="left flexbox horizontal center">
-      <%= link_to(image_tag("/images/anykey-cap-64.svg", size: "80x80"), root_path) %>
+  <div id="footer-content" class="flexbox horizontal center wrap justify-space-between">
+    <div class="creators flexbox horizontal center">
+      <%= link_to(image_tag("/images/anykey-cap-64.svg", size: "80x80", class: "left-logo"), root_path) %>
       <div class="flexbox vertical start">
         <div>Designed by:</div>
         <%= link_to(image_tag("/images/neta-snook-logo.svg", size: "100x25"), "http://netasnook.com") %>
       </div>
     </div>
-    <div class="left-middle flexbox vertical start">
-      <%= link_to('About', about_path) %>
-      <%= link_to('Contact', contact_path) %>
-      <%= link_to('Data Policy', data_policy_path) %>
+    <div class="about-links flexbox vertical start">
+      <%= link_to('About', about_path, class: "stealth") %>
+      <%= link_to('Contact', contact_path, class: "stealth") %>
+      <%= link_to('Data Policy', data_policy_path, class: "stealth") %>
     </div>
-    <div class="middle flexbox vertical start">
-      socials go here
+    <div class="social-links flexbox vertical start">
+      <div class="flexbox horizontal center">
+        <%= link_to("&#xf1e8;".html_safe, "https://www.twitch.tv/anykeyorg") %>
+        <%= link_to("&#xf099;".html_safe, "https://twitter.com/anykeyorg") %>
+        <%= link_to("&#xf082;".html_safe, "https://www.facebook.com/AnyKeyOrg") %>
+        <%= link_to("&#xf16d;".html_safe, "https://www.instagram.com/AnyKeyOrg") %>
+        <%= link_to("&#xf167;".html_safe, "https://www.youtube.com/channel/UC_g-d1xOkG8Jhc5HprmDQRA") %>
+        <%= link_to("&#xf392;".html_safe, "https://discordapp.com/invite/0wO5ZPggEK8shbfv") %>
+      </div>
     </div>
-    <div class="right-middle flexbox vertical start">
-      See someone abusing<br>
+    <div class="reporting flexbox vertical start">
+      Saw someone abusing<br>
       the AnyKey badge?
-      <%= link_to('File a Report', new_report_path) %>
-    </div> 
-    
-    <div class="right flexbox vertical start">
+      <%= link_to('File a Report', new_report_path, class: "stealth") %>
+    </div>
+    <div class="sponsors flexbox vertical start">
       <div>Sponsored by:</div>
       <div class="flexbox horizontal center">
-        <%= link_to(image_tag("/images/esl-logo.svg", size: "101x31"), "https://www.eslgaming.com/") %>
+        <%= link_to(image_tag("/images/esl-logo.svg", size: "101x31", class: "left-logo"), "https://www.eslgaming.com/") %>
         <%= link_to(image_tag("/images/intel-logo.svg", size: "78x53"), "https://www.intel.com") %>
       </div>
     </div>

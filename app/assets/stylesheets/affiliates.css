@@ -118,7 +118,7 @@
 }
 
 #affiliates .card-links a {
-  font-family: 'FontAwesomeBrands', 'FontAwesome', 'FontAwesomeSolid';
+  font-family: var(--icon-font);
   font-size: 1.1em;
   color: var(--bright-orange-color);
 }
