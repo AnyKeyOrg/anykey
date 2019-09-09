@@ -71,7 +71,7 @@ class PledgesController < ApplicationController
         
         # Request an access token from Twitch
         # TODO: change redirect URL to anykey.org
-        # Also in twitch_auth partial
+        # TODO: Also in twitch_auth partial
         response = HTTParty.post(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&code=#{params[:code]}&grant_type=authorization_code&redirect_uri=http://localhost:9292/pledge"))
 
         # Use token to view Twitch credentials and store for validation
@@ -79,37 +79,30 @@ class PledgesController < ApplicationController
           twitch_user = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/user"), headers: {Accept: 'application/vnd.twitchtv.v5+json', Authorization: "OAuth #{response['access_token']}", "Client-ID": ENV['TWITCH_CLIENT_ID']})
                     
           if twitch_user.present?
-
-            # Check if Twitch user already pledged
             if Pledge.find_by(twitch_id: twitch_user["_id"])
+              # Reroute if Twitch user already pledged
               redirect_to pledge_path(@pledge, params: {status: 'duplicate'})
-            #TODO: conclusion: dump all dupe-auths to an error page saying that twitch id exists, contact us for help
             
             else
               @pledge.twitch_id           = twitch_user["_id"]
               @pledge.twitch_display_name = twitch_user["display_name"]
               @pledge.twitch_email        = twitch_user["email"]
-            
+              @pledge.twitch_authed_on    = Time.now
               #TODO: set pledge badge here 
-              #TODO: set twitch_authed_on here 
 
               if @pledge.save
                 redirect_to pledge_path(@pledge)
               else
                 #TODO: catch failure and send to an error page
               end
-            end  
-            
+            end
           else
             #TODO: catch failure and send to an error page
           end
         else
           #TODO: catch failure and send to an error page
         end
-
       end
-      
-      
     end
 
   private
