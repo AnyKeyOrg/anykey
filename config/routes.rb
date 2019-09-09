@@ -35,8 +35,6 @@ Rails.application.routes.draw do
     get '/contact',            to: 'about#contact',      as: :contact
     get '/data-policy',        to: 'about#data_policy',  as: :data_policy
     
-    
-    
   end
     
 end

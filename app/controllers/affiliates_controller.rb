@@ -3,7 +3,7 @@ class AffiliatesController < ApplicationController
   layout "backstage"
   
   before_action :authenticate_user!,        only: [ :new, :create, :edit, :update ]
-  before_action :ensure_staff,              only: [ :new, :create, :edit, :update ]
+  before_action :ensure_admin,              only: [ :new, :create, :edit, :update ]
   before_action :find_affiliate,            only: [ :edit, :update ]
   
   def index
@@ -13,7 +13,7 @@ class AffiliatesController < ApplicationController
       render action: "public_index", layout: "application"
     else
       authenticate_user!
-      ensure_staff
+      ensure_admin
     end  
   end
   
@@ -64,8 +64,8 @@ class AffiliatesController < ApplicationController
     end
 
   private
-    def ensure_staff
-      unless current_user.is_moderator? || current_user.is_admin?
+    def ensure_admin
+      unless current_user.is_admin?
         redirect_to root_url
       end
     end

@@ -3,11 +3,13 @@
     <div class="control-panel flexbox vertical start">
       <div class="panel-title">Staff dashboard</div>
       <div class="panel-menu flexbox horizontal center wrap">
-        <%= link_to("Affiliates", affiliates_path(staff: true), class: "stealth") %>
-        <%= link_to("Pledges", pledges_path, class: "stealth") %>
         <%= link_to("Reports", reports_path, class: "stealth") %>
-        <%= link_to("Staff", users_path, class: "stealth") %>
+        <%= link_to("Pledges", pledges_path, class: "stealth") %>
+        <% if current_user.is_admin? %>
+        <%= link_to("Affiliates", affiliates_path(staff: true), class: "stealth") %>
         <%= link_to("Stories", stories_path(staff: true), class: "stealth") %>
+        <%= link_to("Staff", users_path, class: "stealth") %>
+        <% end %>
         <%= link_to("Public View", root_path, class: "stealth") %>
       </div>
     </div>

@@ -4,11 +4,13 @@
     <div id="full-menu" class="flexbox vertical end flex-1">
       <div class="flexbox horizontal center">
         <% if user_signed_in? %>
-        <%= link_to("Affiliates", affiliates_path(staff: true), class: (controller_name == 'affiliates' ? 'selected ' : '') + 'item') %>
-        <%= link_to("Pledges", pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'item') %>
         <%= link_to("Reports", reports_path, class: (controller_name == 'reports' ? 'selected ' : '') + 'item') %>
+        <%= link_to("Pledges", pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'item') %>
+        <% if current_user.is_admin? %>
+        <%= link_to("Affiliates", affiliates_path(staff: true), class: (controller_name == 'affiliates' ? 'selected ' : '') + 'item') %>
+        <%= link_to("Stories", stories_path(staff: true), class: (controller_name == 'stories' ? 'selected ' : '') + 'item') %>
         <%= link_to("Staff", users_path, class: ((controller_name == 'users' || controller_name == 'invitations') ? 'selected ' : '') + 'item') %>
-        <%= link_to("Stories", stories_path(staff: true), class: (controller_name == 'stories' ? 'selected ' : '') + 'item') %>        
+        <% end %>     
         <div id="header-avatar-container" class="flexbox vertical end">
           <%= image_tag(user_image_src(current_user, :tiny), size: "28x28", class: "header-avatar") %>
           <div id="dropdown-container" style="display:none">
@@ -21,7 +23,8 @@
           </div>
         </div>
         <% else %>
-          <%= link_to("Staff Login", new_user_session_path, class:"item last") %>
+        <%= link_to("Home", root_path, class: "item") %>
+        <%= link_to("Login", new_user_session_path, class: (controller_name == 'sessions' ? 'selected ' : '') + 'item last') %>
         <% end %>
       </div>
     </div>
@@ -33,20 +36,22 @@
 <div id="veggieburger-menu" class="flexbox vertical start" style="display: none">
   <% if user_signed_in? %>
   <div class="row">
-    <%= link_to("Affiliates", affiliates_path(staff: true), class: controller_name == 'affiliates' ? 'selected ' : '') %>
+    <%= link_to("Reports", reports_path, class: controller_name == 'reports' ? 'selected ' : '') %>
   </div>
   <div class="row">
     <%= link_to("Pledges", pledges_path, class: controller_name == 'pledges' ? 'selected ' : '') %>
   </div>
+  <% if current_user.is_admin? %>
   <div class="row">
-    <%= link_to("Reports", reports_path, class: controller_name == 'reports' ? 'selected ' : '') %>
-  </div>
-  <div class="row">
-    <%= link_to("Staff", users_path, class: (controller_name == 'users' || controller_name == 'invitations') ? 'selected ' : '') %>
+    <%= link_to("Affiliates", affiliates_path(staff: true), class: controller_name == 'affiliates' ? 'selected ' : '') %>
   </div>
   <div class="row">
     <%= link_to("Stories", stories_path(staff: true), class: controller_name == 'stories' ? 'selected ' : '') %>
   </div>
+  <div class="row">
+    <%= link_to("Staff", users_path, class: (controller_name == 'users' || controller_name == 'invitations') ? 'selected ' : '') %>
+  </div>
+  <% end %>
   <div class="row">
     <%= link_to("Edit Profile", edit_user_path(current_user, back: request.fullpath)) %>
   </div>
@@ -55,7 +60,10 @@
   </div>
   <% else %>
   <div class="row">
-    <%= link_to("Staff Login", new_user_session_path) %>
+    <%= link_to("Home", root_path) %>
+  </div>
+  <div class="row">
+    <%= link_to("Login", new_user_session_path, class: controller_name == 'sessions' ? 'selected ' : '') %>    
   </div>
   <% end %>
 </div>
