@@ -1,16 +1,18 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
-    <div class="control-panel flexbox vertical start">
-      <div class="panel-title">Staff dashboard</div>
-      <div class="panel-menu flexbox horizontal center wrap">
-        <%= link_to("Reports", reports_path, class: "stealth") %>
-        <%= link_to("Pledges", pledges_path, class: "stealth") %>
-        <% if current_user.is_admin? %>
-        <%= link_to("Affiliates", affiliates_path(staff: true), class: "stealth") %>
-        <%= link_to("Stories", stories_path(staff: true), class: "stealth") %>
-        <%= link_to("Staff", users_path, class: "stealth") %>
-        <% end %>
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Staff dashboard</div>
         <%= link_to("Public View", root_path, class: "stealth") %>
+      </div>
+      <div class="panel-menu flexbox horizontal center wrap justify-space-between">
+        <%= link_to("Reports", reports_path, class: "half") %>
+        <%= link_to("Pledges", pledges_path, class: "half") %>
+        <% if current_user.is_admin? %>
+        <%= link_to("Affiliates", affiliates_path(staff: true), class: "third") %>
+        <%= link_to("Stories", stories_path(staff: true), class: "third") %>
+        <%= link_to("Staff", users_path, class: "third") %>
+        <% end %>
       </div>
     </div>
   </div>
