@@ -50,7 +50,7 @@
   margin-right: 1em;
 }
 
-#footer-content .creators img:hover {
+#footer-content .creators img:not(.left-logo):hover {
   border-bottom: 2px solid var(--bright-green-color);
   margin-bottom: -2px;
 }
