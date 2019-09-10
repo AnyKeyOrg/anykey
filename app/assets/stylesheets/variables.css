@@ -1,7 +1,7 @@
 :root {
   --title-font:             'Nevis', 'Rubik';
   --alt-title-font:         'Rubik';
-  --body-font:              'Gotham';
+  --body-font:              'Gotham', 'Rubik';
   --icon-font:              'FontAwesomeBrands', 'FontAwesome', 'FontAwesomeSolid';
                             
   --black-color:            #160919;
