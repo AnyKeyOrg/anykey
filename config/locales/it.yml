@@ -1,17 +1,14 @@
-# TODO: complete this translation
-# Currently this file just demonstrates the tricky i18n bits are working
-
 it:
   activerecord:
     attributes:
       pledge:
         first_name: "Nome"
         last_name: "Cognome"
-        email: "Email"
+        email: "Indirizzo Email"
     errors:
       models:
         pledge:
-          attributes:            
+          attributes:
             first_name:
               blank: "è obbligatorio"
             last_name:
@@ -21,10 +18,68 @@ it:
               invalid: "deve essere valido"
   pledges:
     new:
-      headline: "Good luck, have fun.<br>Rendi videogiochi inclusivi per tutti."
-      glhf-title: "GLHF è una promessa di ..."
+      pledge-button: "<span class=\"detail-text\">Unisciti ad altri %{pledges_count} giocatori</span><br>Prendi l'impegno"
+      headline: "Good luck, have fun.<br>Rendere il gaming inclusivo per tutti."
+      intro-paragraph-a: "Videogame ed esports dovrebbero essere disponibili e rivolti a tutti. I giochi sono più divertenti e più competitivi quando le comunità di giocatori sono numerose."
+      intro-paragraph-b: "Unisciti a noi nel creare un ecosistema di gioco che sia aperto e che si rivolga a tutti, dimenticandosi della forma, del colore, del sesso, dei trascorsi, delle disabilità o della fede."
+      intro-paragraph-c: Accettando questo impegno, prometti di fare la differenza diventando un’influenza positiva e rispettosa nella tua community di gioco."
+      twitch-title: "Mostra il tuo impegno su Twitch"
+      twitch-text-a: "Accetta l’impegno di GLHF e collega il tuo Twitch ID per sbloccare l’esclusivo stemma GLHF per tutte le chat su Twitch!"
+      twitch-text-b: "Una volta collegato, potrai impostare lo stemma nel tuo profilo e mostrare il tuo supporto al gaming inclusivo e alle community positive in qualsiasi chat di Twitch."
+      glhf-title: "GLHF è una promessa di..."
+      glhf-promise-1: "Essere sportivo, sia che io vinca, sia che io perda"
+      glhf-promise-2: "Riconoscere che le persone che incontro online sono persone reali e le mie parole hanno un impatto reale su di loro"
+      glhf-promise-3: "Essere un esempio positivo con il mio comportamento"
+      glhf-promise-4: "Far sentire la mia voce contro la discriminazione, l’incitamento all’odio, le molestie e gli abusi di qualsiasi natura"
+      glhf-promise-5: "Mostrare integrità rispettando le regole, i miei avversari e i miei compagni di squadra"
+      glhf-promise-6: "Fermarmi, ascoltare e rivedere il mio comportamento se mi viene detto che le mie azioni o le mie parole sono aggressive"
+      glhf-promise-7: "Rispettare gli altri, anche se le loro opinioni sono diverse dalle mie"
+      reporting-title: "Sei la chiave per una community migliore"
+      reporting-paragraph-a: "Accettando questo impegno, prometti di aiutare a rendere i tuoi momenti di gaming più inclusivi per tutti. Accetti di giocare rispettando queste sette promesse e di trascinare gli altri partecipanti al tuo stesso livello. Questo significa che ti opporrai, farai sentire la tua voce e segnalerai chiunque abbia comportamenti negativi, come molestie o discriminazione, all’interno delle tue community."
+      reporting-paragraph-b: "Se qualcuno che usa lo stemma causa dei problemi all’interno di una stream, per favore invia una segnalazione, così il nostro team di moderatori possa valutare la situazione. Per assicurare che AnyKey rappresenti un simbolo universale di rispetto e di inclusione, revochiamo permanentemente lo stemma a tutti coloro che sono ritenuti colpevoli di abusarne."
+      report-button: "File a Report"
+      rules-subtitle-a: "Per molestie intendiamo azioni che includono:"
+      rules-text-a: "Discriminazione, odio, comportamenti offensivi, o violenza verbale legata a sesso, identità ed espressione di genere, orientamento sessuale, razza, etnia, disabilità, apparenza fisica, taglia, età o religione"
+      rules-text-b: "Persecuzione o intimidazione, sia fisica che online"
+      rules-text-c: "Spam, raid, boicottaggi o incitazioni al disturbo di stream o di account social"
+      rules-text-d: "Pubblicare o minacciare la pubblicazione di informazioni sull’identità di altre persone (“doxing”)"
+      rules-text-e: "Attenzioni sessuali indesiderate contenenti commenti, battute o approcci a sfondo sessuale"
+      rules-text-f: "Sostenere o incoraggiare uno qualsiasi dei comportamenti sopra citati"
+      rules-subtitle-b: "La discriminazione include anche:"
+      rules-text-g: "Condividere meme offensivi o spregievoli"
+      rules-text-h: "Fare commenti o battute bigotte (ad esempio “è così gay”, “giochi come una ragazza”, ecc.)"
+      rules-text-i: "Sparlare concentrandosi sulle caratteristiche personali di qualcuno piuttosto che sulle sue abilità di gioco"
+      twitter-title: "Unisciti agli altri %{pledges_count} gamer che mettono in mostra lo stemma"
+      about-title: "Informazioni su AnyKey"
+      about-paragraph-a: "AnyKey è un gruppo che supporta la diversità, l’inclusione e la sportività nel gaming competitivo. Noi amplifichiamo, connettiamo e diamo potere a giocatori sottorappresentati e i loro sostenitori attraverso ricerca e iniziative strategiche."
+      about-paragraph-b: "Con il nostro programma, miriamo a migliorare l’immagine, la partecipazione e la promozione delle community di gioco. AnyKey è resa possibile grazie ad una partnership tra ESL e Intel."
     form:
       first-name: "Nome"
       last-name: "Cognome"
       email-address: "Indirizzo Email"
-      button: "Prendi l'Impegno"      
+      button: "Prendi l'impegno"
+    new_badgeless:
+      title: "Grazie per esserti preso l’impegno di GLHF!"
+      text: "Se vuoi mostrare il tuo impegno su Twitch, clicca sul bottone per collegare il tuo account Twitch. Una volta collegato lo stemma apparirà nelle Impostazioni chat di Twitch."
+    new_badged:
+      title: "Il tuo stemma è stato attivato!"
+      text: "Ora dirigiti su Twitch per impostare lo stemma nelle impostazioni della chat. Segui le istruzioni sottostanti se è la prima volta che inserisci uno stemma. Necessiti di aiuto? %{href}."
+      link-text: "Contattaci"
+    returning_badgeless:
+      title: "Sembra che tu abbia già preso l’impegno GLHF..."
+      text: "Grazie per il tuo entusiasmo! Se stai cercando di mettere in mostra il tuo impegno su Twitch, è sufficiente cliccare sul pulsante per collegare il tuo account di Twitch. Dopo esserti autenticato, lo stemma apparirà automaticamente nelle tue impostazioni della chat. Necessiti aiuto? %{href}."
+      link-text: "Contattaci"
+    returning_badged:
+      title: "Sembra che tu abbia già preso l’impegno GLHF..."
+      text: "Grazie per il tuo entusiasmo! Il tuo stemma di Twitch è già stato attivato. Se hai difficoltà ad impostare il tuo stemma su Twitch, per favore segui le istruzioni qua sotto. Necessiti aiuto? %{href}."
+      text-revoked: "Purtroppo il tuo stemma di Twitch è stato revocato a causa di un comportamento inappropriato. Se desideri contestare questa decisione, %{href}."
+      link-text: "Contattaci"
+    twitch_auth:
+      twitch-button: "Attiva lo stemma su Twitch"
+    twitch_instructions:
+      text-a: "Apri un canale Twitch con un browser"
+      text-b: "Apri le impostazioni della chat cliccando sull’icona dell’ingranaggio"
+      text-c: "Clicca Modifica accanto al tuo username nella sezione Identità"
+      text-d: "Seleziona lo stemma AnyKey presente tra gli Stemmi globali predefiniti per equipaggiarlo"
+
+
