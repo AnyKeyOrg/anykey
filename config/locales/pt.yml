@@ -1,0 +1,85 @@
+pt:
+  activerecord:
+    attributes:
+      pledge:
+        first_name: "Primeiro Nome"
+        last_name: "Último Nome"
+        email: "Endereço de Email"
+    errors:
+      models:
+        pledge:
+          attributes:
+            first_name:
+              blank: "é obrigatório"
+            last_name:
+              blank: "é obrigatório"  
+            email:
+              blank: "é obrigatório"
+              invalid: "tem de ser válido" 
+  pledges:
+    new:
+      pledge-button: "<span class=\"detail-text\">Junta-te a %{pledges_count} Gamers</span><br>Aceita o Compromisso"
+      headline: "Good luck, have fun.<br>Tornando o gaming inclusivo para todos."
+      intro-paragraph-a: "Videojogos e esports devem ser acolhedores e inclusivos para todos. Os Jogos são mais divertidos e competitivos quando as comunidades de jogadores são diversificadas."
+      intro-paragraph-b: "Junta-te a nós na criação de um ecossistema de gaming que recebe e incluí toda a gente, não importando o aspeto, o tamanho, a cor, o género, o passado, as incapacidades ou as crenças."
+      intro-paragraph-c: "Ao assumires este compromisso, tu prometes fazer a diferença como um(a) cidadão(ã) positivo e inclusivo nos teus próprios espaços gaming."
+      twitch-title: "Mostra o teu compromisso na Twitch"
+      twitch-text-a: "Aceita o compromisso GLHF e associa a tua conta Twitch para desbloqueares um distintivo global exclusivo GLHF no chat da Twitch!"
+      twitch-text-b: "Uma vez conectado, podes equipar o distintivo no teu perfil e mostrar o teu apoio por gaming inclusivo e comunidades positivas em qualquer chat da Twitch."
+      glhf-title: "GLHF é uma promessa para..."
+      glhf-promise-1: "Ser um atleta exemplar na vitória ou na derrota"
+      glhf-promise-2: "Saber que as pessoas da Internet são reais e que as minhas palavras têm impacto real"
+      glhf-promise-3: "Estabelecer um exemplo positivo através do meu comportamento"
+      glhf-promise-4: "Insurgir contra a discriminação, o discurso de ódio, o assédio e o abuso"
+      glhf-promise-5: "Mostar integridade ao honrar as regras, os meus oponentes e os meus colegas de equipa"
+      glhf-promise-6: "Parar, ouvir e reavaliar se me disserem que as minhas palavras ou ações são prejudiciais"
+      glhf-promise-7: "Respeitar os outros, mesmo se as suas opiniões sinceras são diferentes das minhas"
+      reporting-title: "Tu és a chave para uma melhor comunidade"
+      reporting-paragraph-a: "Ao assinares este compromisso, tu prometes ajudar os teus espaços gaming online a tornarem-se mais inclusivos para todos. Tu aceitaste em seguir estas sete promessas e fazer com que as outras pessoas que também assumiram este compromisso sigam as mesmas regras. Isto significa que tu impor-te-ás, falarás e reportarás quando testemunhares assédio ou discriminação numa das tuas comunidades."
+      reporting-paragraph-b: "Se vires alguém usando o distintivo causando problemas numa stream, por favor preenche um relatório para que os nossos moderadores possam analisar a situação. Para garantir que a AnyKey representa um símbolo universal de respeito e inclusão, revogaremos permanentemente o distintivo de qualquer pessoa que esteja abusando dele."
+      report-button: "File a Report"
+      rules-subtitle-a: "Por assédio entende-se ações que incluam:"
+      rules-text-a: "Discriminação, discurso de ódio, comportamento ofensivo ou abuso verbal relacionado com sexo, identidade e expressão de género, orientação sexual, raça, etnia, deficiência, aparência física, tamanho do corpo, idade ou religião"
+      rules-text-b: "Perseguição ou intimidação seja física ou online"
+      rules-text-c: "Spamming, raiding, hijacking ou incitação de destabilização de stream ou em redes sociais"
+      rules-text-d: "Escrever ou ameaçar escrever sobre informações pessoais de outras pessoas (“doxing”)"
+      rules-text-e: "Atenção sexual indesejada incluindo comentários de natureza sexual, piadas ou avanços sexuais"
+      rules-text-f: "Defender ou encorajar qualquer tipo de comportamento descrito anteriormente"
+      rules-subtitle-b: "Discriminação também inclui:"
+      rules-text-g: "Compartilhar memes ofensivos ou mesquinhos"
+      rules-text-h: "Fazer comentários ou piadas casualmente preconceituosos (por exemplo, “isso é tão gay”, “jogas como uma gaja”, etc.)"
+      rules-text-i: "Falar mal de maneira a focar nos traços pessoais de alguém em vez de na sua habilidade de jogo"
+      twitter-title: "Junta-te a %{pledges_count} dos teus companheiros gamers com o distintivo"
+      about-title: "Sobre AnyKey"
+      about-paragraph-a: "AnyKey é um grupo de defesa que apoia a diversidade, a inclusão e a justiça no gaming competitivo. Ampliamos, conectamos e capacitamos jogadores sub-representados e os seus aliados através da investigação e de iniciativas estratégicas."
+      about-paragraph-b: "Com os nossos programas, pretendemos aumentar a representação, melhorar a participação e promover espaços comunitários mais positivos no gaming para jogadores de qualquer tipo. AnyKey é possível através de uma parceria entre a ESL e a Intel."
+    form:
+      first-name: "Primeiro Nome"
+      last-name: "Último Nome"
+      email-address: "Endereço de Email"
+      button: "Aceita o Compromisso"
+    new_badgeless:
+      title: "Obrigado por aceitares o compromisso GLHF!"
+      text: "Se queres mostrar o teu compromisso na Twitch, clica no botão para associares a tua conta Twitch. Assim que te autenticares, o distintivo aparecerá nas configurações do teu chat da Twitch."
+    new_badged:
+      title: "O teu distintivo foi ativado!"
+      text: "Agora entra na Twitch para equipares o distintivo nas configurações do teu chat. Por favor segue as instruções abaixo se é a primeira fez que tens um distintivo. Precisas de ajuda? %{href}."
+      link-text: "Contacta-nos"
+    returning_badgeless:
+      title: "Parece que já assumiste o compromisso GLHF..."
+      text: "Mas obrigado pelo teu entusiasmo! Se estás a tentar mostrar o teu compromisso na Twitch, clica no botão para associares a tua conta Twitch. Assim que te autenticares, o distintivo aparecerá nas configurações do teu chat da Twitch. Precisas de ajuda? %{href}."
+      link-text: "Contacta-nos"
+    returning_badged:
+      title: "Parece que já assumiste o compromisso GLHF..."
+      text: "Mas obrigado pelo teu entusiasmo! O teu distintivo Twitch foi ativado. Se estás a ter dificuldades em equipar o teu distintivo na Twitch, por favor segue as instruções abaixo. Precisas de ajuda? %{href}."
+      text-revoked: "Infelizmente o teu distintivo Twitch foi revogado por conduta imprópria. Se queres contestar esta decisão, entra em %{href}."
+      link-text: "Contacta-nos"
+    twitch_auth:
+      twitch-button: "Ativar Distintivo Twitch"
+    twitch_instructions:
+      text-a: "Abrir uma stream Twitch com um browser"
+      text-b: "Abrir as configurações do chat clicando no ícone da roda dentada"
+      text-c: "Clicar em Editar junto ao teu nome de utilizador na secção Identidade"
+      text-d: "Clicar no distintivo AnyKey debaixo dos Distintivos Globais Predefinidos para equipá-lo"
+
+
