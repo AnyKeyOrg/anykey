@@ -12,7 +12,7 @@
         <%= display_alerts %>
         <div class="item flexbox vertical start flex-0">
           <div id="editable-avatar" class="flexbox horizontal center">
-            <%= image_tag(story_image_src(@story, :thumb)) %>
+            <%= image_tag(story_image_src(@story, :thumb), size: "240x135") %>
             <div id="avatar-overlay" style="display:none">
               <div class="action">
                 Change Image
@@ -21,20 +21,28 @@
                 <div class="outer-caret"></div>
                 <div class="inner-caret"></div>
                 <div class="edit-avatar flexbox vertical stretch">
-                  <input id="story_image" name="story[image]" type="file" class="edit-avatar-upload" tabindex="2">
-                  <label for="story_image">Upload</label>   
-                  <%= link_to("Show Original", @story.image_url(:original), target: :blank, class: "menu-item") %>
+                  <input id="story_image" name="story[image]" type="file" class="edit-avatar-upload" tabindex="1">
+                  <label for="story_image">Upload</label>
+                  <% if @story.image.present? %>
+                    <%= link_to("Show Original", @story.image_url(:original), target: :blank, class: "menu-item") %>
+                  <% end %>  
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="item flexbox vertical stretch">
-
-          <%= select(:story, :published, [["Draft", 0], ["Published", 1]]) %>
-          
+        <div class="item extra-bottom flexbox horizontal wrap">
+          <div class="flexbox vertical start">
+            <label for="story_published" class="text-field above">Status</label>
+            <%= select(:story, :published, [["Draft", false], ["Published", true]], options: {selected: @story.published}) %>
+          </div>
+          <div id="story_published_on" class="flexbox vertical start">
+            <label for="story_published_on" class="text-field above">Published on</label>
+            <div class="flexbox horizontal center">
+              <input id="story_published_on_date" name="story[published_on_date]" type="date" value="<%= !@story.published_on.nil? ? @story.published_on.strftime("%Y-%m-%d") : '' %>" autocomplete="off">&nbsp;@&nbsp;<input id="story_published_on_time" name="story[published_on_time]" type="time" value="<%= !@story.published_on.nil? ? @story.published_on.strftime("%H:%M") : '' %>" autocomplete="off">
+            </div>
+          </div>
         </div>
-        
         <div class="item flexbox vertical stretch">
           <input id="story_headline" name="story[headline]" class="text-field" type="text" value="<%= @story.headline %>" autocomplete="off" tabindex="2">
           <label for="story_headline" class="text-field">Headline</label>

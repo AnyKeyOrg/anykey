@@ -46,6 +46,15 @@ input {
   appearance: none;
 }
 
+input[type=date]::-webkit-inner-spin-button,
+input[type=time]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button,
+input[type=time]::-webkit-outer-spin-button,
+input[type=date]::-webkit-clear-button,
+input[type=time]::-webkit-clear-button {
+  -webkit-appearance: none;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 

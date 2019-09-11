@@ -5,18 +5,15 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!,        only: [ :new, :create, :edit, :update ]
   before_action :ensure_admin,              only: [ :new, :create, :edit, :update ]
   before_action :find_story,                only: [ :edit, :update ]
-
   around_action :display_timezone
+  around_action :adjust_timezone,           only: [ :create, :update ]
   
-  # TODO: turn this on
-  #around_action :adjust_timezone,           only: [ :create ]
-  
-  def index
-    @stories = Story.all
-    
+  def index    
     if public_view?
+      @stories = Story.published.order(published_on: :desc)
       render action: "public_index", layout: "application"
     else
+      @stories = Story.all.order(created_at: :desc)
       authenticate_user!
       ensure_admin
     end
@@ -75,9 +72,8 @@ class StoriesController < ApplicationController
       end
     end
     
-    # TODO: use this function
     def adjust_timezone
-      timezone = Time.find_zone( report_params[:timezone] )
+      timezone = Time.find_zone( cookies[:browser_timezone] )
       Time.use_zone(timezone) { yield }
     end
     
@@ -87,7 +83,7 @@ class StoriesController < ApplicationController
     end
     
     def story_params
-      params.require(:story).permit(:headline, :description, :link, :image)
+      params.require(:story).permit(:headline, :description, :link, :published, :published_on_date, :published_on_time, :image)
     end
     
 end
