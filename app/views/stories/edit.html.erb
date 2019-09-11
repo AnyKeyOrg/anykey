@@ -30,6 +30,12 @@
           </div>
         </div>
         <div class="item flexbox vertical stretch">
+
+          <%= select(:story, :published, [["Draft", 0], ["Published", 1]]) %>
+          
+        </div>
+        
+        <div class="item flexbox vertical stretch">
           <input id="story_headline" name="story[headline]" class="text-field" type="text" value="<%= @story.headline %>" autocomplete="off" tabindex="2">
           <label for="story_headline" class="text-field">Headline</label>
         </div>

@@ -75,7 +75,7 @@ class StoriesController < ApplicationController
       end
     end
     
-    # TODO: use this functions
+    # TODO: use this function
     def adjust_timezone
       timezone = Time.find_zone( report_params[:timezone] )
       Time.use_zone(timezone) { yield }
