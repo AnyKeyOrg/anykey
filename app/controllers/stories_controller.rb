@@ -5,6 +5,11 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!,        only: [ :new, :create, :edit, :update ]
   before_action :ensure_admin,              only: [ :new, :create, :edit, :update ]
   before_action :find_story,                only: [ :edit, :update ]
+
+  around_action :display_timezone
+  
+  # TODO: turn this on
+  #around_action :adjust_timezone,           only: [ :create ]
   
   def index
     @stories = Story.all
@@ -68,6 +73,17 @@ class StoriesController < ApplicationController
       unless current_user.is_admin?
         redirect_to root_url
       end
+    end
+    
+    # TODO: use this functions
+    def adjust_timezone
+      timezone = Time.find_zone( report_params[:timezone] )
+      Time.use_zone(timezone) { yield }
+    end
+    
+    def display_timezone
+      timezone = Time.find_zone( cookies[:browser_timezone] )
+      Time.use_zone(timezone) { yield }
     end
     
     def story_params

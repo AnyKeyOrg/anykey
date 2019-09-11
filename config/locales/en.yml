@@ -9,8 +9,7 @@ en:
         reporter_email: "Your email"
         reported_twitch_name: "Twitch user"
         incident_stream: "Incident stream"
-        incident_occurred: "Incident date and time"
-        timezone: "Your timezone"
+        incident_occurred: "Incident date"
         incident_description: "Incident description"
         recommended_response: "Your recommendation"
     errors:
@@ -33,15 +32,11 @@ en:
               blank: "is required"
             incident_stream:
               blank: "is required"
-            incident_occurred:
-              blank: "is required"
-            timezone:
-              blank: "is required"
             incident_description:
               blank: "is required"
               too_long: "must be less than 1,000 characters"
             recommended_response:
-              too_long: "must be less than 1,000 characters"    
+              too_long: "must be less than 500 characters"    
   pledges:
     new:
       pledge-button: "<span class=\"detail-text\">Join %{pledges_count} Gamers</span><br>Take the Pledge"

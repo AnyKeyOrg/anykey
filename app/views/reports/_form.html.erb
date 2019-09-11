@@ -6,6 +6,10 @@
     Badge Abuse Report
   </div>  
   <%= display_alerts %>
+  <div class="intro">
+    If you have seen someone with the AnyKey badge causing trouble in a stream, you can use this form to file a report and our moderation team will review the situation.<br><br>
+    Fields marked with an (*) are optional, but the more information you provide the more likely our moderators will be able to take action.
+  </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="reported_twitch_name" class="text-field">Twitch User You're Reporting</label>
@@ -18,12 +22,13 @@
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
-      <label for="incident_occurred" class="text-field">Date and Time of Incident</label>
-      <input id="report_incident_occurred" name="report[incident_occurred]" class="text-field small-font" type="datetime-local" value="<%= !@report.incident_occurred.nil? ? @report.incident_occurred.strftime("%Y-%m-%dT%H:%M") : '' %>" autocomplete="off" tabindex="3">
+      <label for="image" class="text-field">Screenshot of incident*</label>
+      <div class="description">Include as much chat context as possible</div>
+      <input id="report_image" name="report[image]" type="file" tabindex="7">
     </div>
     <div class="item half-width flexbox vertical stretch">
-      <label for="timezone" class="text-field">Your Timezone</label>
-      <%= time_zone_select :report, :timezone, nil, { include_blank: false, default: ActiveSupport::TimeZone::MAPPING.key(cookies[:browser_timezone]) }, id: 'report_timezone', tabindex: "4" %>
+      <label for="incident_occurred" class="text-field">Date of Incident*</label>
+      <input id="report_incident_occurred" name="report[incident_occurred]" class="text-field small-font" type="date" value="<%= @report.incident_occurred %>" autocomplete="off" tabindex="3">
     </div>
   </div>
   <div class="item flexbox vertical stretch">
@@ -34,16 +39,15 @@
     <textarea id="report_incident_description" name="report[incident_description]" class="text-field" type="text" autocomplete="off" tabindex="5"><%= @report.incident_description %></textarea>
   </div>
   <div class="item flexbox vertical stretch">
+    <label for="recommended_response" class="text-field">What Do You Think We Should Do?*</label>
     <div class="flexbox horizontal wrap justify-space-between">
-    <label for="recommended_response" class="text-field">What Do You Think We Should Do?</label>
-      <div id="recommended-response-counter" data-max-length="1000">1000</div>
+      <div class="description">Our mods will consider your opinion about handling the situation</div>
+      <div class="flexbox vertical end flex-1">
+        
+      <div id="recommended-response-counter" data-max-length="500">500</div>
+    </div>
     </div>
     <textarea id="report_recommended_response" name="report[recommended_response]" class="text-field" type="text" autocomplete="off" tabindex="6"><%= @report.recommended_response %></textarea>
-  </div>
-  <div class="item flexbox vertical start">
-    <label for="image" class="text-field">Screenshot of incident</label>
-    <div class="description">Please include as much chat context as possible</div>
-    <input id="report_image" name="report[image]" type="file" tabindex="7">
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
@@ -51,7 +55,7 @@
       <input id="report_reporter_email" name="report[reporter_email]" class="text-field" type="text" value="<%= @report.reporter_email %>" tabindex="8">
     </div>
     <div class="item half-width flexbox vertical stretch">
-      <label for="reporter_twitch_name" class="text-field">Your Twitch Name</label>
+      <label for="reporter_twitch_name" class="text-field">Your Twitch Name*</label>
       <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" tabindex="9">
     </div>
   </div>

@@ -9,8 +9,8 @@
       <div class="item-text"><%= link_to(@report.incident_stream, "https://twitch.tv/#{@report.incident_stream}", class: "inline", target: "blank") %></div>
     </div>
     <div class="report-item flexbox vertical stretch">
-      <div class="item-title">Date &amp; Time of Incident</div>
-      <div class="item-text small"><%= l(@report.incident_occurred, format: "%b. %-d, %Y · %-l:%M%P") %></div>
+      <div class="item-title">Date of Incident</div>
+      <div class="item-text small"><%= l(@report.incident_occurred, format: "%b. %-d, %Y") %></div>
     </div>
   </div>
   <div class="report-item flexbox vertical stretch">

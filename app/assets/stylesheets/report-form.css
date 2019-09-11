@@ -15,6 +15,14 @@
   margin-bottom: 1em;
 }
 
+#report form .intro {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin-bottom: 2.5em;
+}
+
 #report form .item {
   margin-bottom: 1.2em;
   width: 100%;

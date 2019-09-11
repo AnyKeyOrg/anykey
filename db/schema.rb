@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_08_072214) do
+ActiveRecord::Schema.define(version: 2019_09_11_004352) do
 
   create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name"
@@ -61,12 +61,11 @@ ActiveRecord::Schema.define(version: 2019_09_08_072214) do
     t.string "reported_twitch_name"
     t.string "image_uid"
     t.string "incident_stream"
-    t.datetime "incident_occurred"
+    t.date "incident_occurred"
     t.text "incident_description"
     t.text "recommended_response"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "timezone"
     t.bigint "reviewer_id"
     t.boolean "dismissed", default: false
     t.boolean "warned", default: false

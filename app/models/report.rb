@@ -13,10 +13,8 @@ class Report < ApplicationRecord
      preview:  { resize: "240x240" }
    }.freeze
   
-   validates_presence_of    :reported_twitch_name,
+  validates_presence_of     :reported_twitch_name,
                             :incident_stream,
-                            :incident_occurred,
-                            :timezone,
                             :incident_description,
                             :reporter_email
 
@@ -25,9 +23,11 @@ class Report < ApplicationRecord
                             if: lambda { |x| x.reporter_email.present? }
 
   validates                 :incident_description,
-                            :recommended_response,
                             length: { maximum: 1000 }
-  
+                            
+  validates                 :recommended_response,
+                            length: { maximum: 500 }
+
   validate                  :ensure_sane_review
 
   belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id, optional: true

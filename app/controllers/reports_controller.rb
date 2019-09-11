@@ -7,7 +7,6 @@ class ReportsController < ApplicationController
   before_action :find_report,               only: [ :show, :dismiss, :undismiss ]
   before_action :find_reported_twitch_user, only: [ :show ]
   around_action :display_timezone
-  around_action :adjust_timezone,           only: [ :create ]
   
   def index
     # f is used to filter reports by scope
@@ -32,6 +31,8 @@ class ReportsController < ApplicationController
     end
     
     # TODO: check is reporter has pledged (lookup email/Twitch name) and add info to keybot message
+    # TODO: check is incident stream over has pledged (Twitch name) and add info to keybot message
+
   end
   
   def new
@@ -91,25 +92,20 @@ class ReportsController < ApplicationController
       end
     end
 
-  private
-    def report_params
-      params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reported_twitch_name, :incident_stream, :incident_occurred, :timezone, :incident_description, :recommended_response, :image)
-    end
-    
-    def adjust_timezone
-      timezone = Time.find_zone( report_params[:timezone] )
-      Time.use_zone(timezone) { yield }
+  private          
+    def ensure_staff
+      unless current_user.is_moderator? || current_user.is_admin?
+        redirect_to root_url
+      end
     end
     
     def display_timezone
       timezone = Time.find_zone( cookies[:browser_timezone] )
       Time.use_zone(timezone) { yield }
     end
-      
-    def ensure_staff
-      unless current_user.is_moderator? || current_user.is_admin?
-        redirect_to root_url
-      end
+    
+    def report_params
+      params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reported_twitch_name, :incident_stream, :incident_occurred, :incident_description, :recommended_response, :image)
     end
   
 end
