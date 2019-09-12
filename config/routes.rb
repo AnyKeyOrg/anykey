@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   
     resources :pledges,        only: [ :index, :create, :show ]
     get '/pledge',             to: 'pledges#new', as: :new_pledge
+    get '/take-the-pledge',    to: 'pledges#new'
+    get '/glhf',               to: 'pledges#new'
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
     resources :stories,        only: [ :index, :new, :create, :edit, :update ]
