@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       resources :warnings,     only: [ :new, :create ]
       resources :revocations,  only: [ :new, :create ]
     end
+    get '/report',             to: 'reports#new',        as: :short_report
 
     resources :staff,          only: [ :index ]
     resources :users,          only: [ :index, :edit, :update ]

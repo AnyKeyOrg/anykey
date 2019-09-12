@@ -29,10 +29,14 @@ class WarningsController < ApplicationController
       @warning.reviewer = current_user
           
       if @warning.save
-        # TODO: send email to reported pledger here
+        # Email warning to pledger
+        PledgeMailer.warn_pledger(@warning).deliver_now
+        
+        # TODO: email reporter that action has been taken
+        
         @report.warned = true
         @report.reviewer = current_user
-        @report.save        
+        @report.save
         
         flash[:notice] = "You sent a warning to #{@pledge.email} (#{@report.reported_twitch_name})."
         redirect_to reports_path
