@@ -27,6 +27,9 @@ class PledgesController < ApplicationController
       @pledge = Pledge.new(pledge_params)
             
       if @pledge.save
+        # TODO: email pledger here
+        PledgeMailer.welcome_pledger(@pledge).deliver_now
+        
         redirect_to pledge_path(@pledge)
       else
         flash.now[:alert] ||= ""
