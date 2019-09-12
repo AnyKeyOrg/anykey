@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   
     resources :pledges,        only: [ :index, :create, :show ]
-    get '/pledge',             to: 'pledges#new', as: :new_pledge
+    get '/pledge',             to: 'pledges#new',        as: :new_pledge
     get '/take-the-pledge',    to: 'pledges#new'
     get '/glhf',               to: 'pledges#new'
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
