@@ -7,7 +7,7 @@ class AffiliatesController < ApplicationController
   before_action :find_affiliate,            only: [ :edit, :update ]
   
   def index
-    @affiliates = Affiliate.all
+    @affiliates = Affiliate.all.order(name: :asc)
     
     if public_view?
       render action: "public_index", layout: "application"
