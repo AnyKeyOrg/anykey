@@ -1,6 +1,15 @@
 # This task imports past pledges from a CSV file
 # usage: rake pledges:import_from_csv['~/temp.csv']
 
+# To use this task on Heroku...
+# Encrypt the csv data using `gpg -c filename.csv`
+# Take note of the passphrase you used
+# Place the filename.csv.gpg file into the /storage folder
+# Check the code into git and push to Heroku
+# Access Heroku with `heroku run bash`
+# Decrypt the file with `gpg --pinentry-mode loopback -d filename.csv.gpg > filename.csv`
+# Delete the decrypted file after import
+
 namespace :pledges do
   
   desc "Import past pledges from csv"
