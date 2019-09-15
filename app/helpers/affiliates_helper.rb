@@ -35,5 +35,9 @@ module AffiliatesHelper
     end
     return links
   end
+  
+  def affiliates_metatags
+    render(partial: 'affiliates/metatags')
+  end
 
 end
