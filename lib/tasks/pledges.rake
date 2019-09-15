@@ -28,7 +28,7 @@ namespace :pledges do
 
 
   def import_pledge(pledge)
-    Pledge.create({
+    np = Pledge.new({
       first_name: pledge["first_name"],
       last_name: pledge["last_name"],
       email: pledge["email"],
@@ -37,6 +37,7 @@ namespace :pledges do
       twitch_display_name: pledge["twitch_display_name"],
       twitch_email: pledge["twitch_email"],
       twitch_authed_on: pledge["twitch_authed_on"]})
+    np.save(validate: false)    
   end
   
 end
