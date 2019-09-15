@@ -30,19 +30,27 @@
       </div>
     </div>
   </div>
-  
 
   <div id="glhf-section" class="flexbox vertical center">
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical stretch flex-1">
         <div class="inner flexbox vertical stretch">
-          <div class="section-title">GLHF Pledge</div>
-          <p><strong>Pledge callout</strong><br>(probably the trailer + link to pledge page)</p>
+          
+          <div class="flexbox horizontal center wrap justify-space-between">
+            <div class="flexbox vertical start flex-1">
+              <div class="section-title">GLHF Pledge</div>
+              <div class="text-section">
+                <p>Video games and esports should be open to all. Join us in creating a community of gamers that welcomes anybody and includes everybody by pledging to be a positive influence in your own spaces.</p>
+              </div>  
+            </div>
+            <div class="flexbox vertical center flex-1">
+              <%= link_to("<span class=\"detail-text\">Join #{@pledges_count} Gamers</span><br>Take the Pledge".html_safe, new_pledge_path, class: "button")%>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
   
   <div class="page-section flexbox vertical stretch">
     <div class="inner flexbox vertical stretch">
@@ -63,8 +71,7 @@
       </div>
     </div>
   </div>
-  
-  
+    
   <div id="tbd-section" class="flexbox vertical center">
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical stretch flex-1">
@@ -75,8 +82,6 @@
       </div>
     </div>
   </div>
-  
-  
   
   <div class="page-section flexbox vertical stretch">
     <div class="inner flexbox vertical stretch">
@@ -110,21 +115,17 @@
   <div id="about-section" class="flexbox vertical center">
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical stretch flex-1">
-        <div id="about-inner" class="inner flexbox vertical stretch">
-          
-          <div class="flexbox horizontal center wrap justify-space-between">
-            <div class="text-section flexbox vertical start flex-1">
-              <div class="section-title">About AnyKey</div>
-              <div>
-                <p>AnyKey is an advocacy group that supports diversity, inclusion, and equity in competitive gaming. We amplify, connect, and empower underrepresented players and their allies through research and strategic initiatives.</p>
-                <p>Through our programs we aim to increase representation, improve participation, and foster more positive community spaces in gaming for players of any kind. AnyKey is made possible through a partnership between ESL and Intel.</p>
-              </div>
+        <div id="about-inner" class="inner flexbox vertical stretch">          
+          <div class="text-section flexbox vertical start flex-1">
+            <div class="section-title">About AnyKey</div>
+            <div>
+              <p>AnyKey is an advocacy group that supports diversity, inclusion, and equity in competitive gaming. We amplify, connect, and empower underrepresented players and their allies through research and strategic initiatives.</p>
+              <p>Through our programs we aim to increase representation, improve participation, and foster more positive community spaces in gaming for players of any kind. AnyKey is made possible through a partnership between ESL and Intel.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  
+
 </div>
