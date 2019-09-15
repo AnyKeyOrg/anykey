@@ -8,4 +8,8 @@ module ReportsHelper
     end
   end
   
+  def reports_metatags
+    render(partial: 'reports/metatags')
+  end
+  
 end
