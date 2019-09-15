@@ -92,11 +92,14 @@
 
 #home #glhf-section .text-section {
   font-size: 1.1em;
+  font-weight: 500;
   max-width: 34em;
   width: 100%;
 }
 
-
+#home #glhf-section div.text-section p {
+  line-height: 1.6em;
+}
 
 #home #glhf-section .button {
   border: 5px solid var(--white-color);
