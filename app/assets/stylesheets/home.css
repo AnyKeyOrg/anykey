@@ -138,6 +138,11 @@
   margin-bottom: 5em;
 }
 
+#home #about-section .text-section {
+  max-width: 30em;
+  width: 100%;
+}
+
 
 
 /***********************************/
@@ -174,6 +179,10 @@
   
   #home .intro-section {
     min-width: 16em;
+  }
+  
+  #home #about-section .text-section {
+    max-width: none;
   }
 }
 
