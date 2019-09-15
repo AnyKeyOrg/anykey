@@ -140,20 +140,13 @@
   color: var(--white-color);
 }
 
-
-
-
-
-
-
-
 #home .goal-section {
   max-width: 20em;
   width: 100%;
   margin: 1em;
 }
 
-#home #tbd-section {
+#home #testimonial-section {
   width: 100%;
   background: url('/images/home-background-b.jpg') 60% 50% no-repeat;
   background-size: cover;
@@ -161,9 +154,23 @@
   color: var(--white-color);
 }
 
-#home #tbd-section .page-section {
+#home #testimonial-section .page-section {
   margin-top: 5em;
   margin-bottom: 5em;
+}
+
+#home #testimonial-section .quote {
+  font-size: 1.5em;
+  font-family: var(--alt-title-font);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.4em;
+  max-width: 22em;
+  width: 100%;
+}
+
+#home #testimonial-section .quote.bottom-padded {
+  margin-bottom: 1.5em;
 }
 
 #home .pillar-section {
