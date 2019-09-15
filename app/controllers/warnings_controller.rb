@@ -32,7 +32,8 @@ class WarningsController < ApplicationController
         # Email warning to pledger
         PledgeMailer.warn_pledger(@warning).deliver_now
         
-        # TODO: email reporter that action has been taken
+        # Email reporter that action has been taken
+        PledgeMailer.notify_reporter_warning(@warning).deliver_now
         
         @report.warned = true
         @report.reviewer = current_user

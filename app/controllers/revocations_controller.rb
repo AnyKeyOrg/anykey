@@ -32,8 +32,9 @@ class RevocationsController < ApplicationController
         # Email revocation to pledger
         PledgeMailer.revoke_pledger(@revocation).deliver_now
         
-        # TODO: email reporter that action has been taken
-        
+        # Email reporter that action has been taken
+        PledgeMailer.notify_reporter_revocation(@revocation).deliver_now
+                
         # Revoke badge on Twitch
         badge_result = HTTParty.delete(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users/#{@pledge.twitch_id}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
         

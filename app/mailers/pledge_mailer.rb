@@ -17,4 +17,14 @@ class PledgeMailer < ApplicationMailer
     mail(to: revocation.pledge.email, subject: "Your AnyKey badge has been revoked")
   end
   
+  def notify_reporter_warning(warning)
+    @warning = warning
+    mail(to: warning.report.reporter_email, subject: "We've acted on your report")
+  end
+  
+  def notify_reporter_revocation(revocation)
+    @revocation = revocation
+    mail(to: revocation.report.reporter_email, subject: "We've acted on your report")
+  end
+  
 end
