@@ -67,7 +67,7 @@ Rails.application.configure do
   # Required default URL options for the Devise mailer
   config.action_mailer.default_url_options =  { host: 'localhost', port: 9292 }
   
-  # TODO: remove after testing complete
+  # TODO: remove sending of mail in development after testing complete
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   

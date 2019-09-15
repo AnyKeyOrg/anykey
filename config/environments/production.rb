@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   
   # Required default URL options for the Devise mailer
-  # TODO: change this for production
+  # TODO: set correct mailer domain for production
   config.action_mailer.default_url_options = { host: 'anykey.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   

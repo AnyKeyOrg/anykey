@@ -30,8 +30,8 @@ class ReportsController < ApplicationController
       @message = "The reported Twitch user did not sign the pledge."
     end
     
-    # TODO: check is reporter has pledged (lookup email/Twitch name) and add info to keybot message
-    # TODO: check is incident stream over has pledged (Twitch name) and add info to keybot message
+    # TODO: check if reporter has pledged (lookup email/Twitch name) and add info to keybot message
+    # TODO: check if incident stream owner has pledged (Twitch name) and add info to keybot message
 
   end
   
