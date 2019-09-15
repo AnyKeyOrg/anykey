@@ -19,7 +19,7 @@ it:
   pledges:
     new:
       pledge-button: "<span class=\"detail-text\">Unisciti ad altri %{pledges_count} giocatori</span><br>Prendi l'impegno"
-      headline: "Good luck, have fun.<br>Rendere il gaming inclusivo per tutti."
+      headline: "Good luck, have fun<br>Rendere il gaming inclusivo per tutti"
       intro-paragraph-a: "Videogame ed esports dovrebbero essere disponibili e rivolti a tutti. I giochi sono più divertenti e più competitivi quando le comunità di giocatori sono numerose."
       intro-paragraph-b: "Unisciti a noi nel creare un ecosistema di gioco che sia aperto e che si rivolga a tutti, dimenticandosi della forma, del colore, del sesso, dei trascorsi, delle disabilità o della fede."
       intro-paragraph-c: Accettando questo impegno, prometti di fare la differenza diventando un’influenza positiva e rispettosa nella tua community di gioco."
