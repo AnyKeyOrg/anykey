@@ -36,6 +36,9 @@ class PledgesController < ApplicationController
         # Email pledger
         PledgeMailer.welcome_pledger(@pledge).deliver_now
 
+        # Increment referral counter
+        @referrer.increment!(:referrals_count)
+
         # TODO: email referrer
 
         redirect_to pledge_path(@pledge)
