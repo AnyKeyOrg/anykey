@@ -1,4 +1,4 @@
-<form action="<%= pledges_path %>#new_pledge" id="new_pledge" method="POST" enctype="multipart/form-data" class="pledge-form flexbox vertical stretch">
+<form action="<%= pledges_path(ref: params[:ref]) %>#new_pledge" id="new_pledge" method="POST" enctype="multipart/form-data" class="pledge-form flexbox vertical stretch">
   <div style="hidden">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   </div>

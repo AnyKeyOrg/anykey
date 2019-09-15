@@ -25,10 +25,19 @@ class PledgesController < ApplicationController
       
     else  
       @pledge = Pledge.new(pledge_params)
+      
+      unless params[:ref].blank?
+        if @referrer = Pledge.find_by(identifier: params[:ref]) 
+          @pledge.referrer = @referrer
+        end
+      end
             
       if @pledge.save
         # Email pledger
         PledgeMailer.welcome_pledger(@pledge).deliver_now
+
+        # TODO: email referrer
+
         redirect_to pledge_path(@pledge)
       else
         flash.now[:alert] ||= ""
