@@ -5,9 +5,9 @@
 
 $(document).ready(function() {
   
-  /* Onload set the form up properl */
+  /* Onload set the form up properly */
   var e = document.getElementById("story_published");  
-  if (e.options[e.selectedIndex].value == "false") {
+  if (e && e.options[e.selectedIndex].value == "false") {
      $("#story_published_on").hide()
   }
   
