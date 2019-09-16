@@ -15,5 +15,5 @@
     <input id="pledge_email" name="pledge[email]" class="text-field" type="text" value="<%= @pledge.email %>" autocomplete="off" placeholder="bjorn@anykey.org" tabindex="3">
   </div>
   <%= display_alerts %>
-  <input id="pledge_submit" name="commit" type="submit" class="button" value="<%= t(".button") %>" tabindex="4">
+  <input id="pledge_submit" name="commit" type="submit" class="button" value="<%= t(".button") %>" tabindex="4" onClick="gtag('event', 'ButtonClick', {'event_category': 'Pledge', 'event_label': 'FormSubmit'});">
 </form>

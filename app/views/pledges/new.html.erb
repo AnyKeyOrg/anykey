@@ -8,7 +8,7 @@
         <div class="title-line-b">
           PLEDGE
         </div>      
-        <%= link_to(t(".pledge-button", pledges_count: number_with_delimiter(@pledges_count)).html_safe, "#new_pledge", class: 'pledge-button button') %>
+        <%= link_to(t(".pledge-button", pledges_count: number_with_delimiter(@pledges_count)).html_safe, "#new_pledge", class: 'pledge-button button', onClick: "gtag('event', 'ButtonClick', {'event_category': 'Pledge', 'event_label': 'TapestryCTA'});") %>
       </div>
     </div>
   </div>
