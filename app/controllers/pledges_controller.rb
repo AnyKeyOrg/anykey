@@ -134,9 +134,11 @@ class PledgesController < ApplicationController
                 #TODO: catch failure and send to an error page
               end
             end
+
           else
             #TODO: catch failure and send to an error page
           end
+        
         else
           #TODO: catch failure and send to an error page
         end
