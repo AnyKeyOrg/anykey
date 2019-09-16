@@ -1,0 +1,70 @@
+/**********************************************/
+/*             Pagination Style               */
+/**********************************************/
+
+.pagination {
+  margin-top: 3em;
+  margin-bottom: 1em;
+  color: var(--gray-color);
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.pagination.mini {
+  display: none;
+  width: 100%;
+  max-width: 20em;
+}
+
+.pagination a,
+.pagination .disabled,
+.pagination .current,
+.pagination .gap {
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.pagination .previous_page {
+  margin-left: 0.5em;
+}
+
+.pagination .next_page {
+  margin-right: 0.5em;
+}
+
+.pagination em {
+  font-style: normal;
+  color: var(--black-color);
+  font-weight: 600;
+}
+
+.pagination a:link,
+.pagination a:visited {
+  color: var(--tertiary-font-color);
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  color: var(--bright-orange-color);
+  text-decoration: none;
+}
+
+.pagination a:active {
+  color: var(--bright-blue-color);
+  text-decoration: none;
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width: 44em) {
+  .pagination.mini {
+    display: inherit;
+  }
+  .pagination.full {
+    display: none;
+  }
+}
