@@ -7,11 +7,17 @@
       <div class="flexbox vertical start flex-1">
         <% if @pledge.badge_revoked? %>
           <p><%= t(".text-revoked", href: link_to(t(".link-text"), contact_path, class: "inline")).html_safe %></p>
+          <script>
+            gtag('event', 'SuccesView', {'event_category': 'Pledge', 'event_label': 'ReturningBadgeRevoked'});
+          </script>  
         <% else %>
           <p><%= t(".text", href: link_to(t(".link-text"), contact_path, class: "inline")).html_safe %></p>
           <%= render(partial: "pledges/twitch_instructions") %>
+          <script>
+            gtag('event', 'SuccesView', {'event_category': 'Pledge', 'event_label': 'ReturningBadged'});
+          </script>
         <% end %>
       </div>
     </div>
   </div>
-</div>  
+</div>
