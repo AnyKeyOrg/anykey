@@ -8,7 +8,7 @@
         <div class="title-line-b">
           PLEDGE
         </div>      
-        <%= link_to(t(".pledge-button", pledges_count: @pledges_count).html_safe, "#new_pledge", class: 'pledge-button button') %>
+        <%= link_to(t(".pledge-button", pledges_count: number_with_delimiter(@pledges_count)).html_safe, "#new_pledge", class: 'pledge-button button') %>
       </div>
     </div>
   </div>
@@ -126,7 +126,7 @@
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical stretch flex-1">
         <div id="twitter-inner" class="inner flexbox vertical center">
-          <div class="section-title"><%= t(".twitter-title", pledges_count: @pledges_count) %></div>
+          <div class="section-title"><%= t(".twitter-title", pledges_count: number_with_delimiter(@pledges_count)) %></div>
           <div class="tweets flexbox horizontal wrap start justify-space-around">
             <div class="flexbox vertical center">
               <%= render(partial: "pledges/tweets-a") %>

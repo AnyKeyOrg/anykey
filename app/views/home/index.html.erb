@@ -42,7 +42,7 @@
               </div>  
             </div>
             <div class="flexbox vertical center">
-              <%= link_to("<span class=\"detail-text\">Join #{@pledges_count} Gamers</span><br>Take the Pledge".html_safe, new_pledge_path, class: "button")%>
+              <%= link_to("<span class=\"detail-text\">Join #{number_with_delimiter(@pledges_count)} Gamers</span><br>Take the Pledge".html_safe, new_pledge_path, class: "button")%>
             </div>
           </div>
         </div>
