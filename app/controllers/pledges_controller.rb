@@ -20,7 +20,11 @@ class PledgesController < ApplicationController
   def create
     @pledge = Pledge.find_by(email: pledge_params[:email])
     
-    if @pledge    
+    if @pledge
+      
+      # Set cookie to enforce single visit to redirect page
+      cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
+      
       redirect_to pledge_path(@pledge, params: {status: 'returning'})
       
     else  
@@ -37,10 +41,15 @@ class PledgesController < ApplicationController
         PledgeMailer.welcome_pledger(@pledge).deliver_now
 
         # Increment referral counter
-        @referrer.increment!(:referrals_count)
-
+        if @referrer
+          @referrer.increment!(:referrals_count)
+        end
+        
         # TODO: email referrer
 
+        # Set cookie to enforce single visit to redirect page
+        cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
+        
         redirect_to pledge_path(@pledge)
       else
         flash.now[:alert] ||= ""
@@ -54,6 +63,12 @@ class PledgesController < ApplicationController
   end
   
   def show
+    # Check for cookie to ensure visit is valid
+    if cookies[:pledge_redirect].blank?
+      redirect_to root_url
+    else
+      cookies.delete(:pledge_redirect)
+    end
   end
   
   protected
@@ -92,6 +107,10 @@ class PledgesController < ApplicationController
                     
           if twitch_user.present?
             if Pledge.find_by(twitch_id: twitch_user["_id"])
+              
+              # Set cookie to enforce single visit to redirect page
+              cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
+
               # Reroute if Twitch user already pledged
               redirect_to pledge_path(@pledge, params: {status: 'duplicate'})
             
@@ -105,7 +124,12 @@ class PledgesController < ApplicationController
               badge_result = HTTParty.put(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users/#{@pledge.twitch_id}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
               
               if @pledge.save
+                
+                # Set cookie to enforce single visit to redirect page
+                cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
+
                 redirect_to pledge_path(@pledge)
+                
               else
                 #TODO: catch failure and send to an error page
               end
