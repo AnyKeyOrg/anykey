@@ -100,7 +100,7 @@
         <div class="reporting-section flexbox vertical center flex-1">
           <p><%= t(".reporting-paragraph-a") %></p>
           <p><%= t(".reporting-paragraph-b") %></p>
-          <%= link_to(t(".report-button"), new_report_path, class: 'report-button button') %>
+          <%= link_to(t(".report-button"), new_report_path, class: 'report-button button', onClick: "gtag('event', 'ButtonClick', {'event_category': 'Report', 'event_label': 'PledgeCTA'});") %>
         </div>
         <div class="rules-section flexbox vertical start">
           <p><strong><%= t(".rules-subtitle-a") %></strong></p>

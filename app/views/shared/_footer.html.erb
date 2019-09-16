@@ -25,7 +25,7 @@
     <div class="reporting flexbox vertical start">
       Saw someone abusing<br>
       the AnyKey badge?
-      <%= link_to('File a Report', new_report_path, class: "stealth") %>
+      <%= link_to('File a Report', new_report_path, class: "stealth", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Report', 'event_label': 'FooterLink'});") %>
     </div>
     <div class="sponsors flexbox vertical start">
       <div>Sponsored by:</div>

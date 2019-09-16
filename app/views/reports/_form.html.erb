@@ -58,5 +58,5 @@
       <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" tabindex="8">
     </div>
   </div>
-  <input id="reportsubmit" name="commit" type="submit" class="button" value="Send Report" tabindex="9">
+  <input id="reportsubmit" name="commit" type="submit" class="button" value="Send Report" tabindex="9" onClick="gtag('event', 'ButtonClick', {'event_category': 'Report', 'event_label': 'FormSubmit'});">
 </form>
