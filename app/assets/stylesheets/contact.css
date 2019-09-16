@@ -1,14 +1,14 @@
 /************************************/
-/*         About Page Header        */
+/*       Contact Page Header        */
 /************************************/
 
-#about .page-header {
-  background: url('/images/about-background.jpg') 50% 40% no-repeat;
+#contact .page-header {
+  background: url('/images/contact-background.jpg') 50% 60% no-repeat;
   background-size: cover;
   height: 250px;
 }
 
-#about .page-header .title {
+#contact .page-header .title {
   margin-left: 1.4em;
   color: var(--white-color);
   text-shadow: var(--black-color) 0px 0px 30px;
