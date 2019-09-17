@@ -10,11 +10,33 @@
       </div>
     </div>
   </div>
-  <div class="page-section flexbox vertical center">
-    <div class="inner flexbox vertical center">
+
+  <div class="page-section flexbox vertical stretch flex-1">
+    <div class="inner flexbox vertical stretch">
       <div class="headline">
         Questions? Suggestions?<br>Just reach out to us
       </div>
+      <div class="flexbox horizontal center wrap justify-space-around">      
+        <div class="intro-section">
+          <p>Our team is excited to promote and grow diverse communities in competitive gaming.</p>
+          <p>We would be happy to answer questions about tournaments, research, and our initiatives. Inquires from members of the press, industry, and academia are all encouraged equally.</p>
+          <p>If you are a streamer, community organizer, team manager, or competitive player who believes in creating welcoming and inclusive spaces in gaming, we'd love to hear from you about how we can help.</p>
+        </div>
+        <div class="action-box">
+          <div class="heading">Send us an email</div>
+          <p> <%= link_to("hello@anykey.org", "mailto:hello@anykey.org?subject=Hey AnyKey, I'd like to know...",  class: "inline", target: "_blank") %></p>
+          <div class="subheading">Connect on social media</div>
+          <div class="social-links flexbox horizontal center wrap">
+            <%= link_to("&#xf1e8;".html_safe, "https://www.twitch.tv/anykeyorg", target: "_blank") %>
+            <%= link_to("&#xf099;".html_safe, "https://twitter.com/anykeyorg", target: "_blank") %>
+            <%= link_to("&#xf082;".html_safe, "https://www.facebook.com/AnyKeyOrg", target: "_blank") %>
+            <%= link_to("&#xf16d;".html_safe, "https://www.instagram.com/AnyKeyOrg", target: "_blank") %>
+            <%= link_to("&#xf167;".html_safe, "https://www.youtube.com/channel/UC_g-d1xOkG8Jhc5HprmDQRA", target: "_blank") %>
+            <%= link_to("&#xf392;".html_safe, "https://discordapp.com/invite/0wO5ZPggEK8shbfv", target: "_blank") %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
 </div>

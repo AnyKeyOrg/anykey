@@ -16,3 +16,72 @@
   font-weight: 600;
   font-size: 3em;
 }
+
+
+
+/************************************/
+/*        Contact Page Body         */
+/************************************/
+
+#contact .intro-section {
+  max-width: 38em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+#contact .action-box {
+  max-width: 22em;
+  width: 100%;
+  border: 5px solid var(--bright-fuchsia-color);
+  background-color: var(--light-fuchsia-overlay);
+  padding: 2.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+#contact .action-box .heading {
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+#contact .action-box .subheading {
+  font-weight: 600;
+  font-size: 1.15em;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+}
+
+#contact .action-box p {
+  font-size: 1em;
+} 
+
+#contact .action-box a.inline {
+  border-bottom: 2px solid var(--bright-fuchsia-color);
+}
+
+#contact .action-box a.inline:hover {
+  border-bottom: 2px solid var(--bright-orange-color);
+}
+
+#contact .action-box a.inline:active {
+  border-bottom: 2px solid var(--bright-blue-color);
+}
+
+#contact .social-links a {
+  font-family: var(--icon-font);
+  font-size: 1.7em;
+  color: var(--bright-fuchsia-color);
+}
+
+#contact .social-links a:hover {
+  color: var(--bright-orange-color);  
+}
+
+#contact .social-links a:active {
+  color: var(--bright-blue-color);  
+}
+
+#contact .social-links a:not(:last-child) {
+  margin-right: 0.6em;
+}
