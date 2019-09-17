@@ -98,6 +98,86 @@
 }
 
 
+
+
+
+
+
+
+
+#about .teammate-section {
+  margin: 1em 1em 2em 1em;
+  max-width: 20em;
+  width: 100%;
+}
+
+#about .teammate-image {
+  max-width: 20em;
+  overflow: hidden;
+  margin-bottom: -5px;
+}
+
+#about .teammate-image img {
+  margin: 0px;
+  width: 100%;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+
+#about .teammate-title {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 1.4em;
+  margin-top: 0.75em;
+  margin-bottom: 0.4em;
+}
+
+#about .teammate-subtitle {
+  color: var(--gray-color);
+  font-family: var(--title-font);
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+#about .teammate-links a {
+  font-family: var(--icon-font);
+  font-size: 1.1em;
+  color: var(--bright-orange-color);
+}
+
+#about .teammate-links a:hover {
+  color: var(--dark-orange-color);  
+}
+
+#about .teammate-links a:active {
+  color: var(--bright-blue-color);  
+}
+
+#about .teammate-links a:not(:last-child) {
+  margin-right: 0.6em;
+}
+
+#about .teammate-text {
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.4;
+  margin-top: 1.5em;
+}
+
+
+
+
+
+
+
+
+
+
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
