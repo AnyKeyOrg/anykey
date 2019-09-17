@@ -29,3 +29,34 @@
   margin-top: .2em;
   margin-bottom: 2.95em;
 }
+
+
+/************************************/
+/*       Resources Page Intro       */
+/************************************/
+
+#resources .intro-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#resources img.feature-image {
+  max-width: 408px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:70em) {
+  #resources .intro-section {
+    margin-bottom: 2em;
+  }
+}

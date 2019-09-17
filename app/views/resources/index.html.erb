@@ -11,18 +11,18 @@
       </div>
     </div>
   </div>
-  <div class="page-section flexbox vertical stretch flex-1">
+  <div class="page-section flexbox vertical stretch">
     <div class="inner flexbox vertical stretch">
       <div class="headline">
         Instructional materials<br>for learners of all levels
       </div>
-      <ul style="list-style-position: inside;">
-        <li>Keystone Code of Conduct (opens full page with template + instructions for adaptation)</li>
-        <li>Chat Moderation (opens full page with existing best practices in visual format + sample chat rules)</li>
-        <li>Inclusive Tournaments (opens full page with existing best practices in visual format)</li>
-        <li>Research & whitepapers (opens full academic citation style page with downloadable publications)</li>
-        <li>Inclusion 101 Curriculum (TBD/new enrollment feature which will launch when curriculum is ready)</li>
-      </ul>
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <div class="intro-section">
+          <p>We're working on repackaging our white papers, tools, and templates so that they are easier for the public to access and understand.</p>
+          <p>In the meantime, if there's a particular resource you are looking for, just <%= link_to("contact us", contact_path, class: "inline") %> to ask for a copy.
+        </div>
+        <%= image_tag("/images/resources-feature.jpg", class: "framed-element feature-image") %>
+      </div>
     </div>
   </div>
-</div>  
+</div>
