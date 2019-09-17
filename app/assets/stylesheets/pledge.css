@@ -85,6 +85,12 @@
   width: 100%;
 }
 
+#pledge img.intro-image {
+  max-width: 28em;
+  width: 95%;
+  margin-left: 2em;
+}
+
 #pledge .trailer-video {
   max-width: 32em;
   width: 100%;
@@ -335,6 +341,11 @@
   #pledge .intro-section {
     max-width: none;
     min-width: 30em;
+  }
+
+  #pledge img.intro-image {
+    margin-bottom: 3em;
+    margin-left: 0em;
   }
   
   #pledge .trailer-video {
