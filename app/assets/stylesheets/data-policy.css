@@ -16,3 +16,58 @@
   font-weight: 600;
   font-size: 3em;
 }
+
+
+
+/************************************/
+/*      Data Policy Page Body       */
+/************************************/
+
+#data-policy .intro-section {
+  max-width: 38em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+#data-policy .action-box {
+  max-width: 22em;
+  width: 100%;
+  border: 5px solid var(--bright-green-color);
+  background-color: var(--light-green-overlay);
+  padding: 2.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+#data-policy .action-box .heading {
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+#data-policy .action-box p {
+  font-size: 1em;
+} 
+
+#data-policy .action-box a.inline {
+  border-bottom: 2px solid var(--bright-green-color);
+}
+
+#data-policy .action-box a.inline:hover {
+  border-bottom: 2px solid var(--bright-orange-color);
+}
+
+#data-policy .action-box a.inline:active {
+  border-bottom: 2px solid var(--bright-blue-color);
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:68em) {
+  #data-policy .intro-section {
+    margin-bottom: 2em;
+  }
+}
