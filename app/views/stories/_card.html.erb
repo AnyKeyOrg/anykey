@@ -3,7 +3,7 @@
   <%= link_to(image_tag(story_image_src(story, :card)), story.link, class: "card-image") %>
 </div>
   <div class="card-body flexbox vertical start flex-1">
-    <div class="card-headline"><%= story.headline %></div>
+    <%= link_to(story.headline, story.link, class: "card-headline")%>
     <div class="card-text"><%= story.description %></div>
     <div class="card-descriptor"><%= l(story.published_on, format: "%b. %-d, %Y · %-l:%M%P ").upcase %></div>
   </div>

@@ -81,12 +81,20 @@
   margin-left: 2em;
 }
 
-#stories .card-headline {
+#stories a.card-headline {
   font-family: var(--body-font);
   font-weight: 600;
   font-size: 1.4em;
   margin-top: 0.75em;
   margin-bottom: 1.5em;
+}
+
+#stories a.card-headline:hover {
+  color: var(--bright-orange-color);
+}
+
+#stories a.card-headline:active {
+  color: var(--bright-blue-color);
 }
 
 #stories .card-text {
