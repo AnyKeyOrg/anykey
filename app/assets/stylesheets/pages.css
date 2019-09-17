@@ -107,6 +107,10 @@
   margin-bottom: 0.2em;
 }
 
+.page-section .section-title.flush-bottom {
+  margin-bottom: 0em;
+}
+
 .page-section .section-title.centered {
   text-align: center;
 }

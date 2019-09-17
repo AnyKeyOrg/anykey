@@ -98,7 +98,7 @@
 }
 
 #about .teammate-section {
-  margin: 1em 1em 2em 1em;
+  margin: 2em 1em 1em 1em;
   max-width: 20em;
   width: 100%;
 }
@@ -147,6 +147,15 @@
   margin-top: 1.5em;
 }
 
+#about .logo-section {
+  max-width: 50em;
+  width: 100%;
+}
+
+#about img.logo-image {
+  width: 14em;
+  margin: 0em 1em 3em 1em;
+}
 
 
 
