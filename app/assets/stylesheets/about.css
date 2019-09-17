@@ -16,3 +16,80 @@
   font-weight: 600;
   font-size: 3em;
 }
+
+
+/************************************/
+/*         About Page Intro         */
+/************************************/
+
+#about .intro-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#about img.feature-image {
+  max-width: 408px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#about .objective-section {
+  max-width: 30em;
+  width: 100%;
+  margin: 1em;
+  font-size: 1.2em;
+}
+
+#about .goal-section {
+  max-width: 22em;
+  width: 100%;
+  margin: 2.5em 0.5em 0em 0.5em;
+}
+
+#about div.goal-section p {
+  font-size: 1em;
+}
+
+#about .strategy-section {
+  max-width: 36em;
+  width: 100%;
+}
+
+#about .pillar-section {
+  max-width: 22em;
+  width: 100%;
+  margin: 3em 0.5em 0em 0.5em;
+}
+
+#about .pillar-section .subsection-title {
+  margin-bottom: 0em;
+}
+
+#about .pillar-section img {
+  max-width: 4em;
+  margin-left: -1em;
+}
+
+#about div.pillar-section p {
+  font-size: 1em;
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:70em) {
+  #about .intro-section {
+    margin-bottom: 2em;
+  }
+  
+  #about .strategy-section {
+    max-width: none;
+    margin-top: 3em;
+  }
+}

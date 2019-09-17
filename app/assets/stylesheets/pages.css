@@ -107,6 +107,10 @@
   margin-bottom: 0.2em;
 }
 
+.page-section .section-title.centered {
+  text-align: center;
+}
+
 .page-section .subsection-title {
   font-family: var(--title-font);
   font-weight: 500;
