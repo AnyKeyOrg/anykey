@@ -85,3 +85,14 @@
 #contact .social-links a:not(:last-child) {
   margin-right: 0.6em;
 }
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:68em) {
+  #contact .intro-section {
+    margin-bottom: 2em;
+  }
+}
