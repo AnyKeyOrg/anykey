@@ -78,6 +78,25 @@
   font-size: 1em;
 }
 
+#about .history-section {
+  max-width: 32em;
+  width: 100%;
+}
+
+#about img.history-image {
+  margin-bottom: 2em;
+}
+
+#about .history-subsection {
+  max-width: 28.5em;
+  width: 100%;
+  margin-top: 1em;
+}
+
+#about div.history-subsection p {
+  font-size: 1.05em;
+}
+
 
 /***********************************/
 /*         Responsiveness          */
@@ -91,5 +110,9 @@
   #about .strategy-section {
     max-width: none;
     margin-top: 3em;
+  }
+  
+  #about .history-section {
+    margin-bottom: 2.5em;
   }
 }
