@@ -87,7 +87,7 @@ class ReportsController < ApplicationController
 
       if response.nil?
         @reported_twitch_user = nil
-      elsif response["users"].nil?
+      elsif response["users"].blank?
        @reported_twitch_user = nil
       else
         @reported_twitch_user = response["users"][0]["_id"]
