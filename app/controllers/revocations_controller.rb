@@ -71,7 +71,7 @@ class RevocationsController < ApplicationController
       # Check if reported_twitch_name exists on Twitch
       response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
       
-      if response["users"].empty?
+      if response["users"].blank?
        @reported_twitch_user = nil
       else
         @reported_twitch_user = response["users"][0]["_id"]
