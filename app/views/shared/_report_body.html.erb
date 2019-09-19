@@ -10,7 +10,7 @@
     </div>
     <div class="report-item flexbox vertical stretch">
       <div class="item-title">Date of Incident</div>
-      <div class="item-text small"><%= l(@report.incident_occurred, format: "%b. %-d, %Y") %></div>
+      <div class="item-text small"><%= @report.incident_occurred.blank? ? '-' : l(@report.incident_occurred, format: "%b. %-d, %Y") %></div>
     </div>
   </div>
   <div class="report-item flexbox vertical stretch">
