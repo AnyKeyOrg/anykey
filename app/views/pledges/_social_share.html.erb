@@ -1,0 +1,5 @@
+<div class="button-wrap flexbox horizontal wrap justify-space-between">
+  <%= link_to("&#xf099;  Share".html_safe, "https://twitter.com/intent/tweet?text=I took the %23glhfpledge to make online gaming spaces more inclusive for everyone. Join me and #{number_with_delimiter(@pledges_count)} other gamers who've taken the pledge to earn your @anykeyorg badge on Twitch: http://anykey.org/glhf".html_safe, class: 'social-button button', target: "_blank", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Report', 'event_label': 'ShareTwitter'});") %>
+  <%= link_to("&#xf099;  Follow".html_safe, "https://twitter.com/anykeyorg", class: 'social-button button', target: "_blank", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Report', 'event_label': 'FollowTwitter'});") %>
+  <%= link_to("&#xf082;  Like".html_safe, "https://www.facebook.com/AnyKeyOrg", class: 'social-button button', target: "_blank", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Report', 'event_label': 'LikeFacebook'});") %>
+</div>

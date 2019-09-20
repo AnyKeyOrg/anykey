@@ -265,6 +265,20 @@
   box-sizing: border-box; 
 }
 
+#pledge .locales-section {
+  background: var(--black-color);
+  color: var(--white-color);
+  font-family: var(--body-font), var(--alt-title-font);
+  padding: 0.4em 1.4em 1.1em 1.4em;
+  font-weight: 500;
+}
+
+#pledge .locales-section a {
+  margin-top: 0.8em;
+  margin-right: 0.4em;
+  margin-left: 0.4em;
+}
+
 
 /************************************/
 /*        Pledge Show Style         */
@@ -272,8 +286,6 @@
 
 #pledge .button-wrap {
   width: 100%;
-  margin-right: 1.4em;
-  margin-left: 1.4em;
 }
 
 #pledge .twitch-button {
@@ -307,6 +319,38 @@
   border: 0 !important;
 } 
 
+#pledge .social-button {
+  border: 5px solid var(--dark-blue-color);
+  background-color: var(--bright-blue-color);
+  color: var(--white-color);
+  font-family: var(--title-font), var(--icon-font);
+  font-weight: 500;
+  font-size: 1.2em;
+  padding: .75em 1.5em .75em 1.5em;
+  margin-top: 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  min-width: 6em;
+}
+
+#pledge .social-button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+  border: 5px solid var(--dark-orange-color);
+}
+
+#pledge .social-button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);
+  border: 5px solid var(--dark-blue-color);
+  outline: none;
+}
+
+#pledge .social-button::-moz-focus-inner {
+  border: 0 !important;
+} 
+
 #pledge .twitch-instructions {
   margin-top: 2em;
 }
@@ -319,19 +363,6 @@
   margin-top: 0.4em;
 }
 
-#pledge .locales-section {
-  background: var(--black-color);
-  color: var(--white-color);
-  font-family: var(--body-font), var(--alt-title-font);
-  padding: 0.4em 1.4em 1.1em 1.4em;
-  font-weight: 500;
-}
-
-#pledge .locales-section a {
-  margin-top: 0.8em;
-  margin-right: 0.4em;
-  margin-left: 0.4em;
-}
 
 /***********************************/
 /*         Responsiveness          */
@@ -405,6 +436,12 @@
   #pledge #twitter-section .page-section {
     margin-top: 3em;
     margin-bottom: 3em;
+  }
+}
+
+@media (max-width:38em) {
+  #pledge .social-button {
+    width: 100%;
   }
 }
 

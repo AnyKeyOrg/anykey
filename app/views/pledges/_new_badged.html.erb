@@ -6,6 +6,7 @@
       </div>
       <div class="flexbox vertical start flex-1">
         <p><%= t(".text", href: link_to(t(".link-text"), contact_path, class: "inline")).html_safe %></p>
+        <%= render(partial: "pledges/social_share") %>
         <%= render(partial: "pledges/twitch_instructions") %>
       </div>
     </div>

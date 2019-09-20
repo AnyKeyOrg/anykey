@@ -67,6 +67,7 @@ class PledgesController < ApplicationController
     if cookies[:pledge_redirect].blank?
       redirect_to root_url
     else
+      @pledges_count = Pledge.count
       cookies.delete(:pledge_redirect)
     end
   end

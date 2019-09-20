@@ -13,6 +13,7 @@
         <% else %>
           <p><%= t(".text", href: link_to(t(".link-text"), contact_path, class: "inline")).html_safe %></p>
           <%= render(partial: "pledges/twitch_instructions") %>
+          <%= render(partial: "pledges/social_share") %>
           <script>
             gtag('event', 'SuccesView', {'event_category': 'Pledge', 'event_label': 'ReturningBadged'});
           </script>
