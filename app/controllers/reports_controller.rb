@@ -43,6 +43,9 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
   
     if @report.save
+      # Email notification to staff
+      StaffMailer.notify_staff_new_report(@report).deliver_now
+      
       flash[:notice] = "You've successfully submitted the report. Thank you."
       redirect_to root_path
     else      
