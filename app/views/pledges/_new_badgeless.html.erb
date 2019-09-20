@@ -4,7 +4,7 @@
       <div class="section-title">
         <%= t(".title") %>
       </div>
-      <div class="flexbox vertical center flex-1">
+      <div class="flexbox vertical stretch">
         <p><%= t(".text") %></p>
         <%= render(partial: "pledges/twitch_auth", locals: { pledge: @pledge }) %>
         <%= render(partial: "pledges/social_share") %>

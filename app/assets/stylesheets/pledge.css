@@ -363,6 +363,10 @@
   margin-top: 0.4em;
 }
 
+#pledge .twitch-instructions img {
+  margin-top: 2em;
+}
+
 
 /***********************************/
 /*         Responsiveness          */
@@ -472,6 +476,10 @@
   
   #pledge .about-section {
     min-width: 16em;
+  }
+  
+  #pledge .twitch-instructions img {
+    max-width: 18em;
   }
 }
 
