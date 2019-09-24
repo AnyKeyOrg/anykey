@@ -1,0 +1,200 @@
+/************************************/
+/*     Keystone Code Page Header    */
+/************************************/
+
+#keystone-code .page-header {
+  background: url('/images/keystone-header.jpg') 50% 60% no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+#keystone-code .page-header .title {
+  margin-left: 1.4em;
+  color: var(--white-color);
+  text-shadow: var(--black-color) 0px 0px 30px;
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 3em;
+}
+
+
+/************************************/
+/*         About Page Intro         */
+/************************************/
+
+#keystone-code .intro-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#keystone-code img.feature-image {
+  max-width: 408px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#keystone-code .values-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.1em;
+  margin-left: 3em;
+  margin-bottom: 2em;
+}
+
+#keystone-code .values-box {
+  max-width: 26em;
+  width: 100%;
+  border: 5px solid var(--bright-green-color);
+  background-color: var(--light-green-overlay);
+  padding: 2.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+  margin-bottom: 1em;
+}
+
+#keystone-code .values-box .heading {
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+#keystone-code .values-box .heading:not(:first-child) {
+  margin-top: 1em;
+}
+
+#keystone-code .values-box p {
+  font-size: 1em;
+  margin-top: 0.3em;
+}
+
+#keystone-code .action-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+#keystone-code img.action-image {
+  margin-top: 2em;
+}
+
+#keystone-code .value-subsection {
+  max-width: 35em;
+  width: 100%;
+  margin: 2.5em 0.5em 0em 0.5em;
+}
+
+#keystone-code div.value-subsection p {
+  font-size: 1em;
+}
+
+#keystone-code .enforcement-section {
+  max-width: 38em;
+  width: 100%;
+  margin-right: 4em;
+}
+
+#keystone-code .report-button {
+  border: 5px solid var(--light-gray-color);
+  background-color: var(--dark-fuchsia-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.5em;
+  padding: .75em 3em .75em 3em;
+  margin-top: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#keystone-code .report-button:hover {
+  cursor: pointer;
+  background-color: var(--bright-fuchsia-color);
+}
+
+#keystone-code .report-button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#keystone-code .report-button::-moz-focus-inner {
+  border: 0 !important;
+} 
+
+#keystone-code .definitions-section {
+  max-width: 30em;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+#keystone-code .page-section .definitions-section p {
+  font-size: 1em;
+}
+
+#keystone-code .definitions-section ul {
+  list-style-position: outside;
+  font-size: 0.95em;
+  line-height: 1.4em;
+  margin-left: 1.2em;
+  margin-top: 0.4em;
+  margin-bottom: 1em; 
+}
+
+
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:70em) {
+  #keystone-code .intro-section {
+    margin-bottom: 2em;
+  }
+  
+  #keystone-code .values-section {
+    margin-left: 0em;
+    max-width: none;
+  }
+}
+
+@media (max-width:60em) {
+  #keystone-code .enforcement-section {
+    max-width: none;
+    min-width: 30em;
+    margin-right: 0em;
+  }
+  
+  #keystone-code .definitions-section {
+    max-width: none;
+    min-width: 30em;
+    margin-top: 2em;
+  }
+}
+
+@media (max-width:34em) {
+  #keystone-code .enforcement-section {
+    min-width: 16em;
+  }
+  
+  #keystone-code .definitions-section {
+    min-width: 16em;
+  }
+}
+
+@media (max-width:30em) {
+  #keystone-code .report-button {
+    font-size: 1.3em;
+    padding: .75em 2em .75em 2em;
+  }
+}
+
+@media (max-width:26em) {
+  #keystone-code .report-button {
+    font-size: 1.1em;
+  }
+}

@@ -14,11 +14,12 @@ Rails.application.routes.draw do
     end
   
     resources :pledges,        only: [ :index, :create, :show ]
-    get '/pledge',             to: 'pledges#new',        as: :new_pledge
+    get '/pledge',             to: 'pledges#new',    as: :new_pledge
     get '/take-the-pledge',    to: 'pledges#new'
     get '/glhf',               to: 'pledges#new'
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
+    get '/keystone-code',      to: 'resources#keystone_code',  as: :keystone_code    
     resources :stories,        only: [ :index, :new, :create, :edit, :update ]
     resources :reports,        only: [ :index, :show, :new, :create ] do
       member do
