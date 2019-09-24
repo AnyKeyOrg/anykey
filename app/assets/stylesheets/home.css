@@ -44,7 +44,7 @@
 #home .page-header .title .line-a {
   font-family: var(--title-font);
   font-weight: 600;
-  font-size: 3em;
+  font-size: 3.5em;
   line-height: 1.1em;
   margin-bottom: 0.1em;
 }
@@ -52,7 +52,7 @@
 #home .page-header .title .line-b {
   font-family: var(--body-font);
   font-weight: 500;
-  font-size: 2em;
+  font-size: 2.4em;
   line-height: 1.4em;
 }
 
@@ -225,10 +225,10 @@
 
 @media (max-width:48em) {
   #home .page-header .title .line-a {
-    font-size: 2.3em;
+    font-size: 2.5em;
   }
   #home .page-header .title .line-b {
-    font-size: 1.6em;
+    font-size: 1.7em;
   }
   
   #home #about-section {
@@ -238,10 +238,10 @@
   
 @media (max-width:34em) {
   #home .page-header .title .line-a {
-    font-size: 1.8em;
+    font-size: 2em;
   }
   #home .page-header .title .line-b {
-    font-size: 1.1em;
+    font-size: 1.3em;
   }
   
   #home .intro-section {
