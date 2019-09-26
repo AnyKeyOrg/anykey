@@ -12,6 +12,12 @@ We're excited that you're ready to help make your online gaming spaces more incl
 6. Stop, listen, and reassess if I’m told that my words or actions are harmful
 7. Respect others, even if their sincere opinions are different from my own
 
-You have agreed to play by these seven rules and to hold other pledge-takers to the same standard. That means you will stand up, speak out, and report when you see harassment and discrimination happening in your communities. So if you see someone sporting the badge causing trouble in a stream, please file a report (<%= short_report_url %>) so that our moderation team can review the situation.
+You have agreed to play by these seven rules and to hold other pledge-takers to the same standard. That means you will stand up, speak out, and report when you see harassment and discrimination happening in your communities. So if you see someone sporting the badge causing trouble in a stream, please file a report (<%= short_report_url(locale: nil) %>) so that our moderation team can review the situation.
+
+If you are ready to go above and beyond, share this unique referral link with your community:
+
+<%= glhf_url(params: {ref: @pledge.identifier}, locale: nil) %>
+
+You'll earn a point for each person you recruit to sign the pledge. But if you want to make it to the top of the leaderboard, you'll have to contend with all the other gamers out their striving to be the most inclusive. Ready for the challenge?
 
 Good Luck, Have Fun!

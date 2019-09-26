@@ -58,6 +58,7 @@ class PledgesController < ApplicationController
           flash.now[:alert] << message + ". "
         end
         @pledges_count = Pledge.count
+        @leaders = Pledge.order(referrals_count: :desc).limit(10)
         render(action: :new)
       end
     end
