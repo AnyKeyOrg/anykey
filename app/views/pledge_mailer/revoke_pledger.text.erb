@@ -1,6 +1,6 @@
 Hey <%= @revocation.pledge.first_name %>,
 
-Our moderation team received a report regarding your conduct in <%= @revocation.report.incident_stream %>'s stream on <%= l(@revocation.report.incident_occurred, format: "%b. %-d, %Y") %>. After reviewing the incident, we've decided to revoke your AnyKey badge for the following reason:
+Our moderation team received a report regarding your conduct in <%= @revocation.report.incident_stream %>'s stream on <%= @revocation.report.incident_occurred.blank? ? '-' : l(@revocation.report.incident_occurred, format: "%b. %-d, %Y") %>. After reviewing the incident, we've decided to revoke your AnyKey badge for the following reason:
 
 <%= @revocation.reason %>
 
