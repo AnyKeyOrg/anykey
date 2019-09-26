@@ -27,29 +27,27 @@
       </div>
     </div>
   </div>
-  
   <div id="quest-section" class="flexbox vertical center">
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical center">
         <div class="inner flexbox vertical stretch">          
           <div class="flexbox horizontal wrap-reverse center justify-space-around">
             <div class="leaderboard">
-              <div class="subsection-title-a">Pledge Referral</div>
-              <div class="subsection-title-b">Leaderboard</div>
+              <div class="subsection-title-a"><%= t(".leaderboard-title-a") %></div>
+              <div class="subsection-title-b"><%= t(".leaderboard-title-b") %></div>
               <%= render(partial: "pledges/leader_row", collection: @leaders, as: :pledge) %>
             </div>
             <div class="challenge-section flexbox vertical start">
               <div class="section-title"><%= t(".quest-title") %></div>
-              <p>AnyKey is on a mission to reach 1,000,000 signatures by 2020 and we need your help!</p>
-              <p>After you take the GLHF pledge you'll receive a unique referral link you can share with your community. Each person you recruit to sign the pledge adds a point to your score.</p>
-              <p>If you want the bragging rights for being the most inclusive gamer, you'll have to contend with the leaders who've come before you. Ready for the challenge?</p>
+              <p><%= t(".challenge-paragraph-a") %></p>
+              <p><%= t(".challenge-paragraph-b") %></p>
+              <p><%= t(".challenge-paragraph-c") %></p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
   <div class="page-section flexbox vertical center">
     <div class="inner flexbox vertical start">
       <div class="section-title tight-bottom"><%= t(".twitch-title") %></div>
