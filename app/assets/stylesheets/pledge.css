@@ -97,6 +97,63 @@
   margin-left: 2em;
 }
 
+#pledge #quest-section {
+  width: 100%;
+  background: url('/images/pledge-background-a.jpg') 40% center no-repeat;
+  background-size: cover;
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#pledge #quest-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#pledge #quest-section .section-title {
+  text-shadow: var(--black-color) 0px 0px 20px;
+}
+
+#pledge .leaderboard {
+  border: 5px solid var(--white-color);
+  background: var(--bright-orange-color);
+  padding: 2.5em 2.5em 3em 2.5em;
+}
+
+#pledge .leaderboard .subsection-title-a {
+  color: var(--dark-orange-color);
+  font-family: var(--title-font);
+  font-size: 2em;
+}
+
+#pledge .leaderboard .subsection-title-b {
+  font-family: var(--title-font);
+  font-size: 1.825em;
+  text-transform: uppercase;
+  margin-top: 0.1em;
+  margin-bottom: 1.5em;
+}
+
+#pledge .leaderboard .row {
+  margin-top: 1em;
+  line-height: 1.1em;
+}
+
+#pledge .leaderboard .title {
+  margin-right: 1em;
+}
+
+#pledge .leaderboard .detail {
+  font-size: 0.8em;
+}
+
+#pledge .challenge-section {
+  margin-left: 8em;
+  width: 100%;
+  max-width: 28em;  
+  text-shadow: var(--black-color) 0px 0px 20px;
+}
+
 #pledge .twitch-section {
   max-width: 52em;
   width: 100%;
@@ -116,7 +173,7 @@
 
 #pledge #glhf-section {
   width: 100%;
-  background: url('/images/pledge-background-a.jpg') 40% center no-repeat;
+  background: url('/images/pledge-background-b.jpg') 40% center no-repeat;
   background-size: cover;
   margin-top: 5em;
   color: var(--white-color);
@@ -220,7 +277,7 @@
 
 #pledge #twitter-section {
   width: 100%;
-  background: url('/images/pledge-background-b.jpg') 50% center no-repeat;
+  background: url('/images/pledge-background-c.jpg') 50% center no-repeat;
   background-size: cover;
   margin-top: 5em;
   color: var(--white-color);
@@ -389,6 +446,13 @@
     min-width: 30em;
   }
   
+  #pledge .challenge-section {
+    max-width: none;
+    min-width: 16em;
+    margin-left: 0em;
+    margin-bottom: 3em;
+  }
+  
   #pledge .twitch-section {
     max-width: none;
     min-width: 16em;
@@ -424,6 +488,15 @@
 }
 
 @media (max-width:48em) {
+  #pledge #quest-section {
+    margin-top: 3em;
+  }
+
+  #pledge #quest-section .page-section {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+
   #pledge #glhf-section {
     margin-top: 3em;
   }

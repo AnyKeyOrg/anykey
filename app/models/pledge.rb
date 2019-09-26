@@ -21,7 +21,15 @@ class Pledge < ApplicationRecord
   def to_param
     identifier
   end
-
+  
+  def display_name
+    if !self.twitch_display_name.blank?
+      return self.twitch_display_name
+    else
+      return self.first_name + ' ' + self.last_name.first + '.'
+    end
+  end
+  
   private
     def ensure_signed_on_set
       if !self.signed_on.present?

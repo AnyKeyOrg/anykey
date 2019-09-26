@@ -73,6 +73,7 @@
   font-weight: 500;
   max-width: 34em;
   width: 100%;
+  text-shadow: var(--black-color) 0px 0px 20px;
 }
 
 #resources #keystone-code-section div.text-section p {

@@ -95,6 +95,7 @@
   font-weight: 500;
   max-width: 34em;
   width: 100%;
+  text-shadow: var(--black-color) 0px 0px 20px;
 }
 
 #home #glhf-section div.text-section p {
@@ -170,6 +171,7 @@
   line-height: 1.4em;
   max-width: 22em;
   width: 100%;
+  text-shadow: var(--black-color) 0px 0px 20px;
 }
 
 #home #testimonial-section .quote.bottom-padded {
@@ -208,6 +210,7 @@
 #home #about-section .text-section {
   max-width: 30em;
   width: 100%;
+  text-shadow: var(--black-color) 0px 0px 20px;
 }
 
 
