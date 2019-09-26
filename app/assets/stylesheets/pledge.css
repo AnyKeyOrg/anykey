@@ -376,6 +376,10 @@
   border: 0 !important;
 } 
 
+#pledge .social-share {
+  margin-bottom: 2em;
+}
+
 #pledge .social-button {
   border: 5px solid var(--dark-blue-color);
   background-color: var(--bright-blue-color);
@@ -422,6 +426,10 @@
 
 #pledge .twitch-instructions img {
   margin-top: 2em;
+}
+
+#pledge .referral-link {
+  margin-top: 4em;
 }
 
 

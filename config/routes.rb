@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :pledges,        only: [ :index, :create, :show ]
     get '/pledge',             to: 'pledges#new',    as: :new_pledge
     get '/take-the-pledge',    to: 'pledges#new'
-    get '/glhf',               to: 'pledges#new'
+    get '/glhf',               to: 'pledges#new',    as: :glhf
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
     get '/keystone-code',      to: 'resources#keystone_code',  as: :keystone_code    

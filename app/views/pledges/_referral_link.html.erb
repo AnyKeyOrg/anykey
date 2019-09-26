@@ -1,0 +1,7 @@
+<div class="referral-link flexbox vertical stretch">
+  <div class="subsection-title">
+    <%= t(".title") %>
+  </div>
+  <p><%= t(".text") %></p>
+  <p><%= link_to glhf_url(params: {ref: @pledge.identifier}, locale: nil), glhf_url(params: {ref: @pledge.identifier}, locale: nil), class: "inline", target: "_blank" %></p>
+</div>

@@ -7,6 +7,7 @@
       <div class="flexbox vertical stretch">
         <p><%= t(".text") %></p>
         <%= render(partial: "pledges/twitch_auth", locals: { pledge: @pledge }) %>
+        <%= render(partial: "pledges/referral_link") %>
         <%= render(partial: "pledges/social_share") %>
       </div>
     </div>

@@ -105,6 +105,9 @@ en:
       title: "You have already activated a badge with that account..."
       text: "If you are having difficulty equipping your AnyKey badge on Twitch, please follow the instructions below. Need more help? Just %{href}."
       link-text: "contact us"
+    referral_link:
+      title: "Earn points with your unique referral link"
+      text: "Share this link with your community and you'll get a point for each person you recruit to sign the pledge. Think you're the most inclusive gamer? The leaderboard awaits!"
     twitch_auth:
       twitch-button: "Activate Twitch Badge"
     twitch_instructions:
