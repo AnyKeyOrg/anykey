@@ -627,6 +627,14 @@
     min-width: 16em;
   }
   
+  #pledge .leaderboard .subsection-title-a {
+    font-size: 1.5em;
+  }
+
+  #pledge .leaderboard .subsection-title-b {
+    font-size: 1.4em;
+  }
+  
   #pledge .promise-section {
     min-width: 16em;
   }
