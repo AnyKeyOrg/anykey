@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get '/pledge',             to: 'pledges#new',    as: :new_pledge
     get '/take-the-pledge',    to: 'pledges#new'
     get '/glhf',               to: 'pledges#new',    as: :glhf
+    get 'referral-lookup',     to: 'pledges#referral_lookup', as: :referral_lookup
+    post 'referral-send',      to: 'pledges#referral_send', as: :referral_send
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
     get '/keystone-code',      to: 'resources#keystone_code',  as: :keystone_code    

@@ -433,6 +433,94 @@
 }
 
 
+/************************************/
+/*    Referral Lookup Page Style    */
+/************************************/
+
+#referral-lookup .session-box {
+  width: 24em;
+  background: var(--dark-white-color);
+  padding: 2em 3em 2em 3em;
+  border: solid 5px var(--black-color);
+}
+
+#referral-lookup form .title {
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 2.2em;
+  margin-bottom: 1em;
+}
+
+#referral-lookup form .item {
+  margin-bottom: 1.2em;
+  width: 100%;
+}
+
+#referral-lookup form .last-item {
+  margin-top: 1em;
+}
+
+#referral-lookup form label.text-field {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 1em;
+  margin-top: 0.5em;
+}
+
+#referral-lookup form input.text-field {
+  color: var(--black-color);
+  background: var(--white-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.1em;
+  border: none;
+  border: 4px solid var(--black-color);
+  outline: none;
+  padding: 0.8em 1em 0.7em 1em;
+}
+
+#referral-lookup form input.text-field:hover {
+  border: 4px solid var(--bright-orange-color);
+}
+
+#referral-lookup form input.text-field:focus {
+  border: 4px solid var(--bright-blue-color);
+}
+
+#referral-lookup form .flash {
+  text-align: center;
+  margin-bottom: 2em;
+  font-size: 0.85em;
+  color: var(--alert-red-color);
+}
+
+#referral-lookup form .button {
+  border: 4px solid var(--light-black-color);
+  background-color: var(--bright-green-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.2em;
+  padding: 0.75em 1em 0.75em 1em;
+  text-transform: uppercase;
+}
+
+#referral-lookup form .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+}
+
+#referral-lookup form .button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#referral-lookup form .button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+
 /***********************************/
 /*         Responsiveness          */
 /***********************************/

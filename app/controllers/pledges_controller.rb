@@ -17,7 +17,6 @@ class PledgesController < ApplicationController
     @leaders = Pledge.order(referrals_count: :desc).limit(10)
   end
   
-  
   def create
     @pledge = Pledge.find_by(email: pledge_params[:email])
     
@@ -74,6 +73,25 @@ class PledgesController < ApplicationController
     end
   end
   
+  def referral_lookup
+    @pledge = Pledge.new
+  end
+  
+  def referral_send
+    @pledge = Pledge.find_by(email: pledge_params[:email])
+
+    if @pledge
+      # Email pledger
+      PledgeMailer.send_pledger_referral(@pledge).deliver_now
+      
+      flash[:notice] = "We've successfully sent an email with your referral link. Check your inbox!"
+      redirect_to root_path
+    else
+      flash.now[:alert] ||= "Email address not found."
+      render(action: :referral_lookup)
+    end    
+  end
+
   protected
     def find_pledge
       @pledge = Pledge.find_by(identifier: params[:id])
