@@ -73,8 +73,9 @@
   color: var(--white-color);
   font-family: var(--alt-title-font);
   font-weight: 500;
-  font-size: .85em;
+  font-size: 1em;
   width: 100%;
+  padding-top: 0.8em;
   padding-bottom: 0.8em;
   position: absolute;
   top: 40px;
@@ -82,8 +83,8 @@
 }
 
 #veggieburger-menu .row {
-  height: 2.5em;
-  line-height: 3em;
+  height: 3.5em;
+  line-height: 4em;
 }
 
 #veggieburger-menu a {
