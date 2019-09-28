@@ -15,7 +15,7 @@
             <label for="pledge_email" class="text-field">Email</label>
           </div>
           <div class="last-item flexbox vertical end">
-            <input id="new_referral_submit" name="commit" type="submit" class="button" value="Send Link" tabindex="2">
+            <input id="new_referral_submit" name="commit" type="submit" class="button" value="Send Link" tabindex="2" onClick="gtag('event', 'ButtonClick', {'event_category': 'Pledge', 'event_label': 'RequestLink'});">
           </div>
         </form>
       </div>
