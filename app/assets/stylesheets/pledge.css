@@ -658,6 +658,11 @@
   #pledge .twitch-instructions img {
     max-width: 18em;
   }
+  
+  #referral-lookup .session-box {
+    width: auto;
+    padding: 2em 2em 2em 2em;
+  }
 }
 
 @media (max-width:30em) {
