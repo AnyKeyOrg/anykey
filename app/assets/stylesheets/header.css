@@ -217,7 +217,7 @@
 /*         Responsiveness          */
 /***********************************/
 
-@media (max-width:34em) {  
+@media (max-width:36em) {  
   #header-content #full-menu {
     display: none;
   }
@@ -227,7 +227,7 @@
   }
 }
 
-@media (min-width:34em) {  
+@media (min-width:36em) {  
   #veggieburger-menu {
     display: none !important;
   }

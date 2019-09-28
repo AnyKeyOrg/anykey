@@ -14,7 +14,8 @@
         <%= link_to('glhf PLEDGE', new_pledge_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'pledge item') %>
         <%= link_to('Affiliates', affiliates_path, class: (controller_name == 'affiliates' ? 'selected ' : '') + 'affiliates item') %>
         <%= link_to('Resources', resources_path, class: (controller_name == 'resources' ? 'selected ' : '') + 'resources item')  %>
-        <%= link_to('Stories', stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'stories item last') %>        
+        <%= link_to('Stories', stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'stories item') %>        
+        <%= link_to('About', about_path, class: (controller_name == 'about' && controller.action_name == 'index' ? 'selected ' : '') + 'last item') %>    
       </div>
     </div>
     <div id="veggieburger" class="flexbox vertical end flex-1">
@@ -34,5 +35,8 @@
   </div>
   <div class="row">
     <%= link_to('Stories', stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'stories') %>    
+  </div>
+  <div class="row">
+    <%= link_to('About', about_path, class: (controller_name == 'about' && controller.action_name == 'index' ? 'selected ' : '')) %>    
   </div>
 </div>
