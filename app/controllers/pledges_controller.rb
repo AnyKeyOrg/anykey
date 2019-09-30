@@ -14,7 +14,7 @@ class PledgesController < ApplicationController
   def new
     @pledge = Pledge.new
     @pledges_count = Pledge.count
-    @leaders = Pledge.order(referrals_count: :desc).limit(10)
+    @leaders = Pledge.order(referrals_count: :desc).where(badge_revoked: false).limit(10)
   end
   
   def create
