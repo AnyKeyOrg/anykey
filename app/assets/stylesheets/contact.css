@@ -45,10 +45,14 @@
   font-size: 1.4em;
 }
 
+#contact .action-box .heading:not(:first-child) {
+  margin-top: 1.8em;
+}
+
 #contact .action-box .subheading {
   font-weight: 600;
   font-size: 1.15em;
-  margin-top: 1.8em;
+  margin-top: 2.2em;
   margin-bottom: 0.8em;
 }
 
