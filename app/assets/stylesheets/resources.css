@@ -114,6 +114,7 @@
 #resources a.publication {
   max-width: 32em;
   margin-top: 2em;
+  margin-right: 1em;
 }
 
 #resources a.publication .icon {
@@ -151,5 +152,11 @@
 @media (max-width:70em) {
   #resources .intro-section {
     margin-bottom: 2em;
+  }
+}
+
+@media (max-width:66em) {
+  #resources a.publication {
+    margin-right: 0em;
   }
 }
