@@ -1,9 +1,9 @@
 Here's the rundown of what's been happening on AnyKey's site during the week of <%= l(@start_of_week, format: '%b. %-d') %> - <%= l(@end_of_week-1.minutes, format: '%b. %-d, %Y') %>.
 
-Pledge takers: <%= @pledge_takers_count %>
-Badge activators: <%= @badge_activators_count %>
-Pledge referrers: <%= @pledge_referrers_count %>
-Pledges referred: <%= @pledges_referred_count %>
+Pledge takers: <%= number_with_delimiter(@pledge_takers_count) %>
+Badge activators: <%= number_with_delimiter(@badge_activators_count) %>
+Pledge referrers: <%= number_with_delimiter(@pledge_referrers_count) %>
+Pledges referred: <%= number_with_delimiter(@pledges_referred_count) %>
 Report filers: <%= @report_filers_count %>
 Reports filed: <%= @reports_filed_count %>
 Reports dismissed: <%= @reports_dismissed_count %>
