@@ -1,12 +1,21 @@
 Here's the rundown of what's been happening on AnyKey's site during the week of <%= l(@start_of_week, format: '%b. %-d') %> - <%= l(@end_of_week-1.minutes, format: '%b. %-d, %Y') %>.
 
-Pledge takers: <%= number_with_delimiter(@pledge_takers_count) %><%= "\n" %>
-Badge activators: <%= number_with_delimiter(@badge_activators_count) %><%= "\n" %>
-Pledge referrers: <%= number_with_delimiter(@pledge_referrers_count) %><%= "\n" %>
-Pledges referred: <%= number_with_delimiter(@pledges_referred_count) %><%= "\n" %>
-Report filers: <%= @report_filers_count %><%= "\n" %>
-Reports filed: <%= @reports_filed_count %><%= "\n" %>
-Reports dismissed: <%= @reports_dismissed_count %><%= "\n" %>
-Warnings issued: <%= @warnings_issued_count %><%= "\n" %>
-Badges revoked: <%= @badges_revoked_count %><%= "\n" %>
+Pledge takers: <%= number_with_delimiter(@pledge_takers_count) %>
+
+Badge activators: <%= number_with_delimiter(@badge_activators_count) %>
+
+Pledge referrers: <%= number_with_delimiter(@pledge_referrers_count) %>
+
+Pledges referred: <%= number_with_delimiter(@pledges_referred_count) %>
+
+Report filers: <%= @report_filers_count %>
+
+Reports filed: <%= @reports_filed_count %>
+
+Reports dismissed: <%= @reports_dismissed_count %>
+
+Warnings issued: <%= @warnings_issued_count %>
+
+Badges revoked: <%= @badges_revoked_count %>
+
 Affiliates: <%= @affiliates_count %>
