@@ -12,6 +12,8 @@ namespace :staff do
 
   task :send_weekly_stats_update => :environment do
 
+    puts "Calculating stats and sending email to staff..."
+    
     # Calculate start and end of reporting week
     e = Time.find_zone("Pacific Time (US & Canada)").now.beginning_of_day
     s = e-7.days
@@ -19,6 +21,8 @@ namespace :staff do
     # Send email
     StaffMailer.send_weekly_stats_update(s, e).deliver_now
 
+    puts "Update away."
+    
   end
 
 end
