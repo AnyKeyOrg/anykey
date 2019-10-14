@@ -12,7 +12,7 @@ namespace :staff do
 
   task :send_weekly_stats_update => :environment do
 
-    # Calculate end and start of reporting week
+    # Calculate start and end of reporting week
     e = Time.find_zone("Pacific Time (US & Canada)").now.beginning_of_day
     s = e-7.days
 

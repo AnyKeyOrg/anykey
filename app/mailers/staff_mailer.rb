@@ -9,7 +9,6 @@ class StaffMailer < ApplicationMailer
   end
   
   def send_weekly_stats_update(start_of_week, end_of_week)
-    
     @start_of_week = start_of_week
     @end_of_week = end_of_week
     @pledge_takers_count = Pledge.where('signed_on >= ? AND signed_on < ?', start_of_week, end_of_week).count
@@ -24,7 +23,6 @@ class StaffMailer < ApplicationMailer
     @affiliates_count = Affiliate.count
     
     mail(to: "staff@anykey.org", subject: "AnyKey stats update for #{l(start_of_week, format: '%b. %-d')} - #{l(end_of_week, format: '%b. %-d, %Y')}")
-  
   end
   
 end
