@@ -1,4 +1,4 @@
-Here's the rundown of what's been happening on AnyKey's site during the week of <%= l(@start_of_week, format: '%b. %-d') %> - <%= l(@end_of_week, format: '%b. %-d, %Y') %>.
+Here's the rundown of what's been happening on AnyKey's site during the week of <%= l(@start_of_week, format: '%b. %-d') %> - <%= l(@end_of_week-1.minutes, format: '%b. %-d, %Y') %>.
 
 Pledge takers: <%= @pledge_takers_count %>
 Badge activators: <%= @badge_activators_count %>

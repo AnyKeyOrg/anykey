@@ -22,7 +22,7 @@ class StaffMailer < ApplicationMailer
     @badges_revoked_count = Revocation.where('created_at >= ? AND created_at < ?', start_of_week, end_of_week).count
     @affiliates_count = Affiliate.count
     
-    mail(to: "staff@anykey.org", subject: "AnyKey stats update for #{l(start_of_week, format: '%b. %-d')} - #{l(end_of_week, format: '%b. %-d, %Y')}")
+    mail(to: "staff@anykey.org", subject: "AnyKey stats update for #{l(start_of_week, format: '%b. %-d')} - #{l(end_of_week-1.minutes, format: '%b. %-d, %Y')}")
   end
   
 end
