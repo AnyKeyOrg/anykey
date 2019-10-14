@@ -4,7 +4,8 @@
 # happens Mondays at 9am UTC. Because we
 # pull KPIs in PST/PDT, and our reporting
 # week runs Monday-Sunday, this timing gives
-# a 1-2 hour buffer.
+# a 1-2 hour buffer. To do that on Heroku...
+# if [ "$(date +%u)" = 1 ]; then rake staff:send_weekly_stats_update; fi
 
 namespace :staff do
   
