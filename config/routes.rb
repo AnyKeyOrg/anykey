@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     post 'referral-send',      to: 'pledges#referral_send', as: :referral_send
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
+    get '/research',           to: 'resources#index',          as: :research
     get '/keystone-code',      to: 'resources#keystone_code',  as: :keystone_code    
     resources :stories,        only: [ :index, :new, :create, :edit, :update ]
     resources :reports,        only: [ :index, :show, :new, :create ] do
