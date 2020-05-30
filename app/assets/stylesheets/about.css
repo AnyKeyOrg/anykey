@@ -158,29 +158,55 @@
 }
 
 #about .sponsorship-intro-section {
-  max-width: 42em;
+  max-width: 40em;
   width: 100%;
 }
 
 #about .sponsorship-section {
-  margin: 3em 1em 1em 1em;
   width: 100%;
+}
+
+#about .sponsorship-section.first {
+  margin-top: 2em;
 }
 
 #about .sponsorship-logo {
   min-width: 14em;
+  margin: 2em 2em 2em 0em;
 }
 
 #about .sponsorship-text {
   font-weight: 400;
   font-size: 1em;
   line-height: 1.4;
-  margin-left: 1.5em;
+  max-width: 60em;
 }
 
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
+
+@media (max-width:80em) {
+  
+  #about .sponsorship-intro-section {
+    max-width: none;
+    margin-bottom: 2.5em;
+  }
+  
+  #about .sponsorship-section.first {
+    margin-top: 0em;
+  }
+  
+  #about .sponsorship-logo {
+    min-width: 0em;
+    margin-top: 4em;
+  }
+  
+  #about .sponsorship-text {
+    max-width: none;
+  }
+}
+
 
 @media (max-width:70em) {
   #about .intro-section {
@@ -190,10 +216,6 @@
   #about .strategy-section {
     max-width: none;
     margin-top: 3em;
-  }
-  
-  #about .sponshorship-intro-section {
-    max-width: none;
   }
   
   #about .history-section {
