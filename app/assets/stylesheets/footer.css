@@ -85,3 +85,7 @@
 #footer-content .social-links a:not(:last-child) {
   margin-right: 0.6em;
 }
+
+#footer-content img.sponsorship-logo {
+  margin-top: 0.5em;
+}
