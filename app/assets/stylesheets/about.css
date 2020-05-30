@@ -157,6 +157,26 @@
   margin: 0em 1em 3em 1em;
 }
 
+#about .sponsorship-intro-section {
+  max-width: 42em;
+  width: 100%;
+}
+
+#about .sponsorship-section {
+  margin: 3em 1em 1em 1em;
+  width: 100%;
+}
+
+#about .sponsorship-logo {
+  min-width: 14em;
+}
+
+#about .sponsorship-text {
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.4;
+  margin-left: 1.5em;
+}
 
 /***********************************/
 /*         Responsiveness          */
@@ -170,6 +190,10 @@
   #about .strategy-section {
     max-width: none;
     margin-top: 3em;
+  }
+  
+  #about .sponshorship-intro-section {
+    max-width: none;
   }
   
   #about .history-section {
