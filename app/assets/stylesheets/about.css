@@ -157,53 +157,24 @@
   margin: 0em 1em 3em 1em;
 }
 
-#about .sponsorship-intro-section {
+#about .sponsorship-section {
   max-width: 40em;
   width: 100%;
 }
 
-#about .sponsorship-section {
-  width: 100%;
-}
-
-#about .sponsorship-section.first {
-  margin-top: 2em;
-}
-
 #about .sponsorship-logo {
-  min-width: 14em;
-  margin: 2em 2em 2em 0em;
+  margin: 5em 3em 3em 3em;
 }
 
-#about .sponsorship-text {
-  font-weight: 400;
-  font-size: 1em;
-  line-height: 1.4;
-  max-width: 60em;
-}
 
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
 
 @media (max-width:80em) {
-  
-  #about .sponsorship-intro-section {
+  #about .sponsorship-section {
     max-width: none;
     margin-bottom: 2.5em;
-  }
-  
-  #about .sponsorship-section.first {
-    margin-top: 0em;
-  }
-  
-  #about .sponsorship-logo {
-    min-width: 0em;
-    margin-top: 4em;
-  }
-  
-  #about .sponsorship-text {
-    max-width: none;
   }
 }
 
