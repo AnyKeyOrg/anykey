@@ -68,7 +68,13 @@
 /************************************/
 
 .background-overlay {
-  background-color: var(--transparent-overlay);
+  background-color: var(--black-overlay);
+  width: 100%;
+  height: 100%;
+}
+
+.background-overlay.light {
+  background-color: var(--light-black-overlay);
   width: 100%;
   height: 100%;
 }

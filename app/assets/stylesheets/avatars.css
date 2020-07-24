@@ -14,7 +14,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: var(--transparent-overlay);
+  background-color: var(--black-overlay);
   color: var(--white-color);
   cursor: pointer;
 }
