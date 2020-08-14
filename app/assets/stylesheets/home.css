@@ -217,6 +217,17 @@
   margin: 1em;
 }
 
+#home .goal-section .subsection-title {
+  margin-bottom: 0em;
+}
+
+#home .goal-section img {
+  width: 52px;
+  height: 52px;
+  margin-left: -0.4em;
+  margin-right: 0.6em;
+}
+
 #home #testimonial-section {
   width: 100%;
   background: url('/images/home-background-c.jpg') 60% 50% no-repeat;

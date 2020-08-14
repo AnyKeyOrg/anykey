@@ -50,6 +50,17 @@
   margin: 2.5em 0.5em 0em 0.5em;
 }
 
+#about .goal-section .subsection-title {
+  margin-bottom: 0em;
+}
+
+#about .goal-section img {
+  width: 52px;
+  height: 52px;
+  margin-left: -0.4em;
+  margin-right: 0.6em;
+}
+
 #about div.goal-section p {
   font-size: 1em;
 }
