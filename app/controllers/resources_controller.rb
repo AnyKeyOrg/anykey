@@ -6,4 +6,7 @@ class ResourcesController < ApplicationController
   def keystone_code
   end
   
+  def inclusion_101
+  end
+  
 end

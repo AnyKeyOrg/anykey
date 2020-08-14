@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :resources,      only: [ :index ]
     get '/research',           to: 'resources#index',          as: :research
     get '/keystone-code',      to: 'resources#keystone_code',  as: :keystone_code    
+    get '/inclusion-101',      to: 'resources#inclusion_101',  as: :inclusion_101    
     resources :stories,        only: [ :index, :new, :create, :edit, :update ]
     resources :reports,        only: [ :index, :show, :new, :create ] do
       member do
