@@ -1,0 +1,52 @@
+/************************************/
+/*     Inclusion 101 Page Header    */
+/************************************/
+
+#inclusion-101 .page-header {
+  background: url('/images/inclusion-header.jpg') 50% 55% no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+#inclusion-101 .page-header .title {
+  margin-left: 1.4em;
+  color: var(--white-color);
+  text-shadow: var(--black-color) 0px 0px 30px;
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 3em;
+}
+
+
+/************************************/
+/*         About Page Intro         */
+/************************************/
+
+#inclusion-101 .intro-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#inclusion-101 img.feature-image {
+  max-width: 408px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:70em) {
+  #inclusion-101 .intro-section {
+    margin-bottom: 2em;
+  }
+}
