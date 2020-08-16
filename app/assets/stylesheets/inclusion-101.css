@@ -258,12 +258,18 @@
   #inclusion-101 #start-section .section-title {
     font-size: 2.8em;
   }
+  
+  #inclusion-101 .section-title .letter {  
+    top: 20px;
+    right: 3px;
+  } 
 }
 
 @media (max-width:34em) {
   #inclusion-101 .plan-box {
     padding: 2.5em 1.5em 2.5em 1.5em;
   }
+  
   #inclusion-101 .plan-box .text {
     font-size: 1.2em;
     line-height: 1.1em;
