@@ -196,9 +196,14 @@
   color: var(--white-color);
 }
 
+#inclusion-101 .resource-section {
+  max-width: 26em;
+  width: 100%;
+}
+
 
 /************************************/
-/*     Inclusion 101 Quick Start    */
+/*     Inclusion 101 Resources      */
 /************************************/
 
 #inclusion-101 a.resource {
