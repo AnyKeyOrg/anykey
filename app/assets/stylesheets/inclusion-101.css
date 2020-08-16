@@ -44,7 +44,7 @@
 
 #inclusion-101 #issues-section {
   width: 100%;
-  background: var(--alert-red-color);
+  background: var(--alert-red-color);  
   margin-top: 5em;
   color: var(--white-color);
 }
@@ -103,50 +103,12 @@
   margin-bottom: 2em;
 }
 
-#inclusion-101 a.publication {
-  max-width: 32em;
-  margin-top: 2em;
-  margin-right: 1em;
-}
-
-#inclusion-101 a.publication .icon {
-  font-family: var(--icon-font);
-  font-size: 4em;
-  color: var(--bright-blue-color);
-  min-width: 60px;
-  text-align: center;
-}
-
-#inclusion-101 a.publication .description {
-  font-weight: 500;
-  font-size: 0.8em;
-  color: var(--gray-color);
-  line-height: 1.4em;
-  margin-left: 1.2em;
-}
-
-#inclusion-101 a.publication .title {
-  font-weight: 500;
-  line-height: 1.4em;
-  margin-left: 1em;
-}
-
-#inclusion-101 a.publication:hover .icon,
-#inclusion-101 a.publication:hover .title {
-  color: var(--bright-orange-color);
-}
-
-#inclusion-101 a.publication:focus .icon,
-#inclusion-101 a.publication:focus .title {
-  color: var(--bright-blue-color);
-}
-
 #inclusion-101 .plan-box {
   max-width: 34em;
   width: 100%;
-  border: 8px solid var(--bright-green-color);
-  background-color: var(--light-green-overlay);
-  padding: 2.5em;
+  border: 8px solid var(--dark-green-color);
+  background-color: var(--bright-green-color);
+  padding: 3.5em 2.5em 3.5em 2.5em;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; 
@@ -158,28 +120,123 @@
 }
 
 #inclusion-101 .plan-box .number {
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  min-height: 36px;
-  background: var(--bright-green-color);
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  background: var(--dark-green-color);
   font-size: 1.4em;
   font-family: var(--title-font);
-  color: #DAF4E4;
+  color: var(--bright-green-color);
   text-align: center;
-  line-height: 36px;
+  line-height: 32px;
   margin-right: 0.75em;
 }
 
 #inclusion-101 .plan-box .text {
-  color: var(--dark-green-color);
+  color: var(--white-color);
   font-family: var(--body-font);
   font-size: 1.3em;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2em;
 }
 
 
+/************************************/
+/*     Inclusion 101 Quick Start    */
+/************************************/
+
+#inclusion-101 #start-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--white-color) 28%, var(--bright-blue-color) 28%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#inclusion-101 #start-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#inclusion-101 #start-section .section-title {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+#inclusion-101 #start-section .text-section {
+  font-size: 1em;
+  font-weight: 500;
+  max-width: 42em;
+  width: 100%;
+  color: var(--black-color);
+}
+
+#inclusion-101 .step-section .text-section {
+  font-size: 1em;
+  max-width: 40em;
+  width: 100%;
+  color: var(--black-color);
+}
+
+#inclusion-101 .section-title .icon {
+  position: relative;
+  font-family: var(--icon-font);
+  font-size: 1.3em;
+  color: var(--black-color);
+  margin-right: 0.3em;
+}
+
+#inclusion-101 .section-title .letter {  
+  position: absolute;
+  top: 26px;
+  right: 4px;
+  transform: skew(0deg, -30deg);
+  font-family: var(--title-font);
+  font-size: 0.3em;
+  color: var(--white-color);
+}
+
+
+/************************************/
+/*     Inclusion 101 Quick Start    */
+/************************************/
+
+#inclusion-101 a.resource {
+  max-width: 32em;
+  margin-top: 2em;
+  margin-right: 1em;
+}
+
+#inclusion-101 a.resource .icon {
+  font-family: var(--icon-font);
+  font-size: 4em;
+  color: var(--bright-blue-color);
+  min-width: 72px;
+  text-align: center;
+  margin-right: 0.1em;
+}
+
+#inclusion-101 a.resource .description {
+  font-weight: 500;
+  font-size: 0.8em;
+  color: var(--gray-color);
+  line-height: 1.4em;
+}
+
+#inclusion-101 a.resource .title {
+  font-weight: 500;
+  line-height: 1.4em;
+}
+
+#inclusion-101 a.resource:hover .icon,
+#inclusion-101 a.resource:hover .title {
+  color: var(--bright-orange-color);
+}
+
+#inclusion-101 a.resource:focus .icon,
+#inclusion-101 a.resource:focus .title {
+  color: var(--bright-blue-color);
+}
 
 
 /***********************************/
@@ -192,6 +249,11 @@
   }
 }
 
+@media (max-width:48em) {
+  #inclusion-101 #start-section .section-title {
+    font-size: 2.8em;
+  }
+}
 
 @media (max-width:34em) {
   #inclusion-101 .plan-box {
