@@ -19,7 +19,7 @@
 
 
 /************************************/
-/*         About Page Intro         */
+/*       Inclusion 101 Intro        */
 /************************************/
 
 #inclusion-101 .intro-section {
@@ -38,6 +38,147 @@
 }
 
 
+/************************************/
+/*       Inclusion 101 Issues       */
+/************************************/
+
+#inclusion-101 #issues-section {
+  width: 100%;
+  background: var(--alert-red-color);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#inclusion-101 #issues-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#inclusion-101 #issues-section .text-section {
+  font-size: 1.1em;
+  font-weight: 500;
+  max-width: 48em;
+  width: 100%;
+}
+
+#inclusion-101 #issues-section div.text-section p {
+  line-height: 1.6em;
+}
+
+#inclusion-101 .issues-subsection {
+  max-width: 38em;
+  width: 100%;
+  margin-top: 3em;
+  font-size: 0.9em;
+}
+
+#inclusion-101 .issues-subsection .subsection-title {
+  margin-bottom: 0em;
+}
+
+#inclusion-101 .issues-subsection .number {
+  font-size: 1em;
+  font-family: var(--title-font);
+  color: var(--alert-red-color);
+  background: url('/images/flag.svg') no-repeat;
+  background-size: 40px 40px;
+  background-position: top left 4px;
+  min-width: 44px;
+  min-height: 40px;
+  line-height: 32px;
+  text-align: center;
+  margin-right: 0.4em;
+}
+
+
+/************************************/
+/*        Inclusion 101 Plan        */
+/************************************/
+
+#inclusion-101 .plan-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.1em;
+  margin-right: 3em;
+  margin-bottom: 2em;
+}
+
+#inclusion-101 a.publication {
+  max-width: 32em;
+  margin-top: 2em;
+  margin-right: 1em;
+}
+
+#inclusion-101 a.publication .icon {
+  font-family: var(--icon-font);
+  font-size: 4em;
+  color: var(--bright-blue-color);
+  min-width: 60px;
+  text-align: center;
+}
+
+#inclusion-101 a.publication .description {
+  font-weight: 500;
+  font-size: 0.8em;
+  color: var(--gray-color);
+  line-height: 1.4em;
+  margin-left: 1.2em;
+}
+
+#inclusion-101 a.publication .title {
+  font-weight: 500;
+  line-height: 1.4em;
+  margin-left: 1em;
+}
+
+#inclusion-101 a.publication:hover .icon,
+#inclusion-101 a.publication:hover .title {
+  color: var(--bright-orange-color);
+}
+
+#inclusion-101 a.publication:focus .icon,
+#inclusion-101 a.publication:focus .title {
+  color: var(--bright-blue-color);
+}
+
+#inclusion-101 .plan-box {
+  max-width: 34em;
+  width: 100%;
+  border: 8px solid var(--bright-green-color);
+  background-color: var(--light-green-overlay);
+  padding: 2.5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+  margin-bottom: 1em;
+}
+
+#inclusion-101 .plan-box .point:not(:first-child) {
+  margin-top: 2em;
+}
+
+#inclusion-101 .plan-box .number {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  background: var(--bright-green-color);
+  font-size: 1.4em;
+  font-family: var(--title-font);
+  color: #DAF4E4;
+  text-align: center;
+  line-height: 36px;
+  margin-right: 0.75em;
+}
+
+#inclusion-101 .plan-box .text {
+  color: var(--dark-green-color);
+  font-family: var(--body-font);
+  font-size: 1.3em;
+  font-weight: 700;
+  line-height: 1.2em;
+}
+
 
 
 
@@ -48,5 +189,16 @@
 @media (max-width:70em) {
   #inclusion-101 .intro-section {
     margin-bottom: 2em;
+  }
+}
+
+
+@media (max-width:34em) {
+  #inclusion-101 .plan-box {
+    padding: 2.5em 1.5em 2.5em 1.5em;
+  }
+  #inclusion-101 .plan-box .text {
+    font-size: 1.2em;
+    line-height: 1.1em;
   }
 }
