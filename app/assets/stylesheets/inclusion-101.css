@@ -148,7 +148,7 @@
 
 #inclusion-101 #start-section {
   width: 100%;
-  background: linear-gradient(315deg, var(--white-color) 28%, var(--bright-blue-color) 28%);
+  background: linear-gradient(315deg, var(--dark-blue-color) 28%, var(--bright-blue-color) 28%);
   margin-top: 5em;
   color: var(--white-color);
 }
@@ -165,10 +165,10 @@
 
 #inclusion-101 #start-section .text-section {
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 400;
   max-width: 42em;
   width: 100%;
-  color: var(--black-color);
+  color: var(--white-color);
 }
 
 #inclusion-101 .step-section .text-section {
@@ -182,7 +182,6 @@
   position: relative;
   font-family: var(--icon-font);
   font-size: 1.3em;
-  color: var(--black-color);
   margin-right: 0.3em;
 }
 
@@ -201,6 +200,18 @@
   width: 100%;
 }
 
+#inclusion-101 #end-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--bright-blue-color) 72%, var(--dark-blue-color) 72%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#inclusion-101 #end-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
 
 /************************************/
 /*     Inclusion 101 Resources      */
@@ -216,7 +227,7 @@
   font-family: var(--icon-font);
   font-size: 4em;
   color: var(--bright-blue-color);
-  min-width: 72px;
+  min-width: 74px;
   text-align: center;
   margin-right: 0.1em;
 }
