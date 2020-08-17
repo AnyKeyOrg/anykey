@@ -212,6 +212,18 @@
   margin-bottom: 5em;
 }
 
+#inclusion-101 #end-section .section-title {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+#inclusion-101 #end-section .text-section {
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 42em;
+  width: 100%;
+  color: var(--white-color);
+}
 
 /************************************/
 /*     Inclusion 101 Resources      */
