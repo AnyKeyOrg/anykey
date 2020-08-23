@@ -1,0 +1,40 @@
+/************************************/
+/*       Logo Guide Page Header     */
+/************************************/
+
+#logo-guide .page-header {
+  background: url('/images/logo-guide-background.jpg') 50% 40% no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+#logo-guide .page-header .title {
+  margin-left: 1.4em;
+  color: var(--white-color);
+  text-shadow: var(--black-color) 0px 0px 30px;
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 3em;
+}
+
+
+/************************************/
+/*       Logo Guide Page Body       */
+/************************************/
+
+#logo-guide .intro-section {
+  max-width: 38em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:68em) {
+  #logo-guide .intro-section {
+    margin-bottom: 2em;
+  }
+}
