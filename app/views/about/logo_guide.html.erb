@@ -10,7 +10,6 @@
       </div>
     </div>
   </div>
-  
   <div class="page-section flexbox vertical stretch flex-1">
     <div class="inner flexbox vertical stretch">
       <div class="headline">
@@ -18,11 +17,60 @@
       </div>
       <div class="flexbox horizontal center wrap justify-space-around">      
         <div class="intro-section">
-          <p>Our name, a playful reference to the phrase “press any key to continue,” was chosen to convey the idea that anybody should be welcome in gaming. Our logo, a mechanical keycap with an equality sign, was designed to represent that elusive key.</p>
+          <p>Our name, a playful reference to the phrase “press any key to continue,” was chosen to convey the idea that anybody should be welcome in gaming.</p>
+          <p>Our logo, a mechanical keycap with an equality sign, was designed to represent that elusive key.</p>
           <p>The AnyKey was created as a universal symbol of respect and inclusion. We ask anyone who uses it as a sign of welcome to follow a few simple guidelines.</p>
         </div>
-          <div>image</div>
+        <div class="logo-schematic">
+          <%= image_tag("/images/anykey-logo-schematic.png") %>
+        </div>  
       </div>  
     </div>
   </div>
+  
+  
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-around">
+
+        <div class="flexbox vertical start">
+          <div class="flexbox vertical center">
+            <div class="downloadable-logo white-background">
+              <%= image_tag("/images/anykey-logo-black.png") %>
+            </div>
+            <div class="logo-links">
+              <%= link_to("EPS", image_path("/images/anykey-logo-black.eps"), target: "_blank", class: "inline") %> • <%= link_to("PNG", image_path("/images/anykey-logo-black.png"), class: "inline", target: "_blank") %>
+            </div>
+          </div>
+          <div class="flexbox vertical center">
+            <div class="downloadable-logo black-background">
+              <%= image_tag("/images/anykey-logo-white.png") %>
+            </div>
+            <div class="logo-links">
+              <%= link_to("EPS", image_path("/images/anykey-logo-white.eps"), target: "_blank", class: "inline") %> • <%= link_to("PNG", image_path("/images/anykey-logo-white.png"), target: "_blank", class: "inline") %>
+            </div>
+          </div>
+          <div class="flexbox vertical center">
+            <div class="downloadable-logo green-background">
+              <%= image_tag("/images/anykey-logo-green.png") %>
+            </div>
+            <div class="logo-links">
+              <%= link_to("EPS", image_path("/images/anykey-logo-green.eps"), target: "_blank", class: "inline") %> • <%= link_to("PNG", image_path("/images/anykey-logo-green.png"), target: "_blank", class: "inline") %>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="usage-section flexbox vertical start">
+          <div class="section-title">
+            Using the AnyKey logo
+          </div>
+          <div>
+            <p>Here goes text about how to use the assets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>

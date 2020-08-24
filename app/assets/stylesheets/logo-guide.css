@@ -23,9 +23,41 @@
 /************************************/
 
 #logo-guide .intro-section {
-  max-width: 38em;
+  max-width: 31em;
   width: 100%;
   font-size: 1.1em;
+}
+
+#logo-guide .logo-schematic img {
+  width: 100%;
+  max-width: 525px;
+}
+
+#logo-guide .downloadable-logo {
+  padding: 1em 1.5em 1em 0.8em;
+  text-align: center;
+}
+
+#logo-guide .downloadable-logo.white-background {
+  border: 1px solid var(--light-gray-color);
+}
+
+#logo-guide .downloadable-logo.black-background {
+  background-color: var(--black-color);
+}
+
+#logo-guide .downloadable-logo.green-background {
+  background-color: var(--bright-green-color);
+}
+
+#logo-guide .downloadable-logo img {
+  width: 100%;
+  max-width: 360px;
+}
+
+#logo-guide .logo-links {
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
 }
 
 
@@ -33,7 +65,7 @@
 /*         Responsiveness          */
 /***********************************/
 
-@media (max-width:68em) {
+@media (max-width:70em) {
   #logo-guide .intro-section {
     margin-bottom: 2em;
   }
