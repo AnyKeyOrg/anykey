@@ -7,7 +7,9 @@ module AboutHelper
       render(partial: 'about/metatags_contact')
     elsif controller.action_name == 'data_policy'
       render(partial: 'about/metatags_data_policy')
-    end  
+    elsif controller.action_name == 'logo_guide'
+      render(partial: 'about/metatags_logo_guide')
+    end
   end
   
 end
