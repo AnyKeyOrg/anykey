@@ -42,7 +42,8 @@ Rails.application.routes.draw do
     get '/about',              to: 'about#index',        as: :about
     get '/contact',            to: 'about#contact',      as: :contact
     get '/data-policy',        to: 'about#data_policy',  as: :data_policy
-    
+    get '/logo-guide',         to: 'about#logo_guide',   as: :logo_guide
+  
   end
-    
+  
 end

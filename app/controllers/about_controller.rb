@@ -8,5 +8,8 @@ class AboutController < ApplicationController
   
   def data_policy
   end
+  
+  def logo_guide
+  end
 
 end

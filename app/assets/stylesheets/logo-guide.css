@@ -1,0 +1,281 @@
+/************************************/
+/*       Logo Guide Page Header     */
+/************************************/
+
+#logo-guide .page-header {
+  background: url('/images/logo-guide-background.jpg') 50% 40% no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+#logo-guide .page-header .title {
+  margin-left: 1.4em;
+  color: var(--white-color);
+  text-shadow: var(--black-color) 0px 0px 30px;
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 3em;
+}
+
+
+/************************************/
+/*       Logo Guide Page Body       */
+/************************************/
+
+#logo-guide .intro-section {
+  max-width: 31em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+#logo-guide .logo-schematic img {
+  width: 100%;
+  max-width: 525px;
+}
+
+#logo-guide .usage-section {
+  max-width: 36em;
+  width: 100%;
+}
+
+#logo-guide .downloadable-logo {
+  padding: 1em 1.5em 1em 0.8em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+#logo-guide .downloadable-logo.white-background {
+  border: 1px solid var(--light-gray-color);
+}
+
+#logo-guide .downloadable-logo.black-background {
+  background-color: var(--black-color);
+}
+
+#logo-guide .downloadable-logo.green-background {
+  background-color: var(--bright-green-color);
+}
+
+#logo-guide .downloadable-logo img {
+  width: 100%;
+  max-width: 360px;
+}
+
+#logo-guide .logo-links {
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+#logo-guide .downloadable-cap {
+  margin-left: 4em;
+  margin-right: 4em;
+}
+
+#logo-guide .downloadable-cap img {
+  width: 100%;
+  max-width: 86px;
+}
+
+#logo-guide .cap-links {
+  margin-bottom: 1.8em;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+#logo-guide .colors-section {
+  max-width: 28em;
+  font-size: 0.9em;
+  width: 100%;
+  margin-right: 2em;
+}
+
+#logo-guide .swatches-section {
+  max-width: 50em;
+  width: 100%;
+}
+
+#logo-guide .swatch {
+  width: 190px;
+  border: 1px solid var(--light-gray-color);
+  margin: 0.25em;
+}
+
+#logo-guide .swatch .color-sample {
+  height: 45px;
+}
+
+#logo-guide .swatch .description {
+  padding: 1em;
+}
+
+#logo-guide .swatch .color-title {
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 1em;
+  margin-bottom: 0.4em;
+}
+
+#logo-guide .swatch .color-format {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  color: var(--gray-color);
+  margin-top: .6em;
+  width: 4em;
+}
+
+#logo-guide .swatch .color-code {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  color: var(--black-color);
+  margin-top: .6em;
+}
+
+#logo-guide .swatch .color-sample.bright-green {
+  background-color: var(--bright-green-color);
+}
+
+#logo-guide .swatch .color-sample.dark-green {
+  background-color: var(--dark-green-color);
+}
+
+#logo-guide .swatch .color-sample.bright-orange {
+  background-color: var(--bright-orange-color);
+}
+
+#logo-guide .swatch .color-sample.dark-orange {
+  background-color: var(--dark-orange-color);
+}
+
+#logo-guide .swatch .color-sample.bright-fuchsia {
+  background-color: var(--bright-fuchsia-color);
+}
+
+#logo-guide .swatch .color-sample.dark-fuchsia {
+  background-color: var(--dark-fuchsia-color);
+}
+
+#logo-guide .swatch .color-sample.bright-blue {
+  background-color: var(--bright-blue-color);
+}
+
+#logo-guide .swatch .color-sample.dark-blue {
+  background-color: var(--dark-blue-color);
+}
+
+#logo-guide .swatch .color-sample.black {
+  background-color: var(--black-color);
+}
+
+#logo-guide .swatch .color-sample.light-black {
+  background-color: var(--light-black-color);
+}
+
+#logo-guide .swatch .color-sample.gray {
+  background-color: var(--gray-color);
+}
+
+#logo-guide .swatch .color-sample.light-gray {
+  background-color: var(--light-gray-color);
+}
+
+#logo-guide .typography-section {
+  max-width: 36em;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+#logo-guide .font {
+  margin: 1em 5em 1em 0em;
+}
+
+#logo-guide .font .description {
+  font-size: 0.8em;
+}
+
+#logo-guide .font .sample.nevis-bold {
+  font-family: var(--title-font);
+  font-size: 3em;
+  font-weight: 600;
+}
+
+#logo-guide .font .sample.rubik-medium {
+  font-family: var(--alt-title-font);
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+#logo-guide .font .sample.gotham-book {
+  font-family: var(--body-font);
+  font-size: 2em;
+  font-weight: 400;
+}
+
+#logo-guide .font .sample.gotham-medium {
+  font-family: var(--body-font);
+  font-size: 2em;
+  font-weight: 500;
+  margin-top: 0.5em;
+}
+
+#logo-guide .font .sample.gotham-bold {
+  font-family: var(--body-font);
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0.5em;
+}
+
+
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:80em) {
+  #logo-guide .usage-section {
+    margin-bottom: 3em;
+  }
+  
+  #logo-guide .colors-section {
+    margin-right: 0em;
+    margin-bottom: 2em;
+    max-width: 54em;
+  }
+  
+  #logo-guide .typography-section {
+    margin-bottom: 2em;
+    max-width: 54em;
+  }
+    
+  #logo-guide .font {
+    margin: 1em 5em 1em 5em;
+  }
+
+}
+@media (max-width:70em) {
+  #logo-guide .intro-section {
+    margin-bottom: 2em;
+  }
+  
+  #logo-guide .swatch {
+    margin: 1em;
+  }
+  
+  #logo-guide .font {
+    margin: 1em 5em 1em 0em;
+  }
+}
+
+@media (max-width:48em) {
+  #logo-guide .font {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width:34em) {
+  #logo-guide .font {
+    margin: 1em 1em 1em 0em;
+  }
+}
