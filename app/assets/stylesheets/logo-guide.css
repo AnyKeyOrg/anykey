@@ -180,6 +180,54 @@
   background-color: var(--light-gray-color);
 }
 
+#logo-guide .typography-section {
+  max-width: 36em;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+#logo-guide .font {
+  margin: 1em 5em 1em 0em;
+}
+
+#logo-guide .font .description {
+  font-size: 0.8em;
+}
+
+#logo-guide .font .sample.nevis-bold {
+  font-family: var(--title-font);
+  font-size: 3em;
+  font-weight: 600;
+}
+
+#logo-guide .font .sample.rubik-medium {
+  font-family: var(--alt-title-font);
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+#logo-guide .font .sample.gotham-book {
+  font-family: var(--body-font);
+  font-size: 2em;
+  font-weight: 400;
+}
+
+#logo-guide .font .sample.gotham-medium {
+  font-family: var(--body-font);
+  font-size: 2em;
+  font-weight: 500;
+  margin-top: 0.5em;
+}
+
+#logo-guide .font .sample.gotham-bold {
+  font-family: var(--body-font);
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0.5em;
+}
+
+
+
 
 /***********************************/
 /*         Responsiveness          */
@@ -191,12 +239,21 @@
   }
   
   #logo-guide .colors-section {
-    margin-bottom: 2em;
     margin-right: 0em;
+    margin-bottom: 2em;
     max-width: 54em;
   }
-}
+  
+  #logo-guide .typography-section {
+    margin-bottom: 2em;
+    max-width: 54em;
+  }
+    
+  #logo-guide .font {
+    margin: 1em 5em 1em 5em;
+  }
 
+}
 @media (max-width:70em) {
   #logo-guide .intro-section {
     margin-bottom: 2em;
@@ -204,5 +261,21 @@
   
   #logo-guide .swatch {
     margin: 1em;
+  }
+  
+  #logo-guide .font {
+    margin: 1em 5em 1em 0em;
+  }
+}
+
+@media (max-width:48em) {
+  #logo-guide .font {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width:34em) {
+  #logo-guide .font {
+    margin: 1em 1em 1em 0em;
   }
 }
