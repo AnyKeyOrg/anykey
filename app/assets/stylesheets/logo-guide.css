@@ -33,9 +33,15 @@
   max-width: 525px;
 }
 
+#logo-guide .usage-section {
+  max-width: 36em;
+  width: 100%;
+}
+
 #logo-guide .downloadable-logo {
   padding: 1em 1.5em 1em 0.8em;
-  text-align: center;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 #logo-guide .downloadable-logo.white-background {
@@ -60,13 +66,141 @@
   margin-bottom: 1.5em;
 }
 
+#logo-guide .downloadable-cap {
+  margin-left: 4em;
+  margin-right: 4em;
+}
+
+#logo-guide .downloadable-cap img {
+  width: 100%;
+  max-width: 86px;
+}
+
+#logo-guide .cap-links {
+  margin-bottom: 1.8em;
+}
+
+#logo-guide .colors-section {
+  max-width: 28em;
+  font-size: 0.9em;
+  width: 100%;
+  margin-right: 2em;
+}
+
+#logo-guide .swatches-section {
+  max-width: 50em;
+  width: 100%;
+}
+
+#logo-guide .swatch {
+  width: 190px;
+  border: 1px solid var(--light-gray-color);
+  margin: 0.25em;
+}
+
+#logo-guide .swatch .color-sample {
+  height: 45px;
+}
+
+#logo-guide .swatch .description {
+  padding: 1em;
+}
+
+#logo-guide .swatch .color-title {
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 1em;
+  margin-bottom: 0.4em;
+}
+
+#logo-guide .swatch .color-format {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  color: var(--gray-color);
+  margin-top: .6em;
+  width: 4em;
+}
+
+#logo-guide .swatch .color-code {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  color: var(--black-color);
+  margin-top: .6em;
+}
+
+#logo-guide .swatch .color-sample.bright-green {
+  background-color: var(--bright-green-color);
+}
+
+#logo-guide .swatch .color-sample.dark-green {
+  background-color: var(--dark-green-color);
+}
+
+#logo-guide .swatch .color-sample.bright-orange {
+  background-color: var(--bright-orange-color);
+}
+
+#logo-guide .swatch .color-sample.dark-orange {
+  background-color: var(--dark-orange-color);
+}
+
+#logo-guide .swatch .color-sample.bright-fuchsia {
+  background-color: var(--bright-fuchsia-color);
+}
+
+#logo-guide .swatch .color-sample.dark-fuchsia {
+  background-color: var(--dark-fuchsia-color);
+}
+
+#logo-guide .swatch .color-sample.bright-blue {
+  background-color: var(--bright-blue-color);
+}
+
+#logo-guide .swatch .color-sample.dark-blue {
+  background-color: var(--dark-blue-color);
+}
+
+#logo-guide .swatch .color-sample.black {
+  background-color: var(--black-color);
+}
+
+#logo-guide .swatch .color-sample.light-black {
+  background-color: var(--light-black-color);
+}
+
+#logo-guide .swatch .color-sample.gray {
+  background-color: var(--gray-color);
+}
+
+#logo-guide .swatch .color-sample.light-gray {
+  background-color: var(--light-gray-color);
+}
+
 
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
 
+@media (max-width:80em) {
+  #logo-guide .usage-section {
+    margin-bottom: 3em;
+  }
+  
+  #logo-guide .colors-section {
+    margin-bottom: 2em;
+    margin-right: 0em;
+    max-width: 54em;
+  }
+}
+
 @media (max-width:70em) {
   #logo-guide .intro-section {
     margin-bottom: 2em;
+  }
+  
+  #logo-guide .swatch {
+    margin: 1em;
   }
 }
