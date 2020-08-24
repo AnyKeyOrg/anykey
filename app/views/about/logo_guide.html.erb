@@ -97,7 +97,9 @@
             Using the AnyKey logo
           </div>
           <div class="usage-section">
-            <p>Anyone who would like to use the AnyKey logo to promote our initiatives is welcome to do so as long as they abide by the tenants of our Keystone Code and GLHF Pledge.</p>
+            <p>Anyone who would like to use the AnyKey logo to promote our initiatives is welcome to do so as long as they abide by the tenants of our <%= link_to("Keystone Code", keystone_code_path, class: "inline", onClick: "gtag('event', 'ClickThru', {'event_category': 'LogoGuide', 'event_label': 'KeystoneCodePage'});" )%> and <%= link_to("GLHF Pledge", new_pledge_path, class: "inline", onClick: "gtag('event', 'ClickThru', {'event_category': 'LogoGuide', 'event_label': 'GLHFPledgePage'});" )%>.</p>
+            <p>AnyKey affiliates, GLHF pledgers, partners, sponsors, and everyone else who uses our symbol is expected to act as a role model for inclusion through their behavior.</p>
+            <p>As long as you uphold our code of conduct, you are welcome to rep the AnyKey in your live stream, social media, websites, and print materials.
           </div>
         </div>
       </div>
