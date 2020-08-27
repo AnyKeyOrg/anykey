@@ -19,7 +19,7 @@
 
 
 /************************************/
-/*         About Page Intro         */
+/*     Keystone Code Explanation    */
 /************************************/
 
 #keystone-code .intro-section {
@@ -48,8 +48,8 @@
 #keystone-code .values-box {
   max-width: 26em;
   width: 100%;
-  border: 5px solid var(--bright-green-color);
-  background-color: var(--light-green-overlay);
+  border: 5px solid var(--dark-green-color);
+  background-color: var(--bright-green-color);
   padding: 2.5em;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -58,7 +58,8 @@
 }
 
 #keystone-code .values-box .heading {
-  font-weight: 600;
+  color: var(--white-color);
+  font-weight: 700;
   font-size: 1.4em;
   margin-bottom: 0em;
 }
@@ -70,7 +71,9 @@
 }
 
 #keystone-code .values-box p {
+  color: var(--white-color);
   font-size: 1em;
+  font-weight: 400;
   margin-top: 0.2em;
 }
 
@@ -108,6 +111,41 @@
 #keystone-code div.value-subsection p {
   font-size: 1em;
 }
+
+
+/************************************/
+/*      Keystone Code Download      */
+/************************************/
+
+#keystone-code #download-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--dark-blue-color) 28%, var(--bright-blue-color) 28%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#keystone-code #download-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#keystone-code #download-section .section-title {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+#keystone-code #download-section .text-section {
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 42em;
+  width: 100%;
+  color: var(--white-color);
+}
+
+
+/************************************/
+/*     Keystone Code Enforcement    */
+/************************************/
 
 #keystone-code .enforcement-section {
   max-width: 38em;
