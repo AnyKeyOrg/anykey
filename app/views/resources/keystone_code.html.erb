@@ -113,38 +113,66 @@
 
   <div class="page-section flexbox vertical stretch">
     <div class="inner flexbox vertical center">
-         
       <div class="flexbox horizontal center wrap justify-space-between">
-        <%= image_tag("/images/keystone-contract-preview.png", class: "framed-element download-preview") %>
+        <%= image_tag("/images/keystone-poster-preview.png", class: "framed-element download-preview") %>
         <div class="download-subsection flexbox vertical start">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> 
-          <a href="" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'ClickThru', {'event_category': 'Inclusion101', 'event_label': 'LiveStreamSeries'});">
-            <span class="icon">&#xf1e8;</span>
+          <div class="section-title">Printable Poster</div>
+          <div class="text-section">     
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> 
+          </div>
+          <a href="" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'KeystoneCode', 'event_label': 'Poster'});">
+            <span class="icon">&#xf02f;</span>
             <span class="flexbox vertical start">
-              <span class="description">Follow Channel</span>
-              <span class="title">Inclusion 101 Live Stream Series</span>
+              <span class="description">Download Poster</span>
+              <span class="title">Keystone Code Wall Hanging (11"x17")</span>
             </span>
           </a>
         </div>
       </div>
-      
-      <div class="flexbox horizontal center wrap justify-space-between">
-        <%= image_tag("/images/keystone-poster-preview.png", class: "framed-element download-preview") %>
-        <div class="download-subsection flexbox vertical start">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> 
-          <a href="" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'ClickThru', {'event_category': 'Inclusion101', 'event_label': 'LiveStreamSeries'});">
-            <span class="icon">&#xf1e8;</span>
-            <span class="flexbox vertical start">
-              <span class="description">Follow Channel</span>
-              <span class="title">Inclusion 101 Live Stream Series</span>
-            </span>
-          </a>
-        </div>
-      
     </div>
   </div>
 
-
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical center">     
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <%= image_tag("/images/keystone-contract-preview.png", class: "framed-element download-preview") %>
+        <div class="download-subsection flexbox vertical start">
+          <div class="section-title">Signable Contract</div>
+          <div class="text-section">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </div>
+          <a href="" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'KeystoneCode', 'event_label': 'Handout'});">
+            <span class="icon">&#xf56c;</span>
+            <span class="flexbox vertical start">
+              <span class="description">Download Handout</span>
+              <span class="title">Keystone Code Contract (8.5"x11")</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="adopters-section" class="flexbox vertical center">
+    <div class="page-section flexbox vertical stretch">
+      <div class="inner flexbox vertical stretch">
+        <div class="flexbox vertical stretch">
+          <div class="section-title">Adherents to the code</div>
+          <div class="text-section flexbox vertical flex-1">
+            <p>Everyone who's adopted the Keystone Code.</p>
+          </div>
+        </div>
+        <div class="flexbox horizontal center wrap justify-space-around">
+          <%= link_to(image_tag("/images/aqualix-esports-logo-white.svg", class: "adopter-logo", size: "190x100"), "https://aqualix.gg/") %>
+          <%= link_to(image_tag("/images/egaa-logo-white.svg", class: "adopter-logo", size: "200x55"), "https://www.egaa.com.au/") %>
+          <%= link_to(image_tag("/images/esl-logo-white.svg", class: "adopter-logo", size: "202x62"), "https://www.eslgaming.com") %>
+          <%= link_to(image_tag("/images/rhythm-game-community-logo-white.svg", class: "adopter-logo", size: "120x120"), "https://discord.com/invite/UhWrcz8") %>
+          <%= link_to(image_tag("/images/rsaa-logo-white.svg", class: "adopter-logo", size: "240x69"), "https://rsaa.riotgames.com/") %>
+          <%= link_to(image_tag("/images/uci-esports-logo-white.svg", class: "adopter-logo", size: "100x140"), "https://esports.uci.edu/") %>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="page-section flexbox vertical center">
     <div class="inner flexbox vertical start">

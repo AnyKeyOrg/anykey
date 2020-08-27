@@ -161,7 +161,6 @@
 }
 
 
-
 /************************************/
 /*      Keystone Code Resources     */
 /************************************/
@@ -201,6 +200,41 @@
 #keystone-code a.resource:focus .icon,
 #keystone-code a.resource:focus .title {
   color: var(--bright-blue-color);
+}
+
+
+/************************************/
+/*      Keystone Code Adopters      */
+/************************************/
+
+#keystone-code #adopters-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--bright-blue-color) 72%, var(--dark-blue-color) 72%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#keystone-code #adopters-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#keystone-code #adopters-section .section-title {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+#keystone-code #adopters-section .text-section {
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 42em;
+  width: 100%;
+  color: var(--white-color);
+  margin-bottom: 2em;
+}
+
+#keystone-code .adopter-logo {
+  margin: 2em;
 }
 
 
