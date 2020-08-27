@@ -142,6 +142,69 @@
   color: var(--white-color);
 }
 
+#keystone-code img.download-preview {
+  max-width: 300px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-right: 2em;
+}
+
+
+#keystone-code .download-subsection {
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 42em;
+  width: 100%;
+}
+
+
+
+/************************************/
+/*      Keystone Code Resources     */
+/************************************/
+
+#keystone-code a.resource {
+  max-width: 32em;
+  margin-top: 2em;
+  margin-right: 1em;
+}
+
+#keystone-code a.resource .icon {
+  font-family: var(--icon-font);
+  font-size: 4em;
+  color: var(--bright-blue-color);
+  min-width: 74px;
+  text-align: center;
+  margin-right: 0.1em;
+}
+
+#keystone-code a.resource .description {
+  font-weight: 500;
+  font-size: 0.8em;
+  color: var(--gray-color);
+  line-height: 1.4em;
+}
+
+#keystone-code a.resource .title {
+  font-weight: 500;
+  line-height: 1.4em;
+}
+
+#keystone-code a.resource:hover .icon,
+#keystone-code a.resource:hover .title {
+  color: var(--bright-orange-color);
+}
+
+#keystone-code a.resource:focus .icon,
+#keystone-code a.resource:focus .title {
+  color: var(--bright-blue-color);
+}
+
+
+
 
 /************************************/
 /*     Keystone Code Enforcement    */
