@@ -98,70 +98,71 @@
       </div>
     </div>
   </div>
-  
   <div id="download-section" class="flexbox vertical center">
     <div class="page-section flexbox vertical stretch">
       <div class="inner flexbox vertical stretch">
         <div class="flexbox vertical stretch">
-          <div class="section-title">Download the Keystone Code</div>
+          <div class="section-title">Download the code</div>
           <div class="text-section flexbox vertical flex-1">
-            <p>Any group is welcome to use these materials to get started adapting a code of conduct for their community.</p>
+            <p>We offer our Keystone Code in three formats: a poster, a one page contract, and set of chat rules. Any group is welcome to use these materials to start adapting a code of conduct for their community.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="page-section flexbox vertical stretch">
     <div class="inner flexbox vertical center">
-      <div class="flexbox horizontal center wrap justify-space-between">
+      <div class="flexbox horizontal center wrap justify-space-around">
         <%= image_tag("/images/keystone-poster-preview.png", class: "framed-element download-preview") %>
         <div class="download-subsection flexbox vertical start">
           <div class="section-title">Printable Poster</div>
-          <div class="text-section">     
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> 
+          <div class="text-section">
+            <p>Hang this 11"x17" poster prominently in all your community's shared spaces like arenas, lobbies, lounges, and anywhere else you spend time together IRL.</p> 
           </div>
           <a href="" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'KeystoneCode', 'event_label': 'Poster'});">
             <span class="icon">&#xf02f;</span>
             <span class="flexbox vertical start">
               <span class="description">Download Poster</span>
-              <span class="title">Keystone Code Wall Hanging (11"x17")</span>
+              <span class="title">Keystone Code Wall Hanging</span>
             </span>
           </a>
         </div>
       </div>
     </div>
   </div>
-
   <div class="page-section flexbox vertical stretch">
-    <div class="inner flexbox vertical center">     
-      <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="inner flexbox vertical center">
+      <div class="flexbox horizontal center wrap justify-space-around">
         <%= image_tag("/images/keystone-contract-preview.png", class: "framed-element download-preview") %>
         <div class="download-subsection flexbox vertical start">
           <div class="section-title">Signable Contract</div>
           <div class="text-section">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Distribute copies of this sheet to every member of your group and make sure that signing is a mandatory requirement for participation.</p>
           </div>
           <a href="" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'KeystoneCode', 'event_label': 'Handout'});">
             <span class="icon">&#xf56c;</span>
             <span class="flexbox vertical start">
               <span class="description">Download Handout</span>
-              <span class="title">Keystone Code Contract (8.5"x11")</span>
+              <span class="title">Keystone Code Contract</span>
             </span>
           </a>
         </div>
       </div>
     </div>
   </div>
-  
   <div class="page-section flexbox vertical stretch">
-    <div class="inner flexbox vertical center">     
-      <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="inner flexbox vertical center">
+      <div class="flexbox horizontal center wrap justify-space-around">
         <%= image_tag("/images/keystone-chat-preview.png", class: "download-preview") %>
         <div class="download-subsection flexbox vertical start">
           <div class="section-title">Pasteable Chat Rules</div>
           <div class="text-section">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Set up this simple text as a prompt in any chat spaces you oversee like Discord servers or Twitch streams.</p>
+            <p class="copy-text">
+              1. Treat others how you want to be treated; consider their perspectives.<br>
+              2. Be honest, honorable, and fair.<br>
+              3. Respect all other humans.<br>
+              4. Be courageous and stand up for what's right.</p>
           </div>
           <textarea id="rules-text">Keystone Chat Rules&#13;&#10;1. Treat others how you want to be treated; consider their perspectives.&#13;&#10;2. Be honest, honorable, and fair.&#13;&#10;3. Respect all other humans.&#13;&#10;4. Be courageous and stand up for what's right.</textarea>
           <a id="copy-link" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Copy', {'event_category': 'KeystoneCode', 'event_label': 'ChatRules'});">
@@ -175,14 +176,13 @@
       </div>
     </div>
   </div>
-  
   <div id="adopters-section" class="flexbox vertical center">
     <div class="page-section flexbox vertical stretch">
       <div class="inner flexbox vertical stretch">
         <div class="flexbox vertical stretch">
           <div class="section-title">Adherents to the code</div>
           <div class="text-section flexbox vertical flex-1">
-            <p>Everyone who's adopted the Keystone Code.</p>
+            <p>Leading organizations in esports and gaming around the world have adopted the Keystone Code. Are you one of them? <%= link_to("Let us know", "mailto:hello@anykey.org?subject=Hey AnyKey, my group adopted the Keystone Code...",  class: "inline", target: "_blank") %>!</p>
           </div>
         </div>
         <div class="flexbox horizontal center wrap justify-space-around">
@@ -197,7 +197,6 @@
       </div>
     </div>
   </div>
-
   <div class="page-section flexbox vertical center">
     <div class="inner flexbox vertical start">
       <div class="section-title">Defining harassment &amp; discrimination</div>

@@ -155,8 +155,20 @@
 #keystone-code .download-subsection {
   font-size: 1em;
   font-weight: 400;
-  max-width: 42em;
-  width: 100%;
+}
+
+#keystone-code .download-subsection .text-section {
+  font-size: 0.85em;
+  max-width: 43em;
+}
+
+#keystone-code .download-subsection div.text-section p.copy-text {
+  color: var(--gray-color);
+  font-size: 1em;
+}
+
+#keystone-code #rules-text {
+  display: none;
 }
 
 
@@ -194,15 +206,12 @@
 #keystone-code a.resource:hover .icon,
 #keystone-code a.resource:hover .title {
   color: var(--bright-orange-color);
+  cursor: pointer;
 }
 
-#keystone-code a.resource:focus .icon,
-#keystone-code a.resource:focus .title {
+#keystone-code a.resource:active .icon,
+#keystone-code a.resource:active .title {
   color: var(--bright-blue-color);
-}
-
-#keystone-code #rules-text {
-  display: none;
 }
 
 
@@ -329,6 +338,12 @@
     max-width: none;
     min-width: 30em;
     margin-top: 2em;
+  }
+  
+  #keystone-code img.download-preview {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-right: 0em;
   }
 }
 
