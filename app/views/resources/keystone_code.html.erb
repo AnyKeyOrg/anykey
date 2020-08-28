@@ -18,6 +18,7 @@
       <div class="flexbox horizontal center wrap justify-space-around">
         <div class="intro-section">
           <p>At AnyKey we are dedicated to fostering respectful, enjoyable, and harassment-free gaming experiences for everyone regardless of sex, gender identity and expression, sexual orientation, race, ethnicity, disability, physical appearance, body size, age, or religion.</p>
+          <p>One of the most important ways your community can signal that you share those values is to establish and publish a code of conduct. To make that process easy, we've created the Keystone Code for gaming groups to adapt to their needs and adopt as their own.</p>
         </div>
         <%= image_tag("/images/keystone-feature-a.jpg", class: "framed-element feature-image") %>
       </div>
@@ -102,9 +103,9 @@
     <div class="page-section flexbox vertical stretch">
       <div class="inner flexbox vertical stretch">
         <div class="flexbox vertical stretch">
-          <div class="section-title">Download the code!</div>
+          <div class="section-title">Download the Keystone Code</div>
           <div class="text-section flexbox vertical flex-1">
-            <p>About the stuff.</p>
+            <p>Any group is welcome to use these materials to get started adapting a code of conduct for their community.</p>
           </div>
         </div>
       </div>
@@ -153,6 +154,28 @@
     </div>
   </div>
   
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical center">     
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <%= image_tag("/images/keystone-chat-preview.png", class: "download-preview") %>
+        <div class="download-subsection flexbox vertical start">
+          <div class="section-title">Pasteable Chat Rules</div>
+          <div class="text-section">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </div>
+          <textarea id="rules-text">Keystone Chat Rules&#13;&#10;1. Treat others how you want to be treated; consider their perspectives.&#13;&#10;2. Be honest, honorable, and fair.&#13;&#10;3. Respect all other humans.&#13;&#10;4. Be courageous and stand up for what's right.</textarea>
+          <a id="copy-link" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Copy', {'event_category': 'KeystoneCode', 'event_label': 'ChatRules'});">
+            <span class="icon">&#xf0c5;</span>
+            <span class="flexbox vertical start">
+              <span class="description">Copy Text</span>
+              <span class="title">Keystone Code Chat Rules</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <div id="adopters-section" class="flexbox vertical center">
     <div class="page-section flexbox vertical stretch">
       <div class="inner flexbox vertical stretch">
@@ -167,7 +190,7 @@
           <%= link_to(image_tag("/images/egaa-logo-white.svg", class: "adopter-logo", size: "200x55"), "https://www.egaa.com.au/") %>
           <%= link_to(image_tag("/images/esl-logo-white.svg", class: "adopter-logo", size: "202x62"), "https://www.eslgaming.com") %>
           <%= link_to(image_tag("/images/nasef-logo-white.svg", class: "adopter-logo", size: "250x100"), "https://www.nasef.org") %>
-          <%= link_to(image_tag("/images/rhythm-game-community-logo-white.svg", class: "adopter-logo", size: "120x120"), "https://discord.com/invite/UhWrcz8") %>
+          <%= link_to(image_tag("/images/rhythm-game-community-logo-white.svg", class: "adopter-logo", size: "120x120"), "https://twitter.com/RGC_CoC") %>
           <%= link_to(image_tag("/images/rsaa-logo-white.svg", class: "adopter-logo", size: "240x69"), "https://rsaa.riotgames.com") %>
           <%= link_to(image_tag("/images/uci-esports-logo-white.svg", class: "adopter-logo", size: "100x140"), "https://esports.uci.edu") %>
         </div>

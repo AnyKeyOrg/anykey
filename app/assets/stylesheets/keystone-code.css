@@ -152,7 +152,6 @@
   margin-right: 2em;
 }
 
-
 #keystone-code .download-subsection {
   font-size: 1em;
   font-weight: 400;
@@ -200,6 +199,10 @@
 #keystone-code a.resource:focus .icon,
 #keystone-code a.resource:focus .title {
   color: var(--bright-blue-color);
+}
+
+#keystone-code #rules-text {
+  display: none;
 }
 
 
