@@ -144,6 +144,62 @@
   color: var(--white-color);
 }
 
+#home #keystone-code-section {
+  width: 100%;
+  background: url('/images/keystone-header.jpg') 50% 60% no-repeat;
+  background-size: cover;
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#home #keystone-code-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#home #keystone-code-section .text-section {
+  font-size: 1.1em;
+  font-weight: 500;
+  max-width: 34em;
+  width: 100%;
+  text-shadow: var(--black-color) 0px 0px 20px;
+}
+
+#home #keystone-code-section div.text-section p {
+  line-height: 1.6em;
+}
+
+#home #keystone-code-section .button {
+  border: 5px solid var(--white-color);
+  background-color: var(--bright-blue-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.6em;
+  padding: .4em .75em .45em .75em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+  max-width: 13.5em;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+#home #keystone-code-section .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+}
+
+#home #keystone-code-section .button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#home #keystone-code-section .button::-moz-focus-inner {
+  border: 0 !important;
+}
+
 #home #changemakers-section {
   width: 100%;
   background: url('/images/home-background-b.jpg') 40% 50% no-repeat;
