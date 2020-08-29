@@ -150,9 +150,9 @@
     <div class="page-section flexbox vertical stretch">
       <div class="inner flexbox vertical stretch">
         <div class="flexbox vertical stretch">
-          <div class="section-title">Keep your space comfy</div>
+          <div class="section-title"><%= t(".download-title")%></div>
           <div class="text-section flexbox vertical flex-1">
-            <p>Whether you lead an esports team or host a variety stream, you're welcome to use the GLHF pledge in your community. We offer the pledge in three formats: a poster, a one page promise, and a set of chat rules.</p>
+            <p><%= t(".download-text")%></p>
           </div>
         </div>
       </div>
@@ -163,15 +163,15 @@
       <div class="flexbox horizontal center wrap justify-space-around">
         <%= image_tag("/images/glhf-poster-preview.png", class: "framed-element download-preview") %>
         <div class="download-subsection flexbox vertical start">
-          <div class="section-title">Printable Poster</div>
+          <div class="section-title"><%= t(".download-subtitle-a")%></div>
           <div class="text-section">
-            <p>Hang this 11"x17" poster prominently in all your community's shared spaces like arenas, lobbies, lounges, and anywhere else you spend time together IRL.</p> 
+            <p><%= t(".download-instructions-a")%></p> 
           </div>
           <a href="https://anykey-resources.s3.amazonaws.com/materials/AnyKey+-+GLHF+Pledge+Poster.pdf" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'Pledge', 'event_label': 'Poster'});">
             <span class="icon">&#xf02f;</span>
             <span class="flexbox vertical start">
-              <span class="description">Download Poster</span>
-              <span class="title">GLHF Pledge Wall Hanging</span>
+              <span class="description"><%= t(".download-description-a")%></span>
+              <span class="title"><%= t(".download-name-a")%></span>
             </span>
           </a>
         </div>
@@ -183,15 +183,15 @@
       <div class="flexbox horizontal center wrap justify-space-around">
         <%= image_tag("/images/glhf-promise-preview.png", class: "framed-element download-preview") %>
         <div class="download-subsection flexbox vertical start">
-          <div class="section-title">Signable Pledge</div>
+          <div class="section-title"><%= t(".download-subtitle-b")%></div>
           <div class="text-section">
-            <p>Distribute copies of this sheet to every member of your group and make sure that signing is a mandatory requirement for participation.</p>
+            <p><%= t(".download-instructions-b")%></p>
           </div>
           <a href="https://anykey-resources.s3.amazonaws.com/materials/AnyKey+-+GLHF+Pledge+Promise.pdf" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'Pledge', 'event_label': 'Handout'});">
             <span class="icon">&#xf56c;</span>
             <span class="flexbox vertical start">
-              <span class="description">Download Handout</span>
-              <span class="title">GLHF Pledge Promise</span>
+              <span class="description"><%= t(".download-description-b")%></span>
+              <span class="title"><%= t(".download-name-b")%></span>
             </span>
           </a>
         </div>
@@ -203,16 +203,16 @@
       <div class="flexbox horizontal center wrap justify-space-around">
         <%= image_tag("/images/glhf-chat-preview.png", class: "download-preview") %>
         <div class="download-subsection flexbox vertical start">
-          <div class="section-title">Pasteable Chat Rules</div>
+          <div class="section-title"><%= t(".download-subtitle-c")%></div>
           <div class="text-section">
-            <p>Set up this simple text as a prompt in any chat spaces you oversee like Discord servers or Twitch streams.</p>
+            <p><%= t(".download-instructions-c")%></p>
           </div>
-          <textarea id="rules-text">GLHF Chat Rules&#13;&#10;1. Set a positive example with my behavior&#13;&#10;2. Show integrity by honoring the rules&#13;&#10;3. Be a good sport no matter how the game goes&#13;&#10;4. Recognize that my words have real impact&#13;&#10;5. Speak up against discrimination and harassment&#13;&#10;6. Stop and reassess if I’m told that I'm causing harm&#13;&#10;7. Respect others, even if their opinions are different</textarea>
+          <textarea id="rules-text"><%= t(".chat-rules-text")%></textarea>
           <a id="copy-link" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Copy', {'event_category': 'Pledge', 'event_label': 'ChatRules'});">
             <span class="icon">&#xf0c5;</span>
             <span class="flexbox vertical start">
-              <span class="description">Copy Text</span>
-              <span class="title">GLHF Pledge Chat Rules</span>
+              <span class="description"><%= t(".download-description-c")%></span>
+              <span class="title"><%= t(".download-name-c")%></span>
             </span>
           </a>
         </div>
