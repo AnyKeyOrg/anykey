@@ -1,6 +1,6 @@
 /*
  * Programs button to copy
- * Keystone Code chat rules to clipboard
+ * chat rules to clipboard
  */
 
 function setupCopyChatRulesListener() {

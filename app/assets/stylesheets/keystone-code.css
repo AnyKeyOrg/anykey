@@ -162,11 +162,6 @@
   max-width: 43em;
 }
 
-#keystone-code .download-subsection div.text-section p.copy-text {
-  color: var(--gray-color);
-  font-size: 1em;
-}
-
 #keystone-code #rules-text {
   display: none;
 }
@@ -248,8 +243,6 @@
 #keystone-code .adopter-logo {
   margin: 2em;
 }
-
-
 
 
 /************************************/
