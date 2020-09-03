@@ -179,14 +179,6 @@
   color: var(--bright-blue-color);
 }
 
-#resources a.publication:hover .icon {
-  color: var(--bright-orange-color);
-}
-
-#resources a.publication:focus .icon {
-  color: var(--bright-blue-color);
-}
-
 #resources a.publication .date {
   font-weight: 500;
   font-size: 0.8em;
@@ -201,11 +193,13 @@
   margin-left: 1em;
 }
 
+#resources a.publication:hover .icon,
 #resources a.publication:hover .title {
   color: var(--bright-orange-color);
 }
 
-#resources a.publication:focus .title {
+#resources a.publication:active .icon,
+#resources a.publication:active .title {
   color: var(--bright-blue-color);
 }
 

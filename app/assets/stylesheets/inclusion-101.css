@@ -261,8 +261,8 @@
   color: var(--bright-orange-color);
 }
 
-#inclusion-101 a.resource:focus .icon,
-#inclusion-101 a.resource:focus .title {
+#inclusion-101 a.resource:active .icon,
+#inclusion-101 a.resource:active .title {
   color: var(--bright-blue-color);
 }
 
