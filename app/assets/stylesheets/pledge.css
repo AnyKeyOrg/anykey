@@ -338,6 +338,98 @@
 
 
 /************************************/
+/*     Pledge Resource Download     */
+/************************************/
+
+#pledge #download-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--dark-green-color) 28%, var(--bright-green-color) 28%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#pledge #download-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#pledge #download-section .section-title {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+#pledge #download-section .text-section {
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 42em;
+  width: 100%;
+  color: var(--white-color);
+}
+
+#pledge img.download-preview {
+  max-width: 300px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-right: 2em;
+}
+
+#pledge .download-subsection {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+#pledge .download-subsection .text-section {
+  font-size: 0.85em;
+  max-width: 43em;
+}
+
+#pledge #rules-text {
+  display: none;
+}
+
+#pledge a.resource {
+  max-width: 32em;
+  margin-top: 2em;
+  margin-right: 1em;
+}
+
+#pledge a.resource .icon {
+  font-family: var(--icon-font);
+  font-size: 4em;
+  color: var(--bright-green-color);
+  min-width: 74px;
+  text-align: center;
+  margin-right: 0.1em;
+}
+
+#pledge a.resource .description {
+  font-weight: 500;
+  font-size: 0.8em;
+  color: var(--gray-color);
+  line-height: 1.4em;
+}
+
+#pledge a.resource .title {
+  font-weight: 500;
+  line-height: 1.4em;
+}
+
+#pledge a.resource:hover .icon,
+#pledge a.resource:hover .title {
+  color: var(--bright-orange-color);
+  cursor: pointer;
+}
+
+#pledge a.resource:active .icon,
+#pledge a.resource:active .title {
+  color: var(--bright-green-color);
+}
+
+
+/************************************/
 /*        Pledge Show Style         */
 /************************************/
 
@@ -579,6 +671,12 @@
   #pledge .about-section {
     max-width: none;
     min-width: 30em;
+    margin-right: 0em;
+  }
+  
+  #pledge img.download-preview {
+    margin-top: 1em;
+    margin-bottom: 2em;
     margin-right: 0em;
   }
 }

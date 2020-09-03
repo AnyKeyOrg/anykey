@@ -19,7 +19,7 @@
 
 
 /************************************/
-/*         About Page Intro         */
+/*     Keystone Code Explanation    */
 /************************************/
 
 #keystone-code .intro-section {
@@ -48,8 +48,8 @@
 #keystone-code .values-box {
   max-width: 26em;
   width: 100%;
-  border: 5px solid var(--bright-green-color);
-  background-color: var(--light-green-overlay);
+  border: 5px solid var(--dark-green-color);
+  background-color: var(--bright-green-color);
   padding: 2.5em;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -58,7 +58,8 @@
 }
 
 #keystone-code .values-box .heading {
-  font-weight: 600;
+  color: var(--white-color);
+  font-weight: 700;
   font-size: 1.4em;
   margin-bottom: 0em;
 }
@@ -70,7 +71,9 @@
 }
 
 #keystone-code .values-box p {
+  color: var(--white-color);
   font-size: 1em;
+  font-weight: 400;
   margin-top: 0.2em;
 }
 
@@ -108,6 +111,143 @@
 #keystone-code div.value-subsection p {
   font-size: 1em;
 }
+
+
+/************************************/
+/*      Keystone Code Download      */
+/************************************/
+
+#keystone-code #download-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--dark-blue-color) 28%, var(--bright-blue-color) 28%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#keystone-code #download-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#keystone-code #download-section .section-title {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+#keystone-code #download-section .text-section {
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 42em;
+  width: 100%;
+  color: var(--white-color);
+}
+
+#keystone-code img.download-preview {
+  max-width: 300px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-right: 2em;
+}
+
+#keystone-code .download-subsection {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+#keystone-code .download-subsection .text-section {
+  font-size: 0.85em;
+  max-width: 43em;
+}
+
+#keystone-code #rules-text {
+  display: none;
+}
+
+
+/************************************/
+/*      Keystone Code Resources     */
+/************************************/
+
+#keystone-code a.resource {
+  max-width: 32em;
+  margin-top: 2em;
+  margin-right: 1em;
+}
+
+#keystone-code a.resource .icon {
+  font-family: var(--icon-font);
+  font-size: 4em;
+  color: var(--bright-blue-color);
+  min-width: 74px;
+  text-align: center;
+  margin-right: 0.1em;
+}
+
+#keystone-code a.resource .description {
+  font-weight: 500;
+  font-size: 0.8em;
+  color: var(--gray-color);
+  line-height: 1.4em;
+}
+
+#keystone-code a.resource .title {
+  font-weight: 500;
+  line-height: 1.4em;
+}
+
+#keystone-code a.resource:hover .icon,
+#keystone-code a.resource:hover .title {
+  color: var(--bright-orange-color);
+  cursor: pointer;
+}
+
+#keystone-code a.resource:active .icon,
+#keystone-code a.resource:active .title {
+  color: var(--bright-blue-color);
+}
+
+
+/************************************/
+/*      Keystone Code Adopters      */
+/************************************/
+
+#keystone-code #adopters-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--bright-blue-color) 72%, var(--dark-blue-color) 72%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#keystone-code #adopters-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#keystone-code #adopters-section .section-title {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+#keystone-code #adopters-section .text-section {
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 42em;
+  width: 100%;
+  color: var(--white-color);
+  margin-bottom: 2em;
+}
+
+#keystone-code .adopter-logo {
+  margin: 2em;
+}
+
+
+/************************************/
+/*     Keystone Code Enforcement    */
+/************************************/
 
 #keystone-code .enforcement-section {
   max-width: 38em;
@@ -191,6 +331,12 @@
     max-width: none;
     min-width: 30em;
     margin-top: 2em;
+  }
+  
+  #keystone-code img.download-preview {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-right: 0em;
   }
 }
 

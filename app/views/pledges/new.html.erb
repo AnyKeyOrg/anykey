@@ -144,6 +144,83 @@
       </div>
     </div>
   </div>
+  
+  
+  <div id="download-section" class="flexbox vertical center">
+    <div class="page-section flexbox vertical stretch">
+      <div class="inner flexbox vertical stretch">
+        <div class="flexbox vertical stretch">
+          <div class="section-title"><%= t(".download-title")%></div>
+          <div class="text-section flexbox vertical flex-1">
+            <p><%= t(".download-text")%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical center">
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <%= image_tag("/images/glhf-poster-preview.png", class: "framed-element download-preview") %>
+        <div class="download-subsection flexbox vertical start">
+          <div class="section-title"><%= t(".download-subtitle-a")%></div>
+          <div class="text-section">
+            <p><%= t(".download-instructions-a")%></p> 
+          </div>
+          <a href="https://anykey-resources.s3.amazonaws.com/materials/AnyKey+-+GLHF+Pledge+Poster.pdf" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'Pledge', 'event_label': 'Poster'});">
+            <span class="icon">&#xf02f;</span>
+            <span class="flexbox vertical start">
+              <span class="description"><%= t(".download-description-a")%></span>
+              <span class="title"><%= t(".download-name-a")%></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical center">
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <%= image_tag("/images/glhf-promise-preview.png", class: "framed-element download-preview") %>
+        <div class="download-subsection flexbox vertical start">
+          <div class="section-title"><%= t(".download-subtitle-b")%></div>
+          <div class="text-section">
+            <p><%= t(".download-instructions-b")%></p>
+          </div>
+          <a href="https://anykey-resources.s3.amazonaws.com/materials/AnyKey+-+GLHF+Pledge+Promise.pdf" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'Pledge', 'event_label': 'Handout'});">
+            <span class="icon">&#xf56c;</span>
+            <span class="flexbox vertical start">
+              <span class="description"><%= t(".download-description-b")%></span>
+              <span class="title"><%= t(".download-name-b")%></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical center">
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <%= image_tag("/images/glhf-chat-preview.png", class: "download-preview") %>
+        <div class="download-subsection flexbox vertical start">
+          <div class="section-title"><%= t(".download-subtitle-c")%></div>
+          <div class="text-section">
+            <p><%= t(".download-instructions-c")%></p>
+          </div>
+          <textarea id="rules-text"><%= t(".chat-rules-text")%></textarea>
+          <a id="copy-link" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Copy', {'event_category': 'Pledge', 'event_label': 'ChatRules'});">
+            <span class="icon">&#xf0c5;</span>
+            <span class="flexbox vertical start">
+              <span class="description"><%= t(".download-description-c")%></span>
+              <span class="title"><%= t(".download-name-c")%></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
   <div id="twitter-section" class="flexbox vertical center">
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical stretch flex-1">

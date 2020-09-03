@@ -18,6 +18,7 @@
       <div class="flexbox horizontal center wrap justify-space-around">
         <div class="intro-section">
           <p>At AnyKey we are dedicated to fostering respectful, enjoyable, and harassment-free gaming experiences for everyone regardless of sex, gender identity and expression, sexual orientation, race, ethnicity, disability, physical appearance, body size, age, or religion.</p>
+          <p>One of the most important ways your community can signal that you share those values is to establish and publish a code of conduct. To make that process easy, we've created the Keystone Code for gaming groups to adapt to their needs and adopt as their own.</p>
         </div>
         <%= image_tag("/images/keystone-feature-a.jpg", class: "framed-element feature-image") %>
       </div>
@@ -40,7 +41,7 @@
           <div class="flexbox horizontal center">
             <%= image_tag("/images/anykey-cap-fuchsia.svg") %>
             <div class="heading">Respect</div>
-          </div>  
+          </div>
           <p>Respect all other humans, teammates and competitors alike.</p>
           <div class="flexbox horizontal center">
             <%= image_tag("/images/anykey-cap-blue.svg") %>
@@ -62,30 +63,29 @@
         <div class="action-section">
           <div class="section-title">Putting values into action</div>
           <p>The four Keystones shape our understanding of how people can comport themselves and interact with one another to foster positive communities where players from all walks of life can feel welcome. This is what the Keystones look like in practice.</p>
-        </div>  
+        </div>
         <%= image_tag("/images/keystone-feature-b.jpg", class: "framed-element feature-image action-image") %>
       </div>
-      
       <div class="flexbox horizontal start wrap justify-space-around">
         <div class="value-subsection">
           <div class="flexbox horizontal center">
             <%= image_tag("/images/anykey-cap.svg") %>
             <div class="subsection-title">Compassion</div>
-          </div>  
+          </div>
           <p>You value the diverse perspectives, backgrounds, and opinions of others, even when different from your own. You appreciate that all viewpoints come from the life experiences of fellow human beings. You understand that online interactions impact real people in real ways, both offline and online.</p>
         </div>
         <div class="value-subsection">
           <div class="flexbox horizontal center">
             <%= image_tag("/images/anykey-cap-orange.svg") %>
             <div class="subsection-title">Integrity</div>
-          </div>  
+          </div>
           <p>You behave honorably and honestly. You take responsibility for your words and actions. While playing games, you honor the rules and spirit of honest competition.</p>
         </div>
         <div class="value-subsection">
           <div class="flexbox horizontal center">
             <%= image_tag("/images/anykey-cap-fuchsia.svg") %>
             <div class="subsection-title">Respect</div>
-          </div>  
+          </div>
           <p>You respect everyone regardless of their background, identity, physical appearance, or beliefs. Even in competitive gaming where “trash-talk” is common, you are a good sport and respect opponents as fellow human beings, keeping the banter to the game, not ever making it personal.</p>
         </div>
         <div class="value-subsection">
@@ -95,10 +95,103 @@
           </div>
           <p>You have the courage to moderate your own behavior, speak out against harassment, and report violations by others. You do not tolerate harassment or hate speech of any kind, even when you are not directly involved.</p>
         </div>
-      </div> 
+      </div>
     </div>
   </div>
-  
+  <div id="download-section" class="flexbox vertical center">
+    <div class="page-section flexbox vertical stretch">
+      <div class="inner flexbox vertical stretch">
+        <div class="flexbox vertical stretch">
+          <div class="section-title">Download the code</div>
+          <div class="text-section flexbox vertical flex-1">
+            <p>We offer our Keystone Code in three formats: a poster, a one page contract, and a set of chat rules. Any group is welcome to use these materials to start adapting a code of conduct for their community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical center">
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <%= image_tag("/images/keystone-poster-preview.png", class: "framed-element download-preview") %>
+        <div class="download-subsection flexbox vertical start">
+          <div class="section-title">Printable Poster</div>
+          <div class="text-section">
+            <p>Hang this 11"x17" poster prominently in all your community's shared spaces like arenas, lobbies, lounges, and anywhere else you spend time together IRL.</p> 
+          </div>
+          <a href="https://anykey-resources.s3.amazonaws.com/materials/AnyKey+-+Keystone+Code+Poster.pdf" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'KeystoneCode', 'event_label': 'Poster'});">
+            <span class="icon">&#xf02f;</span>
+            <span class="flexbox vertical start">
+              <span class="description">Download Poster</span>
+              <span class="title">Keystone Code Wall Hanging</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical center">
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <%= image_tag("/images/keystone-contract-preview.png", class: "framed-element download-preview") %>
+        <div class="download-subsection flexbox vertical start">
+          <div class="section-title">Signable Contract</div>
+          <div class="text-section">
+            <p>Distribute copies of this sheet to every member of your group and make sure that signing is a mandatory requirement for participation.</p>
+          </div>
+          <a href="https://anykey-resources.s3.amazonaws.com/materials/AnyKey+-+Keystone+Code+Contract.pdf" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Download', {'event_category': 'KeystoneCode', 'event_label': 'Handout'});">
+            <span class="icon">&#xf56c;</span>
+            <span class="flexbox vertical start">
+              <span class="description">Download Handout</span>
+              <span class="title">Keystone Code Contract</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical center">
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <%= image_tag("/images/keystone-chat-preview.png", class: "download-preview") %>
+        <div class="download-subsection flexbox vertical start">
+          <div class="section-title">Pasteable Chat Rules</div>
+          <div class="text-section">
+            <p>Set up this simple text as a prompt in any chat spaces you oversee like Discord servers or Twitch streams.</p>
+          </div>
+          <textarea id="rules-text">Keystone Chat Rules&#13;&#10;1. Treat others how you want to be treated; consider their perspectives.&#13;&#10;2. Be honest, honorable, and fair.&#13;&#10;3. Respect all other humans.&#13;&#10;4. Be courageous and stand up for what's right.</textarea>
+          <a id="copy-link" class="resource flexbox horizontal center" target="_blank" onClick="gtag('event', 'Copy', {'event_category': 'KeystoneCode', 'event_label': 'ChatRules'});">
+            <span class="icon">&#xf0c5;</span>
+            <span class="flexbox vertical start">
+              <span class="description">Copy Text</span>
+              <span class="title">Keystone Code Chat Rules</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="adopters-section" class="flexbox vertical center">
+    <div class="page-section flexbox vertical stretch">
+      <div class="inner flexbox vertical stretch">
+        <div class="flexbox vertical stretch">
+          <div class="section-title">Adherents to the code</div>
+          <div class="text-section flexbox vertical flex-1">
+            <p>Leading organizations in esports and gaming around the world have adopted the Keystone Code. Are you one of them? <%= link_to("Let us know", "mailto:hello@anykey.org?subject=Hey AnyKey, my group adopted the Keystone Code...",  class: "inline", target: "_blank") %>!</p>
+          </div>
+        </div>
+        <div class="flexbox horizontal center wrap justify-space-around">
+          <%= link_to(image_tag("/images/aqualix-esports-logo-white.svg", class: "adopter-logo", size: "190x100"), "https://aqualix.gg") %>
+          <%= link_to(image_tag("/images/egaa-logo-white.svg", class: "adopter-logo", size: "200x55"), "https://www.egaa.com.au/") %>
+          <%= link_to(image_tag("/images/esl-logo-white.svg", class: "adopter-logo", size: "202x62"), "https://www.eslgaming.com") %>
+          <%= link_to(image_tag("/images/nasef-logo-white.svg", class: "adopter-logo", size: "250x100"), "https://www.nasef.org") %>
+          <%= link_to(image_tag("/images/rhythm-game-community-logo-white.svg", class: "adopter-logo", size: "120x120"), "https://twitter.com/RGC_CoC") %>
+          <%= link_to(image_tag("/images/rsaa-logo-white.svg", class: "adopter-logo", size: "240x69"), "https://rsaa.riotgames.com") %>
+          <%= link_to(image_tag("/images/uci-esports-logo-white.svg", class: "adopter-logo", size: "100x140"), "https://esports.uci.edu") %>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="page-section flexbox vertical center">
     <div class="inner flexbox vertical start">
       <div class="section-title">Defining harassment &amp; discrimination</div>
@@ -128,6 +221,5 @@
         </div>
       </div>
     </div>
-  </div>
-  
+  </div> 
 </div>
