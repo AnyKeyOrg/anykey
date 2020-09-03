@@ -30,26 +30,6 @@
       </div>
     </div>
   </div>
-  <div id="glhf-section" class="flexbox vertical center">
-    <div class="background-overlay flexbox vertical center">
-      <div class="page-section flexbox vertical stretch flex-1">
-        <div class="inner flexbox vertical stretch">
-          <div class="flexbox horizontal center wrap justify-space-around">
-            <div class="flexbox vertical start">
-              <div class="section-title">GLHF Pledge</div>
-              <div class="text-section flexbox vertical flex-1">
-                <p>Video games and esports should be open to all. Join us in creating a community of gamers that welcomes anybody and includes everybody by pledging to be a positive influence in your own spaces.</p>
-              </div>  
-            </div>
-            <div class="flexbox vertical center">
-              <%= link_to("<span class=\"detail-text\">Join #{number_with_delimiter(@pledges_count)} Gamers</span><br>Take the Pledge".html_safe, new_pledge_path, class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Pledge', 'event_label': 'HomepageCTA'});")%>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
   <div id="inclusion-101-section" class="flexbox vertical center">
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical stretch flex-1">
@@ -69,12 +49,25 @@
       </div>
     </div>
   </div>
-  
-  
-  
-  
-  
-  
+  <div id="glhf-section" class="flexbox vertical center">
+    <div class="background-overlay flexbox vertical center">
+      <div class="page-section flexbox vertical stretch flex-1">
+        <div class="inner flexbox vertical stretch">
+          <div class="flexbox horizontal center wrap justify-space-around">
+            <div class="flexbox vertical start">
+              <div class="section-title">GLHF Pledge</div>
+              <div class="text-section flexbox vertical flex-1">
+                <p>Video games and esports should be open to all. Join us in creating a community of gamers that welcomes anybody and includes everybody by pledging to be a positive influence in your own spaces.</p>
+              </div>  
+            </div>
+            <div class="flexbox vertical center">
+              <%= link_to("<span class=\"detail-text\">Join #{number_with_delimiter(@pledges_count)} Gamers</span><br>Take the Pledge".html_safe, new_pledge_path, class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Pledge', 'event_label': 'HomepageCTA'});")%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
   <div id="keystone-code-section" class="flexbox vertical center">
     <div class="background-overlay flexbox vertical center">
       <div class="page-section flexbox vertical stretch flex-1">
