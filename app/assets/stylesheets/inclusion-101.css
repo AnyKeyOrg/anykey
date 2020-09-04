@@ -200,9 +200,64 @@
   width: 100%;
 }
 
+#inclusion-101 #explore-section {
+  width: 100%;
+  background: linear-gradient(45deg, var(--dark-blue-color) 72%, var(--bright-blue-color) 72%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#inclusion-101 #explore-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#inclusion-101 #explore-section .section-title {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+#inclusion-101 #explore-section .text-section {
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 42em;
+  width: 100%;
+  color: var(--white-color);
+}
+
+#inclusion-101 img.slide-show {
+  max-width: 600px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: 2em;
+}
+
+#inclusion-101 img.guide-preview {
+  max-width: 440px;
+  height: auto;
+  -moz-box-sizng: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-right: 2em;
+}
+
+#inclusion-101 img.coc-preview {
+  max-width: 240px;
+  height: auto;
+  -moz-box-sizng: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: 2em;
+}
+
 #inclusion-101 #end-section {
   width: 100%;
-  background: linear-gradient(315deg, var(--bright-blue-color) 72%, var(--dark-blue-color) 72%);
+  background: linear-gradient(315deg, var(--dark-green-color) 34%, var(--bright-green-color) 34%);
   margin-top: 5em;
   color: var(--white-color);
 }
@@ -225,15 +280,6 @@
   color: var(--white-color);
 }
 
-#inclusion-101 img.slide-show {
-  max-width: 800px;
-  height: auto;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  margin-left: 2em;
-}
 
 /************************************/
 /*     Inclusion 101 Resources      */
