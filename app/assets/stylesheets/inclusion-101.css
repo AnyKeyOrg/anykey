@@ -387,4 +387,12 @@
     font-size: 1.2em;
     line-height: 1.1em;
   }
+  
+  #inclusion-101 .explore-subsection {
+    margin-top: 0em;
+  }
+  
+  #inclusion-101 .explore-subsection:not(.last) {
+    margin-bottom: 3em;
+  }
 }
