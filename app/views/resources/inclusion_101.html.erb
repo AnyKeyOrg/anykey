@@ -311,49 +311,61 @@
       </div>
     </div>
   </div>
-  
   <div class="page-section flexbox vertical stretch">
     <div class="inner flexbox vertical stretch">
-      <div class="flexbox horizontal center wrap-reverse justify-space-between">
-        <div class="flexbox vertical stretch" style="max-width: 30em">
+      <div class="explore-subsection flexbox horizontal center wrap justify-space-between">
+        <div class="flexbox vertical stretch">
           <div class="section-title flexbox horizontal center">
             Inclusion 101 slide deck
           </div>
-          <div class="text-section flexbox vertical flex-1">
-            <p>Information goes here.</p>
+          <div class="text-section narrow flexbox vertical flex-1">
+            <p>The core of the Inclusion 101 training is a visually rich slide deck. It’s designed to keep the group's facilitator on track and on pace, and to ensure their participants stay engaged during the seminar.</p>
+            <p>This training is designed specifically for gaming groups like professional esports leagues, college teams, intramural clubs, tournament admins, event organizers, stream squads, developers, and more.</p>
           </div>
         </div>
-        <%= image_tag("/images/inclusion-101-slide-show.gif", class: "slide-show") %>
+        <div class="flexbox vertical center">
+          <%= image_tag("/images/inclusion-101-slide-show.gif", class: "slide-show") %>
+          <%= link_to("Download", "https://anykey-resources.s3.amazonaws.com/materials/AnyKey+-+Inclusion+101+Slides.pdf", target: "_blank", class: "inline explore-link", onClick: "gtag('event', 'Download', {'event_category': 'Inclusion101', 'event_label': 'SlideDeck'});") %>
+        </div>
       </div>
-      
-      <div class="flexbox horizontal center wrap justify-space-between">
-        <%= image_tag("/images/inclusion-101-guide-preview.jpg", class: "guide-preview framed-element") %>
-        <div class="flexbox vertical stretch" style="max-width: 40em">
+      <div class="explore-subsection flexbox horizontal center wrap-reverse justify-space-between">
+        <div class="flexbox vertical center">
+          <%= image_tag("/images/inclusion-101-guide-preview.jpg", class: "guide-preview framed-element") %>
+          <%= link_to("Download", "https://anykey-resources.s3.amazonaws.com/materials/AnyKey+-+Inclusion+101+Guide.pdf", target: "_blank", class: "inline explore-link", onClick: "gtag('event', 'Download', {'event_category': 'Inclusion101', 'event_label': 'FacilitatorsGuide'});") %>
+        </div>
+        <div class="flexbox vertical stretch">
           <div class="section-title flexbox horizontal center">
             Inclusion 101 facilitator's guide
           </div>
           <div class="text-section flexbox vertical flex-1">
-            <p>Information goes here.</p>
+            <p>Like a Dungeon Master's Guide the manual for Inclusion 101 has been written for a range of readers who might find themselves in the role of diversity and inclusion leader of their group.</p>
+            <p>If you've got the authority and enthusiasm to increase the inclusiveness of your gaming group, then this guide is for you.</p>
           </div>
         </div>
       </div>
-      
-      <div class="flexbox horizontal center wrap justify-space-between">
-        <div class="flexbox vertical stretch" style="max-width: 40em">
+      <div class="explore-subsection last flexbox horizontal center wrap justify-space-between">
+        <div class="flexbox vertical stretch">
           <div class="section-title flexbox horizontal center">
             Code of conduct starter packs
           </div>
           <div class="text-section flexbox vertical flex-1">
-            <p>Information goes here.</p>
+            <p>Creating a CoC from scratch can be challenging. To give you a kick start, we have two download packages available.</p>
+            <p>We welcome all individuals and organizations eager to join with the hundreds of thousands of fellow gamers who've adopted our <%= link_to("Keystone Code", keystone_code_path, class: "inline", onClick: "gtag('event', 'ClickThru', {'event_category': 'Inclusion101', 'event_label': 'KeystoneCodePage'});" )%> and <%= link_to("GLHF Pledge", new_pledge_path, class: "inline", onClick: "gtag('event', 'ClickThru', {'event_category': 'Inclusion101', 'event_label': 'GLHFPledgePage'});" )%>.</p>
           </div>
         </div>
-         <%= image_tag("/images/keystone-poster-preview.png", class: "framed-element coc-preview") %>
-         <%= image_tag("/images/glhf-poster-preview.png", class: "framed-element coc-preview") %>
+        <div class="coc-previews flexbox horizontal center justify-space-between">
+          <div class="flexbox vertical center">
+            <%= image_tag("/images/keystone-poster-preview.png", class: "framed-element coc-preview") %>
+            <%= link_to("View", keystone_code_path(anchor: "download-section"), class: "inline explore-link", onClick: "gtag('event', 'ClickThru', {'event_category': 'Inclusion101', 'event_label': 'KeystoneCodeDownloads'});") %>
+          </div>
+          <div class="flexbox vertical center">
+            <%= image_tag("/images/glhf-poster-preview.png", class: "framed-element coc-preview") %>
+            <%= link_to("View", new_pledge_path(anchor: "download-section"), class: "inline explore-link", onClick: "gtag('event', 'ClickThru', {'event_category': 'Inclusion101', 'event_label': 'GLHFPledgeDownloads'});") %>
+          </div>
+       </div>
       </div>
-      
     </div>
   </div>
-  
   <div id="end-section" class="flexbox vertical center">
     <div class="page-section flexbox vertical stretch">
       <div class="inner flexbox vertical stretch">
@@ -366,6 +378,4 @@
       </div>
     </div>
   </div>
-  
-  
 </div>
