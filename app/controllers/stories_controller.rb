@@ -54,6 +54,10 @@ class StoriesController < ApplicationController
     end
   end
   
+  def changemakers
+    render action: "changemakers", layout: "application"
+  end
+  
   protected
     def find_story
       @story = Story.find(params[:id])

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get '/keystone-code',      to: 'resources#keystone_code',  as: :keystone_code    
     get '/inclusion-101',      to: 'resources#inclusion_101',  as: :inclusion_101    
     resources :stories,        only: [ :index, :new, :create, :edit, :update ]
+    get '/changemakers',       to: 'stories#changemakers',     as: :changemakers
     resources :reports,        only: [ :index, :show, :new, :create ] do
       member do
         post :dismiss
