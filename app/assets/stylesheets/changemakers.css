@@ -3,7 +3,7 @@
 /************************************/
 
 #changemakers .page-header {
-  background: url('/images/changemakers-header.png') 60% 50% no-repeat;
+  background: url('/images/changemakers-header.png') 70% 50% no-repeat;
   background-size: contain;
   background-color: var(--dark-fuchsia-color);
   height: 500px;
@@ -94,7 +94,6 @@
 #changemakers .social-links {
   max-width: 24em;
 }
-
 
 #changemakers .social-links a {
   font-family: var(--icon-font);
