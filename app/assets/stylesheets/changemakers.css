@@ -91,6 +91,26 @@
   width: 100%;
 }
 
+#changemakers .social-links {
+  max-width: 24em;
+}
+
+
+#changemakers .social-links a {
+  font-family: var(--icon-font);
+  font-size: 5.5em;
+  color: var(--bright-fuchsia-color);
+  margin: 0.2em;
+}
+
+#changemakers .social-links a:hover {
+  color: var(--bright-orange-color);  
+}
+
+#changemakers .social-links a:active {
+  color: var(--bright-blue-color);  
+}
+
 
 
 
