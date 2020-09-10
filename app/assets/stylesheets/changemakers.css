@@ -60,7 +60,7 @@
 }
 
 #changemakers img.feature-image.round {
-  border-radius: 300px;
+  border-radius: 100%;
 }
 
 #changemakers .crowned-image {
