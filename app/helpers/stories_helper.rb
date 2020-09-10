@@ -1,7 +1,11 @@
 module StoriesHelper
   
   def stories_metatags
-    render(partial: 'stories/metatags')
+    if controller.action_name == 'index'
+      render(partial: 'stories/metatags')
+    elsif controller.action_name == 'changemakers'
+      render(partial: 'stories/metatags_changemakers')
+    end
   end
   
   def story_image_src(story, style = :thumb)
