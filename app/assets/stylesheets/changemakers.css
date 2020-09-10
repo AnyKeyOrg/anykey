@@ -31,7 +31,8 @@
 }
 
 #changemakers img.feature-image {
-  margin: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
   height: auto;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -163,6 +164,12 @@
 @media (max-width:34em) {  
   #changemakers .intro-section {
     min-width: 16em;
+  }
+  
+  #changemakers .pull-quote {
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
   }
 }
     
