@@ -4,7 +4,7 @@
       <div class="flexbox horizontal center flex-1">
         <div class="title flexbox vertical start">
           <div class="line-a">
-            <!-- <%= image_tag("/images/changemakers.svg", class: "logo-image") %> -->
+            <%= image_tag("/images/changemakers.svg", class: "logo-image") %>
           </div>
         </div>
       </div>
@@ -15,15 +15,19 @@
       <div class="headline">
        Congratulations to our inaugural Changemaker
       </div>
-      <div class="flexbox horizontal center wrap-reverse justify-space-around">
-        <div class="intro-section flexbox vertical flex-1">
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <div class="intro-section flexbox vertical">
           <p>During the summer of 2020 we launched a new program to directly support a Changemaker working to make gaming more diverse and inclusive.</p>
           <p>AnyKey is excited to introduce the Esports and Game Design Collective, the recipient of the inaugural $5k grant! Thanks to sponsorship from the U.S. Air Force, the EGD Collective will be able to expand the impact of their work.</p>
           <p><strong>TODO:</strong> Here we will provide a brief bio of the winner that includes their title, affiliation, and speciality.</p>
         </div>
         <div class="flexbox vertical center">
           <%= image_tag("/images/changemakers-feature-a.jpg", class: "framed-element feature-image wide") %>
-          <div><strong>TODO:</strong> Sponsor Logos</div>
+          <div class="subsection-title">Sponsored By</div>
+          <div class="flexbox horizontal center wrap justify-space-around">
+            <%= link_to(image_tag("/images/airforce-logo-black.svg", class: "sponsorship-logo", size: "117x90"), "https://www.airforce.com") %>
+            <%= link_to(image_tag("/images/esl-logo-black.svg", class: "sponsorship-logo", size: "152x47"), "https://www.eslgaming.com") %>
+          </div>
         </div>
       </div>
     </div>
