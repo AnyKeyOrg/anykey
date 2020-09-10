@@ -142,6 +142,10 @@
   border: 4px solid var(--light-black-color);
 }
 
+.page-section .framed-element.white {
+  border: 4px solid var(--white-color);
+}
+
 .page-section .embed-wrapper {
   position: relative;
   padding-bottom: 56.25%;
