@@ -35,6 +35,10 @@
   margin: 0.5em 1em 0.5em 1em;
 }
 
+#changemakers img.sponsorship-logo.large {
+  margin: 1em 2em 1em 2em;
+}
+
 #changemakers img.feature-image {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
@@ -151,6 +155,23 @@
 
 #changemakers .qa-subsection.medium {
   max-width: 38em;
+}
+
+#changemakers #sponsors-section {
+  width: 100%;
+  background: linear-gradient(300deg, #68236D 72%, var(--dark-fuchsia-color) 72%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#changemakers #sponsors-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#changemakers .sponsors-subsection {
+  max-width: 30em;
+  width: 100%;
 }
 
 
