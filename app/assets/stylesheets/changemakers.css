@@ -23,6 +23,7 @@
   box-sizing: border-box;
 }
 
+
 /************************************/
 /*    Changemakers Page Sections    */
 /************************************/
@@ -56,6 +57,10 @@
 
 #changemakers img.feature-image.wide {
   max-width: 500px;
+}
+
+#changemakers img.feature-image.round {
+  border-radius: 300px;
 }
 
 #changemakers #bio-section {
