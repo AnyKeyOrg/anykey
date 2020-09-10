@@ -63,6 +63,16 @@
   border-radius: 300px;
 }
 
+#changemakers .crowned-image {
+  position: relative;
+}
+
+#changemakers img.crown {
+  position: absolute;
+  top: -8px;
+  right: -20px;
+}
+
 #changemakers #bio-section {
   width: 100%;
   background: linear-gradient(300deg, #68236D 72%, var(--dark-fuchsia-color) 72%);
