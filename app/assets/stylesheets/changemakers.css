@@ -9,15 +9,19 @@
   height: 500px;
 }
 
-#changemakers .page-header .title {
-  margin-left: 1.4em;
-  color: var(--white-color);
-  text-shadow: var(--black-color) 0px 0px 30px;
-  font-family: var(--title-font);
-  font-weight: 600;
-  font-size: 3em;
+#changemakers img.logo-image {
+  transform-origin: center left;
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+  margin-left: 2em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 /************************************/
 /*    Changemakers Page Sections    */
@@ -184,11 +188,31 @@
     margin-bottom: 1em;
     margin-right: 0em;
   }
+  
+  #changemakers img.logo-image {
+    transform-origin: center left;
+    -moz-transform: scale(.7);
+    -webkit-transform: scale(.7);
+    transform: scale(.7);
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+  }
 }
 
 @media (max-width:56em) {
   #changemakers .page-header {
     background-size: cover;
+  }
+  
+  #changemakers img.logo-image {
+    transform-origin: center left;
+    -moz-transform: scale(.55);
+    -webkit-transform: scale(.55);
+    transform: scale(.55);
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
   }
 }
 
@@ -202,5 +226,33 @@
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
+  
+  #changemakers img.logo-image {
+    transform-origin: 90% 100%;
+    -moz-transform: scale(.35);
+    -webkit-transform: scale(.35);
+    transform: scale(.35);
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+    margin-left: 0em;
+  }
 }
-    
+
+@media (max-width:30em) { 
+  #changemakers img.logo-image {
+    transform-origin: 70% 100%;
+    -moz-transform: scale(.35);
+    -webkit-transform: scale(.35);
+    transform: scale(.35);
+  }
+}
+
+@media (max-width:20em) {
+  #changemakers img.logo-image {
+    transform-origin: 55% 100%;
+    -moz-transform: scale(.35);
+    -webkit-transform: scale(.35);
+    transform: scale(.35);
+  }
+}
