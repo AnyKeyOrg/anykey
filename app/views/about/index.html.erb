@@ -47,7 +47,7 @@
           <div class="flexbox horizontal center">
             <%= image_tag("/images/anykey-cap-orange.svg") %>
             <div class="subsection-title">Diversity Goal</div>
-          </div>  
+          </div>
           <p>Increase the percentage of marginalized people represented in gaming &amp; streaming.</p>
           <p>This means women, players of color, LGBTQ+ folks, players with disabilities, and gamers over 35 should be invited to play, spectate, compete, and build communities.</p>
         </div>
@@ -63,7 +63,7 @@
           <div class="flexbox horizontal center">
             <%= image_tag("/images/anykey-cap-blue.svg") %>
             <div class="subsection-title">Equity Goal</div>
-          </div>  
+          </div>
           <p>Provide opportunities and resources for marginalized community members.</p>
           <p>This means making material contributions that impact players, casters, streamers, community builders, tournament organizers, and industry professionals.</p>
         </div>
@@ -114,33 +114,6 @@
   </div>
   <div class="page-section flexbox vertical stretch">
     <div class="inner flexbox vertical stretch">
-      <div class="flexbox horizontal start wrap justify-space-around">   
-        <div class="history-section flexbox vertical start">
-          <div class="section-title">
-            Our history &amp; philosophy
-          </div>
-          <div>
-            <p>AnyKey was founded in 2015 by Dr. Morgan Romine and Dr.&nbsp;T.L. Taylor with the goal of building a more inclusive and accessible esports world for all.</p>
-            <p>Since that inception, AnyKey has become the leading advocacy organization for inclusion and diversity in competitive gaming &amp; live streaming.
-          </div>
-        </div>
-        <%= image_tag("/images/about-feature-c.jpg", class: "framed-element feature-image history-image") %>
-      </div>
-      <div class="flexbox horizontal start wrap justify-space-around">
-        <div class="history-subsection">
-          <p>We've propelled change from the start through inclusive awareness campaigns, comfy conference lounges, educational resources, networking events, panels &amp; lectures, peer-reviewed publications, and women's tournaments.</p>
-        </div>
-        <div class="history-subsection">
-          <p>We are committed to a long-term vision of a gaming community that is welcoming to all players, regardless of gender identity, sexual orientation, race, ethnicity, age, disability, religious beliefs, background, or physical appearance.</p>
-        </div>
-        <div class="history-subsection">
-          <p>We believe it is possible to be fiercely competitive while embracing positive play, so we pursue research and initiatives aimed at building a gaming culture in which players are known for their skills, rather than personal traits.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="page-section flexbox vertical stretch">
-    <div class="inner flexbox vertical stretch">
       <div class="section-title flush-bottom">
         Meet the AnyKey squad
       </div>
@@ -156,7 +129,7 @@
               <%= link_to("&#xf099;".html_safe, "https://twitter.com/rhoulette")%>
             </div>
           </div>
-          <div class="teammate-text">            
+          <div class="teammate-text">
             Anthropologist, community consultant, and game industry veteran who has spent her career working in esports and community management. Former co-founder and captain of the all-women professional gaming team, the Frag Dolls.
           </div>
         </div>
@@ -238,7 +211,7 @@
           <div class="teammate-text">
             Assistant professor in communication, gender and women’s studies and affiliate in black studies at the University of Illinois at Chicago. Author of Intersectional Tech: Black Users in Digital Gaming.
           </div>
-        </div>      
+        </div>
         <div class="teammate-section flexbox vertical stretch">
           <div class="flexbox vertical start">
             <%= image_tag("/images/siegal.jpg", class: "teammate-image") %>
@@ -254,6 +227,65 @@
           <div class="teammate-text">
             Co-founder of Neta Snook, a research and design studio focused on diversity. Emmy award-winning creative director and brand innovator known for her work building nationwide advocacy campaigns.
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="get-involved-section" class="flexbox vertical center">
+    <div class="page-section flexbox vertical stretch">
+      <div class="inner flexbox vertical stretch">
+        <div class="flexbox vertical stretch">
+          <div class="section-title">Get involved with AnyKey</div>
+          <div class="flexbox horizontal center wrap justify-space-between">
+            <a href="<%= work_with_us_path %>" class="action flexbox horizontal center">
+              <span class="icon">&#xf4c4;</span>
+              <span class="flexbox vertical start">
+                <span class="title">Work With Us</span>
+                <span class="description">Sponsor, hire, partner, or volunteer with us</span>
+              </span>
+            </a>
+            <a href="<%= donate_path %>" class="action flexbox horizontal center">
+              <span class="icon">&#xf4c0;</span>
+              <span class="flexbox vertical start">
+                <span class="title">Donate</span>
+                <span class="description">Contribute funds directly to our cause</span>
+              </span>
+            </a>
+            <a href="<%= contact_path %>" class="action flexbox horizontal center">
+              <span class="icon">&#xf4ad;</span>
+              <span class="flexbox vertical start">
+                <span class="title">Reach Out</span>
+                <span class="description">Send an email or message us on socials</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical stretch">
+      <div class="flexbox horizontal start wrap justify-space-around">   
+        <div class="history-section flexbox vertical start">
+          <div class="section-title">
+            Our history &amp; philosophy
+          </div>
+          <div>
+            <p>AnyKey was founded in 2015 by Dr. Morgan Romine and Dr.&nbsp;T.L. Taylor with the goal of building a more inclusive and accessible esports world for all.</p>
+            <p>Since that inception, AnyKey has become the leading advocacy organization for inclusion and diversity in competitive gaming &amp; live streaming.
+          </div>
+        </div>
+        <%= image_tag("/images/about-feature-c.jpg", class: "framed-element feature-image history-image") %>
+      </div>
+      <div class="flexbox horizontal start wrap justify-space-around">
+        <div class="history-subsection">
+          <p>We've propelled change from the start through inclusive awareness campaigns, comfy conference lounges, educational resources, networking events, panels &amp; lectures, peer-reviewed publications, and women's tournaments.</p>
+        </div>
+        <div class="history-subsection">
+          <p>We are committed to a long-term vision of a gaming community that is welcoming to all players, regardless of gender identity, sexual orientation, race, ethnicity, age, disability, religious beliefs, background, or physical appearance.</p>
+        </div>
+        <div class="history-subsection">
+          <p>We believe it is possible to be fiercely competitive while embracing positive play, so we pursue research and initiatives aimed at building a gaming culture in which players are known for their skills, rather than personal traits.</p>
         </div>
       </div>
     </div>
@@ -275,7 +307,7 @@
           <p>Our logo, a mechanical keycap with an equality sign, was designed to represent that elusive key.</p>
           <p>The AnyKey logo is a symbol of respect and inclusion. Whenever you see it out in the wild, know that you're in a welcoming space!</p>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
   <div class="page-section flexbox vertical stretch">
@@ -298,5 +330,5 @@
         <%= link_to(image_tag("/images/oculus-logo-black.svg", class: "sponsorship-logo", size: "134x100"), "https://www.oculus.com") %>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
