@@ -3,9 +3,9 @@
 /************************************/
 
 #donate .page-header {
-  background: url('/images/donate-background.jpg') 50% 40% no-repeat;
+  background: url('/images/donate-background.jpg') 50% 35% no-repeat;
   background-size: cover;
-  height: 500px;
+  height: 400px;
 }
 
 #donate .page-header .title {

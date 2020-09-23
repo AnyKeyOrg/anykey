@@ -1,0 +1,18 @@
+/************************************/
+/*     Work With Us Page Header     */
+/************************************/
+
+#work-with-us .page-header {
+  background: url('/images/work-with-us-background.jpg') 50% 45% no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+#work-with-us .page-header .title {
+  margin-left: 1.4em;
+  color: var(--white-color);
+  text-shadow: var(--black-color) 0px 0px 30px;
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 3em;
+}
