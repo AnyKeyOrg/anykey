@@ -16,3 +16,23 @@
   font-weight: 600;
   font-size: 3em;
 }
+
+
+/************************************/
+/*     Work With Us Page Intro      */
+/************************************/
+
+#work-with-us .intro-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#work-with-us .feature-image {
+  max-width: 408px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
