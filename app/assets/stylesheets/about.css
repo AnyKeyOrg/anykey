@@ -208,3 +208,10 @@
     margin-bottom: 2.5em;
   }
 }
+
+@media (max-width:22em) {
+  #about img.logo-image {
+    width: 14em;
+    margin: 0em 1em 0em 1em;
+  }
+}

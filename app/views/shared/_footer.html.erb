@@ -7,17 +7,33 @@
         <%= link_to(image_tag("/images/neta-snook-logo.svg", size: "100x25"), "http://netasnook.com") %>
       </div>
     </div>
-    <div class="about-links flexbox vertical start">
-      <%= link_to('About', about_path, class: "stealth") %>
-      <%= link_to('Contact', contact_path, class: "stealth") %>
-      <%= link_to('Data Policy', data_policy_path, class: "stealth") %>
-      <%= link_to('Logo Guide', logo_guide_path, class: "stealth") %>
+    <div class="sitemap flexbox horizontal center wrap">
+      <div class="left-column flexbox vertical start">
+        <%= link_to('About', about_path, class: "stealth") %>
+        <%= link_to('Affiliates', affiliates_path, class: "stealth") %>
+        <%= link_to('Badge Report', new_report_path, class: "stealth") %>
+        <%= link_to('Changemakers', changemakers_path, class: "stealth") %>
+        <%= link_to('Contact', contact_path, class: "stealth") %>
+        <%= link_to('Data Policy', data_policy_path, class: "stealth") %>
+        <%= link_to('Donate', "", class: "stealth") %>
+      </div>
+      <div class="flexbox vertical start">
+        <%= link_to('glhf PLEDGE', new_pledge_path, class: "stealth") %>
+        <%= link_to("Inclusion 101", inclusion_101_path, class: "stealth") %>
+        <%= link_to("Keystone Code", keystone_code_path, class: "stealth") %>
+        <%= link_to('Logo Guide', logo_guide_path, class: "stealth") %>
+        <%= link_to('Resources', resources_path, class: "stealth") %>
+        <%= link_to('Stories', stories_path, class: "stealth") %>
+        <%= link_to('Work With Us', "", class: "stealth") %>
+      </div>
     </div>
     <div class="social-links flexbox vertical start">
-      <div class="flexbox horizontal center">
+      <div class="top-row flexbox horizontal center">
         <%= link_to("&#xf1e8;".html_safe, "https://www.twitch.tv/anykeyorg") %>
         <%= link_to("&#xf099;".html_safe, "https://twitter.com/anykeyorg") %>
         <%= link_to("&#xf082;".html_safe, "https://www.facebook.com/AnyKeyOrg") %>
+      </div>
+      <div class="flexbox horizontal center">
         <%= link_to("&#xf16d;".html_safe, "https://www.instagram.com/AnyKeyOrg") %>
         <%= link_to("&#xf167;".html_safe, "https://www.youtube.com/channel/UC_g-d1xOkG8Jhc5HprmDQRA") %>
         <%= link_to("&#xf392;".html_safe, "https://discordapp.com/invite/0wO5ZPggEK8shbfv") %>
