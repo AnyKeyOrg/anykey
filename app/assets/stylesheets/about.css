@@ -158,12 +158,12 @@
 
 #about #get-involved-section .section-title {
   font-size: 3.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0em;
 }
 
 #about #get-involved-section a.action {
   max-width: 32em;
-  margin-top: 2em;
+  margin-top: 3em;
   margin-right: 1em;
   color: var(--white-color);
 }
