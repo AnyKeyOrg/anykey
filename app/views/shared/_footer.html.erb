@@ -28,10 +28,14 @@
       the AnyKey badge?
       <%= link_to('File a Report', new_report_path, class: "stealth", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Report', 'event_label': 'FooterLink'});") %>
     </div>
-    <div class="sponsors flexbox vertical start">
-      <div>Sponsored by:</div>
-      <div class="flexbox horizontal center">
-        <%= link_to(image_tag("/images/esl-logo-white.svg", size: "101x31", class: "sponsorship-logo"), "https://www.eslgaming.com/") %>
+    <div class="sponsors flexbox horizontal center">
+      <%= link_to(image_tag("/images/oneoc-logo-white.svg", size: "60x60", class: "sponsorship-logo"), "https://oneoc.org") %>
+      
+      <div>
+        AnyKey is a 501c3<br>
+        non-profit organization<br>
+        fiscally sponsored by<br>
+        OneOC: Tax ID 95-2021700
       </div>
     </div>
   </div>
