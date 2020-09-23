@@ -99,7 +99,7 @@
 }
 
 #about .history-subsection {
-  max-width: 29em;
+  max-width: 22em;
   width: 100%;
   margin-top: 1em;
 }
@@ -110,7 +110,7 @@
 
 #about .teammate-section {
   margin: 2em 1em 1em 1em;
-  max-width: 20em;
+  max-width: 22em;
   width: 100%;
 }
 
@@ -159,13 +159,17 @@
 }
 
 #about .logo-section {
-  max-width: 50em;
+  max-width: 45em;
   width: 100%;
 }
 
 #about img.logo-image {
   width: 14em;
-  margin: 0em 1em 3em 1em;
+  margin: 0em 3em 0em 3em;
+}
+
+#about .logo-link {
+  margin-bottom: 3em;
 }
 
 #about .sponsorship-section {
