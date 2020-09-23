@@ -35,7 +35,7 @@
 #header-content a.item {
   color: var(--white-color);
   text-decoration: none;
-  font-family: var(--alt-title-font);
+  font-family: var(--alt-title-font), var(--solid-icon-font);
   font-weight: 500;
   font-size: 0.9em;
   margin-right: 1.1em;
@@ -71,7 +71,7 @@
 #veggieburger-menu {
   background-color: var(--black-color);
   color: var(--white-color);
-  font-family: var(--alt-title-font);
+  font-family: var(--alt-title-font), var(--solid-icon-font);
   font-weight: 500;
   font-size: 1em;
   width: 100%;
@@ -125,6 +125,11 @@
 #veggieburger-menu a.stories:hover {
   margin-bottom: -2px;
   border-bottom: 2px solid var(--bright-fuchsia-color);
+}
+
+#header-content a.item.donate .heart,
+#veggieburger-menu a.donate .heart {
+  color: var(--bright-green-color);
 }
 
 #header-content #header-avatar-container {
@@ -217,7 +222,7 @@
 /*         Responsiveness          */
 /***********************************/
 
-@media (max-width:36em) {  
+@media (max-width:42em) {  
   #header-content #full-menu {
     display: none;
   }
@@ -227,7 +232,7 @@
   }
 }
 
-@media (min-width:36em) {  
+@media (min-width:42em) {  
   #veggieburger-menu {
     display: none !important;
   }

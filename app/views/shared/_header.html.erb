@@ -15,7 +15,8 @@
         <%= link_to('Affiliates', affiliates_path, class: (controller_name == 'affiliates' ? 'selected ' : '') + 'affiliates item') %>
         <%= link_to('Resources', resources_path, class: (controller_name == 'resources' ? 'selected ' : '') + 'resources item')  %>
         <%= link_to('Stories', stories_path, class: (controller_name == 'stories' ? 'selected ' : '') + 'stories item') %>        
-        <%= link_to('About', about_path, class: (controller_name == 'about' ? 'selected ' : '') + 'last item') %>    
+        <%= link_to('About', about_path, class: (controller_name == 'about' ? 'selected ' : '') + 'item') %>    
+        <%= link_to("Donate <span class='heart'>&#xf004;</span>".html_safe, donate_path, class: (controller_name == 'donate' ? 'selected ' : '') + 'last donate item') %>
       </div>
     </div>
     <div id="veggieburger" class="flexbox vertical end flex-1">
@@ -38,5 +39,8 @@
   </div>
   <div class="row">
     <%= link_to('About', about_path, class: (controller_name == 'about' ? 'selected ' : '')) %>    
+  </div>
+  <div class="row">
+    <%= link_to("Donate <span class='heart'>&#xf004;</span>".html_safe, donate_path, class: (controller_name == 'donate' ? 'selected ' : '') + 'donate') %>    
   </div>
 </div>

@@ -1,0 +1,42 @@
+/************************************/
+/*        Donate Page Header        */
+/************************************/
+
+#donate .page-header {
+  background: url('/images/donate-background.jpg') 50% 40% no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+#donate .page-header .title {
+  margin-left: 1.4em;
+  color: var(--white-color);
+  text-shadow: var(--black-color) 0px 0px 30px;
+  font-family: var(--title-font), var(--solid-icon-font);
+  font-weight: 600;
+  font-size: 3em;
+}
+
+#donate .page-header .title .heart {
+  color: var(--bright-green-color);
+}
+
+
+/************************************/
+/*        Donate Page Intro         */
+/************************************/
+
+#donate .intro-section {
+  max-width: 34em;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#donate img.feature-image {
+  max-width: 408px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}

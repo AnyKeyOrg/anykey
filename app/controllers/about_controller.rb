@@ -11,5 +11,8 @@ class AboutController < ApplicationController
   
   def logo_guide
   end
+  
+  def work_with_us
+  end
 
 end

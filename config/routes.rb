@@ -44,7 +44,9 @@ Rails.application.routes.draw do
     get '/contact',            to: 'about#contact',      as: :contact
     get '/data-policy',        to: 'about#data_policy',  as: :data_policy
     get '/logo-guide',         to: 'about#logo_guide',   as: :logo_guide
-  
+    get '/work-with-us',       to: 'about#work_with_us', as: :work_with_us
+    get '/donate',             to: 'donate#index',       as: :donate
+
   end
   
 end
