@@ -83,6 +83,71 @@
   line-height: 1.4em;
 }
 
+#work-with-us #contact-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--dark-orange-color) 28%, var(--bright-orange-color) 28%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#work-with-us #contact-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#work-with-us #contact-section .section-title {
+  font-family: var(--title-font);
+    font-weight: 500;
+    font-size: 3em;
+    margin-bottom: 0.3em;
+}
+
+#work-with-us #contact-section .text-section {
+  font-size: 1.1em;
+  font-weight: 500;
+  max-width: 34em;
+  width: 100%;
+}
+
+#work-with-us #contact-section div.text-section p {
+  line-height: 1.6em;
+}
+
+#work-with-us #contact-section .button {
+  border: 5px solid var(--white-color);
+  background-color: var(--bright-green-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.6em;
+  padding: .4em .75em .45em .75em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+  max-width: 13.5em;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+#work-with-us #contact-section .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);
+}
+
+#work-with-us #contact-section .button:active {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);  
+  outline: none;
+}
+
+#work-with-us #contact-section .button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+
+
+
+
 
 /***********************************/
 /*         Responsiveness          */
@@ -96,8 +161,4 @@
   #work-with-us .involvement-icon {
     font-size: 4em;
   }
-}
-
-@media (max-width:60em) {
-
 }
