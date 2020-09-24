@@ -18,7 +18,7 @@
 }
 
 #donate .page-header .title .heart {
-  color: var(--bright-green-color);
+  color: var(--bright-blue-color);
   font-family: var(--solid-icon-font);
   font-size: 0.9em;
   margin-left: 0.2em;
@@ -26,7 +26,7 @@
 
 
 /************************************/
-/*        Donate Page Intro         */
+/*          Donate Page             */
 /************************************/
 
 #donate .intro-section {
@@ -42,4 +42,88 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
+}
+
+#donate #donation-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--dark-blue-color) 28%, var(--bright-blue-color) 28%);
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#donate #donation-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#donate #donation-section .section-title {
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 3em;
+  margin-bottom: 0.3em;
+}
+
+#donate #donation-section .text-section {
+  font-size: 1.1em;
+  font-weight: 500;
+  max-width: 34em;
+  width: 100%;
+}
+
+#donate #donation-section div.text-section p {
+  line-height: 1.6em;
+}
+
+#donate #donation-section .amounts-section {
+  width: 100%;
+  max-width: 20em;
+}
+  
+#donate #donation-section .button {
+  border: 5px solid var(--white-color);
+  background-color: var(--bright-green-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.6em;
+  padding: .4em .75em .45em .75em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+  max-width: 13.5em;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+#donate #donation-section .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+}
+
+#donate #donation-section .button:active {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#donate #donation-section .button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:70em) {
+  #donate .intro-section {
+    margin-bottom: 2em;
+  }
+}
+
+@media (max-width:22em) {
+  #donate #donation-section .button {
+    font-size: 1.35em;
+  }
 }

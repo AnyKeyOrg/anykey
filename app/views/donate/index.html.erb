@@ -22,4 +22,31 @@
       </div>
     </div>
   </div>
+  
+  
+  <div id="donation-section" class="flexbox vertical center">
+    <div class="page-section flexbox vertical stretch">
+      <div class="inner flexbox vertical stretch">
+        <div class="flexbox horizontal center wrap justify-space-around">
+          <div class="flexbox vertical start">
+            <div class="section-title">Thank you for contributing</div>
+            <div class="text-section flexbox vertical flex-1">
+              <p>About donation.</p>
+            </div>
+          </div>
+          <div class="amounts-section flexbox horizontal wrap justify-space-between">            
+            <%= link_to("$5", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$5'});")%>
+            <%= link_to("$10", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$10'});")%>
+            <%= link_to("$25", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$25'});")%>
+            <%= link_to("$100", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$100'});")%>
+            <%= link_to("Custom $", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$Custom'});")%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
 </div>
