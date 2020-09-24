@@ -71,7 +71,7 @@
 #veggieburger-menu {
   background-color: var(--black-color);
   color: var(--white-color);
-  font-family: var(--alt-title-font), var(--solid-icon-font);
+  font-family: var(--alt-title-font);
   font-weight: 500;
   font-size: 1em;
   width: 100%;
@@ -130,6 +130,8 @@
 #header-content a.item.donate .heart,
 #veggieburger-menu a.donate .heart {
   color: var(--bright-green-color);
+  font-family: var(--solid-icon-font);
+  font-size: 0.9em;
 }
 
 #header-content #header-avatar-container {

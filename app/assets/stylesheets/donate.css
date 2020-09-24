@@ -12,13 +12,16 @@
   margin-left: 1.4em;
   color: var(--white-color);
   text-shadow: var(--black-color) 0px 0px 30px;
-  font-family: var(--title-font), var(--solid-icon-font);
+  font-family: var(--title-font);
   font-weight: 600;
   font-size: 3em;
 }
 
 #donate .page-header .title .heart {
   color: var(--bright-green-color);
+  font-family: var(--solid-icon-font);
+  font-size: 0.9em;
+  margin-left: 0.2em;
 }
 
 
