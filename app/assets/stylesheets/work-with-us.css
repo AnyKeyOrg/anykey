@@ -19,7 +19,7 @@
 
 
 /************************************/
-/*     Work With Us Page Intro      */
+/*        Work With Us Page         */
 /************************************/
 
 #work-with-us .intro-section {
@@ -35,4 +35,69 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
+}
+
+#work-with-us .involvement-section {
+  margin: 1em 1em 4em 1em;
+  max-width: 30em;
+  width: 100%;
+}
+
+#work-with-us .involvement-icon {
+  font-family: var(--solid-icon-font), var(--icon-font);
+  font-size: 5em;
+  margin-right: 0.2em;
+}
+
+#work-with-us .involvement-icon.green {
+  color: var(--bright-green-color);
+}
+
+#work-with-us .involvement-icon.blue {
+  color: var(--bright-blue-color);
+}
+
+#work-with-us .involvement-icon.fuchsia {
+  color: var(--bright-fuchsia-color);
+}
+
+#work-with-us .involvement-icon.orange {
+  color: var(--bright-orange-color);
+}
+
+#work-with-us .involvement-title {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-top: 0.75em;
+  margin-bottom: 0.4em;
+}
+
+#work-with-us .involvement-text {
+  margin-top: 1em;
+}
+
+#work-with-us .involvement-text p {
+  font-weight: 400;
+  font-size: 1.1em;
+  line-height: 1.4em;
+}
+
+
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:70em) {
+  #work-with-us .intro-section {
+    margin-bottom: 2em;
+  }
+  
+  #work-with-us .involvement-icon {
+    font-size: 4em;
+  }
+}
+
+@media (max-width:60em) {
+
 }

@@ -189,13 +189,15 @@
 }
 
 #about #get-involved-section a.action:hover .icon,
-#about #get-involved-section a.action:hover .title  {
+#about #get-involved-section a.action:hover .title,
+#about #get-involved-section a.action:hover .description {
   color: var(--bright-blue-color);
   cursor: pointer;
 }
 
 #about #get-involved-section a.action:active .icon,
-#about #get-involved-section a.action:active .title {
+#about #get-involved-section a.action:active .title,
+#about #get-involved-section a.action:active .description {
   color: var(--bright-orange-color);
 }
 
