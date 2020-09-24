@@ -55,7 +55,7 @@
   margin-bottom: -2px;
 }
 
-#footer-content .creators img:active {
+#footer-content .creators img:not(.left-logo):active {
   border-bottom: 2px solid var(--bright-blue-color);
   margin-bottom: -2px;
 }
