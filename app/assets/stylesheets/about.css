@@ -146,7 +146,7 @@
 
 #about #get-involved-section {
   width: 100%;
-  background: linear-gradient(315deg, var(--dark-green-color) 28%, var(--bright-green-color) 28%);
+  background: linear-gradient(315deg, var(--dark-fuchsia-color) 28%, var(--bright-fuchsia-color) 28%);
   margin-top: 5em;
   color: var(--white-color);
 }
@@ -191,14 +191,14 @@
 #about #get-involved-section a.action:hover .icon,
 #about #get-involved-section a.action:hover .title,
 #about #get-involved-section a.action:hover .description {
-  color: var(--bright-blue-color);
+  color: var(--bright-orange-color);
   cursor: pointer;
 }
 
 #about #get-involved-section a.action:active .icon,
 #about #get-involved-section a.action:active .title,
 #about #get-involved-section a.action:active .description {
-  color: var(--bright-orange-color);
+  color: var(--bright-blue-color);
 }
 
 #about .history-section {
