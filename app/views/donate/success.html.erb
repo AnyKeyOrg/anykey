@@ -1,0 +1,16 @@
+<div id="donate" class="flexbox vertical center">
+  <div class="page-section narrow flexbox vertical center">
+    <div class="inner flexbox vertical start">
+      <div class="section-title">
+        Thank you for your donation!
+      </div>
+      <div class="flexbox vertical stretch">
+        <p>Contributions like yours keep us going. Your tweets, follows, and likes are also a huge help, so please spread the word.</p>
+        <%= render(partial: "donate/social_share") %>
+        <script>
+          gtag('event', 'SuccesView', {'event_category': 'Donate', 'event_label': 'DonationSuccess'});
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

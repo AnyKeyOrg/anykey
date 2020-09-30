@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     get '/logo-guide',         to: 'about#logo_guide',   as: :logo_guide
     get '/work-with-us',       to: 'about#work_with_us', as: :work_with_us
     get '/donate',             to: 'donate#index',       as: :donate
+    get '/donate/success',     to: 'donate#success',     as: :donate_success
 
   end
   

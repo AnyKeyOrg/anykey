@@ -117,6 +117,54 @@
 }
 
 
+
+
+/************************************/
+/*          Donate Success          */
+/************************************/
+
+#donate .button-wrap {
+  width: 100%;
+}
+
+#donate .social-share {
+  margin-bottom: 2em;
+}
+
+#donate .social-button {
+  border: 5px solid var(--dark-blue-color);
+  background-color: var(--bright-blue-color);
+  color: var(--white-color);
+  font-family: var(--title-font), var(--icon-font);
+  font-weight: 500;
+  font-size: 1.2em;
+  padding: .75em 1.5em .75em 1.5em;
+  margin-top: 2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  min-width: 6em;
+}
+
+#donate .social-button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+  border: 5px solid var(--dark-orange-color);
+}
+
+#donate .social-button:active {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);
+  border: 5px solid var(--dark-blue-color);
+  outline: none;
+}
+
+#donate .social-button::-moz-focus-inner {
+  border: 0 !important;
+} 
+
+
+
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
@@ -124,5 +172,11 @@
 @media (max-width:70em) {
   #donate .intro-section {
     margin-bottom: 2em;
+  }
+}
+
+@media (max-width:38em) {
+  #donate .social-button {
+    width: 100%;
   }
 }

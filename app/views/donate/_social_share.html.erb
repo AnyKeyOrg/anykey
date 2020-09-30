@@ -1,0 +1,5 @@
+<div class="social-share button-wrap flexbox horizontal wrap justify-space-between">
+  <%= link_to("&#xf099;  Share".html_safe, "https://twitter.com/intent/tweet?text=I'm so committed to keeping it comfy that I just donated to @anykeyorg #{donate_url(locale: nil)}".html_safe, class: 'social-button button', target: "_blank", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': 'ShareTwitter'});") %>
+  <%= link_to("&#xf099;  Follow".html_safe, "https://twitter.com/anykeyorg", class: 'social-button button', target: "_blank", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': 'FollowTwitter'});") %>
+  <%= link_to("&#xf082;  Like".html_safe, "https://www.facebook.com/AnyKeyOrg", class: 'social-button button', target: "_blank", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': 'LikeFacebook'});") %>
+</div>
