@@ -31,15 +31,17 @@
           <div class="flexbox vertical start">
             <div class="section-title">Thank you for contributing</div>
             <div class="text-section flexbox vertical flex-1">
-              <p>Whether you choose to give one time or set up a recurring donation, we're very grateful for your support.</p>
+              <p>Every dollar you give advances our mission and warms our hearts. We're very grateful for your support.</p>
             </div>
           </div>
-          <div class="amounts-section flexbox horizontal wrap justify-space-between">            
-            <%= link_to("$5", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$5'});")%>
-            <%= link_to("$10", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$10'});")%>
-            <%= link_to("$25", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$25'});")%>
-            <%= link_to("$100", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$100'});")%>
-            <%= link_to("Custom $", "", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$Custom'});")%>
+          <div class="amounts-section flexbox horizontal wrap justify-space-between">
+            <%= button_tag("$1", id:"checkout-button-price_1HX8O0BQehflyhkgEfBifer2", class: "narrow", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$1'});")%>
+            <%= button_tag("$5", id:"checkout-button-price_1HX7XRBQehflyhkgIejDYiKd", class: "narrow", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$5'});")%>
+            <%= button_tag("$10", id: "checkout-button-price_1HX8UPBQehflyhkgOzOXJVu1", class: "narrow", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$10'});")%>
+            <%= button_tag("$25", id: "checkout-button-price_1HX8V8BQehflyhkgv5j8DBf6", class: "narrow", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$25'});")%>
+            <%= button_tag("$50", id: "checkout-button-price_1HX8VlBQehflyhkgZtVDCFW0", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$50'});")%>
+            <%= button_tag("$100", id: "checkout-button-price_1HX8WLBQehflyhkgcGy10Lsd", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$100'});")%>
+            <%= button_tag("$500", id: "checkout-button-price_1HX8WzBQehflyhkgk5u79eb4", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$500'});")%>
           </div>
         </div>
       </div>
