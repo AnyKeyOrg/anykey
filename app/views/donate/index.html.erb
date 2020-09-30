@@ -1,0 +1,48 @@
+<div id="donate" class="flexbox vertical center"> 
+  <div class="page-header flexbox vertical center">
+    <div class="inner flexbox vertical flex-1">
+      <div class="flexbox horizontal center flex-1">
+        <div class="title flexbox horizontal center">
+          Donate<span class="heart">&#xf004;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical stretch">
+      <div class="headline">
+        Support AnyKey's mission<br>with your donation
+      </div>
+      <div class="flexbox horizontal center wrap justify-space-around">
+        <div class="intro-section">
+          <p>As a non-profit initiative AnyKey relies on funding from donors to achieve our mission. Our status as a charitable 501c3 organization means that your donation will be both tax deductible and transparent.</p>
+          <p>Your continued support is what keeps us going. We truly appreciate each and every bit.</p>
+        </div>
+        <%= image_tag("/images/donate-feature-a.jpg", class: "framed-element feature-image") %>
+      </div>
+    </div>
+  </div>
+  <div id="donation-section" class="flexbox vertical center">
+    <div class="page-section flexbox vertical stretch">
+      <div class="inner flexbox vertical stretch">
+        <div class="flexbox horizontal center wrap justify-space-around">
+          <div class="flexbox vertical start">
+            <div class="section-title">Thank you for contributing</div>
+            <div class="text-section flexbox vertical flex-1">
+              <p>Every dollar you give advances our mission and warms our hearts. We're very grateful for your support.</p>
+            </div>
+          </div>
+          <div class="amounts-section flexbox horizontal wrap justify-space-between">
+            <%= button_tag("$1", id:"checkout-button-price_1HXAc8BQehflyhkgOufcv8SR", class: "narrow", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$1'});")%>
+            <%= button_tag("$5", id:"checkout-button-price_1HXAcFBQehflyhkgnMg71AhB", class: "narrow", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$5'});")%>
+            <%= button_tag("$10", id: "checkout-button-price_1HXAcMBQehflyhkgjycShX8z", class: "narrow", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$10'});")%>
+            <%= button_tag("$25", id: "checkout-button-price_1HXAcSBQehflyhkg7AQ7M90I", class: "narrow", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$25'});")%>
+            <%= button_tag("$50", id: "checkout-button-price_1HXAcYBQehflyhkgad1lX1fs", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$50'});")%>
+            <%= button_tag("$100", id: "checkout-button-price_1HXAcdBQehflyhkgvQF3bG9e", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$100'});")%>
+            <%= button_tag("$500", id: "checkout-button-price_1HXAchBQehflyhkglDAHzzPI", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Donate', 'event_label': '$500'});")%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
