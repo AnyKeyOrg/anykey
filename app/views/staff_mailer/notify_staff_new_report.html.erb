@@ -1,3 +1,3 @@
-Heads up, we've got a new report to handle: <%= report_url(@report) %>.
-
+Heads up, we've got a <%= link_to("new report to handle",report_url(@report)) %>.
+<br><br>
 As a friendly reminder, there are currently <%= @unresolved_count %> unresolved reports in need of review.

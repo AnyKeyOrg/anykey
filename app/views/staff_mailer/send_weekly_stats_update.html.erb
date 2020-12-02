@@ -1,13 +1,23 @@
-<%= l(@start_of_week, format: '%b. %-d') %> - <%= l(@end_of_week-1.minutes, format: '%b. %-d, %Y') %>
+<strong><%= l(@start_of_week, format: '%b. %-d') %> - <%= l(@end_of_week-1.minutes, format: '%b. %-d, %Y') %></strong>
+<br>
 Here's the rundown of what's been happening on AnyKey's site this week.
-
+<br><br>
 Pledge takers: <%= number_with_delimiter(@pledge_takers_count) %>
+<br>
 Badge activators: <%= number_with_delimiter(@badge_activators_count) %>
+<br>
 Pledge referrers: <%= number_with_delimiter(@pledge_referrers_count) %>
+<br>
 Pledges referred: <%= number_with_delimiter(@pledges_referred_count) %>
+<br>
 Report filers: <%= @report_filers_count %>
+<br>
 Reports filed: <%= @reports_filed_count %>
+<br>
 Reports dismissed: <%= @reports_dismissed_count %>
+<br>
 Warnings issued: <%= @warnings_issued_count %>
+<br>
 Badges revoked: <%= @badges_revoked_count %>
+<br>
 Affiliates: <%= @affiliates_count %>

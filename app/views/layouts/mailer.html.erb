@@ -1,13 +1,183 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
-  </head>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name=viewport content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+	<style type="text/css"> 
+		body{
+			width:100% !important;
+			-webkit-text-size-adjust:none;
+			margin:0;
+			padding:0;
+			background-color:#F3F2F3;
+			color:#160919;
+			font-family:'Rubik', 'Helvetica', 'Arial', 'Verdana', sans-serif;
+			text-align:left;
+		}
+    
+		img {
+			border:none;
+			outline:none;
+		}
+    
+		#templateHeader {
+			background-color:#2FC872;
+			vertical-align:middle;
+		}
 
-  <body>
-    <%= yield %>
-  </body>
+		#headerImage {
+			max-width:150px !important;
+			height:auto;
+      padding-left:12px;
+      padding-top:10px;
+      padding-bottom:10px;
+		}
+    
+		#bodyContent {
+			background-color:#FFFFFF;
+			font-size:14px;
+			line-height:150%;
+		}
+
+    #bodyContent div{
+      margin-top:20px;
+      margin-bottom:20px;
+    }
+    
+		#bodyContent a:link,#bodyContent a:visited {
+			color:#2FC872;
+			text-decoration:underline;
+		}
+    
+		#bodyContent img {
+			display:inline;
+			margin-bottom:10px;
+		}
+
+    h1,h2,h3,h4 {
+			display:block;
+			line-height:100%;
+      margin: 0;
+			margin-bottom:10px;
+    }
+
+		h1 {
+			font-size:34px;
+		}
+
+		h2 {
+			font-size:30px;
+		}
+
+		h3 {
+			font-size:26px;
+		}
+
+		h4 {
+			font-size:22px;
+		}
+    
+    .right-justified {
+      text-align:right;
+    }
+    
+		#templateFooter {
+			background-color:#160919;
+			color:#D0CED1;
+			font-size:11px;
+			line-height:14px;
+		}
+
+		#templateFooter a:link,	#templateFooter a:visited {
+			color:#FFFFFF;
+			text-decoration:underline;
+		}
+    
+	  #footerImage {
+			display:inline;
+  		height:auto;
+  		max-width:40px !important;
+		}
+
+    @media only screen and (max-device-width: 600px), only screen and (max-width: 600px) {
+      body {
+        width: 100% !important;
+        width: 100vw !important;
+      }
+      table {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+    }
+  </style>
+  <title><%= message.subject %></title>
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+  <center>
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="600">
+    <!-- Begin Template Header -->
+      <tr>
+        <td align="center" valign="top">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
+            <tr>
+              <td>
+                <img src="https://anykey.org/images/anykey-logo-white.png" id="headerImage">
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- End Template Header -->
+      <!-- Begin Template Body -->
+      <tr>
+        <td align="center" valign="top">
+          <table border="0" cellpadding="20" cellspacing="0" width="100%" id="bodyContent">
+            <tr>
+              <td valign="top">
+                <div>
+                  <%= yield %>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- End Template Body -->
+      <!-- Begin Template Footer -->
+      <tr>
+        <td align="center" valign="top">
+          <table border="0" cellpadding="20" cellspacing="0" width="100%" id="templateFooter">
+            <tr>
+              <td valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td width="50">
+                      <img src="https://anykey.org/images/anykey-cap.png" id="footerImage">
+                    </td>
+                    <td valign="top">
+                      <div>
+                        AnyKey<br>
+                        1901 E. 4th Street, Suite 100<br>
+                        Santa Ana, CA 92705
+                      </div>
+                    </td>
+                    <td valign="top">
+                      <div class="right-justified">
+                        <a href="https://www.twitch.tv/anykeyorg" target="_blank">Twitch</a><br>
+                        <a href="https://twitter.com/anykeyorg" target="_blank">Twitter</a><br>
+                        <a href="https://www.youtube.com/channel/UC_g-d1xOkG8Jhc5HprmDQRA" target="_blank">YouTube</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- End Template Footer -->
+    </table>
+  </center>
+</body>
 </html>
