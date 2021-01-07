@@ -57,9 +57,38 @@
   font-size: 1.4em;
 }
 
-#affiliates .join-box p {
-  font-size: 1em;
-} 
+#affiliates .join-box .button {
+  border: 5px solid var(--bright-orange-color);
+  background-color: var(--dark-orange-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.6em;
+  padding: .4em .75em .45em .75em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+  max-width: 13.5em;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+#affiliates .join-box .button:hover {
+  cursor: pointer;
+  border: 5px solid var(--white-color);
+  background-color: var(--bright-orange-color);
+}
+
+#affiliates .join-box .button:active {
+  cursor: pointer;
+  border: 5px solid var(--white-color);
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#affiliates .join-box .button::-moz-focus-inner {
+  border: 0 !important;
+}
 
 
 /************************************/

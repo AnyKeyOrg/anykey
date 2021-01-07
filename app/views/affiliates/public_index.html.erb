@@ -18,13 +18,13 @@
       </div>
       <div class="flexbox horizontal center wrap justify-space-around">      
         <div class="intro-section">
-          <p>Our AnyKey Affiliates represent some of the most inclusive communities, esports teams, and individual content creators in gaming.</p>
-          <p>If you’ve wondered where you might find women, people of color, LGBTQ+ gamers, and other marginalized players in esports, competitive gaming, or live streaming, our Affiliates Program is a good place to start.</p>
-          <p>The AnyKey affiliates team is full of people and communities who support our Keystone Code, and they happily welcome those willing to welcome others.</p>
+          <p>Our AnyKey Affiliates represent some of the most inclusive communities, teams, and content creators in gaming.</p>
+          <p>If you’ve wondered where you might find women, people of color, LGBTQ+, and disabled players in esports, competitive gaming, or live streaming, our Affiliates program is a great place to start.</p>
+          <p>The AnyKey Affiliates team is full of people and communities who support our Keystone Code, and they happily welcome those willing to welcome others.</p>
         </div>
-        <div class="join-box">
+        <div class="join-box flexbox vertical start">
           <div class="heading">Interested in becoming an affiliate?</div>
-          <p>We'll be opening a formal application process soon, but if you can't wait you can always... <%= link_to("contact us", contact_path,  class: "inline") %>.</p>
+          <%= link_to("Apply Now", "https://forms.gle/HVj8Qjn4ePvPxn296", class: "button", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Affiliates', 'event_label': 'ApplyCTA'});")%>
         </div>
       </div>
     </div>
