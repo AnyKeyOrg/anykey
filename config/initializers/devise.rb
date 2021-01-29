@@ -21,7 +21,7 @@ Devise.setup do |config|
   config.mailer_sender = 'AnyKey <keybot@anykey.org>'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'CustomMailer'
+  config.mailer = 'UserMailer'
 
   # Configure the parent class responsible to send e-mails.
   config.parent_mailer = 'ActionMailer::Base'
@@ -120,7 +120,7 @@ Devise.setup do |config|
   # config.send_email_changed_notification = false
 
   # Send a notification email when the user's password is changed.
-  # config.send_password_change_notification = false
+  config.send_password_change_notification = true
 
   # ==> Configuration for :invitable
   # The period the generated invitation token is valid.

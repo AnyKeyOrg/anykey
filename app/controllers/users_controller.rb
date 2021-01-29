@@ -3,12 +3,15 @@ class UsersController < ApplicationController
   layout "backstage"
   
   before_action :authenticate_user!
-  before_action :ensure_admin,          only: [ :index ]
-  before_action :find_user,             only: [ :edit, :update, :remove_avatar ]
+  before_action :ensure_admin,          only: [ :index, :show ]
+  before_action :find_user,             only: [ :show, :edit, :update, :remove_avatar ]
   before_action :ensure_owner,          only: [ :edit, :update, :remove_avatar ]
   
   def index
     @users = User.all
+  end
+  
+  def show
   end
   
   def edit
