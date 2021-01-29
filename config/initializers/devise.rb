@@ -21,7 +21,7 @@ Devise.setup do |config|
   config.mailer_sender = 'AnyKey <keybot@anykey.org>'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'CustomMailer'
+  config.mailer = 'UserMailer'
 
   # Configure the parent class responsible to send e-mails.
   config.parent_mailer = 'ActionMailer::Base'
