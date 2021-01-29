@@ -1,4 +1,4 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= user_path(user, back: request.fullpath) %>">
   <div class="flexbox horizontal center wrap justify-space-between">
     <div class="row-title"><%= user.display_name %></div>
     <div class="row-detail"><%= user.is_admin? ? 'admin' : '' %><%= user.is_moderator? ? 'mod' : '' %></div>
