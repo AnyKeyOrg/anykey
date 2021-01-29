@@ -6,6 +6,7 @@
 $(document).ready(function() {
   $(".record-row").click(function(e) {
     e.preventDefault();
-    window.location = $(this).data('url');
+    if ($(this).data('url'))
+      window.location = $(this).data('url');
   });
 });
