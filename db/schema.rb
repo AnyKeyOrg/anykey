@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_085511) do
+ActiveRecord::Schema.define(version: 2021_01_29_152551) do
 
   create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_085511) do
     t.string "last_name"
     t.string "username"
     t.boolean "is_admin", default: false
-    t.boolean "is_moderator", default: false
+    t.boolean "is_moderator", default: true
     t.string "image_uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
