@@ -1,7 +1,7 @@
 Hey <%= @revocation.pledge.first_name %>,
-
+<br><br>
 Our moderation team received a report regarding your conduct in <%= @revocation.report.incident_stream %>'s stream<%= @revocation.report.incident_occurred.blank? ? '' : ' on ' + l(@revocation.report.incident_occurred, format: "%b. %-d, %Y") %>. After reviewing the incident, we've decided to revoke your AnyKey badge for the following reason:
-
+<br><br>
 <%= @revocation.reason %>
-
+<br><br>
 If you would like to appeal this decision you can contact us (hello@anykey.org).
