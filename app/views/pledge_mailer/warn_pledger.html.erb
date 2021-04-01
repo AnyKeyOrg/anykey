@@ -1,7 +1,7 @@
 Hey <%= @warning.pledge.first_name %>,
-
+<br><br>
 Our moderation team received a report regarding your conduct in <%= @warning.report.incident_stream %>'s stream<%= @warning.report.incident_occurred.blank? ? '' : ' on ' + l(@warning.report.incident_occurred, format: "%b. %-d, %Y") %>. After reviewing the incident, we've decided to issue you a warning for the following reason:
-
+<br><br>
 <%= @warning.reason %>
-
+<br><br>
 If you are seen violating the promises of the GLHF pledge again, your AnyKey badge will be permanently revoked.
