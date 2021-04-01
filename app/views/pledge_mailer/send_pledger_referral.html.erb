@@ -1,0 +1,7 @@
+Hey <%= @pledge.first_name %>,
+<br><br>
+Ready to take your GLHF pledge to the next level? Share this unique referral link with your community: <%= link_to(glhf_url(params: {ref: @pledge.identifier}, locale: nil), glhf_url(params: {ref: @pledge.identifier}, locale: nil)) %>
+<br><br>
+You'll earn a point for each person you recruit to sign the pledge. But if you want to make it to the top of the leaderboard, you'll have to contend with all the other gamers out there striving to be the most inclusive. Are you up for the challenge?
+<br><br>
+Good Luck, Have Fun!
