@@ -1,0 +1,58 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title"><%= @pledge.email %></div>
+        <div class="panel-descriptor">
+          Pledged on <%= l(@pledge.created_at, format: "%b. %-d, %Y").upcase %>
+        </div>
+      </div>
+      <div class="flexbox horizontal end wrap-reverse justify-space-between">
+        <div class="pledge-item flexbox vertical stretch">
+          <div class="item-title flexbox horizontal center"><span class="icon">&#xf1e8;</span> Twitch Badge</div>
+          <div class="item-text"><%= render(partial: "pledges/badge_status") %></div>
+          <% unless @pledge.twitch_id.blank? %>
+          <div class="item-text">Username: <%= link_to(@pledge.twitch_display_name, "https://twitch.tv/#{@pledge.twitch_display_name}", class: "inline", target: "blank") %></div>
+          <% end %>
+        </div>
+      </div>
+      <div class="flexbox horizontal end wrap-reverse justify-space-between">
+        <div class="pledge-item flexbox vertical stretch flex-1">
+          <div class="item-title flexbox horizontal center"><span class="icon">&#xf071;</span> Reports About <%= @reports_about.present? ? "(#{@reports_about.count})" : ''%></div>
+          <% if @reports_about.present? %>
+          <div class="item-list"><%= render(partial: "reports/row", collection: @reports_about, as: :report) %></div>
+          <% else %>
+          <div class="item-text">There are no reports about this pledger.</div>
+          <% end %>
+        </div>
+      </div>
+      <div class="flexbox horizontal end wrap-reverse justify-space-between">
+        <div class="pledge-item flexbox vertical stretch flex-1">
+          <div class="item-title flexbox horizontal center"><span class="icon">&#xf303;</span> Reports Filed <%= @reports_filed.present? ? "(#{@reports_filed.count})" : ''%></div>
+          <% if @reports_filed.present? %>
+          <div class="item-list"><%= render(partial: "reports/row", collection: @reports_filed, as: :report) %></div>
+          <% else %>
+          <div class="item-text">This pledger has not filed any reports.</div>
+          <% end %>
+        </div>
+      </div>
+      <div class="flexbox horizontal end wrap-reverse justify-space-between">
+        <div class="pledge-item flexbox vertical stretch flex-1">
+          <div class="item-title flexbox horizontal center"><span class="icon">&#xf4c4;</span> Referrals <%= @referrals.present? ? "(#{@referrals.count})" : ''%></div>
+          <% if @referrer.blank? && @referrals.blank?  %>
+          <div class="item-text">There are no referrals related to this pledge.</div>
+          <% end %>
+          <% if @referrer.present? %>
+          <div class="item-text">Referred by: <%= link_to(@referrer.email, pledge_path(@referrer, staff: "true"), class: "inline") %></div>
+          <% end %>
+          <% if @referrals.present? %>
+          <div class="item-list"><%= render(partial: "pledges/row", collection: @referrals, as: :pledge) %></div>
+          <% end %>
+        </div>
+      </div>
+      <div class="pledge-buttons flexbox horizontal-reverse wrap-reverse center">
+        <%= link_to('Okay', params[:back].present? ? params[:back] : staff_index_path, class: "button okay-button", tabindex: "1") %>
+      </div>
+    </div>
+  </div>
+</div>

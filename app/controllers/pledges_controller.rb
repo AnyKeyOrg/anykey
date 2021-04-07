@@ -27,7 +27,7 @@ class PledgesController < ApplicationController
       
       redirect_to pledge_path(@pledge, params: {status: 'returning'})
       
-    else  
+    else
       @pledge = Pledge.new(pledge_params)
       
       unless params[:ref].blank?
@@ -64,9 +64,24 @@ class PledgesController < ApplicationController
   end
   
   def show
-    # Check for cookie to ensure visit is valid
-    if cookies[:pledge_redirect].blank?
+    # Reroute to staff view when applicable
+    if staff_view?
+      authenticate_user!
+      ensure_staff
+      
+      @referrer = @pledge.referrer
+      if @pledge.referrals.present?
+        @referrals = @pledge.referrals.order(signed_on: :asc)
+      end      
+      @reports_about = Report.where(reported_twitch_name: @pledge.twitch_display_name)
+      @reports_filed = Report.where("reporter_email= ? OR reporter_twitch_name = ?", @pledge.email, @pledge.twitch_display_name)
+      
+      render action: "staff_show", layout: "backstage"    
+    
+    # Otherwise, check for cookie to ensure user visit is valid
+    elsif cookies[:pledge_redirect].blank?
       redirect_to root_url
+    
     else
       @pledges_count = Pledge.count
       cookies.delete(:pledge_redirect)
@@ -89,7 +104,7 @@ class PledgesController < ApplicationController
     else
       flash.now[:alert] ||= "Email address not found."
       render(action: :referral_lookup)
-    end    
+    end
   end
 
   protected
@@ -164,6 +179,10 @@ class PledgesController < ApplicationController
           #TODO: catch failure and send to an error page
         end
       end
+    end
+    
+    def staff_view?
+      params[:staff].present?
     end
 
   private

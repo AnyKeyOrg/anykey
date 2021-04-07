@@ -25,6 +25,8 @@
   font-weight: 500;
   font-size: 2em;
   margin-bottom: 0.2em;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 #backstage-container .panel-text {
