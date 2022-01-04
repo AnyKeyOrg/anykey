@@ -5,9 +5,9 @@ development:
   reconnect: false
   database: anykey_development
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock  
+  username: <%= ENV['MYSQL_USERNAME'] || '' %>
+  password: <%= ENV['MYSQL_PASSWORD'] || '' %>
+  socket: <%= ENV['MYSQL_SOCKET'] || '' %>  
 
 test:
   adapter: mysql2
@@ -16,9 +16,9 @@ test:
   reconnect: false
   database: anykey_test
   pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: <%= ENV['MYSQL_USERNAME'] || '' %>
+  password: <%= ENV['MYSQL_PASSWORD'] || '' %>
+  socket: <%= ENV['MYSQL_SOCKET'] || '' %>
 
 staging:
   development
