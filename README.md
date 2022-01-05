@@ -1,9 +1,11 @@
-# AnyKey
+AnyKey
+======
 Repository for the anykey.org v2.0 website which includes the relaunched GLHF pledge and custom moderation system.
 
 The app currently runs on Ruby 2.6.3, Rails 6.0.0.rc1, MySQL, and Redis. It is recommended that you use [asdf](https://asdf-vm.com) to install and manage your rubies.
 
-### Environment Configuration
+Environment Configuration
+-------------------------
 Follow these general steps to set up your local development environment from scratch.
 
 **1. Fork & clone this repo**
@@ -105,7 +107,8 @@ AWS_REGION=region-name
 * You should see AnyKey homepage
 
 
-### External API configuration
+External API configuration
+--------------------------
 The AnyKey app uses several external services:
 * AWS S3 for storing staff-uploaded images and thumbnails (cached via Redis)
 * Sendgrid for transactional email
@@ -129,7 +132,8 @@ TWITCH_PLEDGE_SECRET=ZZZ
 TWITCH_REDIRECT_URL=http://localhost:9292/pledge
 ```
 
-## License
+License
+-------
 Copyright 2019-2022, AnyKey
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
