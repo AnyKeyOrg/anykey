@@ -33,24 +33,26 @@ Follow these general steps to set up your local development environment from scr
 * Learn more here: https://asdf-vm.com/guide/getting-started.html
 * `git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1`
 * Add two lines at the end of bash_profile:
-  * `. $HOME/.asdf/asdf.sh`
-  * `. $HOME/.asdf/completions/asdf.bash`
-* `asdf --version` should return info
+```shell
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+```
+* Run `asdf --version` to confirm it returns info
 * Configure asdf to accept legacy files:
-  * `echo "legacy_version_file = yes" >> ~/.asdfrc`
+* `echo "legacy_version_file = yes" >> ~/.asdfrc`
 
 **5. Install Ruby 2.6.3 via asdf**
 * Learn more here: https://www.ruby-lang.org/en/documentation/installation
-* Install system dependencies:
+* Install system dependencies via Homebrew:
   * `brew install openssl readline`
   * `brew install ruby-build`
   * `brew install shared-mime-info`
-* Add plugin:
+* Add asdf Ruby plugin:
   * `asdf plugin add ruby`
   * `asdf list all ruby`
 * Install Ruby:
   * Set these flags on M1 Macs:
-    * `export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"` (only for Ruby > 2.4)
+    * `export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"`
     * `export RUBY_CFLAGS="-Wno-error=implicit-function-declaration"`
   * `asdf install ruby 2.6.3`
   * `asdf global ruby 2.6.3` (creates ~/.tool-versions)
@@ -76,7 +78,7 @@ Follow these general steps to set up your local development environment from scr
 ```shell
 MYSQL_USERNAME=XXX
 MYSQL_PASSWORD=YYY
-MYSQL_SOCKET=/tmp/mysql.sock               # For Mac
+MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
 MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 ```
 
