@@ -1,3 +1,3 @@
 <div class="button-wrap flexbox vertical">
-  <%= link_to(t(".twitch-button"), "#{ENV['TWITCH_API_BASE_URL']}/oauth2/authorize?client_id=#{ENV['TWITCH_CLIENT_ID']}&redirect_uri=#{ENV['TWITCH_REDIRECT_URL']}&response_type=code&scope=user_read&state=#{pledge.identifier}", class: 'twitch-button button', onClick: "gtag('event', 'ButtonClick', {'event_category': 'Pledge', 'event_label': 'ActivateTwitch'});") %>
+  <%= link_to(t(".twitch-button"), "#{ENV['TWITCH_AUTH_BASE_URL']}/oauth2/authorize?client_id=#{ENV['TWITCH_CLIENT_ID']}&redirect_uri=#{ENV['TWITCH_REDIRECT_URL']}&response_type=code&scope=user_read&state=#{pledge.identifier}", class: 'twitch-button button', onClick: "gtag('event', 'ButtonClick', {'event_category': 'Pledge', 'event_label': 'ActivateTwitch'});") %>
 </div>

@@ -29,7 +29,12 @@ Follow these general steps to set up your local development environment from scr
 * `sudo make install`
 * Verify redis binaries are in /usr/local/bin and remove install folder
 
-**4. Install asdf (Ruby version manager)**
+**4. Install ImageMagick (image processing software)**
+* Learn more here: https://imagemagick.org/script/download.php
+* `brew install imagemagick`
+* Run `convert -version` tp ensure crucial ImageMagick command has been installed
+
+**5. Install asdf (Ruby version manager)**
 * Learn more here: https://asdf-vm.com/guide/getting-started.html
 * `git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1`
 * Add two lines at the end of bash_profile:
@@ -41,7 +46,7 @@ Follow these general steps to set up your local development environment from scr
 * Configure asdf to accept legacy files:
 * `echo "legacy_version_file = yes" >> ~/.asdfrc`
 
-**5. Install Ruby 2.6.3 via asdf**
+**6. Install Ruby 2.6.3 via asdf**
 * Learn more here: https://www.ruby-lang.org/en/documentation/installation
 * Install system dependencies via Homebrew:
   * `brew install openssl readline`
@@ -60,7 +65,7 @@ Follow these general steps to set up your local development environment from scr
 * Make sure you are using Ruby 2.6.3 before proceeding:
   * `cd anykey` then `ruby -v` to check your version
 
-**6. Install essential gems**
+**7. Install essential gems**
 * Disable gem docs:
   * `echo "gem: --no-document" >> ~/.gemrc`
 * Install Rails 6.0.0.rc1:
@@ -71,7 +76,7 @@ Follow these general steps to set up your local development environment from scr
 * Install required gems:
   * `bundle install`
 
-**7. Configure database environment variables**
+**8. Configure database environment variables**
 * Add a file called `.env` to your app's root directory
 * Ensure that it includes the correct credentials for your database:
 
@@ -82,7 +87,7 @@ MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
 MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 ```
 
-**8. Configure Amazon S3 bucket**
+**9. Configure Amazon S3 bucket**
 * Learn more here: https://aws.amazon.com/s3
 * Create a new bucket for development testing
 * Add the relevant credentials to your `.env` file:
@@ -94,15 +99,15 @@ AWS_SECRET_ACCESS_KEY=YYY
 AWS_REGION=region-name
 ```
 
-**9. Create database in MySQL**
+**10. Create database in MySQL**
 * Run either `rake db:create`
 * Or `mysql -u root -p` and `CREATE DATABASE anykey_development;`
 
-**10. Seed database and run migrations**
+**11. Seed database and run migrations**
 * `rake db:seed`
 * `rake db:migrate`
 
-**11. Confirm app runs**
+**12. Confirm app runs**
 * Launch Redis: `redis-server`
 * Launch the app: `rackup`
 * Open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
@@ -127,7 +132,8 @@ SENDGRID_PASSWORD=YYY
 SENDGRID_DOMAIN=anykey.org
 
 
-TWITCH_API_BASE_URL=https://api.twitch.tv/kraken
+TWITCH_API_BASE_URL=https://api.twitch.tv/helix
+TWITCH_AUTH_BASE_URL=https://id.twitch.tv
 TWITCH_CLIENT_ID=XXX
 TWITCH_CLIENT_SECRET=YYY
 TWITCH_PLEDGE_SECRET=ZZZ
