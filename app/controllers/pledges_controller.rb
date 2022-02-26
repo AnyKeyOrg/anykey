@@ -155,11 +155,6 @@ class PledgesController < ApplicationController
               # TODO: Roll over to Helix v6 API endpoint when they are built
               badge_result = HTTParty.put(URI.escape("#{ENV['TWITCH_API_V5_BASE_URL']}/users/#{twitch_user["data"][0]["id"]}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
 
-              puts "*********************\n"
-              puts "BADGE RESULT"                            
-              puts badge_result
-              puts "*********************\n"
-              
               if badge_result["error"].present?
                 # Set cookie to enforce single visit to redirect page
                 cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
