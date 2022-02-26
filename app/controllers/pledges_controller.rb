@@ -135,14 +135,14 @@ class PledgesController < ApplicationController
         end
         
         # Request an access token from Twitch
-        response = HTTParty.post(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&code=#{params[:code]}&grant_type=authorization_code&redirect_uri=#{ENV['TWITCH_REDIRECT_URL']}"))
+        response = HTTParty.post(URI.escape("#{ENV['TWITCH_AUTH_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&code=#{params[:code]}&grant_type=authorization_code&redirect_uri=#{ENV['TWITCH_REDIRECT_URL']}"))
 
         # Use token to view Twitch credentials and store for validation
         if response["access_token"].present?
-          twitch_user = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/user"), headers: {Accept: 'application/vnd.twitchtv.v5+json', Authorization: "OAuth #{response['access_token']}", "Client-ID": ENV['TWITCH_CLIENT_ID']})
-                    
-          if twitch_user.present?
-            if Pledge.find_by(twitch_id: twitch_user["_id"])
+          twitch_user = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users"), headers: {"Authorization": "Bearer #{response['access_token']}", "Client-ID": ENV['TWITCH_CLIENT_ID']})
+                          
+          if !twitch_user["data"].blank?
+            if Pledge.find_by(twitch_id: twitch_user["data"][0]["id"])
               
               # Set cookie to enforce single visit to redirect page
               cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
@@ -150,24 +150,39 @@ class PledgesController < ApplicationController
               # Reroute if Twitch user already pledged
               redirect_to pledge_path(@pledge, params: {status: 'duplicate'})
             
-            else
-              @pledge.twitch_id           = twitch_user["_id"]
-              @pledge.twitch_display_name = twitch_user["display_name"]
-              @pledge.twitch_email        = twitch_user["email"]
-              @pledge.twitch_authed_on    = Time.now
+            else              
+              # Set badge on Twitch (using allowlisted Kraken v5 API endpoint)
+              # TODO: Roll over to Helix v6 API endpoint when they are built
+              badge_result = HTTParty.put(URI.escape("#{ENV['TWITCH_API_V5_BASE_URL']}/users/#{@pledge.twitch_id}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
+
+              puts "*********************\n"
+              puts "BADGE RESULT"                            
+              puts badge_result
+              puts "*********************\n"
               
-              # Set badge on Twitch
-              badge_result = HTTParty.put(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users/#{@pledge.twitch_id}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
-              
-              if @pledge.save
-                
+              if badge_result["error"].present?
                 # Set cookie to enforce single visit to redirect page
                 cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
-
-                redirect_to pledge_path(@pledge)
                 
+                #TODO: create an error message
+                redirect_to pledge_path(@pledge, params: {status: 'returning'})
+              
               else
-                #TODO: catch failure and send to an error page
+                @pledge.twitch_id           = twitch_user["data"][0]["id"]
+                @pledge.twitch_display_name = twitch_user["data"][0]["display_name"]
+                @pledge.twitch_email        = twitch_user["data"][0]["email"]
+                @pledge.twitch_authed_on    = Time.now
+                
+                if @pledge.save
+                
+                  # Set cookie to enforce single visit to redirect page
+                  cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
+
+                  redirect_to pledge_path(@pledge)
+                
+                else
+                  #TODO: catch failure and send to an error page
+                end
               end
             end
 

@@ -132,6 +132,7 @@ SENDGRID_PASSWORD=YYY
 SENDGRID_DOMAIN=anykey.org
 
 
+TWITCH_API_V5_BASE_URL=https://api.twitch.tv/kraken
 TWITCH_API_BASE_URL=https://api.twitch.tv/helix
 TWITCH_AUTH_BASE_URL=https://id.twitch.tv
 TWITCH_CLIENT_ID=XXX

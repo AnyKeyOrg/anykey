@@ -62,7 +62,8 @@ class WarningsController < ApplicationController
     
     def find_reported_twitch_user
       # Check if reported_twitch_name exists on Twitch
-      response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
+      # TODO: Roll over to Helix v6 API endpoint when they are built
+      response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_V5_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
       
       if response["users"].blank?
        @reported_twitch_user = nil
