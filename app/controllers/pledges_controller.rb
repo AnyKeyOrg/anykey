@@ -153,7 +153,7 @@ class PledgesController < ApplicationController
             else              
               # Set badge on Twitch (using allowlisted Kraken v5 API endpoint)
               # TODO: Roll over to Helix v6 API endpoint when they are built
-              badge_result = HTTParty.put(URI.escape("#{ENV['TWITCH_API_V5_BASE_URL']}/users/#{@pledge.twitch_id}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
+              badge_result = HTTParty.put(URI.escape("#{ENV['TWITCH_API_V5_BASE_URL']}/users/#{twitch_user["data"][0]["id"]}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
 
               puts "*********************\n"
               puts "BADGE RESULT"                            
