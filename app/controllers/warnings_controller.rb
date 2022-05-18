@@ -1,14 +1,14 @@
 class WarningsController < ApplicationController
-  
+
   layout "backstage"
-  
+
   before_action :authenticate_user!
   before_action :ensure_staff
   before_action :find_report
   before_action :ensure_sane_review
   before_action :find_reported_twitch_user
   around_action :display_timezone
-  
+
   def new
     if @reported_twitch_user == nil
       redirect_to staff_index_path
@@ -18,7 +18,7 @@ class WarningsController < ApplicationController
       redirect_to staff_index_path
     end
   end
-  
+
   def create
     if @reported_twitch_user == nil
       redirect_to staff_index_path
@@ -27,18 +27,22 @@ class WarningsController < ApplicationController
       @warning.report = @report
       @warning.pledge = @pledge
       @warning.reviewer = current_user
-          
+
       if @warning.save
         # Email warning to pledger
         PledgeMailer.warn_pledger(@warning).deliver_now
-        
+
         # Email reporter that action has been taken
         PledgeMailer.notify_reporter_warning(@warning).deliver_now
-        
+
+        @pledge.times_warned  += 1
+        @pledge.last_warned_on = Time.now
+        @pledge.save
+
         @report.warned = true
         @report.reviewer = current_user
         @report.save
-        
+
         flash[:notice] = "You sent a warning to #{@pledge.email} (#{@report.reported_twitch_name})."
         redirect_to reports_path
       else
@@ -59,11 +63,11 @@ class WarningsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to staff_index_path
     end
-    
+
     def find_reported_twitch_user
       # Check if reported_twitch_name exists on Twitch
       response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
-      
+
       if response["data"].blank?
        @reported_twitch_user = nil
       else
@@ -77,20 +81,20 @@ class WarningsController < ApplicationController
         redirect_to root_url
       end
     end
-    
+
     def ensure_sane_review
       unless !@report.dismissed && !@report.warned && !@report.revoked
         redirect_to staff_index_path
       end
     end
-    
+
     def display_timezone
       timezone = Time.find_zone( cookies[:browser_timezone] )
       Time.use_zone(timezone) { yield }
     end
-  
+
     def conduct_warning_params
       params.require(:conduct_warning).permit(:reason)
     end
-  
+
 end

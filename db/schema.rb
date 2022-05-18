@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_23_190839) do
+ActiveRecord::Schema.define(version: 2022_04_25_020324) do
 
   create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2022_02_23_190839) do
     t.datetime "twitch_authed_on"
     t.integer "referrer_id"
     t.integer "referrals_count", default: 0
+    t.integer "times_warned", default: 0
+    t.datetime "last_warned_on"
   end
 
   create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
@@ -96,7 +98,7 @@ ActiveRecord::Schema.define(version: 2022_02_23_190839) do
     t.datetime "published_on"
   end
 
-  create_table "twitch_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "twitch_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "access_token"
     t.integer "expires_in"
     t.datetime "created_at", precision: 6, null: false
