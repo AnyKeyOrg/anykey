@@ -5,7 +5,6 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss ]
   before_action :find_report,               only: [ :show, :dismiss, :undismiss ]
-  before_action :find_reported_twitch_user, only: [ :show ]
   around_action :display_timezone
 
   def index
@@ -87,17 +86,6 @@ class ReportsController < ApplicationController
       @report = Report.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to staff_index_path
-    end
-
-    def find_reported_twitch_user
-      # Check if reported_twitch_name exists on Twitch
-      response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
-
-      if response["data"].blank?
-       @reported_twitch_user = nil
-      else
-        @reported_twitch_user = response["data"][0]["id"]
-      end
     end
 
     def set_twitch_id
