@@ -22,14 +22,18 @@ class ReportsController < ApplicationController
 
   def show
     # Create keybot advice message
-    if @reported_twitch_user == nil
+    if !@report.twitch_id
       @message = "The reported Twitch user does not exist."
-    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+    elsif @pledge = Pledge.find_by(twitch_id: @report.twitch_id)
       @message = "The reported Twitch user signed the pledge as " + @pledge.twitch_display_name + " on " + @pledge.signed_on.strftime('%b. %-d, %Y.')
     else
       @message = "The reported Twitch user did not sign the pledge."
     end
-    @other_reports = Report.where(reported_twitch_name: @report.reported_twitch_name).where.not(id: @report.id)
+    if @report.twitch_id
+      @other_reports = Report.where(twitch_id: @report.twitch_id).where.not(id: @report.id)
+    else
+      @other_reports = nil
+    end
     # TODO: check if reporter has pledged (lookup email/Twitch name) and add info to keybot message
     # TODO: check if incident stream owner has pledged (Twitch name) and add info to keybot message
 
@@ -45,6 +49,7 @@ class ReportsController < ApplicationController
     if @report.save
       # Email notification to staff
       StaffMailer.notify_staff_new_report(@report).deliver_now
+      set_twitch_id
 
       flash[:notice] = "You've successfully submitted the report. Thank you."
       redirect_to root_path
@@ -92,6 +97,17 @@ class ReportsController < ApplicationController
        @reported_twitch_user = nil
       else
         @reported_twitch_user = response["data"][0]["id"]
+      end
+    end
+
+    def set_twitch_id
+      # Check if reported_twitch_name exists on Twitch
+      response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
+
+      if response["data"].blank?
+        @report.update_attribute(:twitch_id, nil)
+      else
+        @report.update_attribute(:twitch_id, response["data"][0]["id"])
       end
     end
 

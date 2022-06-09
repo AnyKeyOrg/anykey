@@ -11,14 +11,12 @@
       <%= render(partial: "shared/report_body") %>
       <div class="report-facts flexbox vertical stretch">
         <hr class="spacer">
-        <div class="report-item flexbox vertical stretch">
-          <div class="item-title">Other reports<%= @other_reports.present? ? "(#{@other_reports.count})" : ''%></div>
-          <% if @other_reports.present? %>
-          <div class="item-list"><%= render(partial: "reports/other_report_row", collection: @other_reports, as: :report) %></div>
-          <% else %>
-          <div class="item-text">There are no other reports about this pledger.</div>
-          <% end %>
-        </div>
+        <% if @other_reports.present? %>
+          <div class="report-item flexbox vertical stretch">
+            <div class="item-title">Other reports<%= @other_reports.present? ? "(#{@other_reports.count})" : ''%></div>
+            <div class="item-list"><%= render(partial: "reports/other_report_row", collection: @other_reports, as: :report) %></div>
+          </div>
+        <% end %>
         <div class="report-item flexbox vertical stretch">
           Keybot says: <%= @message %>
         </div>
