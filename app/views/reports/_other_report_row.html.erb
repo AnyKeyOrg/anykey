@@ -1,0 +1,15 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= report_path(report, back: request.fullpath) %>">
+  <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="row-detail"><%= l(report.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %></div>
+    <div class="row-detail">reported by <%= report.reporter_email %> <%= report.reporter_twitch_name.blank? ? '' : '('+report.reporter_twitch_name+')'%></div>
+    <% if report.revoked %>
+    <div class="row-revoked">Revoked</div>
+    <% elsif report.warned %>
+      <div class="row-warned">Warned</div>
+    <% elsif report.dismissed %>
+      <div class="row-dismissed">Dismissed</div>
+    <% else %>
+      <div class="row-title">unresolved</div>
+    <% end %>
+  </div>
+</div>

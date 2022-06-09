@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_25_020324) do
+ActiveRecord::Schema.define(version: 2022_06_08_232140) do
 
-  create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "affiliates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "title"
     t.string "image_uid"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_04_25_020324) do
     t.string "mixer"
   end
 
-  create_table "conduct_warnings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "conduct_warnings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "pledge_id"
     t.integer "report_id"
     t.text "reason"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_04_25_020324) do
     t.index ["reviewer_id"], name: "index_conduct_warnings_on_reviewer_id"
   end
 
-  create_table "pledges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "pledges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -55,11 +55,9 @@ ActiveRecord::Schema.define(version: 2022_04_25_020324) do
     t.datetime "twitch_authed_on"
     t.integer "referrer_id"
     t.integer "referrals_count", default: 0
-    t.integer "times_warned", default: 0
-    t.datetime "last_warned_on"
   end
 
-  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "reporter_email"
     t.string "reporter_twitch_name"
     t.string "reported_twitch_name"
@@ -74,10 +72,11 @@ ActiveRecord::Schema.define(version: 2022_04_25_020324) do
     t.boolean "dismissed", default: false
     t.boolean "warned", default: false
     t.boolean "revoked", default: false
+    t.integer "twitch_id"
     t.index ["reviewer_id"], name: "index_reports_on_reviewer_id"
   end
 
-  create_table "revocations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "revocations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "pledge_id"
     t.integer "report_id"
     t.text "reason"
@@ -87,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_04_25_020324) do
     t.index ["reviewer_id"], name: "index_revocations_on_reviewer_id"
   end
 
-  create_table "stories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "stories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "headline"
     t.text "description"
     t.string "image_uid"
@@ -98,14 +97,14 @@ ActiveRecord::Schema.define(version: 2022_04_25_020324) do
     t.datetime "published_on"
   end
 
-  create_table "twitch_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "twitch_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "access_token"
     t.integer "expires_in"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

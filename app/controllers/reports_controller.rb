@@ -26,17 +26,10 @@ class ReportsController < ApplicationController
       @message = "The reported Twitch user does not exist."
     elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
       @message = "The reported Twitch user signed the pledge as " + @pledge.twitch_display_name + " on " + @pledge.signed_on.strftime('%b. %-d, %Y.')
-      if @pledge.times_warned > 0
-        @message += "The user got warned "+ @pledge.times_warned.to_s + " time previously."
-      end
     else
       @message = "The reported Twitch user did not sign the pledge."
     end
-
-    @user_reports = Report.where(reported_twitch_name: @report.reported_twitch_name.downcase)
-    if @user_reports.count > 1
-      @message += "There are " + @user_reports.count.to_s + " report on this username previously"
-    end
+    @other_reports = Report.where(reported_twitch_name: @report.reported_twitch_name).where.not(id: @report.id)
     # TODO: check if reporter has pledged (lookup email/Twitch name) and add info to keybot message
     # TODO: check if incident stream owner has pledged (Twitch name) and add info to keybot message
 
