@@ -1,6 +1,15 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= report_path(report, back: request.fullpath) %>">
   <div class="flexbox horizontal center wrap justify-space-between">
-    <div class="row-title"><%= report.reported_twitch_name %></div>
+    <div class="flexbox horizontal center wrap">
+      <div class="icons-space">
+        <% if report.pledge %>
+          <% if report.pledge.reports.size > 1  %>
+            <span class="icon">&#xf024;</span><%= report.pledge.reports.size %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row-title"><%= report.reported_twitch_name %></div>
+    </div>
     <div class="row-detail"><%= l(report.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %></div>
   </div>
 </div>

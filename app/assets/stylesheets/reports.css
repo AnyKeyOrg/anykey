@@ -54,21 +54,21 @@
   font-size: 0.9em;
 }
 
-#backstage-container .record-row .row-revoked {
+#backstage-container .record-row .row-status {
   font-weight: 500;
-  margin-right: 1em;
+  width: 7em;
+  text-align: right;
+}
+
+#backstage-container .record-row .row-status.revoked {
   color: var(--alert-red-color);
 }
 
-#backstage-container .record-row .row-warned {
-  font-weight: 500;
-  margin-right: 1em;
+#backstage-container .record-row .row-status.warned {
   color: var(--bright-orange-color);
 }
 
-#backstage-container .record-row .row-dismissed {
-  font-weight: 500;
-  margin-right: 1em;
+#backstage-container .record-row .row-status.dismissed {
   color: var(--bright-green-color);
 }
 

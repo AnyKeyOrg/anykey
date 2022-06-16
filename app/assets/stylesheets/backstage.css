@@ -17,7 +17,7 @@
   border: solid 5px var(--black-color);
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 #backstage-container .panel-title {
@@ -74,7 +74,7 @@
 
 #backstage-container .panel-menu a:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
@@ -92,7 +92,7 @@
 
 #backstage-container .panel-filters a.selected {
   font-weight: 700;
-  color: var(--light-black-color); 
+  color: var(--light-black-color);
 }
 
 #backstage-container .panel-filters a:hover {
@@ -119,12 +119,21 @@
 
 #backstage-container .record-row:hover {
   cursor: pointer;
-  background: var(--orange-overlay); 
+  background: var(--orange-overlay);
 }
 
 #backstage-container .record-row:active {
   cursor: pointer;
-  background: var(--blue-overlay); 
+  background: var(--blue-overlay);
+}
+
+#backstage-container .record-row .icons-space {
+  width: 5.5em;
+}
+
+#backstage-container .record-row .icons-space .icon {
+  font-family: var(--icon-font);
+  margin-right: 0.3em;
 }
 
 #backstage-container .record-row .row-title {
@@ -160,12 +169,12 @@
     width: auto;
     padding: 2em 2em 2em 2em;
   }
-  
+
   #backstage-container .control-panel {
     min-width: 16em;
     padding: 2em 2em 2em 2em;
   }
-  
+
   #backstage-container .panel-descriptor {
     text-align: left;
   }
