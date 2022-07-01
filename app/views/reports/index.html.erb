@@ -6,7 +6,7 @@
         <div class="panel-filters flexbox horizontal center wrap">
           <% Report::AVAILABLE_SCOPES.each do |filter| %>
             <% if @filter_category.to_s == filter[0].to_s %>
-              <%= link_to("#{filter[1]} [#{@reports.count}]", reports_path(f: filter[0]), class: "filter selected") %>
+              <%= link_to("#{filter[1]} [#{@reports.total_entries}]", reports_path(f: filter[0]), class: "filter selected") %>
             <% else %>
              <%= link_to(filter[1], reports_path(f: filter[0]), class: "filter") %>
             <% end %>
@@ -16,6 +16,10 @@
       <div class="records-list flexbox vertical stretch">
         <% if @reports.present? %>
         <%= render(partial: "reports/row", collection: @reports, as: :report) %>
+        <div class="flexbox vertical center">
+          <%= will_paginate @reports, class: "pagination full flexbox horizontal", previous_label: "« PREV", next_label: "NEXT »", inner_window: 3, outer_window: 0  %>
+          <%= will_paginate @reports, class: "pagination mini flexbox horizontal justify-space-between", previous_label: "« PREV", next_label: "NEXT »", page_links: false  %>
+        </div>
         <% else %>
         <div class="empty">
           No reports found.
