@@ -11,7 +11,8 @@ namespace :pledges do
 
     puts "Resetting reports_coun for existing pledges..."
 
-    Pledge.all.each do |pledge|
+    Pledge.where.not(twitch_id: nil).each do |pledge|
+      puts "Updating ID:#{pledge.id} (#{pledge.twitch_display_name})"
       Pledge.reset_counters(pledge.id, :reports)
     end
   end

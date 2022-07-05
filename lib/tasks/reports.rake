@@ -15,9 +15,12 @@ namespace :reports do
 
     puts "Looking up twtich ID for existing reports..."
 
-    Report.where(twitch_id: nil).each do |report|
+    Report.where(twitch_id: nil).each do |report| #.where(twitch_id: nil)
       # Check if reported_twitch_name exists on Twitch
       response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
+
+      puts response.headers["ratelimit-remaining"]
+      puts report.id
 
       if response["data"].blank?
         report.update_attribute(:twitch_id, nil)
