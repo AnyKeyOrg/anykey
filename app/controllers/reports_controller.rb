@@ -10,11 +10,11 @@ class ReportsController < ApplicationController
   def index
     # f is used to filter reports by scope
     if params[:f].present? && Report::AVAILABLE_SCOPES.key?(params[:f].to_sym)
-      @reports = eval("Report."+params[:f]+".all.order(created_at: :desc)")
+      @reports = eval("Report.includes(:pledge)."+params[:f]+".all.order(created_at: :desc)")
       # TODO add: paginate(page: params[:page], per_page: 30)
       @filter_category = params[:f]
     else
-      @reports = Report.unresolved.all.order(created_at: :desc)
+      @reports = Report.includes(:pledge).unresolved.all.order(created_at: :desc)
       @filter_category = "unresolved"
     end
   end
