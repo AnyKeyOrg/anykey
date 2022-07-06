@@ -1,0 +1,6 @@
+/*
+ * When new comment is created
+ * it gets added to the view
+ */
+
+$('#comments').append("<%= j(render 'reports/comment', comment: @comment) %>");

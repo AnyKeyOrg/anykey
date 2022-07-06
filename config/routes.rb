@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
-    
+
   devise_for :users, controllers: { invitations: "users/invitations" },
              path_names:  { sign_in: "login", sign_out: "logout" }
-                       
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-  
+
     authenticated :user do
       root to: "home#index", as: :authenticated_user_root
     end
-  
+
     unauthenticated do
       root to: "home#index"
     end
-  
+
     resources :pledges,        only: [ :index, :create, :show ]
     get '/pledge',             to: 'pledges#new',    as: :new_pledge
     get '/take-the-pledge',    to: 'pledges#new'
@@ -22,8 +22,8 @@ Rails.application.routes.draw do
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
     get '/research',           to: 'resources#index',          as: :research
-    get '/keystone-code',      to: 'resources#keystone_code',  as: :keystone_code    
-    get '/inclusion-101',      to: 'resources#inclusion_101',  as: :inclusion_101    
+    get '/keystone-code',      to: 'resources#keystone_code',  as: :keystone_code
+    get '/inclusion-101',      to: 'resources#inclusion_101',  as: :inclusion_101
     resources :stories,        only: [ :index, :new, :create, :edit, :update ]
     get '/changemakers',       to: 'stories#changemakers',     as: :changemakers
     resources :reports,        only: [ :index, :show, :new, :create ] do
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :staff,          only: [ :index ]
     resources :users,          only: [ :index, :show, :edit, :update ]
     post '/users/:id/remove_avatar', to: 'users#remove_avatar', as: :remove_avatar
-    
+
     get '/about',              to: 'about#index',        as: :about
     get '/contact',            to: 'about#contact',      as: :contact
     get '/data-policy',        to: 'about#data_policy',  as: :data_policy
@@ -48,6 +48,8 @@ Rails.application.routes.draw do
     get '/donate',             to: 'donate#index',       as: :donate
     get '/donate/success',     to: 'donate#success',     as: :donate_success
 
+    resources :comments,       only: [ :new, :create]
+
   end
-  
+
 end

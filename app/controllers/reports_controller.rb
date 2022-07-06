@@ -1,13 +1,13 @@
 class ReportsController < ApplicationController
-  
+
   layout "backstage",                       only: [ :index, :show ]
-  
+
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss ]
   before_action :find_report,               only: [ :show, :dismiss, :undismiss ]
   before_action :find_reported_twitch_user, only: [ :show ]
   around_action :display_timezone
-  
+
   def index
     # f is used to filter reports by scope
     if params[:f].present? && Report::AVAILABLE_SCOPES.key?(params[:f].to_sym)
@@ -19,7 +19,7 @@ class ReportsController < ApplicationController
       @filter_category = "unresolved"
     end
   end
-  
+
   def show
     # Create keybot advice message
     if @reported_twitch_user == nil
@@ -29,30 +29,32 @@ class ReportsController < ApplicationController
     else
       @message = "The reported Twitch user did not sign the pledge."
     end
-    
+
+    @comment = Comment.new(report: @report)
+    @comments = @report.comments.includes(:commenter)
     # TODO: check if reporter has pledged (lookup email/Twitch name) and add info to keybot message
     # TODO: check if incident stream owner has pledged (Twitch name) and add info to keybot message
 
   end
-  
+
   def new
     @report = Report.new
   end
 
   def create
     @report = Report.new(report_params)
-  
+
     if @report.save
       # Email notification to staff
       StaffMailer.notify_staff_new_report(@report).deliver_now
-      
+
       flash[:notice] = "You've successfully submitted the report. Thank you."
       redirect_to root_path
-    else      
+    else
       flash.now[:alert] ||= ""
       @report.errors.full_messages.each do |message|
         flash.now[:alert] << message + ". "
-      end      
+      end
       render(action: :new)
     end
   end
@@ -65,14 +67,14 @@ class ReportsController < ApplicationController
     end
     redirect_to reports_path
   end
-  
+
   def undismiss
     @report.dismissed = false
     @report.reviewer = nil
     if @report.save
       flash[:notice] = "You undismissed the report about #{@report.reported_twitch_name}. It can now be reviewed again."
       redirect_to report_path(@report)
-    else    
+    else
       redirect_to reports_path
     end
   end
@@ -83,11 +85,11 @@ class ReportsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to staff_index_path
     end
-    
+
     def find_reported_twitch_user
       # Check if reported_twitch_name exists on Twitch
       response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
-      
+
       if response["data"].blank?
        @reported_twitch_user = nil
       else
@@ -95,20 +97,20 @@ class ReportsController < ApplicationController
       end
     end
 
-  private          
+  private
     def ensure_staff
       unless current_user.is_moderator? || current_user.is_admin?
         redirect_to root_url
       end
     end
-    
+
     def display_timezone
       timezone = Time.find_zone( cookies[:browser_timezone] )
       Time.use_zone(timezone) { yield }
     end
-    
+
     def report_params
       params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reported_twitch_name, :incident_stream, :incident_occurred, :incident_description, :recommended_response, :image)
     end
-  
+
 end

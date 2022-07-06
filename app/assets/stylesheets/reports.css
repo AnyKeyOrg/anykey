@@ -54,6 +54,12 @@
   font-size: 0.9em;
 }
 
+#backstage-container .comment-row {
+  padding: 0.5em 1.25em 0.5em 1.25em;
+  font-size: 0.85em;
+  line-height: 1.75em;
+}
+
 #backstage-container .report-buttons {
   margin-top: 2em;
 }
@@ -99,7 +105,7 @@
 
 #backstage-container .report-buttons .button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
@@ -118,7 +124,7 @@
     margin-left: 0em;
     margin-top: 2em;
   }
-  
+
   #backstage-container .report-buttons a.stealth {
     margin-left: auto;
     margin-right: auto;

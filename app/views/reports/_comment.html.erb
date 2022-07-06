@@ -1,0 +1,8 @@
+<div class="comment-row flexbox vertical stretch" >
+  <div class="flexbox horizontal center wrap">
+    <div id="header-avatar-container" class="flexbox vertical end">
+      <%= image_tag(user_image_src(current_user, :tiny), size: "28x28", class: "header-avatar") %></div>
+    <div class="row-title"><%= comment.commenter.first_name %></div>
+    <div class="row-detail"><%= comment.body %></div>
+  </div>
+</div>
