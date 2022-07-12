@@ -11,18 +11,21 @@
       <%= render(partial: "shared/report_body") %>
       <div class="report-facts flexbox vertical stretch">
         <hr class="spacer">
-        Keybot says: <%= @message %>
-      </div>
-      <div id="comments"><%= render(partial: "comment", collection: @comments, as: :comment) %></div>
-      <%= form_with model: @comment, id: "new_comment" do |form| %>
-      <div class="field">
-        <%= form.text_field :body, size: "70x5" %>
-        <%= form.hidden_field :report_id, value: @report.id %>
-        <div class="input-group-append">
-          <%= form.submit "Send", class: 'button' %>
+        <div class="report-item flexbox vertical stretch">
+          <div class="item-title">Comments by Mods</div>
+          <div class="report-comments flexbox vertical stretch">
+            <div id="comment-view"><%= render(partial: "comment", collection: @comments, as: :comment) %></div>
+            <%= form_with model: @comment, id: "new_comment", html: { autocomplete: "off" } do |form| %>
+            <div class="comment-field flexbox horizontal end">
+              <%= form.text_area :body, placeholder: "Leave comments for other moderators" %>
+              <%= form.hidden_field :report_id, value: @report.id %>
+              <%= form.submit class: "send-button", data: { disable_with: false }, value: "&#xf1d8;".html_safe %>
+            </div>
+            <% end %>
+          </div>
         </div>
+        <div class="report-item">Keybot says: <%= @message %></div>
       </div>
-      <% end %>
       <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
         <% if @report.dismissed %>
           <%= link_to("Undismiss", undismiss_report_path(@report), method: :post, class: 'dismiss-button button') %>

@@ -3,12 +3,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.commenter = current_user
-    @comment.save
-
     respond_to do |format|
-      format.js
+      if @comment.save
+        format.js
+      else
+        #TODO if not saved give alert?
+      end
     end
-
   end
 
   private

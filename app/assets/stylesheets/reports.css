@@ -55,9 +55,53 @@
 }
 
 #backstage-container .comment-row {
-  padding: 0.5em 1.25em 0.5em 1.25em;
-  font-size: 0.85em;
+  padding: 0.5em 1.25em 0.5em 0em;
+  font-size: 0.9em;
   line-height: 1.75em;
+}
+
+#backstage-container .comment-row img.comment-avatar{
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+}
+
+#backstage-container .comment-row .comment-avatar-container {
+  margin-right: 0.3em;
+}
+
+#backstage-container .comment-row .row-name {
+  margin-right: 1em;
+  font-weight: 500;
+}
+
+#backstage-container .comment-field #comment_body{
+  width: 80%;
+  height: 3em;
+}
+
+#backstage-container .comment-field .send-button,
+#backstage-container .comment-field .send-button:hover {
+  font-family: var(--solid-icon-font);
+  font-size: 1.8em;
+  border: none;
+  color: var(--bright-green-color);
+  background-color: inherit;
+  padding: 0.2em;
+  border-radius: 20%;
+  margin-left: 0.3em;
+}
+
+#backstage-container .comment-field .send-button:hover {
+  cursor: pointer;
+  background-color: var(--dark-white-color);
+}
+
+#backstage-container .button.send-button {
+  font-family: var(--solid-icon-font);
+  color: pink;
 }
 
 #backstage-container .report-buttons {
