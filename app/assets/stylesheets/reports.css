@@ -55,26 +55,30 @@
 }
 
 #backstage-container .comment-row {
-  padding: 0.5em 1.25em 0.5em 0em;
+  padding: 0.3em 1.25em 0.3em 0em;
   font-size: 0.9em;
   line-height: 1.75em;
 }
 
 #backstage-container .comment-row img.comment-avatar{
-  min-width: 28px;
-  min-height: 28px;
-  border-radius: 14px;
-  -webkit-border-radius: 14px;
-  -moz-border-radius: 14px;
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
 }
 
 #backstage-container .comment-row .comment-avatar-container {
-  margin-right: 0.3em;
+  margin-right: 0.5em;
 }
 
 #backstage-container .comment-row .row-name {
   margin-right: 1em;
   font-weight: 500;
+}
+
+#backstage-container .comment-field {
+  margin-top: 0.5em;
 }
 
 #backstage-container .comment-field #comment_body{
