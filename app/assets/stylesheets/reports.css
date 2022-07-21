@@ -70,11 +70,22 @@
 
 #backstage-container .comment-row .comment-avatar-container {
   margin-right: 0.5em;
+  margin-top: 0.4em;
 }
 
 #backstage-container .comment-row .row-name {
   margin-right: 1em;
   font-weight: 500;
+}
+
+#backstage-container .comment-row .row-date {
+  margin-right: 1em;
+  font-size: 0.8em;
+  color:  var(--gray-color);
+}
+
+#backstage-container .comment-row .row-detail {
+  line-height: 1.5em;
 }
 
 #backstage-container .comment-field {
