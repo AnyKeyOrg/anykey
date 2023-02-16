@@ -3,7 +3,7 @@ class TwitchToken < ApplicationRecord
   
   def valid_token!
     # If token is set to expire in less than a day, or if it is expired, request a new one
-    if self.updated_at + self.expires_in > Time.now+1.day || self.updated_at < Time.now
+    if self.updated_at + self.expires_in < Time.now+1.day
       response = HTTParty.post(URI.escape("#{ENV['TWITCH_AUTH_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&grant_type=client_credentials"))
 
       # Verify that a valid token has been received before setting it
