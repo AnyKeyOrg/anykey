@@ -54,6 +54,71 @@
   font-size: 0.9em;
 }
 
+#backstage-container .comment-row {
+  padding: 0.3em 1.25em 0.3em 0em;
+  font-size: 0.9em;
+  line-height: 1.75em;
+}
+
+#backstage-container .comment-row img.comment-avatar{
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+}
+
+#backstage-container .comment-row .comment-avatar-container {
+  margin-right: 0.5em;
+  margin-top: 0.4em;
+}
+
+#backstage-container .comment-row .row-name {
+  margin-right: 1em;
+  font-weight: 500;
+}
+
+#backstage-container .comment-row .row-date {
+  margin-right: 1em;
+  font-size: 0.8em;
+  color:  var(--gray-color);
+}
+
+#backstage-container .comment-row .row-detail {
+  line-height: 1.5em;
+}
+
+#backstage-container .comment-field {
+  margin-top: 0.5em;
+}
+
+#backstage-container .comment-field #comment_body{
+  width: 80%;
+  height: 3em;
+}
+
+#backstage-container .comment-field .send-button,
+#backstage-container .comment-field .send-button:hover {
+  font-family: var(--solid-icon-font);
+  font-size: 1.8em;
+  border: none;
+  color: var(--bright-green-color);
+  background-color: inherit;
+  padding: 0.2em;
+  border-radius: 20%;
+  margin-left: 0.3em;
+}
+
+#backstage-container .comment-field .send-button:hover {
+  cursor: pointer;
+  background-color: var(--dark-white-color);
+}
+
+#backstage-container .button.send-button {
+  font-family: var(--solid-icon-font);
+  color: pink;
+}
+
 #backstage-container .report-buttons {
   margin-top: 2em;
 }
@@ -99,7 +164,7 @@
 
 #backstage-container .report-buttons .button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
@@ -118,7 +183,7 @@
     margin-left: 0em;
     margin-top: 2em;
   }
-  
+
   #backstage-container .report-buttons a.stealth {
     margin-left: auto;
     margin-right: auto;

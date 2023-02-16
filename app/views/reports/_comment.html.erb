@@ -1,0 +1,13 @@
+<div class="comment-row flexbox vertical stretch" >
+  <div class="flexbox horizontal stretch">
+    <div class="comment-avatar-container" class="flexbox vertical end">
+      <%= image_tag(user_image_src(comment.commenter, :tiny), size: "24x24", class: "comment-avatar flexbox center") %></div>
+    <div class="flexbox vertical stretch">
+      <div class="flexbox horizontal">
+        <div class="row-name"><%= comment.commenter.first_name %></div>
+        <div class="row-date"><%= l(comment.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %></div>
+      </div>
+      <div class="row-detail"><%= comment.body %></div>
+    </div>
+  </div>
+</div>
