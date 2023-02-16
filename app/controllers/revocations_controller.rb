@@ -35,10 +35,9 @@ class RevocationsController < ApplicationController
         # Email reporter that action has been taken
         PledgeMailer.notify_reporter_revocation(@revocation).deliver_now
                 
-        # Revoke badge on Twitch
-        # TODO: Roll over to Helix v6 API endpoint when they are built
-        badge_result = HTTParty.delete(URI.escape("#{ENV['TWITCH_API_V5_BASE_URL']}/users/#{@pledge.twitch_id}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
-        
+        # Revoke badge on Twitch (using allowlisted Helix v6 custom API endpoint)
+        badge_result = HTTParty.delete(URI.escape("#{ENV['TWITCH_PLEDGE_BASE_URL']}?user_id=#{@pledge.twitch_id}&secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {"Authorization": "Bearer #{TwitchToken.first.valid_token!}", "Client-ID": ENV['TWITCH_CLIENT_ID'], "Content-Type": "application/json"})
+
         @pledge.badge_revoked = true
         @pledge.revoked_on    = Time.now
         @pledge.save

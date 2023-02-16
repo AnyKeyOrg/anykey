@@ -151,9 +151,8 @@ class PledgesController < ApplicationController
               redirect_to pledge_path(@pledge, params: {status: 'duplicate'})
             
             else              
-              # Set badge on Twitch (using allowlisted Kraken v5 API endpoint)
-              # TODO: Roll over to Helix v6 API endpoint when they are built
-              badge_result = HTTParty.put(URI.escape("#{ENV['TWITCH_API_V5_BASE_URL']}/users/#{twitch_user["data"][0]["id"]}/chat/badges/pledge?secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {Accept: 'application/vnd.twitchtv.v5+json', "Client-ID": ENV['TWITCH_CLIENT_ID']})
+              # Set badge on Twitch (using allowlisted Helix v6 custom API endpoint)
+              badge_result = HTTParty.post(URI.escape("#{ENV['TWITCH_PLEDGE_BASE_URL']}"), headers: {"Authorization": "Bearer #{TwitchToken.first.valid_token!}", "Client-ID": ENV['TWITCH_CLIENT_ID'], "Content-Type": "application/json"}, body: {"user_id": "#{twitch_user["data"][0]["id"]}", "secret": "#{ENV['TWITCH_PLEDGE_SECRET']}"}.to_json)
 
               if badge_result["error"].present?
                 # Set cookie to enforce single visit to redirect page
