@@ -36,6 +36,8 @@ Rails.application.routes.draw do
     end
     get '/report',             to: 'reports#new',        as: :short_report
 
+    resources :verifications,  only: [ :new, :create ]
+
     resources :staff,          only: [ :index ]
     resources :users,          only: [ :index, :show, :edit, :update ]
     post '/users/:id/remove_avatar', to: 'users#remove_avatar', as: :remove_avatar
