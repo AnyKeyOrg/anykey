@@ -2,6 +2,11 @@ require_relative 'boot'
 
 require 'rails/all'
 
+# Silence Fog deprecation warnings that appeared when upgrading to Rails 6.1
+# TODO: remove this after updating to Ruby 3+ and Rails 7
+require 'fog/core'
+Fog::Logger[:deprecation] = nil
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

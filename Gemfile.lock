@@ -356,6 +356,8 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     mysql2 (0.5.5)
+    net-http (0.3.2)
+      uri
     net-imap (0.3.4)
       date
       net-protocol
@@ -464,6 +466,7 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     uniquify (0.1.0)
+    uri (0.12.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -499,6 +502,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mysql2
+  net-http
   nokogiri
   puma (~> 3.11)
   rack-cache
