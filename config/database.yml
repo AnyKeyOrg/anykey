@@ -20,9 +20,6 @@ test:
   password: <%= ENV['MYSQL_PASSWORD'] || '' %>
   socket: <%= ENV['MYSQL_SOCKET'] || '' %>
 
-staging:
-  development
-
 production:
   adapter: mysql2
   encoding: utf8mb4
