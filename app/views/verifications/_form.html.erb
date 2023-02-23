@@ -1,0 +1,24 @@
+<form action="<%= verifications_path %>" id="new_verification" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+  <div style="hidden">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  </div>
+  <div class="title flexbox vertical center">
+    Eligibility Verification
+  </div>  
+  <%= display_alerts %>
+  <div class="intro">
+    Explanation of form goes here.
+  </div>
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="first_name" class="text-field">First Name</label>
+      <input id="report_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off" tabindex="1">
+    </div>
+    <div class="item half-width flexbox vertical stretch">
+      <label for="last_name" class="text-field">Last Name</label>
+      <input id="report_last_name" name="verification[last_name]" class="text-field" type="text" value="<%= @verification.last_name %>" autocomplete="off" tabindex="2">
+    </div>
+  </div>
+
+  <input id="verificationsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="3" onClick="gtag('event', 'ButtonClick', {'event_category': 'Verification', 'event_label': 'FormSubmit'});">
+</form>
