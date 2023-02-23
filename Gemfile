@@ -79,3 +79,6 @@ gem 'fog'
 gem 'redis'
 gem 'redis-namespace'
 gem 'nokogiri'
+
+# Introducing ActiveStorage to replace Draongfly
+gem 'image_processing', '~> 1.2'
