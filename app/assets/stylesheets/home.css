@@ -29,7 +29,7 @@
   height: 100%;
   z-index: 0;
   animation: anime 16.5s linear infinite 0s;
-  color: transparent;  
+  color: transparent;
   backface-visibility: hidden;
   background-size: cover;
   background-position: center center;
@@ -125,7 +125,7 @@
 
 #home #glhf-section .button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
@@ -136,7 +136,7 @@
 #home #glhf-section .button .detail-text {
   color: var(--dark-green-color);
   font-size: 0.9em;
-  text-transform: none;  
+  text-transform: none;
 }
 
 #home #glhf-section .button:hover .detail-text,
@@ -192,11 +192,67 @@
 
 #home #inclusion-101-section .button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
 #home #inclusion-101-section .button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+#home #verification-section {
+  width: 100%;
+  background: url('/images/verification-header.jpg') 50% 55% no-repeat;
+  background-size: cover;
+  margin-top: 5em;
+  color: var(--white-color);
+}
+
+#home #verification-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#home #verification-section .text-section {
+  font-size: 1.1em;
+  font-weight: 500;
+  max-width: 34em;
+  width: 100%;
+  text-shadow: var(--black-color) 0px 0px 20px;
+}
+
+#home #verification-section div.text-section p {
+  line-height: 1.6em;
+}
+
+#home #verification-section .button {
+  border: 5px solid var(--white-color);
+  background-color: var(--bright-fuchsia-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.6em;
+  padding: .4em .75em .45em .75em;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+  max-width: 13.5em;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+#home #verification-section .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-orange-color);
+}
+
+#home #verification-section .button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);
+  outline: none;
+}
+
+#home #verification-section .button::-moz-focus-inner {
   border: 0 !important;
 }
 
@@ -248,7 +304,7 @@
 
 #home #keystone-code-section .button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
@@ -304,7 +360,7 @@
 
 #home #changemakers-section .button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
@@ -315,7 +371,7 @@
 #home #changemakers-section .button .detail-text {
   color: var(--dark-orange-color);
   font-size: 0.9em;
-  text-transform: none;  
+  text-transform: none;
 }
 
 #home #changemakers-section .button:hover .detail-text,
@@ -423,12 +479,12 @@
   #home .page-header .title .line-b {
     font-size: 1.7em;
   }
-  
+
   #home #about-section {
     margin-bottom: -3.8125em;
   }
 }
-  
+
 @media (max-width:34em) {
   #home .page-header .title .line-a {
     font-size: 2em;
@@ -436,7 +492,7 @@
   #home .page-header .title .line-b {
     font-size: 1.3em;
   }
-  
+
   #home .intro-section {
     min-width: 16em;
   }
