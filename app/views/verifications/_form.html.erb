@@ -19,6 +19,15 @@
       <input id="report_last_name" name="verification[last_name]" class="text-field" type="text" value="<%= @verification.last_name %>" autocomplete="off" tabindex="2">
     </div>
   </div>
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="photo_id" class="text-field">Photo ID</label>
+      <div class="description">With gender or sex marker</div>
+      <input id="verification_photo_id" name="verification[photo_id]" type="file" tabindex="3">
+    </div>
+  </div>
+  
+  
 
-  <input id="verificationsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="3" onClick="gtag('event', 'ButtonClick', {'event_category': 'Verification', 'event_label': 'FormSubmit'});">
+  <input id="verificationsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="9" onClick="gtag('event', 'ButtonClick', {'event_category': 'Verification', 'event_label': 'FormSubmit'});">
 </form>
