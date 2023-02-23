@@ -82,6 +82,7 @@ gem 'nokogiri'
 
 # Introducing ActiveStorage to replace Draongfly
 gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", require: false
 
 # Explicitly adding this to remove warnings introduced by this RoR version
 # TODO: remove this after updating to Ruby 3+ and Rails 7
