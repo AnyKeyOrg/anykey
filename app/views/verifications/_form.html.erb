@@ -7,7 +7,8 @@
   </div>
   <%= display_alerts %>
   <div class="intro">
-    Explanation of form goes here.
+    Explanation of form goes here.<br><br>
+    Fields marked (°) are optional, but you must choose at least one means of identity verification for our moderators to review your request.
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
@@ -32,7 +33,7 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="player_id_type" class="text-field">Player ID Type</label>
-      <%= select(:verification, :player_id_type, [["",""],["Riot ID", "riot"]], {selected: @verification.player_id_type}, {tabindex: "5"}) %>
+      <%= select(:verification, :player_id_type, [[Verification::PLAYER_ID_TYPES[:riot], :riot]], {selected: @verification.player_id_type}, {tabindex: "5"}) %>
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="player_id" class="text-field">Player ID</label>
@@ -51,30 +52,30 @@
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
-      <label for="photo_id" class="text-field">Photo ID</label>
+      <label for="photo_id" class="text-field">Photo ID°</label>
       <div class="description">With gender/sex marker</div>
       <input id="verification_photo_id" name="verification[photo_id]" type="file" tabindex="9">
     </div>  
     <div class="item half-width flexbox vertical stretch">
-      <label for="doctors_note" class="text-field">Doctor's Note</label>
+      <label for="doctors_note" class="text-field">Doctor's Note°</label>
       <div class="description">That affirms your gender</div>
       <input id="verification_doctors_note" name="verification[doctors_note]" type="file" tabindex="10">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
-      <label for="social_profile" class="text-field">Social Media Profile</label>
+      <label for="social_profile" class="text-field">Social Media Profile°</label>
       <div class="description">Where your identity is public</div>
       <input id="verification_social_profile" name="verification[social_profile]" class="text-field" type="text" value="<%= @verification.social_profile %>" autocomplete="off" tabindex="11">
     </div>
     <div class="item half-width flexbox vertical stretch">
-      <label for="voice_requested" class="text-field">Request Voice Chat</label>
+      <label for="voice_requested" class="text-field">Request Voice Chat°</label>
       <div class="description">Do you prefer to speak to our staff?</div>
-      <%= select(:verification, :voice_requested, [["",""],["No, that's unnecessary", false],["Yes, verify me by voice", true]], {selected: @verification.voice_requested}, {tabindex: "12"}) %>
+      <%= select(:verification, :voice_requested, [["No, that's unnecessary", false],["Yes, verify me by voice", true]], {selected: @verification.voice_requested}, {tabindex: "12"}) %>
     </div>
   </div>
   <div class="item flexbox vertical stretch">
-    <label for="additional_notes" class="text-field">Additional Notes</label>
+    <label for="additional_notes" class="text-field">Additional Notes°</label>
     <div class="flexbox horizontal wrap justify-space-between">
       <div class="description">Anything else our mods should consider while reviewing your request?</div>
       <div class="flexbox vertical end flex-1">

@@ -4,7 +4,7 @@ en:
       pledge:
         first_name: "First name"
         last_name: "Last name"
-        email: "Email"    
+        email: "Email"
       report:  
         reporter_email: "Your email"
         reported_twitch_name: "Twitch user"
@@ -12,6 +12,20 @@ en:
         incident_occurred: "Incident date"
         incident_description: "Incident description"
         recommended_response: "Your recommendation"
+      verification:
+        first_name: "First name"
+        last_name: "Last name"
+        email: "Email"
+        discord_username: "Discord username"
+        player_id_type: "Player ID type"
+        player_id: "Player ID"
+        gender: "Gender"
+        pronouns: "Pronouns"
+        photo_id: "Photo ID"
+        doctors_note: "Doctor's note"
+        social_profile: "Social media profile"
+        voice_chat: "Voice chat request"
+        additional_notes: "Additional notes"
     errors:
       models:
         pledge:
@@ -19,7 +33,7 @@ en:
             first_name:
               blank: "is required"
             last_name:
-              blank: "is required"  
+              blank: "is required"
             email:
               blank: "is required"
               invalid: "must be valid"
@@ -36,7 +50,29 @@ en:
               blank: "is required"
               too_long: "must be less than 1,000 characters"
             recommended_response:
-              too_long: "must be less than 500 characters"    
+              too_long: "must be less than 500 characters"
+        verification:
+          attributes:
+            first_name:
+              blank: "is required"
+            last_name:
+              blank: "is required"
+            email:
+              blank: "is required"
+              invalid: "must be valid"
+            discord_username:
+              blank: "is required"
+              invalid: "must include 4-digit # tag"
+            player_id_type:
+              blank: "is required"
+            player_id:
+              blank: "is required"
+            gender:
+              blank: "is required"
+            pronouns:
+              blank: "are required"
+            additional_notes:
+              too_long: "must be less than 500 characters"  
   pledges:
     new:
       pledge-button: "<span class=\"detail-text\">Join %{pledges_count} Gamers</span><br>Take the Pledge"

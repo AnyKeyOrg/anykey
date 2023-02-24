@@ -15,7 +15,7 @@ class VerificationsController < ApplicationController
       redirect_to root_path
     else      
       flash.now[:alert] ||= ""
-      @report.errors.full_messages.each do |message|
+      @verification.errors.full_messages.each do |message|
         flash.now[:alert] << message + ". "
       end      
       render(action: :new)

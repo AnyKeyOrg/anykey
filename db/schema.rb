@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_23_095927) do
+ActiveRecord::Schema.define(version: 2023_02_24_091834) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -177,13 +177,14 @@ ActiveRecord::Schema.define(version: 2023_02_23_095927) do
     t.string "pronouns"
     t.string "social_profile"
     t.text "additional_notes"
-    t.boolean "voice_requested"
+    t.boolean "voice_requested", default: false
     t.string "status"
     t.datetime "requested_on"
     t.datetime "reviewed_on"
     t.integer "reviewer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "identifier"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
