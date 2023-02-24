@@ -1,0 +1,21 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Verifications</div>
+        <div class="panel-filters flexbox horizontal center wrap">
+          Filters
+        </div>
+      </div>
+      <div class="records-list flexbox vertical stretch">
+        <% if @verifications.present? %>
+        <%= render(partial: "verifications/row", collection: @verifications, as: :verification) %>
+        <% else %>
+        <div class="empty">
+          No verifications found.
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

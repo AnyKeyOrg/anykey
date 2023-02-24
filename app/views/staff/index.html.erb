@@ -6,8 +6,9 @@
         <%= link_to("Public View", root_path, class: "stealth") %>
       </div>
       <div class="panel-menu flexbox horizontal center wrap justify-space-between">
-        <%= link_to("Reports", reports_path, class: "half") %>
-        <%= link_to("Pledges", pledges_path, class: "half") %>
+        <%= link_to("Reports", reports_path, class: "third") %>
+        <%= link_to("Pledges", pledges_path, class: "third") %>
+        <%= link_to("Verifications", verifications_path, class: "third") %>
         <% if current_user.is_admin? %>
         <%= link_to("Affiliates", affiliates_path(staff: true), class: "third") %>
         <%= link_to("Stories", stories_path(staff: true), class: "third") %>
