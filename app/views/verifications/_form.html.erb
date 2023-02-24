@@ -4,7 +4,7 @@
   </div>
   <div class="title flexbox vertical center">
     Eligibility Verification
-  </div>  
+  </div>
   <%= display_alerts %>
   <div class="intro">
     Explanation of form goes here.
@@ -12,22 +12,76 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="first_name" class="text-field">First Name</label>
-      <input id="report_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off" tabindex="1">
+      <input id="verification_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off" tabindex="1">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="last_name" class="text-field">Last Name</label>
-      <input id="report_last_name" name="verification[last_name]" class="text-field" type="text" value="<%= @verification.last_name %>" autocomplete="off" tabindex="2">
+      <input id="verification_last_name" name="verification[last_name]" class="text-field" type="text" value="<%= @verification.last_name %>" autocomplete="off" tabindex="2">
+    </div>
+  </div>
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="email" class="text-field">Email</label>
+      <input id="verification_email" name="verification[email]" class="text-field" type="text" value="<%= @verification.email %>" autocomplete="off" tabindex="3">
+    </div>
+    <div class="item half-width flexbox vertical stretch">
+      <label for="discord_username" class="text-field">Discord Username</label>
+      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" tabindex="4">
+    </div>
+  </div>
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="player_id_type" class="text-field">Player ID Type</label>
+      <%= select(:verification, :player_id_type, [["",""],["Riot ID", "riot"]], {selected: @verification.player_id_type}, {tabindex: "5"}) %>
+    </div>
+    <div class="item half-width flexbox vertical stretch">
+      <label for="player_id" class="text-field">Player ID</label>
+      <input id="verification_player_id" name="verification[player_id]" class="text-field" type="text" value="<%= @verification.player_id %>" autocomplete="off" tabindex="6">
+    </div>
+  </div>
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="gender" class="text-field">What is your gender?</label>
+      <input id="verification_gender" name="verification[gender]" class="text-field" type="text" value="<%= @verification.gender %>" autocomplete="off" tabindex="7">
+    </div>
+    <div class="item half-width flexbox vertical stretch">
+      <label for="pronouns" class="text-field">What are your pronouns?</label>
+      <input id="verification_pronouns" name="verification[pronouns]" class="text-field" type="text" value="<%= @verification.pronouns %>" autocomplete="off" tabindex="8">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="photo_id" class="text-field">Photo ID</label>
-      <div class="description">With gender or sex marker</div>
-      <input id="verification_photo_id" name="verification[photo_id]" type="file" tabindex="3">
+      <div class="description">With gender/sex marker</div>
+      <input id="verification_photo_id" name="verification[photo_id]" type="file" tabindex="9">
+    </div>  
+    <div class="item half-width flexbox vertical stretch">
+      <label for="doctors_note" class="text-field">Doctor's Note</label>
+      <div class="description">That affirms your gender</div>
+      <input id="verification_doctors_note" name="verification[doctors_note]" type="file" tabindex="10">
     </div>
   </div>
-  
-  
-
-  <input id="verificationsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="9" onClick="gtag('event', 'ButtonClick', {'event_category': 'Verification', 'event_label': 'FormSubmit'});">
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="social_profile" class="text-field">Social Media Profile</label>
+      <div class="description">Where your identity is public</div>
+      <input id="verification_social_profile" name="verification[social_profile]" class="text-field" type="text" value="<%= @verification.social_profile %>" autocomplete="off" tabindex="11">
+    </div>
+    <div class="item half-width flexbox vertical stretch">
+      <label for="voice_requested" class="text-field">Request Voice Chat</label>
+      <div class="description">Do you prefer to speak to our staff?</div>
+      <%= select(:verification, :voice_requested, [["",""],["No, that's unnecessary", false],["Yes, verify me by voice", true]], {selected: @verification.voice_requested}, {tabindex: "12"}) %>
+    </div>
+  </div>
+  <div class="item flexbox vertical stretch">
+    <label for="additional_notes" class="text-field">Additional Notes</label>
+    <div class="flexbox horizontal wrap justify-space-between">
+      <div class="description">Anything else our mods should consider while reviewing your request?</div>
+      <div class="flexbox vertical end flex-1">
+      <div id="additional-notes-counter" data-max-length="500">500</div>
+    </div>
+    </div>
+    <textarea id="verification_additional_notes" name="verification[additional_notes]" class="text-field" type="text" autocomplete="off" tabindex="13"><%= @verification.additional_notes %></textarea>
+  </div>
+  <input id="verificationsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="14" onClick="gtag('event', 'ButtonClick', {'event_category': 'Verification', 'event_label': 'FormSubmit'});">
 </form>

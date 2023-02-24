@@ -35,4 +35,6 @@
   --light-blue-overlay:     rgba(56,135,249,0.2);
   --light-fuchsia-overlay:  rgba(177,20,120,0.2);
 
+  --faint-fuchsia-overlay:  rgba(177,20,120,0.05);
+
 }

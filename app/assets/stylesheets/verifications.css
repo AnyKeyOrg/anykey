@@ -1,4 +1,7 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+/************************************/
+/*    Verification Page Sections    */
+/************************************/
+
+#verification .page-section {
+  max-width: 43em;
+}
