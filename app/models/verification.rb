@@ -4,7 +4,7 @@ class Verification < ApplicationRecord
   
   STATUSES = {
     pending:      "Pending",
-    under_review: "Under Review",
+    ignored:      "Ignored",
     eligible:     "Eligible",
     denied:       "Denied"
   }.freeze
