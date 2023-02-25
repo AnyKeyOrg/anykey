@@ -5,3 +5,32 @@
 #verification .page-section {
   max-width: 43em;
 }
+
+
+/************************************/
+/*  Backstage Verification Review   */
+/************************************/
+
+#backstage-container .verification-item {
+  margin-top: 1.25em;
+  width: 100%;
+}
+
+#backstage-container .verification-item.half-width {
+  max-width: 17em;
+}
+
+#backstage-container .verification-item .item-title {
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-bottom: 0.2em;
+}
+
+#backstage-container .verification-item .item-text {
+  font-size: 1em;
+}
+
+#backstage-container .verification-item .item-text svg{
+  height: 1em;
+  margin-right: 0.4em;
+}

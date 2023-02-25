@@ -1,0 +1,17 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Verification Review</div>
+        <div class="panel-descriptor">
+          Requested on <%= l(@verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P").upcase %>
+        </div>
+      </div>
+      <%= render(partial: "shared/verification_body") %>
+      <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
+        StartReviewButton
+        <%= link_to('cancel', verifications_path, class: "stealth" ) %>
+      </div>
+    </div>
+  </div>
+</div>
