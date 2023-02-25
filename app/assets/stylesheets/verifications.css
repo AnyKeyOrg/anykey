@@ -30,7 +30,116 @@
   font-size: 1em;
 }
 
-#backstage-container .verification-item .item-text svg{
+#backstage-container .verification-item .item-text.empty {
+  color: var(--light-gray-color);
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-top: 0.3em;
+}
+
+#backstage-container .verification-item .item-text.small {
+  font-size: 0.9em;
+}
+
+#backstage-container .verification-item .item-text svg {
   height: 1em;
   margin-right: 0.4em;
 }
+
+
+/************************************/
+/*  Backstage Verification Overlays */
+/************************************/
+
+#verification-photo-id,
+#verification-doctors-note {
+  position: relative;
+}
+
+#verification-photo-id #photo-id-overlay,
+#verification-doctors-note #doctors-note-overlay  {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--black-overlay);
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+#verification-photo-id #photo-id-overlay .action,
+#verification-doctors-note #doctors-note-overlay .action {
+  background-color: var(--white-overlay);
+  font-family: var(--alt-title-font);
+  font-weight: 400;
+  font-size: 0.7em;
+  text-align: center;
+  color: var(--white-color);
+  padding: 0.8em 1em 0.8em 1em;
+}
+
+
+
+
+
+
+/************************************/
+/*  Backstage Verification Buttons  */
+/************************************/
+
+#backstage-container .verification-buttons {
+  margin-top: 2em;
+}
+
+#backstage-container .verification-buttons .button {
+  border: 4px solid var(--light-black-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.2em;
+  padding: 0.75em 1em 0.75em 1em;
+  text-transform: uppercase;
+  text-align: center;
+  min-width: 4.5em;
+  margin-left: 2em;
+}
+
+#backstage-container .verification-buttons .button.start-button {
+  background-color: var(--bright-green-color);
+}
+
+/*#backstage-container .report-buttons .button.warn-button {
+  background-color: var(--bright-orange-color);
+}
+
+#backstage-container .report-buttons .button.revoke-button {
+  background-color: var(--alert-red-color);
+}
+
+#backstage-container .report-buttons .button.resolved-button,
+#backstage-container .report-buttons .button.resolved-button:hover,
+#backstage-container .report-buttons .button.resolved-button:focus {
+  cursor: default;
+  background-color: var(--light-gray-color);
+  border: 4px solid var(--dark-white-color);
+  color: var(--gray-color);
+}*/
+
+#backstage-container .verification-buttons .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);
+}
+
+#backstage-container .verification-buttons .button:focus {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);  
+  outline: none;
+}
+
+#backstage-container .verification-buttons .button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+

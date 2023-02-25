@@ -7,9 +7,10 @@
           Requested on <%= l(@verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P").upcase %>
         </div>
       </div>
-      <%= render(partial: "shared/verification_body") %>
+      <%= render(partial: "verifications/identity") %>
+      <%= render(partial: "verifications/materials") %>
       <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
-        StartReviewButton
+        <%= link_to("Start Review", "", class: 'start-button button') %>
         <%= link_to('cancel', verifications_path, class: "stealth" ) %>
       </div>
     </div>

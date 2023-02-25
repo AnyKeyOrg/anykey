@@ -1,0 +1,48 @@
+<div class="flexbox horizontal start wrap justify-space-between">
+  <div class="verification-item half-width flexbox vertical start">
+    <div class="item-title">Photo ID</div>
+    <% if @verification.photo_id.attached? %>    
+    <div id="verification-photo-id" class="flexbox horizontal center" data-url="<%= url_for(@verification.photo_id) %>">
+      <%= image_tag(@verification.photo_id.variant(resize_to_limit: [240, 240])) %>
+      <div id="photo-id-overlay" style="display:none">
+        <div class="action">
+          Show Original
+        </div>
+      </div>
+    </div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+  <div class="verification-item half-width flexbox vertical start">
+    <div class="item-title">Doctor's Note</div>
+    <% if @verification.doctors_note.attached? %>    
+      <div id="verification-doctors-note" class="flexbox horizontal center" data-url="<%= url_for(@verification.doctors_note) %>">
+        <%= image_tag(@verification.doctors_note.variant(resize_to_limit: [240, 240])) %>
+        <div id="doctors-note-overlay" style="display:none">
+          <div class="action">
+            Show Original
+          </div>
+        </div>
+      </div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+  <div class="verification-item half-width flexbox vertical stretch">
+    <div class="item-title">Social Media Profile</div>
+    <% if !@verification.social_profile.blank? %>
+    <div class="item-text small"><%= link_to(@verification.social_profile, @verification.social_profile, class: "inline", target: "blank")%></div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+  <div class="verification-item half-width flexbox vertical stretch">
+    <div class="item-title">Voice Chat Requested?</div>
+    <div class="item-text"><%= @verification.voice_requested ? "✅ Yes" : "❌ No"%></div>
+  </div>
+  <div class="verification-item flexbox vertical stretch">
+    <div class="item-title">Additional Notes</div>
+    <div class="item-text small"><%= @verification.additional_notes %></div>
+  </div>
+</div>
