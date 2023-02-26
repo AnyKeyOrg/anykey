@@ -2,7 +2,17 @@
   <div class="inner flexbox vertical center">
     <div class="control-panel flexbox vertical stretch">
       <div class="flexbox horizontal center wrap justify-space-between">
-        <div class="panel-title">Verification Review</div>
+        <div class="panel-title">
+          <% if @verification.ignored? %>
+            Ignored Request
+          <% elsif @verification.denied? %>
+            Eligibility Denied
+          <% elsif @verification.eligible? %>
+            Eligibility Certification
+          <% else %>
+            Verification Review
+          <% end %>
+        </div>
         <div class="panel-descriptor">
           Requested on <%= l(@verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P").upcase %>
         </div>
@@ -18,7 +28,7 @@
           <% if @verification.ignored? %>
             <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button') %>
           <% else %>
-            <%= Verification::STATUSES[@verification.status.to_sym] %>
+            <div class="<%= @verification.status %>-button button"><%= Verification::STATUSES[@verification.status.to_sym] %></div>
           <% end %>
         <% end %>
         <%= link_to('cancel', verifications_path, class: "stealth" ) %>

@@ -118,13 +118,22 @@
   background-color: var(--bright-green-color);
 }
 
-#backstage-container .verification-buttons .button.reviewed-button,
-#backstage-container .verification-buttons .button.reviewed-button:hover,
-#backstage-container .verification-buttons .button.reviewed-button:focus {
+#backstage-container .verification-buttons .button.eligible-button,
+#backstage-container .verification-buttons .button.eligible-button:hover,
+#backstage-container .verification-buttons .button.eligible-button:focus {
   cursor: default;
-  background-color: var(--light-gray-color);
-  border: 4px solid var(--dark-white-color);
-  color: var(--gray-color);
+  background-color: var(--light-green-overlay);
+  border: 4px solid var(--bright-green-color);
+  color: var(--bright-green-color);
+}
+
+#backstage-container .verification-buttons .button.denied-button,
+#backstage-container .verification-buttons .button.denied-button:hover,
+#backstage-container .verification-buttons .button.denied-button:focus {
+  cursor: default;
+  background-color: var(--light-red-overlay);
+  border: 4px solid var(--alert-red-color);
+  color: var(--alert-red-color);
 }
 
 #backstage-container .verification-buttons .button:hover {

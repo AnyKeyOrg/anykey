@@ -83,6 +83,10 @@ class Verification < ApplicationRecord
     self.status.to_sym == :denied
   end
   
+  def eligible?
+    self.status.to_sym == :eligible
+  end
+  
   def reviewed?
     !self.reviewer_id.nil?
   end
