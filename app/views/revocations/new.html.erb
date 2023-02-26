@@ -19,10 +19,10 @@
           <label for="reason" class="text-field">Reason for revocation</label>
         </div>
         <%= display_alerts %>
-        <div class="buttons flexbox vertical end">
-          <div class="flexbox horizontal center">
+        <div class="report-buttons flexbox vertical end">
+          <div class="flexbox horizontal-reverse wrap-reverse center">
+            <input id="revocation_submit" name="commit" type="submit" class="revoke-button button" value="Revoke Badge" data-confirm="<%="Are you sure you want to revoke the badge from #{@report.reported_twitch_name} and send them a notification at #{@pledge.email}?\nRemember, there's no way to unsend an email 😉" %>" tabindex="2">
             <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "3") %>
-            <input id="revocation_submit" name="commit" type="submit" class="button left-padded" value="Revoke Badge" data-confirm="<%="Are you sure you want to revoke the badge from #{@report.reported_twitch_name} and send them a notification at #{@pledge.email}?\nRemember, there's no way to unsend an email 😉" %>" tabindex="2">
           </div>
         </div>
       </form>

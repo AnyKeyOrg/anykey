@@ -19,10 +19,10 @@
           <label for="reason" class="text-field">Reason for warning</label>
         </div>
         <%= display_alerts %>
-        <div class="buttons flexbox vertical end">
-          <div class="flexbox horizontal center">
+        <div class="report-buttons flexbox vertical end">
+          <div class="flexbox horizontal-reverse wrap-reverse center">
+            <input id="warning_submit" name="commit" type="submit" class="warn-button button" value="Issue Warning" data-confirm="<%="Are you sure you want to warn #{@pledge.email} (#{@report.reported_twitch_name})?\nRemember, there's no way to unsend an email 😉" %>" tabindex="2">
             <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "3") %>
-            <input id="warning_submit" name="commit" type="submit" class="button left-padded" value="Issue Warning" data-confirm="<%="Are you sure you want to warn #{@pledge.email} (#{@report.reported_twitch_name})?\nRemember, there's no way to unsend an email 😉" %>" tabindex="2">
           </div>
         </div>
       </form>
