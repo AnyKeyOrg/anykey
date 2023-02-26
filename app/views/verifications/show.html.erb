@@ -18,7 +18,9 @@
         </div>
       </div>
       <%= render(partial: "verifications/identity") %>
+      <% if @verification.pending? %>
       <%= render(partial: "verifications/materials") %>
+      <% end %>
       <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
         <% if @verification.pending? %>
           <%= link_to("Verify", eligible_verification_path(@verification, back: request.fullpath), class: 'verify-button button') %>
