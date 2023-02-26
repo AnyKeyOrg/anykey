@@ -58,7 +58,7 @@ class Verification < ApplicationRecord
   uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
 
   scope :pending,         lambda { where(status: :pending) }  
-  scope :voice_requested, lambda { where(voice_requested: true) }
+  scope :voice_requested, lambda { where(status: :pending, voice_requested: true) }
   scope :ignored,         lambda { where(status: :ignored) }
   scope :denied,          lambda { where(status: :denied) }
   scope :eligible,        lambda { where(status: :eligible) }
