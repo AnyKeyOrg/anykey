@@ -10,7 +10,9 @@
       <%= render(partial: "verifications/identity") %>
       <%= render(partial: "verifications/materials") %>
       <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
-        <%= link_to("Start Review", "", class: 'start-button button') %>
+        <%= link_to("Verify", "", class: 'verify-button button') %>
+        <%= link_to("Deny", "", class: 'deny-button button') %>
+        <%= link_to("Ignore", "", class: 'ignore-button button') %>
         <%= link_to('cancel', verifications_path, class: "stealth" ) %>
       </div>
     </div>

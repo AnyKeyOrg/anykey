@@ -106,26 +106,26 @@
   margin-left: 2em;
 }
 
-#backstage-container .verification-buttons .button.start-button {
+#backstage-container .verification-buttons .button.verify-button {
   background-color: var(--bright-green-color);
 }
 
-/*#backstage-container .report-buttons .button.warn-button {
-  background-color: var(--bright-orange-color);
-}
-
-#backstage-container .report-buttons .button.revoke-button {
+#backstage-container .verification-buttons .button.deny-button {
   background-color: var(--alert-red-color);
 }
 
-#backstage-container .report-buttons .button.resolved-button,
-#backstage-container .report-buttons .button.resolved-button:hover,
-#backstage-container .report-buttons .button.resolved-button:focus {
+#backstage-container .verification-buttons .button.ignore-button {
+  background-color: var(--gray-color);
+}
+
+#backstage-container .verification-buttons .button.reviewed-button,
+#backstage-container .verification-buttons .button.reviewed-button:hover,
+#backstage-container .verification-buttons .button.reviewed-button:focus {
   cursor: default;
   background-color: var(--light-gray-color);
   border: 4px solid var(--dark-white-color);
   color: var(--gray-color);
-}*/
+}
 
 #backstage-container .verification-buttons .button:hover {
   cursor: pointer;

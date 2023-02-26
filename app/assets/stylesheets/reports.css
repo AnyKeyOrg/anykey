@@ -72,6 +72,10 @@
 }
 
 #backstage-container .report-buttons .button.dismiss-button {
+  background-color: var(--gray-color);
+}
+
+#backstage-container .report-buttons .button.undismiss-button {
   background-color: var(--bright-green-color);
 }
 
