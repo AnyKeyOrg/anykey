@@ -36,7 +36,12 @@ Rails.application.routes.draw do
     end
     get '/report',             to: 'reports#new',        as: :short_report
 
-    resources :verifications,  only: [ :index, :show, :new, :create ]
+    resources :verifications,  only: [ :index, :show, :new, :create ] do
+      member do
+        post :ignore
+        post :unignore
+      end
+    end
 
     resources :staff,          only: [ :index ]
     resources :users,          only: [ :index, :show, :edit, :update ]

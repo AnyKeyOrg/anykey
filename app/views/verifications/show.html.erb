@@ -10,9 +10,17 @@
       <%= render(partial: "verifications/identity") %>
       <%= render(partial: "verifications/materials") %>
       <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
-        <%= link_to("Verify", "", class: 'verify-button button') %>
-        <%= link_to("Deny", "", class: 'deny-button button') %>
-        <%= link_to("Ignore", "", class: 'ignore-button button') %>
+        <% if @verification.pending? %>
+          <%= link_to("Verify", "", class: 'verify-button button') %>
+          <%= link_to("Deny", "", class: 'deny-button button') %>
+          <%= link_to("Ignore", ignore_verification_path(@verification), method: :post, class: 'ignore-button button') %>
+        <% elsif @verification.reviewed? %>
+          <% if @verification.ignored? %>
+            <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button') %>
+          <% else %>
+            <%= Verification::STATUSES[@verification.status.to_sym] %>
+          <% end %>
+        <% end %>
         <%= link_to('cancel', verifications_path, class: "stealth" ) %>
       </div>
     </div>

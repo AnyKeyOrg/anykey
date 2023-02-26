@@ -1,6 +1,6 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= verification_path(verification, back: request.fullpath) %>">
   <div class="flexbox horizontal center wrap justify-space-between">
-    <div class="row-title"><%= verification.first_name %> <%= verification.last_name %></div>
+    <div class="row-title"><%= verification.full_name %></div>
     <div class="row-detail"><%= l(verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P ") %></div>
   </div>
 </div>

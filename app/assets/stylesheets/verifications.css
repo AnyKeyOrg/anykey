@@ -81,10 +81,6 @@
 }
 
 
-
-
-
-
 /************************************/
 /*  Backstage Verification Buttons  */
 /************************************/
@@ -106,7 +102,11 @@
   margin-left: 2em;
 }
 
-#backstage-container .verification-buttons .button.verify-button {
+#backstage-container .verification-buttons .button.ignore-button {
+  background-color: var(--gray-color);
+}
+
+#backstage-container .verification-buttons .button.unignore-button {
   background-color: var(--bright-green-color);
 }
 
@@ -114,8 +114,8 @@
   background-color: var(--alert-red-color);
 }
 
-#backstage-container .verification-buttons .button.ignore-button {
-  background-color: var(--gray-color);
+#backstage-container .verification-buttons .button.verify-button {
+  background-color: var(--bright-green-color);
 }
 
 #backstage-container .verification-buttons .button.reviewed-button,

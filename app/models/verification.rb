@@ -37,6 +37,8 @@ class Verification < ApplicationRecord
   
   validates             :additional_notes,
                         length: { maximum: 500 }
+                        
+  belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id, optional: true                      
                           
   has_one_attached :photo_id
   has_one_attached :doctors_note
@@ -47,7 +49,23 @@ class Verification < ApplicationRecord
   def to_param
     identifier
   end
-
+  
+  def full_name
+    self.first_name + ' ' + self.last_name
+  end
+  
+  def ignored?
+    self.status.to_sym == :ignored
+  end
+  
+  def pending?
+    self.status.to_sym == :pending
+  end
+  
+  def reviewed?
+    !self.reviewer_id.nil?
+  end
+  
   protected    
     # Invoke some URI parsing magic to validate social links
     def ensure_valid_social_url

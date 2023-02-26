@@ -4,7 +4,7 @@ class VerificationsController < ApplicationController
   
   before_action :authenticate_user!,        only: [ :index, :show ]
   before_action :ensure_staff,              only: [ :index, :show ]
-  before_action :find_verification,         only: [ :show ]
+  before_action :find_verification,         only: [ :show, :ignore, :unignore ]
   
   def index
     @verifications = Verification.all.order(requested_on: :desc)
@@ -19,9 +19,7 @@ class VerificationsController < ApplicationController
   
   def create
     @verification = Verification.new(verification_params)
-  
-    # TODO: set requested_on
-  
+    
     if @verification.save
       # TODO: send notification to staff
       flash[:notice] = "You've successfully submitted your eligibility verification request. Thank you."
@@ -32,6 +30,36 @@ class VerificationsController < ApplicationController
         flash.now[:alert] << message + ". "
       end
       render(action: :new)
+    end
+  end
+  
+  def ignore
+    if @verification.pending? # Reasonability check to only allow pending requests to be ignored
+      @verification.status = :ignored
+      @verification.reviewer = current_user
+      @verification.reviewed_on = Time.now
+      if @verification.save
+        flash[:notice] = "You ignored the verification request from #{@verification.full_name}."
+      end
+      redirect_to verifications_path
+    else
+      redirect_to verifications_path
+    end      
+  end
+  
+  def unignore
+    if @verification.ignored? # Reasonability check to only allow ignored requests to be unignored
+      @verification.status = :pending
+      @verification.reviewer = nil
+      @verification.reviewed_on = nil
+      if @verification.save
+        flash[:notice] = "You unignored the verification request from #{@verification.full_name}. It can now be reviewed again."
+        redirect_to verification_path(@verification)
+      else    
+        redirect_to verifications_path
+      end
+    else
+      redirect_to verifications_path
     end
   end
   
