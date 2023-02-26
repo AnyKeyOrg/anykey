@@ -1,10 +1,10 @@
 class VerificationsController < ApplicationController
   
-  layout "backstage",                       only: [ :index, :show ]
+  layout "backstage",                       only: [ :index, :show, :eligible, :denied ]
   
-  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore ]
-  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore ]
-  before_action :find_verification,         only: [ :show, :ignore, :unignore ]
+  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore, :eligible, :denied, :verify, :deny ]
+  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore, :eligible, :denied, :verify, :deny ]
+  before_action :find_verification,         only: [ :show, :ignore, :unignore, :eligible, :denied, :verify, :deny ]
   around_action :display_timezone
   
   def index
@@ -52,7 +52,23 @@ class VerificationsController < ApplicationController
     end
     redirect_to verifications_path
   end
-    
+
+  def eligible
+  end
+  
+  def denied
+  end
+  
+  def verify
+    # TODO: Send certification email
+    # TODO: Purge attachments
+  end
+  
+  def deny
+    # TODO: Send denial email
+    # TODO: Purge attachments
+  end
+  
   protected
     def find_verification
       @verification = Verification.find_by(identifier: params[:id])

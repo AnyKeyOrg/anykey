@@ -143,3 +143,22 @@
 }
 
 
+/***********************************/
+/*         Responsiveness          */
+/***********************************/
+
+@media (max-width:46em) {
+  #backstage-container .verification-buttons .button {
+    width: 100%;
+    margin-left: 0em;
+    margin-top: 2em;
+  }
+  
+  #backstage-container .verification-buttons a.stealth {
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid var(--bright-green-color);
+    margin-bottom: -2px;
+  }
+}
+

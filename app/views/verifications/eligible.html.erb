@@ -1,0 +1,29 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Eligibility Verification</div>
+        <div class="panel-descriptor">
+          To be issued on <%= l(Time.now, format: "%b. %-d, %Y · %-l:%M%P").upcase %>
+        </div>
+      </div>
+      <%= render(partial: "verifications/identity") %>
+      <hr class="spacer">
+      <div class="panel-text">
+        After you review their identity info, you should certify all women, non-binary, and trans players as eligible to compete in tournaments for marginalized genders.
+      </div>
+      <form action="<%= verify_verification_path(@verification) %>" id="verify" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+        <div style="hidden">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </div>
+        <%= display_alerts %>
+        <div class="verification-buttons flexbox vertical end">
+          <div class="flexbox horizontal-reverse wrap-reverse center">
+            <input id="eligible_submit" name="commit" type="submit" class="verify-button button left-padded" value="Verify Eligibility" data-confirm="<%="Are you sure you want to verify #{@verification.full_name}'s eligibility to compete in tournaments for marginalized genders?\n\nRemember, this will permanently destroy their uploaded documents and generate an irrevocable certification email 🤓" %>" tabindex="1">
+            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "2") %>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
