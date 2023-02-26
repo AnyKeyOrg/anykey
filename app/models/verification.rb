@@ -3,10 +3,19 @@ class Verification < ApplicationRecord
   require 'uri'
   
   STATUSES = {
-    pending:      "Pending",
-    ignored:      "Ignored",
-    eligible:     "Eligible",
-    denied:       "Denied"
+    pending:  "Pending",
+    ignored:  "Ignored",
+    denied:   "Denied",
+    eligible: "Eligible"
+  }.freeze
+  
+  SORT_FILTERS = {
+    pending:          "Pending",
+    voice_requested:  "Voice Requested",
+    ignored:          "Ignored",
+    denied:           "Denied",
+    eligible:         "Eligible",
+    all:              "All"
   }.freeze
   
   PLAYER_ID_TYPES = {
@@ -47,6 +56,12 @@ class Verification < ApplicationRecord
     
   # Non-sequential identifier scheme   
   uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
+
+  scope :pending,         lambda { where(status: :pending) }  
+  scope :voice_requested, lambda { where(voice_requested: true) }
+  scope :ignored,         lambda { where(status: :ignored) }
+  scope :denied,          lambda { where(status: :denied) }
+  scope :eligible,        lambda { where(status: :eligible) }
 
   def to_param
     identifier

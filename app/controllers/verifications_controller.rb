@@ -8,7 +8,14 @@ class VerificationsController < ApplicationController
   around_action :display_timezone
   
   def index
-    @verifications = Verification.all.order(requested_on: :desc)
+    # f is used to filter reports by scope
+    if params[:f].present? && Verification::SORT_FILTERS.key?(params[:f].to_sym)
+      @verifications = eval("Verification."+params[:f]+".all.order(requested_on: :asc).paginate(page: params[:page], per_page: 30)")
+      @filter_category = params[:f]
+    else
+      @verifications = Verification.pending.all.order(requested_on: :asc).paginate(page: params[:page], per_page: 30)      
+      @filter_category = "pending"
+    end
   end
   
   def show

@@ -4,12 +4,22 @@
       <div class="flexbox horizontal center wrap justify-space-between">
         <div class="panel-title">Verifications</div>
         <div class="panel-filters flexbox horizontal center wrap">
-          Filters
+          <% Verification::SORT_FILTERS.each do |filter| %>
+            <% if @filter_category.to_s == filter[0].to_s %>
+              <%= link_to("#{filter[1]} [#{@verifications.count}]", verifications_path(f: filter[0]), class: "filter selected") %>            
+            <% else %>
+             <%= link_to(filter[1], verifications_path(f: filter[0]), class: "filter") %>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="records-list flexbox vertical stretch">
         <% if @verifications.present? %>
         <%= render(partial: "verifications/row", collection: @verifications, as: :verification) %>
+        <div class="flexbox vertical center">
+          <%= will_paginate @verifications, class: "pagination full flexbox horizontal", previous_label: "« PREV", next_label: "NEXT »", inner_window: 3, outer_window: 0  %>
+          <%= will_paginate @verifications, class: "pagination mini flexbox horizontal justify-space-between", previous_label: "« PREV", next_label: "NEXT »", page_links: false  %>
+        </div>
         <% else %>
         <div class="empty">
           No verifications found.
