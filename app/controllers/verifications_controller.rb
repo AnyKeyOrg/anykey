@@ -2,9 +2,10 @@ class VerificationsController < ApplicationController
   
   layout "backstage",                       only: [ :index, :show ]
   
-  before_action :authenticate_user!,        only: [ :index, :show ]
-  before_action :ensure_staff,              only: [ :index, :show ]
+  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore ]
+  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore ]
   before_action :find_verification,         only: [ :show, :ignore, :unignore ]
+  around_action :display_timezone
   
   def index
     @verifications = Verification.all.order(requested_on: :desc)
@@ -35,34 +36,23 @@ class VerificationsController < ApplicationController
   
   def ignore
     if @verification.pending? # Reasonability check to only allow pending requests to be ignored
-      @verification.status = :ignored
-      @verification.reviewer = current_user
-      @verification.reviewed_on = Time.now
-      if @verification.save
+      if @verification.update(status: :ignored, reviewer: current_user, reviewed_on: Time.now)
         flash[:notice] = "You ignored the verification request from #{@verification.full_name}."
       end
-      redirect_to verifications_path
-    else
-      redirect_to verifications_path
     end      
+    redirect_to verifications_path
   end
   
   def unignore
     if @verification.ignored? # Reasonability check to only allow ignored requests to be unignored
-      @verification.status = :pending
-      @verification.reviewer = nil
-      @verification.reviewed_on = nil
-      if @verification.save
+      if @verification.update(status: :pending, reviewer: nil, reviewed_on: nil)
         flash[:notice] = "You unignored the verification request from #{@verification.full_name}. It can now be reviewed again."
-        redirect_to verification_path(@verification)
-      else    
-        redirect_to verifications_path
+        redirect_to verification_path(@verification) and return
       end
-    else
-      redirect_to verifications_path
     end
+    redirect_to verifications_path
   end
-  
+    
   protected
     def find_verification
       @verification = Verification.find_by(identifier: params[:id])
@@ -75,6 +65,11 @@ class VerificationsController < ApplicationController
       unless current_user.is_moderator? || current_user.is_admin?
         redirect_to root_url
       end
+    end
+    
+    def display_timezone
+      timezone = Time.find_zone( cookies[:browser_timezone] )
+      Time.use_zone(timezone) { yield }
     end
     
     def verification_params
