@@ -37,7 +37,7 @@ class VerificationsController < ApplicationController
   def ignore
     if @verification.pending? # Reasonability check to only allow pending requests to be ignored
       if @verification.update(status: :ignored, reviewer: current_user, reviewed_on: Time.now)
-        flash[:notice] = "You ignored the verification request from #{@verification.full_name}."
+        flash[:notice] = "You ignored the eligibility verification request from #{@verification.full_name}."
       end
     end      
     redirect_to verifications_path
@@ -46,7 +46,7 @@ class VerificationsController < ApplicationController
   def unignore
     if @verification.ignored? # Reasonability check to only allow ignored requests to be unignored
       if @verification.update(status: :pending, reviewer: nil, reviewed_on: nil)
-        flash[:notice] = "You unignored the verification request from #{@verification.full_name}. It can now be reviewed again."
+        flash[:notice] = "You unignored the eligibility verification request from #{@verification.full_name}. It can now be reviewed again."
         redirect_to verification_path(@verification) and return
       end
     end
@@ -59,14 +59,38 @@ class VerificationsController < ApplicationController
   def denied
   end
   
-  def verify
-    # TODO: Send certification email
-    # TODO: Purge attachments
+  def verify    
+    if @verification.pending? # Reasonability check to only allow pending requests to be denied
+      if @verification.update(status: :eligible, reviewer: current_user, reviewed_on: Time.now)
+        # TODO: Send certification email
+        # TODO: Purge attachments
+        flash[:notice] = "You certified the eligibility verification request from #{@verification.full_name}."
+      else
+        flash.now[:alert] ||= ""
+        @verification.errors.full_messages.each do |message|
+          flash.now[:alert] << message + ". "
+        end
+        render(action: :eligible, layout: "backstage") and return
+      end
+    end      
+    redirect_to verifications_path
   end
   
   def deny
-    # TODO: Send denial email
-    # TODO: Purge attachments
+    if @verification.pending? # Reasonability check to only allow pending requests to be denied
+      if @verification.update(status: :denied, denial_reason: params[:verification][:denial_reason], reviewer: current_user, reviewed_on: Time.now)
+        # TODO: Send denial email
+        # TODO: Purge attachments
+        flash[:notice] = "You denied the eligibility verification request from #{@verification.full_name}."
+      else
+        flash.now[:alert] ||= ""
+        @verification.errors.full_messages.each do |message|
+          flash.now[:alert] << message + ". "
+        end
+        render(action: :denied, layout: "backstage") and return
+      end
+    end      
+    redirect_to verifications_path
   end
   
   protected

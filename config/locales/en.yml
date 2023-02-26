@@ -26,6 +26,7 @@ en:
         social_profile: "Social media profile"
         voice_chat: "Voice chat request"
         additional_notes: "Additional notes"
+        denial_reason: "Reason"
     errors:
       models:
         pledge:

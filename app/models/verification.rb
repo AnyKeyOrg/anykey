@@ -35,6 +35,8 @@ class Verification < ApplicationRecord
   
   validate              :ensure_valid_social_url
   
+  validate              :ensure_denial_includes_reason
+  
   validates             :additional_notes,
                         length: { maximum: 500 }
                         
@@ -62,15 +64,25 @@ class Verification < ApplicationRecord
     self.status.to_sym == :pending
   end
   
+  def denied?
+    self.status.to_sym == :denied
+  end
+  
   def reviewed?
     !self.reviewer_id.nil?
   end
   
-  protected    
+  protected
+    def ensure_denial_includes_reason
+      if (self.denied? && self.denial_reason.blank? )
+        errors.add(:denial_reason, "is required")
+      end
+    end
+
     # Invoke some URI parsing magic to validate social links
     def ensure_valid_social_url
       if self.social_profile.present? && !valid_url?(social_profile)
-        errors.add(:social_profile, "must be valid URL")      
+        errors.add(:social_profile, "must be valid URL")
       end
     end
     
@@ -82,14 +94,14 @@ class Verification < ApplicationRecord
     end
     
   private
-    # Set requested on time as record is created 
+    # Set requested on time as record is created
     def ensure_requested_on_set
       if !self.requested_on.present?
         self.requested_on = Time.now
       end
     end
     
-    # Set status when record is created 
+    # Set status when record is created
     def ensure_status_set
       if !self.status.present?
         self.status = :pending
