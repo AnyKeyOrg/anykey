@@ -136,6 +136,26 @@
   font-size: 0.8em;
 }
 
+#backstage-container .record-row .row-subtitle {
+  font-size: 0.9em;
+  margin-right: 1em;
+}
+
+#backstage-container .record-row .row-subdetail {
+  font-size: 0.8em;
+  margin-left: 1em;
+}
+
+#backstage-container .record-row .inline-icon {
+  margin-right: 0.2em;
+  font-family: var(--solid-icon-font), var(--icon-font);
+}
+
+#backstage-container .record-row .inline-icon svg {
+  display: block;
+  height: 0.9em;
+}
+
 
 /***********************************/
 /*         Responsiveness          */

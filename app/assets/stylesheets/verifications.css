@@ -8,6 +8,26 @@
 
 
 /************************************/
+/*  Backstage Verification Queue    */
+/************************************/
+
+#backstage-container .record-row .row-subdetail.ignored {
+  font-weight: 700;
+  color: var(--gray-color);
+}
+
+#backstage-container .record-row .row-subdetail.eligible {
+ font-weight: 700;
+ color: var(--bright-green-color);
+}
+
+#backstage-container .record-row .row-subdetail.denied {
+  font-weight: 700;
+  color: var(--alert-red-color);
+}
+
+
+/************************************/
 /*  Backstage Verification Review   */
 /************************************/
 
