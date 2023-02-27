@@ -62,7 +62,13 @@ class Verification < ApplicationRecord
   scope :ignored,         lambda { where(status: :ignored) }
   scope :denied,          lambda { where(status: :denied) }
   scope :eligible,        lambda { where(status: :eligible) }
-
+  scope :search,          lambda { |search| where("lower(first_name) LIKE :search OR
+                                                   lower(last_name) LIKE :search OR
+                                                   lower(email) LIKE :search OR
+                                                   lower(discord_username) LIKE :search OR
+                                                   lower(player_id) LIKE :search",
+                                                   search: "%#{search.downcase}%") }
+  
   def to_param
     identifier
   end
@@ -90,6 +96,10 @@ class Verification < ApplicationRecord
   def reviewed?
     !self.reviewer_id.nil?
   end
+  
+  # def self.search(search)
+  #    where("lower(first_name) LIKE :search OR lower(last_name) LIKE :search", search: "%#{search.downcase}%")
+  # end
   
   protected
     def ensure_denial_includes_reason

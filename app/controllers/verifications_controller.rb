@@ -9,11 +9,25 @@ class VerificationsController < ApplicationController
   
   def index
     # f is used to filter reports by scope
-    if params[:f].present? && Verification::SORT_FILTERS.key?(params[:f].to_sym)
-      @verifications = eval("Verification."+params[:f]+".all.order(requested_on: :asc).paginate(page: params[:page], per_page: 30)")
-      @filter_category = params[:f]
+    # q is used to search for keywords
+    # per_page is a silent param to show more records per page
+    if params[:per_page].present?
+      per_page = params[:per_page]
     else
-      @verifications = Verification.pending.all.order(requested_on: :asc).paginate(page: params[:page], per_page: 30)      
+      per_page = 30
+    end
+
+    if (params[:f].present? && Verification::SORT_FILTERS.key?(params[:f].to_sym)) && params[:q].present?
+      @verifications = eval("Verification."+params[:f]+".search('"+params[:q]+"').order(requested_on: :asc).paginate(page: params[:page], per_page: "+per_page.to_s+")") #plus search
+      @filter_category = params[:f]
+    elsif params[:f].present? && Verification::SORT_FILTERS.key?(params[:f].to_sym)
+      @verifications = eval("Verification."+params[:f]+".order(requested_on: :asc).paginate(page: params[:page], per_page: "+per_page.to_s+")")
+      @filter_category = params[:f]
+    elsif params[:q].present?
+      @verfications = Verification.all.search(params[:q]).order(requested_on: :asc).paginate(page: params[:page], per_page: per_page) #plus search
+      @filter_category = "all"
+    else
+      @verifications = Verification.pending.order(requested_on: :asc).paginate(page: params[:page], per_page: per_page)      
       @filter_category = "pending"
     end
   end

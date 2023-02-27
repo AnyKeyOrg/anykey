@@ -5,15 +5,28 @@
         <div class="panel-title">Verifications</div>
         <form action="<%= verifications_path %>" method="GET" class="flexbox vertical end">        
           <input class="search-box" type="text" id="search-query" placeholder="search" name="q" autocomplete="off" value="<%=params[:q]%>">
+          <% if params[:f].present? %>
+          <div style="hidden">
+            <input type="hidden" id="filter" name="f" value="<%= params[:f] %>">
+          </div>
+          <% end %>
         </form>
       </div>
       <div class="flexbox vertical end">
         <div class="panel-filters flexbox horizontal center wrap">
           <% Verification::SORT_FILTERS.each do |filter| %>
             <% if @filter_category.to_s == filter[0].to_s %>
-              <%= link_to("#{filter[1]} [#{@verifications.count}]", verifications_path(f: filter[0]), class: "filter selected") %>            
+              <% if params[:q].present? %>
+                <%= link_to("#{filter[1]} [#{@verifications.nil? ? '0' : @verifications.count}]", verifications_path(q: params[:q], f: filter[0]), class: "filter selected") %>
+              <% else %>
+                <%= link_to("#{filter[1]} [#{@verifications.nil? ? '0' : @verifications.count}]", verifications_path(f: filter[0]), class: "filter selected") %>            
+              <% end %>
             <% else %>
-             <%= link_to(filter[1], verifications_path(f: filter[0]), class: "filter") %>
+              <% if params[:q].present? %>
+                 <%= link_to(filter[1], verifications_path(q: params[:q], f: filter[0]), class: "filter") %>
+               <% else %>
+                 <%= link_to(filter[1], verifications_path(f: filter[0]), class: "filter") %>
+               <% end %>
             <% end %>
           <% end %>
         </div>
