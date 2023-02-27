@@ -93,8 +93,10 @@ class Verification < ApplicationRecord
   
   protected
     def ensure_denial_includes_reason
-      if (self.denied? && self.denial_reason.blank? )
-        errors.add(:denial_reason, "is required")
+      if !self.status.blank?
+        if (self.denied? && self.denial_reason.blank? )
+          errors.add(:denial_reason, "is required")
+        end
       end
     end
 
