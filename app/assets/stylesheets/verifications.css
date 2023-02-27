@@ -28,6 +28,31 @@
 
 
 /************************************/
+/*  Backstage Verification Search   */
+/************************************/
+
+#backstage-container form input.search-box {
+  position: relative;
+  color: var(--black-color);
+  background: var(--white-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  border: 2px solid var(--black-color);
+  outline: none;
+  padding: 0.3em 2em 0.2em 0.8em;
+  width: 10em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  /* /images/search-icon.svg rendered as css */
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.0.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 540 540' style='enable-background:new 0 0 540 540%3B' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M231.9 445.6c47.6 0 91.8-16.2 127.7-42.6l118.7 118.7L522 478L403.3 359.9c26.3-35.8 42.6-79.5 42.6-127.7c0-118.2-95.8-213.9-213.4-213.9C114.9 18.3 18 114.6 18 232.2S114.3 445.6 231.9 445.6L231.9 445.6z M231.9 79.9c84 0 151.8 67.8 151.8 151.8c0 84-67.8 152.3-151.8 152.3S79.6 316.2 79.6 232.2S148.5 79.9 231.9 79.9L231.9 79.9z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 1em;
+}
+
+
+/************************************/
 /*  Backstage Verification Review   */
 /************************************/
 

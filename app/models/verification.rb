@@ -11,7 +11,7 @@ class Verification < ApplicationRecord
   
   SORT_FILTERS = {
     pending:          "Pending",
-    voice_requested:  "Voice Requested",
+    voice_requested:  "Voice",
     ignored:          "Ignored",
     denied:           "Denied",
     eligible:         "Eligible",
