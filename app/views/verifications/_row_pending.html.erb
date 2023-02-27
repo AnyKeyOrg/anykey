@@ -1,0 +1,58 @@
+<div class="flexbox horizontal center wrap justify-space-between">
+  <div class="row-title">
+    <%= verification.full_name %>
+  </div>
+  <div class="row-detail">
+    <%= l(verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
+  </div>
+</div>
+<div class="flexbox horizontal center wrap justify-space-between">
+  <div class="flexbox horizontal center wrap">
+    <div class="row-subtitle flexbox horizontal center">
+      <div class="inline-icon">
+        <%= render inline: Rails.root.join('public/images/riot.svg').read %>
+      </div>
+      <%= verification.player_id %>
+    </div>
+    <div class="row-subtitle flexbox horizontal center">
+      <div class="inline-icon">
+        <%= render inline: Rails.root.join('public/images/discord.svg').read %>
+        </div>
+      <%= verification.discord_username %>
+    </div>
+  </div>
+  <div class="flexbox horizontal center wrap">
+    <% if verification.photo_id.attached? %>
+    <div class="row-subdetail flexbox horizontal center">    
+      <div class="inline-icon">
+        &#xf2c2;
+      </div>
+      Photo ID
+    </div>
+    <% end %>
+    <% if verification.doctors_note.attached? %>
+    <div class="row-subdetail flexbox horizontal center">  
+      <div class="inline-icon">
+        &#xf481;
+      </div>
+      Doc Note
+    </div>  
+    <% end %>
+    <% if !verification.social_profile.blank? %>
+    <div class="row-subdetail flexbox horizontal center">  
+      <div class="inline-icon">
+        &#xf0c1;
+      </div>
+      Social
+    </div>  
+    <% end %>
+    <% if verification.voice_requested %>
+    <div class="row-subdetail flexbox horizontal center">
+      <div class="inline-icon">
+        &#xf130;
+      </div>
+      Voice
+    </div>  
+    <% end %>
+  </div>
+</div>

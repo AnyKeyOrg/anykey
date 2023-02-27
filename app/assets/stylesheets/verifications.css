@@ -11,17 +11,17 @@
 /*  Backstage Verification Queue    */
 /************************************/
 
-#backstage-container .record-row .row-subdetail.ignored {
+#backstage-container .record-row .row-detail.ignored {
   font-weight: 700;
   color: var(--gray-color);
 }
 
-#backstage-container .record-row .row-subdetail.eligible {
+#backstage-container .record-row .row-detail.eligible {
  font-weight: 700;
  color: var(--bright-green-color);
 }
 
-#backstage-container .record-row .row-subdetail.denied {
+#backstage-container .record-row .row-detail.denied {
   font-weight: 700;
   color: var(--alert-red-color);
 }

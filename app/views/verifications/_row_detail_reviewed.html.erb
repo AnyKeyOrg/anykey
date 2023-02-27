@@ -1,8 +1,0 @@
-<div class="flexbox horizontal center wrap">
-  <div class="row-subdetail <%= verification.status %> flexbox horizontal center">
-    <%= Verification::STATUSES[verification.status.to_sym].upcase %>
-  </div>
-</div>
-<div class="row-detail">
-  <%= l(verification.reviewed_on, format: "%b. %-d, %Y") %>
-</div>

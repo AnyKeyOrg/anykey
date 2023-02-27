@@ -143,6 +143,9 @@
 
 #backstage-container .record-row .row-subdetail {
   font-size: 0.8em;
+}
+
+#backstage-container .record-row .row-subdetail:not(:first-child) {
   margin-left: 1em;
 }
 

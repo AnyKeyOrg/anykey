@@ -1,30 +1,13 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= verification_path(verification, back: request.fullpath) %>">
-  <div class="flexbox horizontal center wrap justify-space-between">
-    <div class="flexbox vertical start">
-      <div class="row-title">
-        <%= verification.full_name %>
-      </div>
-      <div class="flexbox horizontal center wrap">
-        <div class="row-subtitle flexbox horizontal center">
-          <div class="inline-icon">
-            <%= render inline: Rails.root.join('public/images/riot.svg').read %>
-          </div>
-          <%= verification.player_id %>
-        </div>
-        <div class="row-subtitle flexbox horizontal center">
-          <div class="inline-icon">
-            <%= render inline: Rails.root.join('public/images/discord.svg').read %>
-            </div>
-          <%= verification.discord_username %>
-        </div>
-      </div>
-    </div>
-    <div class="flexbox vertical end">
-      <% if verification.pending? %>
-      <%= render(partial: "verifications/row_detail_pending", locals: {verification: verification}) %>
-      <% else %>
-      <%= render(partial: "verifications/row_detail_reviewed", locals: {verification: verification}) %>  
-      <% end %>
-    </div>
-  </div>
-</div>
+  <% if verification.pending? %>
+  <%= render(partial: "verifications/row_pending", locals: {verification: verification}) %>
+  <% else %>
+  <%= render(partial: "verifications/row_reviewed", locals: {verification: verification}) %>  
+  <% end %>
+</div>  
+  
+  
+  
+
+
+
