@@ -5,9 +5,9 @@
         <div class="panel-title">Verifications</div>
         <form action="<%= verifications_path %>" method="GET" class="flexbox vertical end">        
           <input class="search-box" type="text" id="search-query" placeholder="search" name="q" autocomplete="off" value="<%=params[:q]%>">
-        </form>  
-
-
+        </form>
+      </div>
+      <div class="flexbox vertical end">
         <div class="panel-filters flexbox horizontal center wrap">
           <% Verification::SORT_FILTERS.each do |filter| %>
             <% if @filter_category.to_s == filter[0].to_s %>
