@@ -97,10 +97,6 @@ class Verification < ApplicationRecord
     !self.reviewer_id.nil?
   end
   
-  # def self.search(search)
-  #    where("lower(first_name) LIKE :search OR lower(last_name) LIKE :search", search: "%#{search.downcase}%")
-  # end
-  
   protected
     def ensure_denial_includes_reason
       if !self.status.blank?
