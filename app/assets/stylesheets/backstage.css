@@ -20,6 +20,11 @@
   box-sizing: border-box; 
 }
 
+
+/************************************/
+/*      Backstage Panel Style       */
+/************************************/
+
 #backstage-container .panel-title {
   font-family: var(--title-font);
   font-weight: 500;
@@ -100,6 +105,11 @@
   color: var(--bright-orange-color);
 }
 
+
+/************************************/
+/*      Backstage Record Lists      */
+/************************************/
+
 #backstage-container .records-list {
   margin-top: 1em;
 }
@@ -158,6 +168,30 @@
 #backstage-container .record-row .inline-icon img {
   display: block;
   height: 0.9em;
+}
+
+
+/************************************/
+/*         Backstage Search         */
+/************************************/
+
+#backstage-container form input.search-box {
+  position: relative;
+  color: var(--black-color);
+  background: var(--white-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  border: 2px solid var(--black-color);
+  outline: none;
+  padding: 0.3em 2em 0.2em 0.8em;
+  width: 10em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  background-image: url('/images/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 1em;
 }
 
 
