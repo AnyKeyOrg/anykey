@@ -30,7 +30,7 @@
           <% if @verification.ignored? %>
             <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button') %>
           <% else %>
-            <div class="<%= @verification.status %>-button button"><%= Verification::STATUSES[@verification.status.to_sym] %></div>
+            <div class="stamp"><%= image_tag("/images/#{@verification.status}.svg", size: "200x200") %></div>
           <% end %>
         <% end %>
         <%= link_to('cancel', verifications_path, class: "stealth" ) %>
