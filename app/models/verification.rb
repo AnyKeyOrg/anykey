@@ -66,7 +66,8 @@ class Verification < ApplicationRecord
                                                    lower(last_name) LIKE :search OR
                                                    lower(email) LIKE :search OR
                                                    lower(discord_username) LIKE :search OR
-                                                   lower(player_id) LIKE :search",
+                                                   lower(player_id) LIKE :search OR
+                                                   lower(identifier) LIKE :search",
                                                    search: "%#{search.downcase}%") }
   
   def to_param
