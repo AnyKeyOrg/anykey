@@ -10,14 +10,14 @@
   <div class="flexbox horizontal center wrap">
     <div class="row-subtitle flexbox horizontal center">
       <div class="inline-icon">
-        <%= render inline: Rails.root.join('public/images/riot.svg').read %>
+        <%= image_tag("/images/riot.svg") %>
       </div>
       <%= verification.player_id %>
     </div>
     <div class="row-subtitle flexbox horizontal center">
       <div class="inline-icon">
-        <%= render inline: Rails.root.join('public/images/discord.svg').read %>
-        </div>
+        <%= image_tag("/images/discord.svg") %>
+      </div>
       <%= verification.discord_username %>
     </div>
   </div>

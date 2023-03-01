@@ -155,7 +155,7 @@
   font-family: var(--solid-icon-font), var(--icon-font);
 }
 
-#backstage-container .record-row .inline-icon svg {
+#backstage-container .record-row .inline-icon img {
   display: block;
   height: 0.9em;
 }
