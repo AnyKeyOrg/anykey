@@ -43,6 +43,10 @@
   </div>
   <div class="verification-item flexbox vertical stretch">
     <div class="item-title">Additional Notes</div>
+    <% if !@verification.additional_notes.blank? %>
     <div class="item-text small"><%= @verification.additional_notes %></div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
   </div>
 </div>
