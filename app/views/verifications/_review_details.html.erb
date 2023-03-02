@@ -49,6 +49,12 @@
     <div class="item-text empty">None</div>
     <% end %>
   </div>
+  <% if @verification.denied? %>
+  <div class="verification-item flexbox vertical stretch">
+    <div class="item-title">Reason for Denial</div>
+    <div class="item-text small"><%= @verification.denial_reason %></div>
+  </div>
+  <% end %>
   <div class="verification-item half-width flexbox vertical start">
     <div class="item-title">
       <%= @verification.eligible? ? "Certificate Code" : "Request Identifier" %>
