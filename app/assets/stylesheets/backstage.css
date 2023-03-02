@@ -175,6 +175,10 @@
 /*         Backstage Search         */
 /************************************/
 
+#backstage-container form#search {
+  position: relative;
+}
+
 #backstage-container form input.search-box {
   position: relative;
   color: var(--black-color);
@@ -184,7 +188,7 @@
   font-size: 0.9em;
   border: 2px solid var(--black-color);
   outline: none;
-  padding: 0.3em 2em 0.2em 0.8em;
+  padding: 0.3em 3.6em 0.2em 0.8em;
   width: 10em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -192,6 +196,45 @@
   background-repeat: no-repeat;
   background-position: right 0.6rem center;
   background-size: 1em;
+}
+
+#backstage-container form input.search-box:hover {
+  border: 2px solid var(--bright-orange-color); 
+}
+
+#backstage-container form input.search-box:focus {
+  border: 2px solid var(--bright-blue-color); 
+}
+
+#backstage-container form input#search-clear {
+  /* Text version */
+  /*top: 0.8em;
+  right: 2.2em;*/  
+  position: absolute;
+  top: 1em;
+  right: 2.5em;
+  width: 0.75em;
+  background: none;
+  color: var(--light-gray-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  display: none;
+}
+
+#backstage-container form input#search-clear:hover {
+  cursor: pointer;
+  color: var(--gray-color);
+}
+
+#backstage-container form input#search-clear:active {
+  color: var(--bright-fuchsia-color);
+}
+
+#backstage-container form input.search-box:not(:placeholder-shown) + input#search-clear {
+  display: block;
 }
 
 

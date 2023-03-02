@@ -3,8 +3,10 @@
     <div class="control-panel flexbox vertical stretch">
       <div class="flexbox horizontal center wrap justify-space-between">
         <div class="panel-title">Verifications</div>
-        <form action="<%= verifications_path %>" method="GET" class="flexbox vertical end">        
+        <form action="<%= verifications_path %>" id="search" method="GET" class="flexbox vertical end">
+          <input type="submit" id="search-hidden" style="display: none;">
           <input class="search-box" type="text" id="search-query" placeholder="search" name="q" autocomplete="off" value="<%=params[:q]%>">
+          <input type="submit" id="search-clear" value="X" onclick="q.value = '';">
           <% if params[:f].present? %>
           <div style="hidden">
             <input type="hidden" id="filter" name="f" value="<%= params[:f] %>">
