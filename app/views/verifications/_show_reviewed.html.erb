@@ -1,0 +1,24 @@
+<div class="flexbox horizontal center wrap justify-space-between">
+  <div class="panel-title">
+    <% if @verification.ignored? %>
+      Ignored Request
+    <% elsif @verification.denied? %>
+      Eligibility Denied
+    <% elsif @verification.eligible? %>
+      Eligibility Certification
+    <% end %>
+  </div>
+  <div class="panel-descriptor">
+    Reviewed on <%= l(@verification.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P").upcase %>
+  </div>
+</div>
+<%= render(partial: "verifications/identity") %>
+<div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
+  <% if @verification.ignored? %>
+    <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button') %>
+  <% else %>
+    <div class="stamp"><%= image_tag("/images/#{@verification.status}.svg", width: "200px") %></div>
+  <% end %>
+  <%= link_to('cancel', verifications_path, class: "stealth" ) %>
+</div>
+
