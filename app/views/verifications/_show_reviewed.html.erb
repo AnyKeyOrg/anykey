@@ -9,7 +9,8 @@
     <% end %>
   </div>
   <div class="panel-descriptor">
-    Reviewed on <%= l(@verification.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P").upcase %>
+    Reviewed on <%= l(@verification.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P").upcase %><br>
+    by <%= link_to(@verification.reviewer.display_name, user_path(@verification.reviewer)) %>
   </div>
 </div>
 <%= render(partial: "verifications/identity") %>
