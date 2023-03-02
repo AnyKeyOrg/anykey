@@ -40,8 +40,8 @@ Rails.application.routes.draw do
       member do
         post :ignore
         post :unignore
-        get  :eligible
-        get  :denied
+        get  :verify_eligibility
+        get  :deny_eligibility
         post :verify
         post :deny
       end

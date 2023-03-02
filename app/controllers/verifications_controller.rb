@@ -1,10 +1,10 @@
 class VerificationsController < ApplicationController
   
-  layout "backstage",                       only: [ :index, :show, :eligible, :denied ]
+  layout "backstage",                       only: [ :index, :show, :verify_eligibility, :deny_eligibility ]
   
-  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore, :eligible, :denied, :verify, :deny ]
-  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore, :eligible, :denied, :verify, :deny ]
-  before_action :find_verification,         only: [ :show, :ignore, :unignore, :eligible, :denied, :verify, :deny ]
+  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny ]
+  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny ]
+  before_action :find_verification,         only: [ :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny ]
   around_action :display_timezone
   
   def index
@@ -75,10 +75,10 @@ class VerificationsController < ApplicationController
     redirect_to verifications_path
   end
 
-  def eligible
+  def verify_eligibility
   end
   
-  def denied
+  def deny_eligibility
   end
   
   def verify    
@@ -92,7 +92,7 @@ class VerificationsController < ApplicationController
         @verification.errors.full_messages.each do |message|
           flash.now[:alert] << message + ". "
         end
-        render(action: :eligible, layout: "backstage") and return
+        render(action: :verify_eligibility, layout: "backstage") and return
       end
     end      
     redirect_to verifications_path
@@ -109,7 +109,7 @@ class VerificationsController < ApplicationController
         @verification.errors.full_messages.each do |message|
           flash.now[:alert] << message + ". "
         end
-        render(action: :denied, layout: "backstage") and return
+        render(action: :deny_eligibility, layout: "backstage") and return
       end
     end      
     redirect_to verifications_path
