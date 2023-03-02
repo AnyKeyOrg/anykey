@@ -24,6 +24,7 @@ class Verification < ApplicationRecord
 
   before_create :ensure_requested_on_set
   before_create :ensure_status_set
+  before_create :flag_attachment_submission
     
   validates_presence_of :first_name,
                         :last_name,
@@ -129,10 +130,21 @@ class Verification < ApplicationRecord
       end
     end
     
-    # Set status when record is created
+    # Set status as record is created
     def ensure_status_set
       if !self.status.present?
         self.status = :pending
       end
-    end  
+    end
+    
+    # Flag if attachments are submitted as record is created
+    def flag_attachment_submission      
+      if self.photo_id.attached?
+        self.photo_id_submitted = true
+      end
+      if self.doctors_note.attached?
+        self.doctors_note_submitted = true
+      end   
+    end
+    
 end

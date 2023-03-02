@@ -1,7 +1,7 @@
 <div class="flexbox horizontal start wrap justify-space-between">
   <div class="verification-item half-width flexbox vertical start">
     <div class="item-title">Photo ID</div>
-    <% if @verification.photo_id.attached? %>    
+    <% if @verification.photo_id_submitted %>    
     <div class="item-text submitted">Submitted</div>
     <% else %>
     <div class="item-text empty">Not submitted</div>
@@ -9,7 +9,7 @@
   </div>
   <div class="verification-item half-width flexbox vertical start">
     <div class="item-title">Doctor's Note</div>
-    <% if @verification.doctors_note.attached? %>    
+    <% if @verification.doctors_note_submitted %>    
     <div class="item-text submitted">Submitted</div>
     <% else %>
     <div class="item-text empty">Not submitted</div>
