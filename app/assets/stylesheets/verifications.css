@@ -37,7 +37,7 @@
 }
 
 #backstage-container .verification-item.half-width {
-  max-width: 17em;
+  max-width: 20em;
 }
 
 #backstage-container .verification-item .item-title {
@@ -50,19 +50,36 @@
   font-size: 1em;
 }
 
-#backstage-container .verification-item .item-text.empty {
-  color: var(--light-gray-color);
+#backstage-container .verification-item .item-text.empty,
+#backstage-container .verification-item .item-text.submitted,
+#backstage-container .verification-item .item-text.eligible,
+#backstage-container .verification-item .item-text.denied,
+#backstage-container .verification-item .item-text.ignored {
   font-size: 0.8em;
   font-weight: 700;
   margin-top: 0.3em;
 }
 
+#backstage-container .verification-item .item-text.empty {
+  color: var(--light-gray-color);
+}
+
 #backstage-container .verification-item .item-text.submitted {
   color: var(--bright-orange-color);
-  font-size: 0.8em;
-  font-weight: 700;
-  margin-top: 0.3em;
 }
+
+#backstage-container .verification-item .item-text.eligible {
+  color: var(--bright-green-color);
+}
+
+#backstage-container .verification-item .item-text.denied {
+  color: var(--alert-red-color);
+}
+
+#backstage-container .verification-item .item-text.ignored {
+  color: var(--gray-color);
+}
+
 
 #backstage-container .verification-item .item-text.small {
   font-size: 0.9em;

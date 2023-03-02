@@ -49,4 +49,10 @@
     <div class="item-text empty">None</div>
     <% end %>
   </div>
+  <div class="verification-item half-width flexbox vertical start">
+    <div class="item-title">
+      <%= @verification.eligible? ? "Certificate Code" : "Request Identifier" %>
+    </div>
+    <div class="item-text <%= @verification.status %>"><%= @verification.identifier %></div>
+  </div>  
 </div>
