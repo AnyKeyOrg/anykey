@@ -14,5 +14,5 @@
     <%= link_to("Deny", deny_eligibility_verification_path(@verification, back: request.fullpath), class: 'deny-button button') %>
     <%= link_to("Ignore", ignore_verification_path(@verification), method: :post, class: 'ignore-button button') %>
   <% end %>
-  <%= link_to('cancel', verifications_path, class: "stealth" ) %>
+  <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth" ) %>
 </div>
