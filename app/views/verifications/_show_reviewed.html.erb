@@ -13,6 +13,7 @@
   </div>
 </div>
 <%= render(partial: "verifications/identity") %>
+<%= render(partial: "verifications/review_details") %>
 <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
   <% if @verification.ignored? %>
     <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button') %>

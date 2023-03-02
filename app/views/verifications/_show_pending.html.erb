@@ -7,12 +7,10 @@
   </div>
 </div>
 <%= render(partial: "verifications/identity") %>
-<%= render(partial: "verifications/materials") %>
+<%= render(partial: "verifications/request_materials") %>
 <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
-  <% if @verification.pending? %>
-    <%= link_to("Verify", verify_eligibility_verification_path(@verification, back: request.fullpath), class: 'verify-button button') %>
-    <%= link_to("Deny", deny_eligibility_verification_path(@verification, back: request.fullpath), class: 'deny-button button') %>
-    <%= link_to("Ignore", ignore_verification_path(@verification), method: :post, class: 'ignore-button button') %>
-  <% end %>
+  <%= link_to("Verify", verify_eligibility_verification_path(@verification, back: request.fullpath), class: 'verify-button button') %>
+  <%= link_to("Deny", deny_eligibility_verification_path(@verification, back: request.fullpath), class: 'deny-button button') %>
+  <%= link_to("Ignore", ignore_verification_path(@verification), method: :post, class: 'ignore-button button') %>
   <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth" ) %>
 </div>
