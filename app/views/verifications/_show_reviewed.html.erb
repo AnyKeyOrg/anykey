@@ -19,6 +19,5 @@
   <% else %>
     <div class="stamp"><%= image_tag("/images/#{@verification.status}.svg", width: "200px") %></div>
   <% end %>
-  <%= link_to('cancel', verifications_path, class: "stealth" ) %>
+  <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth" ) %>
 </div>
-
