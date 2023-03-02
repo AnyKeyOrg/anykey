@@ -6,6 +6,7 @@
         <% if user_signed_in? %>
         <%= link_to("Reports", reports_path, class: (controller_name == 'reports' ? 'selected ' : '') + 'item') %>
         <%= link_to("Pledges", pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'item') %>
+        <%= link_to("Verifications", verifications_path, class: (controller_name == 'verifications' ? 'selected ' : '') + 'item') %>
         <% if current_user.is_admin? %>
         <%= link_to("Affiliates", affiliates_path(staff: true), class: (controller_name == 'affiliates' ? 'selected ' : '') + 'item') %>
         <%= link_to("Stories", stories_path(staff: true), class: (controller_name == 'stories' ? 'selected ' : '') + 'item') %>
@@ -40,6 +41,9 @@
   </div>
   <div class="row">
     <%= link_to("Pledges", pledges_path, class: controller_name == 'pledges' ? 'selected ' : '') %>
+  </div>
+  <div class="row">
+    <%= link_to("Verifications", verifications_path, class: controller_name == 'verifications' ? 'selected ' : '') %>
   </div>
   <% if current_user.is_admin? %>
   <div class="row">
