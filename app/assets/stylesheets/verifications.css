@@ -66,6 +66,16 @@
   margin-right: 0.4em;
 }
 
+#backstage-container .verification-item .item-text .inline-icon {
+  font-family: var(--solid-icon-font), var(--icon-font);
+  margin-right: 0.4em;
+}
+
+
+#backstage-container .verification-item .item-text.empty .inline-icon {
+  margin-bottom: 0.2em;
+}
+
 
 /************************************/
 /*  Backstage Verification Overlays */

@@ -38,8 +38,22 @@
     <% end %>
   </div>
   <div class="verification-item half-width flexbox vertical stretch">
-    <div class="item-title">Voice Chat Requested?</div>
-    <div class="item-text"><%= @verification.voice_requested ? "✅ Yes" : "❌ No"%></div>
+    <div class="item-title">Voice Chat Requested?</div>    
+    <% if @verification.voice_requested %>
+    <div class="item-text flexbox horizontal center">
+      <div class="inline-icon">
+        &#xf130;
+      </div>
+      Yes
+    </div>
+    <% else %>
+    <div class="item-text empty flexbox horizontal center end">
+      <div class="inline-icon">
+        &#xf131;
+      </div>
+      No
+    </div>
+    <% end %>
   </div>
   <div class="verification-item flexbox vertical stretch">
     <div class="item-title">Additional Notes</div>
