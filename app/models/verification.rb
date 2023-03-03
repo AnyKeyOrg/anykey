@@ -103,7 +103,11 @@ class Verification < ApplicationRecord
     # Search for each of self's parameters aggregating results
     # Sort by most frequent matches across paramaters
     # Return ordered collection of uniques
-    reqs = (Verification.where.not(id: self.id).search(self.email) + Verification.where.not(id: self.id).search(self.first_name) + Verification.where.not(id: self.id).search(self.last_name) + Verification.where.not(id: self.id).search(self.discord_username) + Verification.where.not(id: self.id).search(self.player_id))
+    reqs = (Verification.where.not(id: self.id).search(self.email) +
+            Verification.where.not(id: self.id).search(self.first_name) +
+            Verification.where.not(id: self.id).search(self.last_name) +
+            Verification.where.not(id: self.id).search(self.discord_username) +
+            Verification.where.not(id: self.id).search(self.player_id))
 
     reqs.uniq.sort_by { |e| -reqs.count(e)}
   end
