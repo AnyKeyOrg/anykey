@@ -1,13 +1,85 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= verification_path(verification, back: request.fullpath) %>">
-  <% if verification.pending? %>
-  <%= render(partial: "verifications/row_pending", locals: {verification: verification}) %>
-  <% else %>
-  <%= render(partial: "verifications/row_reviewed", locals: {verification: verification}) %>  
-  <% end %>
-</div>  
-  
-  
-  
-
-
-
+  <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="row-title">
+      <%= verification.full_name %>
+    </div>
+    <% if verification.pending? %>
+    <div class="row-detail">
+      <%= l(verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
+    </div>
+    <% else %>
+    <div class="flexbox horizontal center">
+      <div class="row-detail">
+      <%= l(verification.reviewed_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
+      </div>
+      <div class="row-detail <%= verification.status %>">
+        <%= Verification::STATUSES[verification.status.to_sym].upcase %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="flexbox horizontal center wrap">
+      <div class="row-subtitle flexbox horizontal center">
+        <div class="inline-icon">
+          <%= image_tag("/images/riot.svg") %>
+        </div>
+        <%= verification.player_id %>
+      </div>
+      <div class="row-subtitle flexbox horizontal center">
+        <div class="inline-icon">
+          <%= image_tag("/images/discord.svg") %>
+        </div>
+        <%= verification.discord_username %>
+      </div>
+      <div class="row-subtitle flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf0e0;
+        </div>
+        <%= verification.email %>
+      </div>
+    </div>
+    <div class="flexbox horizontal center wrap">
+      <% if verification.photo_id_submitted %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf2c2;
+        </div>
+        Photo ID
+      </div>
+      <% end %>
+      <% if verification.doctors_note_submitted %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf481;
+        </div>
+        Doc Note
+      </div>
+      <% end %>
+      <% if !verification.social_profile.blank? %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf0c1;
+        </div>
+        Social
+      </div>
+      <% end %>
+      <% if verification.voice_requested %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf130;
+        </div>
+        Voice
+      </div>
+      <% end %>
+      <% if !verification.additional_notes.blank? %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf15c;
+        </div>
+        Notes
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
