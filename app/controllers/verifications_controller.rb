@@ -34,6 +34,7 @@ class VerificationsController < ApplicationController
   end
   
   def show
+    @related_requests = @verification.related_requests
   end
   
   def new

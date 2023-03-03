@@ -99,6 +99,12 @@ class Verification < ApplicationRecord
     !self.reviewer_id.nil?
   end
   
+  def related_requests
+    # Search for each of self's parameters
+    # Aggregate results, return collection
+    (Verification.where.not(id: self.id).search(self.email) + Verification.where.not(id: self.id).search(self.first_name) + Verification.where.not(id: self.id).search(self.last_name) + Verification.where.not(id: self.id).search(self.discord_username) + Verification.where.not(id: self.id).search(self.player_id)).uniq
+  end
+  
   protected
     def ensure_denial_includes_reason
       if !self.status.blank?
