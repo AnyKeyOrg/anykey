@@ -1,14 +1,85 @@
 /************************************/
-/*    Verification Page Sections    */
+/*     Verification Page Header     */
 /************************************/
 
-#verification .page-section {
-  max-width: 43em;
+#verification .page-header {
+  background: url('/images/verification-header.jpg') 50% 55% no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+#verification .page-header .title {
+  margin-left: 1.4em;
+  color: var(--white-color);
+  text-shadow: var(--black-color) 0px 0px 30px;
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 3em;
 }
 
 
 /************************************/
-/*  Backstage Verification Queue    */
+/*    Verification Page Sections    */
+/************************************/
+
+#verification .intro-section {
+  max-width: 36em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+#verification img.feature-image {
+  max-width: 408px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#verification form#new_verification {
+  max-width: 36em;
+}
+
+#verification .faq-section {
+  max-width: 32em;
+  width: 100%;
+}
+
+#verification .faq-item {
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+#verification .faq-item.even {
+  background: var(--medium-white-color);
+}
+
+#verification .faq-item.odd {
+  background: var(--dark-white-color);
+}
+
+#verification .faq-item:hover {
+  cursor: pointer;
+  background: var(--orange-overlay); 
+}
+
+#verification .faq-item:active {
+  cursor: pointer;
+  background: var(--blue-overlay); 
+}
+
+#verification .faq-item .faq-question {
+  font-weight: 700;
+}
+
+
+
+
+
+/************************************/
+/*   Backstage Verification Queue   */
 /************************************/
 
 #backstage-container .record-row .row-detail.ignored {
@@ -194,6 +265,12 @@
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
+
+@media (max-width:68em) {
+  #verification .intro-section {
+    margin-top: 2em;
+  }
+}
 
 @media (max-width:46em) {
   #backstage-container .verification-buttons .button {

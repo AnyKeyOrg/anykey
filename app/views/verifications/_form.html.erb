@@ -1,9 +1,9 @@
-<form action="<%= verifications_path %>" id="new_verification" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+<form action="<%= verifications_path %>#new_verification" id="new_verification" method="POST" enctype="multipart/form-data" class="flexbox vertical">
   <div style="hidden">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   </div>
   <div class="title flexbox vertical center">
-    Eligibility Verification
+    Identity Verification Form
   </div>
   <%= display_alerts %>
   <div class="intro">

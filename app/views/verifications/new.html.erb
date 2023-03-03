@@ -1,7 +1,34 @@
-<div id="verification" class="flexbox vertical center">
-  <div class="page-section flexbox vertical stretch">
-    <div class="inner flexbox vertical stretch">
-      <%= render(partial: "verifications/form") %>
+<div id="verification" class="flexbox vertical center"> 
+  <div class="page-header flexbox vertical center">
+    <div class="inner flexbox vertical flex-1">
+      <div class="flexbox horizontal center flex-1">
+        <div class="title flexbox vertical start">
+          <div class="line-a">
+            Eligibility Certification
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>  
+  <div class="page-section flexbox vertical stretch">
+    <div class="inner flexbox vertical stretch">
+      <div class="headline">
+        For marginalized gender<br>esports event competitors
+      </div>
+      <div class="flexbox horizontal center wrap-reverse justify-space-around">
+        <div class="intro-section">
+          <p>Our eligibility certification process verifies that You Are Who You Say You Are with respect to your gender identity so that we can vouch for your eligibility to compete in esports events that support women, non-binary, and/or trans players. See the FAQ for more details.</p>
+        </div>
+        <%= image_tag("/images/verification-feature.jpg", class: "framed-element feature-image") %>
+      </div>
+    </div>
+  </div>
+  <div class="page-section flexbox vertical stretch flex-1">
+    <div class="inner flexbox vertical stretch">
+      <div class="flexbox horizontal start wrap justify-space-between">  
+        <%= render(partial: "verifications/form") %>
+        <%= render(partial: "verifications/faq") %>
+      </div>
+    </div>
+  </div>
+</div>
