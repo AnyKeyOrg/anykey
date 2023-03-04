@@ -53,16 +53,16 @@
 }
 
 #verification .faq-item.even {
-  background: var(--medium-white-color);
+  background: var(--light-orange-overlay);
 }
 
 #verification .faq-item.odd {
-  background: var(--dark-white-color);
+  background: var(--medium-orange-overlay);
 }
 
 #verification .faq-item:hover {
   cursor: pointer;
-  background: var(--orange-overlay); 
+  background: var(--blue-overlay);
 }
 
 #verification .faq-item:active {
@@ -76,6 +76,7 @@
 
 #verification .faq-item .answer {
   display: none;
+  margin-top: 1em;
 }
 
 

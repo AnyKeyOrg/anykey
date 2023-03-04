@@ -1,10 +1,10 @@
 <div class="faq-section flexbox vertical stretch">
   <% (1..16).each do |i| %>
-    <div class="faq-item <%= cycle "odd", "even", name: "item-cycler" %> flexbox vertical stretch">
+    <div class="faq-item <%= cycle "odd", "even", name: "item-cycler" %> flexbox vertical stretch"  data-number="<%= i %>">
       <div class="question">
         <%= t(".question-#{i}").html_safe %>
       </div>
-      <div class="answer">
+      <div id="<%= "faq-answer-#{i}" %>" class="answer">
         <%= t(".answer-#{i}").html_safe %>
       </div>
     </div>
