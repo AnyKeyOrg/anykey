@@ -70,12 +70,13 @@
   background: var(--blue-overlay); 
 }
 
-#verification .faq-item .faq-question {
+#verification .faq-item .question {
   font-weight: 700;
 }
 
-
-
+#verification .faq-item .answer {
+  /*display: none;*/
+}
 
 
 /************************************/
@@ -164,7 +165,6 @@
   font-family: var(--solid-icon-font), var(--icon-font);
   margin-right: 0.4em;
 }
-
 
 #backstage-container .verification-item .item-text.empty .inline-icon {
   margin-bottom: 0.2em;
