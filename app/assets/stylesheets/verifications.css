@@ -44,6 +44,18 @@
 #verification .faq-section {
   max-width: 32em;
   width: 100%;
+  margin-left: 4em; /* Remove responsively */
+}
+
+#verification .faq-header {
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  padding: 0.85em 1em 0.85em 1em;
+  background: var(--blue-overlay);
+  color: var(--dark-blue-color);
+  border-bottom: 5px solid var(--dark-blue-color);
 }
 
 #verification .faq-item {
@@ -266,6 +278,12 @@
 /***********************************/
 /*         Responsiveness          */
 /***********************************/
+
+@media (max-width:80em) {
+  #verification .faq-section {
+    margin-left: 0em;
+  }
+}
 
 @media (max-width:68em) {
   #verification .intro-section {
