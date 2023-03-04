@@ -47,8 +47,8 @@
 }
 
 #verification .faq-item {
-  padding: 0.5em 1em 0.5em 1em;
-  font-size: 1em;
+  padding: 1em 1em 1em 1em;
+  font-size: 0.9em;
   line-height: 1.5em;
 }
 
@@ -71,11 +71,11 @@
 }
 
 #verification .faq-item .question {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 #verification .faq-item .answer {
-  /*display: none;*/
+  display: none;
 }
 
 
