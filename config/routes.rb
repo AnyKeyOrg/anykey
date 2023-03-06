@@ -35,8 +35,8 @@ Rails.application.routes.draw do
       resources :revocations,  only: [ :new, :create ]
     end
     get '/report',             to: 'reports#new',        as: :short_report
-
-    resources :verifications,  only: [ :index, :show, :new, :create ] do
+    get '/verification',       to: 'verifications#new',  as: :new_verification
+    resources :verifications,  only: [ :index, :show, :create ] do
       member do
         post :ignore
         post :unignore
