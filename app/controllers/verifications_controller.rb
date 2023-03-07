@@ -46,6 +46,14 @@ class VerificationsController < ApplicationController
     
     if @verification.save
       # TODO: send notification to staff
+
+      # Email confirmation to requester
+      if @verification.voice_requested
+        VerificationMailer.confirm_request_voice(@verification).deliver_now
+      else
+        VerificationMailer.confirm_request(@verification).deliver_now
+      end
+
       flash[:notice] = "You've successfully submitted your eligibility verification request. Thank you."
       redirect_to root_path
     else
