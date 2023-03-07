@@ -8,4 +8,12 @@ class VerificationMailerPreview < ActionMailer::Preview
     VerificationMailer.confirm_request_voice(Verification.first)
   end
   
+  def verify_request
+    VerificationMailer.verify_request(Verification.first)
+  end
+  
+  def deny_request
+    VerificationMailer.deny_request(Verification.first)
+  end
+  
 end

@@ -93,7 +93,10 @@ class VerificationsController < ApplicationController
   def verify    
     if @verification.pending? # Reasonability check to only allow pending requests to be denied
       if @verification.update(status: :eligible, reviewer: current_user, reviewed_on: Time.now)
-        # TODO: Send certification email
+
+        # Email certificate to requester
+        VerificationMailer.verify_request(@verification).deliver_now
+               
         # TODO: Purge attachments
         flash[:notice] = "You certified the eligibility verification request from #{@verification.full_name}."
       else
@@ -110,7 +113,10 @@ class VerificationsController < ApplicationController
   def deny
     if @verification.pending? # Reasonability check to only allow pending requests to be denied
       if @verification.update(status: :denied, denial_reason: params[:verification][:denial_reason], reviewer: current_user, reviewed_on: Time.now)
-        # TODO: Send denial email
+
+        # Email denial to requester
+        VerificationMailer.deny_request(@verification).deliver_now
+
         # TODO: Purge attachments
         flash[:notice] = "You denied the eligibility verification request from #{@verification.full_name}."
       else

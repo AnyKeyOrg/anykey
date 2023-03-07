@@ -12,4 +12,14 @@ class VerificationMailer < ApplicationMailer
     mail(to: verification.email, subject: "We received your eligibility verification request. Here's your next step!")
   end
   
+  def verify_request(verification)
+    @verification = verification
+    mail(to: verification.email, subject: "")
+  end
+  
+  def deny_request(verification)
+    @verification = verification
+    mail(to: verification.email, subject: "")
+  end
+  
 end
