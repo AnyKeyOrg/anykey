@@ -14,12 +14,12 @@ class VerificationMailer < ApplicationMailer
   
   def verify_request(verification)
     @verification = verification
-    mail(to: verification.email, subject: "")
+    mail(to: verification.email, subject: "Your eligibility certificate is ready!")
   end
   
   def deny_request(verification)
     @verification = verification
-    mail(to: verification.email, subject: "")
+    mail(to: verification.email, subject: "Your eligibility verification request has been denied")
   end
   
 end

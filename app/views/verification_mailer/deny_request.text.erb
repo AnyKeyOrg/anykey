@@ -1,1 +1,7 @@
 Hey <%= @verification.first_name %>,
+
+Our ComfyCrew has completed their review of your eligibility verification request submitted on <%= l(@verification.requested_on, format: "%b. %-d, %Y") %>. After careful consideration of your materials, we've decided to deny your application for the following reason:
+
+<%= @verification.denial_reason %>
+
+If you have any questions about this decision, you can drop by the #eligibility-verification lounge in our Discord server (https://discord.gg/4mTTwFPVcT) to ask.

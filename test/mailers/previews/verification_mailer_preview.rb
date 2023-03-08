@@ -9,11 +9,11 @@ class VerificationMailerPreview < ActionMailer::Preview
   end
   
   def verify_request
-    VerificationMailer.verify_request(Verification.first)
+    VerificationMailer.verify_request(Verification.all.eligible.last)
   end
   
   def deny_request
-    VerificationMailer.deny_request(Verification.first)
+    VerificationMailer.deny_request(Verification.all.denied.last)
   end
   
 end
