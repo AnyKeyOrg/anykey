@@ -1,2 +1,40 @@
-Hey <%= @verification.first_name %>,
-<br><br>
+<table id="certificate" border="0" cellpadding="0" cellspacing="20" width="100%">
+  <tr>
+    <td colspan="2">
+      <h4>Eligibility Certificate</h4>
+      <span class="small">For marginalized gender gaming events</span><br>
+      <span class="small gray"><%= image_tag("/images/anykey-cap.png", width: "22px", class: "minikey-icon") %> AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %></span>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>Full Name</strong><br>
+      <%= @verification.full_name %>
+      <br><br>
+      <strong>Discord</strong><br>
+      <span class="nowrap"><%= image_tag("/images/discord.svg", size: "20x16", class: "inline-icon") %><%= @verification.discord_username %></span>
+      <br><br>
+      <strong>Gender</strong><br>
+      <%= @verification.gender %>
+    </td>
+    <td width="50%" valign="top">
+      <strong>Email</strong><br>
+      <%= @verification.email %>
+      <br><br>
+      <strong><%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %></strong><br>
+      <span class="nowrap"><%= image_tag("/images/#{@verification.player_id_type}.svg", size: "16x16", class: "inline-icon") %><%= @verification.player_id %></span>
+      <br><br>
+      <strong>Pronouns</strong><br>
+      <%= @verification.pronouns %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Certificate Code</strong><br>
+      <span class="key-code"><%= @verification.identifier %></span>
+    </td>
+    <td>
+      <%= image_tag("/images/eligible.svg", width: "160px", class: "cert-stamp") %>
+    </td>
+  </tr>
+</table>

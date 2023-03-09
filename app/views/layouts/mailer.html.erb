@@ -40,7 +40,7 @@
 			line-height:150%;
 		}
 
-    #bodyContent div{
+    #bodyContent div {
       margin-top:20px;
       margin-bottom:20px;
     }
@@ -54,6 +54,35 @@
 			display:inline;
 			margin-bottom:10px;
 		}
+    
+		#bodyContent img.inline-icon {
+			margin-bottom:-3px;
+      margin-right: 4px;
+		}
+    
+		#bodyContent img.minikey-icon {
+			margin-bottom: -7px;
+      margin-right: 1px;
+      margin-left: -4px;
+		}
+    
+		#bodyContent img.cert-stamp {
+			margin: 0px;
+      width: 160px;
+		}
+
+    #certificate {
+      border: 5px solid #160919;
+    }
+    
+    #certificate div {
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+    
+    #certificate h4 {
+      margin-bottom: 4px;
+    }
 
     h1,h2,h3,h4 {
 			display:block;
@@ -78,8 +107,25 @@
 			font-size:22px;
 		}
     
+    .small {
+      font-size: 12px;
+    }
+    
+    .gray {
+      color: #84848C;
+    }
+    
+    .key-code {
+      font-weight: 700;
+      color: #2FC872;
+    }
+    
     .right-justified {
       text-align:right;
+    }
+    
+    .nowrap {
+      white-space: nowrap;
     }
     
 		#templateFooter {
@@ -109,6 +155,10 @@
         width: 100% !important;
         min-width: 100% !important;
       }
+      
+  		#bodyContent img.cert-stamp {
+        width: 120px;
+  		}
     }
   </style>
   <title><%= message.subject %></title>

@@ -1,1 +1,24 @@
-Hey <%= @verification.first_name %>,
+Eligibility Certificate
+For marginalized gender gaming events
+AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %>
+
+Full Name
+<%= @verification.full_name %>
+
+Discord
+<%= @verification.discord_username %>
+
+Gender
+<%= @verification.gender %>
+
+Email
+<%= @verification.email %>
+
+<%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %>
+<%= @verification.player_id %>
+
+Pronouns
+<%= @verification.pronouns %>
+
+Certificate Code
+<%= @verification.identifier %>
