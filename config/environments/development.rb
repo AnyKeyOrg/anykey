@@ -29,8 +29,10 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  # config.active_storage.service = :local
-  config.active_storage.service = :amazon   #TODO: revert to local for normal development
+  config.active_storage.service = :local
+
+  # TODO: Turn on when testing secure S3 bucket in development
+  # config.active_storage.service = :amazon
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -68,11 +70,11 @@ Rails.application.configure do
   # Required default URL options for the Devise mailer
   config.action_mailer.default_url_options =  { host: 'localhost', port: 9292, locale: I18n.locale }
   
+  config.action_mailer.perform_deliveries = false
+
   # TODO: Turn on when testing mail in development
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.delivery_method = :smtp
-  
-  config.action_mailer.perform_deliveries = false
   
   
 end
