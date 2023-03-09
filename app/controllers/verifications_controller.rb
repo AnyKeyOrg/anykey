@@ -17,7 +17,6 @@ class VerificationsController < ApplicationController
 
     # f is used to filter reports by scope
     # q is used to search for keywords
-    # TODO: can this controller and index view look like less of a code mess?
     if (params[:f].present? && Verification::SORT_FILTERS.key?(params[:f].to_sym)) && params[:q].present?
       @verifications = eval("Verification."+params[:f]+".search('"+params[:q]+"').order(requested_on: :asc).paginate(page: params[:page], per_page: "+per_page.to_s+")")
       @filter_category = params[:f]
@@ -97,7 +96,10 @@ class VerificationsController < ApplicationController
         # Email certificate to requester
         VerificationMailer.verify_request(@verification).deliver_now
                
-        # TODO: Purge attachments
+        # Purge attachments
+        @verification.photo_id.purge
+        @verification.doctors_note.purge
+
         flash[:notice] = "You certified the eligibility verification request from #{@verification.full_name}."
       else
         flash.now[:alert] ||= ""
@@ -117,7 +119,10 @@ class VerificationsController < ApplicationController
         # Email denial to requester
         VerificationMailer.deny_request(@verification).deliver_now
 
-        # TODO: Purge attachments
+        # Purge attachments
+        @verification.photo_id.purge
+        @verification.doctors_note.purge
+        
         flash[:notice] = "You denied the eligibility verification request from #{@verification.full_name}."
       else
         flash.now[:alert] ||= ""
