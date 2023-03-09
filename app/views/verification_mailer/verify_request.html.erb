@@ -3,7 +3,7 @@
     <td colspan="2">
       <h4>Eligibility Certificate</h4>
       <span class="small">For marginalized gender gaming events</span><br>
-      <span class="small gray"><%= image_tag("/images/anykey-cap.png", width: "22px", class: "minikey-icon") %> AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %></span>
+      <span class="small gray"><img src="https://anykey.org/images/anykey-cap.png" width="22px" class="minikey-icon"> AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %></span>
     </td>
   </tr>
   <tr>
@@ -12,7 +12,7 @@
       <%= @verification.full_name %>
       <br><br>
       <strong>Discord</strong><br>
-      <span class="nowrap"><%= image_tag("/images/discord.svg", size: "20x16", class: "inline-icon") %><%= @verification.discord_username %></span>
+      <span class="nowrap"><img src="https://anykey.org/images/discord.svg" size="20x16" class="inline-icon"><%= @verification.discord_username %></span>
       <br><br>
       <strong>Gender</strong><br>
       <%= @verification.gender %>
@@ -22,7 +22,7 @@
       <%= @verification.email %>
       <br><br>
       <strong><%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %></strong><br>
-      <span class="nowrap"><%= image_tag("/images/#{@verification.player_id_type}.svg", size: "16x16", class: "inline-icon") %><%= @verification.player_id %></span>
+      <span class="nowrap"><img src=<%= "https://anykey.org/images/#{@verification.player_id_type}.svg" %> size="16x16" class="inline-icon"><%= @verification.player_id %></span>
       <br><br>
       <strong>Pronouns</strong><br>
       <%= @verification.pronouns %>
@@ -34,7 +34,7 @@
       <span class="key-code"><%= @verification.identifier %></span>
     </td>
     <td>
-      <%= image_tag("/images/eligible.svg", width: "160px", class: "cert-stamp") %>
+      <img src="https://anykey.org/images/eligible.svg" width="160px" class="cert-stamp">
     </td>
   </tr>
 </table>
