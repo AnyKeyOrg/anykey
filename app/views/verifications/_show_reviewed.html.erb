@@ -23,3 +23,20 @@
   <% end %>
   <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth" ) %>
 </div>
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="pledge-item flexbox vertical stretch flex-1" style="margin-top: 0em;">
+    <div class="item-title flexbox horizontal center">
+      <span class="icon">&#xf002;</span> Related Requests <%= @related_requests.present? ? "(#{@related_requests.count})" : ''%>
+    </div>
+    <% if @related_requests.present? %>
+    <div class="item-list">
+      <%= render(partial: "verifications/row", collection: @related_requests, as: :verification) %>
+    </div>
+    <% else %>
+    <div class="item-text">
+      There are no related eligibility verification requests.
+    </div>
+    <% end %>
+  </div>
+</div>
