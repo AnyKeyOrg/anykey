@@ -3,27 +3,62 @@
     <td colspan="2">
       <h4>Eligibility Certificate</h4>
       <span class="small">For marginalized gender gaming events</span><br>
-      <span class="small gray"><img src="https://anykey.org/images/anykey-cap.png" width="22px" class="minikey-icon"> AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %></span>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="26">
+            <img src="https://anykey.org/images/anykey-cap.png" width="22px">
+          </td>
+          <td>
+            <span class="small gray"> AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %></span>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
       <strong>Full Name</strong><br>
       <%= @verification.full_name %>
-      <br><br>
-      <strong>Discord</strong><br>
-      <span class="nowrap"><img src="https://anykey.org/images/discord.png" width="20px" class="inline-icon"><%= @verification.discord_username %></span>
-      <br><br>
-      <strong>Gender</strong><br>
-      <%= @verification.gender %>
     </td>
     <td width="50%" valign="top">
       <strong>Email</strong><br>
       <%= @verification.email %>
-      <br><br>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>Discord</strong><br>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="24">
+            <img src="https://anykey.org/images/discord.png" width="20px">
+          </td>
+          <td>
+            <%= @verification.discord_username %>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="50%" valign="top">
       <strong><%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %></strong><br>
-      <span class="nowrap"><img src=<%= "https://anykey.org/images/#{@verification.player_id_type}.png" %> width="16px" class="inline-icon"><%= @verification.player_id %></span>
-      <br><br>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="20">
+            <img src=<%= "https://anykey.org/images/#{@verification.player_id_type}.png" %> width="16px">
+          </td>
+          <td>
+            <%= @verification.player_id %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>Gender</strong><br>
+      <%= @verification.gender %>
+    </td>
+    <td width="50%" valign="top">
       <strong>Pronouns</strong><br>
       <%= @verification.pronouns %>
     </td>
