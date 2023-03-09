@@ -8,7 +8,7 @@
           <td width="26">
             <img src="https://anykey.org/images/anykey-cap.png" width="22px">
           </td>
-          <td>
+          <td valign="top">
             <span class="small gray"> AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %></span>
           </td>
         </tr>
@@ -33,7 +33,7 @@
           <td width="24">
             <img src="https://anykey.org/images/discord.png" width="20px">
           </td>
-          <td>
+          <td valign="top">
             <%= @verification.discord_username %>
           </td>
         </tr>
@@ -46,7 +46,7 @@
           <td width="20">
             <img src=<%= "https://anykey.org/images/#{@verification.player_id_type}.png" %> width="16px">
           </td>
-          <td>
+          <td valign="top">
             <%= @verification.player_id %>
           </td>
         </tr>
