@@ -12,7 +12,7 @@
       <%= @verification.full_name %>
       <br><br>
       <strong>Discord</strong><br>
-      <span class="nowrap"><img src="https://anykey.org/images/discord.png" size="20x16" class="inline-icon"><%= @verification.discord_username %></span>
+      <span class="nowrap"><img src="https://anykey.org/images/discord.png" width="20px" class="inline-icon"><%= @verification.discord_username %></span>
       <br><br>
       <strong>Gender</strong><br>
       <%= @verification.gender %>
@@ -22,7 +22,7 @@
       <%= @verification.email %>
       <br><br>
       <strong><%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %></strong><br>
-      <span class="nowrap"><img src=<%= "https://anykey.org/images/#{@verification.player_id_type}.png" %> size="16x16" class="inline-icon"><%= @verification.player_id %></span>
+      <span class="nowrap"><img src=<%= "https://anykey.org/images/#{@verification.player_id_type}.png" %> width="16px" class="inline-icon"><%= @verification.player_id %></span>
       <br><br>
       <strong>Pronouns</strong><br>
       <%= @verification.pronouns %>
