@@ -40,7 +40,7 @@ class AffiliatesController < ApplicationController
   end
   
   def update
-    if @affiliate.update_attributes(affiliate_params)
+    if @affiliate.update(affiliate_params)
       flash[:notice] = "Your successfully updated the affiliate."
       redirect_to edit_affiliate_path(@affiliate)
     else

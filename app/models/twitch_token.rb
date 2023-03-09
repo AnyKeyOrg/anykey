@@ -9,7 +9,7 @@ class TwitchToken < ApplicationRecord
       # Verify that a valid token has been received before setting it
       # Otherwise something has gone wrong so leave the token unchanged
       if response["access_token"].present?
-        self.update_attributes(access_token: response["access_token"], expires_in: response["expires_in"])
+        self.update(access_token: response["access_token"], expires_in: response["expires_in"])
       end
     end  
     

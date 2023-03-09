@@ -42,7 +42,7 @@ class StoriesController < ApplicationController
   end
   
   def update
-    if @story.update_attributes(story_params)
+    if @story.update(story_params)
       flash[:notice] = "Your successfully updated the story."
       redirect_to edit_story_path(@story)
     else
