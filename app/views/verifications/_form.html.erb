@@ -13,21 +13,23 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="first_name" class="text-field">First Name</label>
-      <input id="verification_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off" tabindex="1">
+      <input id="verification_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off" required tabindex="1">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="last_name" class="text-field">Last Name</label>
-      <input id="verification_last_name" name="verification[last_name]" class="text-field" type="text" value="<%= @verification.last_name %>" autocomplete="off" tabindex="2">
+      <input id="verification_last_name" name="verification[last_name]" class="text-field" type="text" value="<%= @verification.last_name %>" autocomplete="off" required tabindex="2">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="email" class="text-field">Email</label>
-      <input id="verification_email" name="verification[email]" class="text-field" type="text" value="<%= @verification.email %>" autocomplete="off" tabindex="3">
+      <div class="description">To receive your certificate</div>
+      <input id="verification_email" name="verification[email]" class="text-field" type="email" value="<%= @verification.email %>" autocomplete="off" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]" tabindex="3">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="discord_username" class="text-field">Discord Username</label>
-      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" tabindex="4">
+      <div class="description">Include 4-digit # tag</div>
+      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required pattern="[A-Za-z0-9._%+-]+#[0-9]{4}" tabindex="4">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
@@ -37,17 +39,17 @@
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="player_id" class="text-field">Player ID</label>
-      <input id="verification_player_id" name="verification[player_id]" class="text-field" type="text" value="<%= @verification.player_id %>" autocomplete="off" tabindex="6">
+      <input id="verification_player_id" name="verification[player_id]" class="text-field" type="text" value="<%= @verification.player_id %>" autocomplete="off" required tabindex="6">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="gender" class="text-field">What is your gender?</label>
-      <input id="verification_gender" name="verification[gender]" class="text-field" type="text" value="<%= @verification.gender %>" autocomplete="off" tabindex="7">
+      <input id="verification_gender" name="verification[gender]" class="text-field" type="text" value="<%= @verification.gender %>" autocomplete="off" required tabindex="7">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="pronouns" class="text-field">What are your pronouns?</label>
-      <input id="verification_pronouns" name="verification[pronouns]" class="text-field" type="text" value="<%= @verification.pronouns %>" autocomplete="off" tabindex="8">
+      <input id="verification_pronouns" name="verification[pronouns]" class="text-field" type="text" value="<%= @verification.pronouns %>" autocomplete="off" required tabindex="8">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
@@ -65,8 +67,8 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="social_profile" class="text-field">Social Media Profile°</label>
-      <div class="description">Where your identity is public</div>
-      <input id="verification_social_profile" name="verification[social_profile]" class="text-field" type="text" value="<%= @verification.social_profile %>" autocomplete="off" tabindex="11">
+      <div class="description">URL with your public identity</div>
+      <input id="verification_social_profile" name="verification[social_profile]" class="text-field" type="url" value="<%= @verification.social_profile %>" autocomplete="off" tabindex="11">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="voice_requested" class="text-field">Request Voice Chat°</label>
