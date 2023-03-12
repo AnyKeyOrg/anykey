@@ -135,4 +135,5 @@ a.inline {
   border-bottom: 2px solid var(--bright-orange-color);
   margin-bottom: -2px;
   text-shadow: none;
+  overflow-wrap: break-word;
 }
