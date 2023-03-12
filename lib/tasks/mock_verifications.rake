@@ -20,7 +20,7 @@ namespace :db do
     #     player_id_type: "riot",
     #     player_id: "GigaBobomb#TSM",
     #     gender: "agender",
-    #     pronouns: "they/them",
+    #     pronouns: "he/they",
     #     social_profile: "https://twitter.com/GigaShy",
     #     voice_requested: false,
     #     photo_id_submitted: true,
