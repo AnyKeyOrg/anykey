@@ -45,7 +45,23 @@ namespace :db do
         doctors_note_submitted: true,
         additional_notes: "",
         status: "pending")
-
+  
+    # Example to ignore in walkthru
+    v = Verification.create(    
+        first_name: "Waluigi",
+        last_name: "Bro",
+        email: "wawawawa@gtfo.com",
+        discord_username: "WickedStache#3527",
+        player_id_type: "riot",
+        player_id: "WickedStache#RIP",
+        gender: "wutlol",
+        pronouns: "what/why",
+        social_profile: "",
+        voice_requested: false,
+        photo_id_submitted: true,
+        doctors_note_submitted: false,
+        additional_notes: "",
+        status: "pending")      
         
     # Example to approve via voice in walkthru
     v = Verification.create(
@@ -263,25 +279,6 @@ namespace :db do
         status: "eligible",
         requested_on: Time.now-6.days,
         reviewed_on: Time.now-2.days,
-        reviewer_id: User.first.id)
-
-    v = Verification.create(    
-        first_name: "Waluigi",
-        last_name: "Bro",
-        email: "wawawawa@gtfo.com",
-        discord_username: "WickedStache#3527",
-        player_id_type: "riot",
-        player_id: "WickedStache#RIP",
-        gender: "wutlol",
-        pronouns: "what/why",
-        social_profile: "",
-        voice_requested: false,
-        photo_id_submitted: true,
-        doctors_note_submitted: false,
-        additional_notes: "",
-        status: "ignored",
-        requested_on: Time.now-7.days,
-        reviewed_on: Time.now-6.days,
         reviewer_id: User.first.id)
 
     v = Verification.create(
