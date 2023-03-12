@@ -9,6 +9,9 @@
 /log/*.log
 /tmp
 
+# Ignore local active storage
+/storage
+
 # Ignore RVM files
 .rvmrc
 
