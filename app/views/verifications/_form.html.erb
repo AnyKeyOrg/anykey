@@ -29,7 +29,7 @@
     <div class="item half-width flexbox vertical stretch">
       <label for="discord_username" class="text-field">Discord Username</label>
       <div class="description">Include 4-digit # tag</div>
-      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required pattern="[A-Za-z0-9._%+-]+#[0-9]{4}" tabindex="4">
+      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required pattern=".+#[0-9]{4}" tabindex="4">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
