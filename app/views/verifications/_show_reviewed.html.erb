@@ -26,7 +26,7 @@
       <div style="hidden">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       </div>
-      <input id="resend_cert_submit" name="commit" type="submit" class="resend-button button" value="Resend Cert" data-confirm="<%="Are you sure you want to resent #{@verification.full_name}'s eligibility certificate for marginalized gender tournaments?\n\nRemember, this generates an email that cannot be unsent 🤖" %>" tabindex="2">
+      <input id="resend_cert_submit" name="commit" type="submit" class="resend-button button" value="Resend Cert" data-confirm="<%="Are you sure you want to resend #{@verification.full_name}'s eligibility certificate for marginalized gender tournaments?\n\nRemember, this generates an email that cannot be unsent 🤖" %>" tabindex="2">
     </form>
   <% end %>
   <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth", tabindex: "1" ) %>
