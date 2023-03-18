@@ -17,11 +17,19 @@
 <%= render(partial: "verifications/review_details") %>
 <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
   <% if @verification.ignored? %>
-    <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button') %>
+    <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button', tabindex: "2") %>
   <% else %>
     <div class="stamp"><%= image_tag("/images/#{@verification.status}.svg", width: "200px") %></div>
   <% end %>
-  <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth" ) %>
+  <% if @verification.eligible? %>
+    <form action="<%= resend_cert_verification_path(@verification) %>" id="resend_cert" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+      <div style="hidden">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      </div>
+      <input id="resend_cert_submit" name="commit" type="submit" class="resend-button button" value="Resend Cert" data-confirm="<%="Are you sure you want to resent #{@verification.full_name}'s eligibility certificate for marginalized gender tournaments?\n\nRemember, this generates an email that cannot be unsent 🤖" %>" tabindex="2">
+    </form>
+  <% end %>
+  <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth", tabindex: "1" ) %>
 </div>
 <hr class="spacer">
 <div class="flexbox horizontal end wrap-reverse justify-space-between">

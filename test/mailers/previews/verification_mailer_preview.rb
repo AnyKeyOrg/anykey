@@ -16,4 +16,8 @@ class VerificationMailerPreview < ActionMailer::Preview
     VerificationMailer.deny_request(Verification.all.denied.last)
   end
   
+  def resend_certificate
+    VerificationMailer.resend_certificate(Verification.all.eligible.last)
+  end
+
 end

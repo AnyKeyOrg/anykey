@@ -22,4 +22,9 @@ class VerificationMailer < ApplicationMailer
     mail(to: verification.email, subject: "Your eligibility verification request has been denied")
   end
   
+  def resend_certificate(verification)
+    @verification = verification
+    mail(to: verification.email, subject: "Your eligibility certificate copy is here", template_name: 'verify_request')
+  end
+
 end

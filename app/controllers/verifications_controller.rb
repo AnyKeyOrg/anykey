@@ -2,9 +2,9 @@ class VerificationsController < ApplicationController
   
   layout "backstage",                       only: [ :index, :show, :verify_eligibility, :deny_eligibility ]
   
-  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny ]
-  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny ]
-  before_action :find_verification,         only: [ :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny ]
+  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny, :resend_cert ]
+  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny, :resend_cert ]
+  before_action :find_verification,         only: [ :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny, :resend_cert ]
   around_action :display_timezone
   
   def index
@@ -31,18 +31,18 @@ class VerificationsController < ApplicationController
       @filter_category = "pending"
     end
   end
-  
+
   def show
     @related_requests = @verification.related_requests
   end
-  
+
   def new
     @verification = Verification.new
   end
-  
+
   def create
     @verification = Verification.new(verification_params)
-    
+
     if @verification.save
       # TODO: send notification to staff
 
@@ -63,16 +63,16 @@ class VerificationsController < ApplicationController
       render(action: :new)
     end
   end
-  
+
   def ignore
     if @verification.pending? # Reasonability check to only allow pending requests to be ignored
       if @verification.update(status: :ignored, reviewer: current_user, reviewed_on: Time.now)
         flash[:notice] = "You ignored the eligibility verification request from #{@verification.full_name}."
       end
-    end      
+    end
     redirect_to verifications_path
   end
-  
+
   def unignore
     if @verification.ignored? # Reasonability check to only allow ignored requests to be unignored
       if @verification.update(status: :pending, reviewer: nil, reviewed_on: nil)
@@ -89,13 +89,13 @@ class VerificationsController < ApplicationController
   def deny_eligibility
   end
   
-  def verify    
+  def verify
     if @verification.pending? # Reasonability check to only allow pending requests to be denied
       if @verification.update(status: :eligible, reviewer: current_user, reviewed_on: Time.now)
 
         # Email certificate to requester
         VerificationMailer.verify_request(@verification).deliver_now
-               
+
         # Purge attachments
         @verification.photo_id.purge
         @verification.doctors_note.purge
@@ -122,7 +122,7 @@ class VerificationsController < ApplicationController
         # Purge attachments
         @verification.photo_id.purge
         @verification.doctors_note.purge
-        
+
         flash[:notice] = "You denied the eligibility verification request from #{@verification.full_name}."
       else
         flash.now[:alert] ||= ""
@@ -131,10 +131,21 @@ class VerificationsController < ApplicationController
         end
         render(action: :deny_eligibility, layout: "backstage") and return
       end
-    end      
+    end
     redirect_to verifications_path
   end
-  
+
+  def resend_cert
+    if @verification.eligible? # Reasonability check to only allow eligible requests to have certificates resent
+
+      # Email copy of certificate to player
+      VerificationMailer.resend_certificate(@verification).deliver_now
+
+      flash[:notice] = "You resent a copy of #{@verification.full_name}'s eligibility certificate."
+    end
+    redirect_to verifications_path
+  end
+
   protected
     def find_verification
       @verification = Verification.find_by(identifier: params[:id])

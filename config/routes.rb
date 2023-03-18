@@ -44,6 +44,7 @@ Rails.application.routes.draw do
         get  :deny_eligibility
         post :verify
         post :deny
+        post :resend_cert
       end
     end
 

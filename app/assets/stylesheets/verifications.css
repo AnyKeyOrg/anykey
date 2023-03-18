@@ -260,6 +260,12 @@
   background-color: var(--bright-green-color);
 }
 
+#backstage-container .verification-buttons .button.resend-button {
+  border: 4px solid var(--bright-green-color);
+  color: var(--bright-green-color);
+  background-color: var(--light-green-overlay);
+}
+
 #backstage-container .verification-buttons .stamp {
   margin-left: 2em;
 }
@@ -269,10 +275,22 @@
   background-color: var(--bright-blue-color);
 }
 
+#backstage-container .verification-buttons .button.resend-button:hover {
+  border: 4px solid var(--bright-orange-color);
+  color: var(--bright-orange-color);
+  background-color: var(--light-orange-overlay);
+}
+
 #backstage-container .verification-buttons .button:focus {
   cursor: pointer;
   background-color: var(--bright-blue-color);  
   outline: none;
+}
+
+#backstage-container .verification-buttons .button.resend-button:focus {
+  border: 4px solid var(--bright-blue-color);
+  color: var(--bright-blue-color);
+  background-color: var(--light-blue-overlay);
 }
 
 #backstage-container .verification-buttons .button::-moz-focus-inner {

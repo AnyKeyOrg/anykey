@@ -9,10 +9,10 @@
 <%= render(partial: "verifications/identity") %>
 <%= render(partial: "verifications/request_materials") %>
 <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
-  <%= link_to("Verify", verify_eligibility_verification_path(@verification, back: request.fullpath), class: 'verify-button button') %>
-  <%= link_to("Deny", deny_eligibility_verification_path(@verification, back: request.fullpath), class: 'deny-button button') %>
-  <%= link_to("Ignore", ignore_verification_path(@verification), method: :post, class: 'ignore-button button') %>
-  <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth" ) %>
+  <%= link_to("Verify", verify_eligibility_verification_path(@verification, back: request.fullpath), class: 'verify-button button', tabindex: "1") %>
+  <%= link_to("Deny", deny_eligibility_verification_path(@verification, back: request.fullpath), class: 'deny-button button', tabindex: "2") %>
+  <%= link_to("Ignore", ignore_verification_path(@verification), method: :post, class: 'ignore-button button', tabindex: "3") %>
+  <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth", tabindex: "4") %>
 </div>
 <hr class="spacer">
 <div class="flexbox horizontal end wrap-reverse justify-space-between">
