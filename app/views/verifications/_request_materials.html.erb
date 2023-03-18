@@ -2,11 +2,12 @@
   <div class="verification-item half-width flexbox vertical start">
     <div class="item-title">Photo ID</div>
     <% if @verification.photo_id.attached? %>    
-    <div id="verification-photo-id" class="flexbox horizontal center" data-url="<%= url_for(@verification.photo_id) %>">
+    <div id="verification-photo-id" class="flexbox vertical center" data-url="<%= url_for(@verification.photo_id) %>">
       <% if @verification.photo_id.variable? %>
         <%= image_tag(@verification.photo_id.variant(resize_to_limit: [240, 240])) %>
       <% else %>
         <%= image_tag("/images/photo-id-preview.svg", width: 180) %>
+        <div class="item-text small"><%= @verification.photo_id.filename %></div>
       <% end %>
       <div id="photo-id-overlay" style="display:none">
         <div class="action">
@@ -21,11 +22,12 @@
   <div class="verification-item half-width flexbox vertical start">
     <div class="item-title">Doctor's Note</div>
     <% if @verification.doctors_note.attached? %>    
-      <div id="verification-doctors-note" class="flexbox horizontal center" data-url="<%= url_for(@verification.doctors_note) %>">
+      <div id="verification-doctors-note" class="flexbox vertical center" data-url="<%= url_for(@verification.doctors_note) %>">
         <% if @verification.doctors_note.variable? %>
           <%= image_tag(@verification.doctors_note.variant(resize_to_limit: [240, 240])) %>
-        <% else%>
+        <% else %>
           <%= image_tag("/images/doctors-note-preview.svg", width: 130) %>
+          <div class="item-text small"><%= @verification.doctors_note.filename %></div>
         <% end %>
         <div id="doctors-note-overlay" style="display:none">
           <div class="action">
