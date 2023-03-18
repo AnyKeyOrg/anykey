@@ -139,7 +139,8 @@
 #backstage-container .verification-item .item-text.submitted,
 #backstage-container .verification-item .item-text.eligible,
 #backstage-container .verification-item .item-text.denied,
-#backstage-container .verification-item .item-text.ignored {
+#backstage-container .verification-item .item-text.ignored,
+#backstage-container .verification-item .item-text.pending {
   font-size: 0.8em;
   font-weight: 700;
   margin-top: 0.3em;
@@ -163,6 +164,10 @@
 
 #backstage-container .verification-item .item-text.ignored {
   color: var(--gray-color);
+}
+
+#backstage-container .verification-item .item-text.pending {
+  color: var(--bright-blue-color);
 }
 
 #backstage-container .verification-item .item-text.small {
