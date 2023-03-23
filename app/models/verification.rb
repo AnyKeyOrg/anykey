@@ -1,5 +1,6 @@
 class Verification < ApplicationRecord
   
+  require 'csv'
   require 'uri'
   
   STATUSES = {
@@ -111,7 +112,19 @@ class Verification < ApplicationRecord
 
     reqs.uniq.sort_by { |e| -reqs.count(e)}
   end
-  
+
+  def validate(player_data)
+    # Compares player data given to information on file for a given eligibility certificate
+    # Returns hash of booleans showing matching parameters
+    # TODO: DRY and generalize this method for future player_id_types
+    cross_check = {}
+    cross_check[:full_name]        = self.full_name == player_data[:full_name] ? 'valid' : 'inconsistent'
+    cross_check[:email]            = self.email == player_data[:email] ? 'valid' : 'inconsistent'
+    cross_check[:discord_username] = self.discord_username == player_data[:discord_username] ? 'valid' : 'inconsistent'
+    cross_check[:player_id]        = self.player_id == player_data[:player_id] ? 'valid' : 'inconsistent'
+    return cross_check
+  end
+
   protected
     def ensure_denial_includes_reason
       if !self.status.blank?
@@ -151,7 +164,7 @@ class Verification < ApplicationRecord
     end
     
     # Flag if attachments are submitted as record is created
-    def flag_attachment_submission      
+    def flag_attachment_submission
       if self.photo_id.attached?
         self.photo_id_submitted = true
       end
