@@ -18,26 +18,25 @@ namespace :verifications do
       player_data = row.to_hash.symbolize_keys
       
       unless player_data[:certificate_code].blank?
-        v = Verification.find_by(identifier: player_data[:certificate_code])
-        c = {certificate_code: player_data[:certificate_code]}
-        not_valid = {full_name: "invalid", email: "invalid", discord_username: "invalid", player_id: "invalid"}
+        verification = Verification.find_by(identifier: player_data[:certificate_code])
+        certificate_code = {certificate_code: player_data[:certificate_code]}
 
         # Check if cert code exists, look up state of request, and validate eligible player data with crosscheck
-        if v.blank?
-          r = {response: "not_found"}
-          cross_check_results << {**c, **r, **not_valid}
-        elsif v.denied? || v.ignored? || v.pending?
-          r = {response: "invalid"}
-          cross_check_results << {**c, **r, **not_valid}
-        elsif v.eligible?
-          r = {response: "valid"}
-          d = v.validate(player_data)
-          d.each do |key, value|
-            if value == "inconsistent"
-              r = {response: "inconsistent"}
+        if verification.blank?
+          response = {response: "not_found"}
+          cross_check_results << {**certificate_code, **response}
+        elsif verification.denied? || verification.ignored? || verification.pending?
+          response = {response: "invalid"}
+          cross_check_results << {**certificate_code, **response}
+        elsif verification.eligible?
+          response = {response: "valid"}
+          validation_results = verification.validate(player_data)
+          validation_results.each do |key, value|
+            if value == "mismatch"
+              response = {response: "inconsistent"}
             end
           end
-          cross_check_results << {**c, **r, **d}
+          cross_check_results << {**certificate_code, **response, **validation_results, **verification.validated_details}
         end
       end
     end

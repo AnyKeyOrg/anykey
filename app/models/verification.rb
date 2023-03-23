@@ -113,15 +113,27 @@ class Verification < ApplicationRecord
     reqs.uniq.sort_by { |e| -reqs.count(e)}
   end
 
+
+  def validated_details
+    # Returns hash of player data submitted for certificate
+    # TODO: Generalize this method for future player_id_types
+    {full_name:       self.full_name,
+    email:            self.email,
+    discord_username: self.discord_username,
+    player_id:        self.player_id,
+    gender:           self.gender,
+    pronouns:         self.pronouns}
+  end
+
   def validate(player_data)
     # Compares player data given to information on file for a given eligibility certificate
     # Returns hash of booleans showing matching parameters
     # TODO: DRY and generalize this method for future player_id_types
     cross_check = {}
-    cross_check[:full_name]        = self.full_name == player_data[:full_name] ? 'valid' : 'inconsistent'
-    cross_check[:email]            = self.email == player_data[:email] ? 'valid' : 'inconsistent'
-    cross_check[:discord_username] = self.discord_username == player_data[:discord_username] ? 'valid' : 'inconsistent'
-    cross_check[:player_id]        = self.player_id == player_data[:player_id] ? 'valid' : 'inconsistent'
+    cross_check[:full_name_validation]        = self.full_name == player_data[:full_name] ? 'match' : 'miss'
+    cross_check[:email_validation]            = self.email == player_data[:email] ? 'match' : 'miss'
+    cross_check[:discord_username_validation] = self.discord_username == player_data[:discord_username] ? 'match' : 'miss'
+    cross_check[:player_id_validation]        = self.player_id == player_data[:player_id] ? 'match' : 'miss'
     return cross_check
   end
 
