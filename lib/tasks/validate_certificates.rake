@@ -1,8 +1,6 @@
-# This task imports past pledges from a CSV file
-# usage: rake verifications:validate_certificates['/path/to/player_data.csv']
-
-# To use this task on Heroku...
-# usage: rake verifications:validate_certificates < '/local/path/to/player_data.csv'
+# This task imports past pledges from a CSV file using STDIN
+# It will work on Heroku as well as in development
+# usage: rake verifications:validate_certificates < /local/path/to/player_data.csv
 
 namespace :verifications do
 
@@ -15,7 +13,7 @@ namespace :verifications do
     cross_check_results = []
 
     # Ingest relevant data from batch csv file
-    CSV.foreach(args[:filename], headers: true) do |row|
+    CSV.parse(STDIN.read, headers: true).each do |row|
       player_data = row.to_hash.symbolize_keys
       v = Verification.find_by(identifier: player_data[:certificate_code])
       c = {certificate_code: player_data[:certificate_code]}
