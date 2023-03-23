@@ -32,7 +32,7 @@ namespace :verifications do
           response = {response: "valid"}
           validation_results = verification.validate(player_data)
           validation_results.each do |key, value|
-            if value == "mismatch"
+            if value == "miss"
               response = {response: "inconsistent"}
             end
           end
