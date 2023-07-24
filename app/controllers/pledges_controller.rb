@@ -135,11 +135,11 @@ class PledgesController < ApplicationController
         end
         
         # Request an access token from Twitch
-        response = HTTParty.post(URI.escape("#{ENV['TWITCH_AUTH_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&code=#{params[:code]}&grant_type=authorization_code&redirect_uri=#{ENV['TWITCH_REDIRECT_URL']}"))
+        response = HTTParty.post(URI::Parser.new.escape("#{ENV['TWITCH_AUTH_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&code=#{params[:code]}&grant_type=authorization_code&redirect_uri=#{ENV['TWITCH_REDIRECT_URL']}"))
 
         # Use token to view Twitch credentials and store for validation
         if response["access_token"].present?
-          twitch_user = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users"), headers: {"Authorization": "Bearer #{response['access_token']}", "Client-ID": ENV['TWITCH_CLIENT_ID']})
+          twitch_user = HTTParty.get(URI::Parser.new.escape("#{ENV['TWITCH_API_BASE_URL']}/users"), headers: {"Authorization": "Bearer #{response['access_token']}", "Client-ID": ENV['TWITCH_CLIENT_ID']})
                           
           if !twitch_user["data"].blank?
             if Pledge.find_by(twitch_id: twitch_user["data"][0]["id"])
@@ -152,7 +152,7 @@ class PledgesController < ApplicationController
             
             else              
               # Set badge on Twitch (using allowlisted Helix v6 custom API endpoint)
-              badge_result = HTTParty.post(URI.escape("#{ENV['TWITCH_PLEDGE_BASE_URL']}"), headers: {"Authorization": "Bearer #{TwitchToken.first.valid_token!}", "Client-ID": ENV['TWITCH_CLIENT_ID'], "Content-Type": "application/json"}, body: {"user_id": "#{twitch_user["data"][0]["id"]}", "secret": "#{ENV['TWITCH_PLEDGE_SECRET']}"}.to_json)
+              badge_result = HTTParty.post(URI::Parser.new.escape("#{ENV['TWITCH_PLEDGE_BASE_URL']}"), headers: {"Authorization": "Bearer #{TwitchToken.first.valid_token!}", "Client-ID": ENV['TWITCH_CLIENT_ID'], "Content-Type": "application/json"}, body: {"user_id": "#{twitch_user["data"][0]["id"]}", "secret": "#{ENV['TWITCH_PLEDGE_SECRET']}"}.to_json)
 
               if badge_result["error"].present?
                 # Set cookie to enforce single visit to redirect page

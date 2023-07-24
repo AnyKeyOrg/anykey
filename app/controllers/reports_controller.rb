@@ -86,7 +86,7 @@ class ReportsController < ApplicationController
     
     def find_reported_twitch_user
       # Check if reported_twitch_name exists on Twitch
-      response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
+      response = HTTParty.get(URI::Parser.new.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
       
       if response["data"].blank?
        @reported_twitch_user = nil

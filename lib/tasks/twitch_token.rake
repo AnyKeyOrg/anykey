@@ -17,7 +17,7 @@ namespace :twitch_token do
     twitch_token = TwitchToken.first_or_create()
     
     # Attempt to get app access token from Twitch
-    response = HTTParty.post(URI.escape("#{ENV['TWITCH_AUTH_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&grant_type=client_credentials"))
+    response = HTTParty.post(URI::Parser.new.escape("#{ENV['TWITCH_AUTH_BASE_URL']}/oauth2/token?client_id=#{ENV['TWITCH_CLIENT_ID']}&client_secret=#{ENV['TWITCH_CLIENT_SECRET']}&grant_type=client_credentials"))
         
     # Set access token if successfully retrieved
     if response["access_token"].present?

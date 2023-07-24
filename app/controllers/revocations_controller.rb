@@ -36,7 +36,7 @@ class RevocationsController < ApplicationController
         PledgeMailer.notify_reporter_revocation(@revocation).deliver_now
                 
         # Revoke badge on Twitch (using allowlisted Helix v6 custom API endpoint)
-        badge_result = HTTParty.delete(URI.escape("#{ENV['TWITCH_PLEDGE_BASE_URL']}?user_id=#{@pledge.twitch_id}&secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {"Authorization": "Bearer #{TwitchToken.first.valid_token!}", "Client-ID": ENV['TWITCH_CLIENT_ID'], "Content-Type": "application/json"})
+        badge_result = HTTParty.delete(URI::Parser.new.escape("#{ENV['TWITCH_PLEDGE_BASE_URL']}?user_id=#{@pledge.twitch_id}&secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {"Authorization": "Bearer #{TwitchToken.first.valid_token!}", "Client-ID": ENV['TWITCH_CLIENT_ID'], "Content-Type": "application/json"})
 
         @pledge.badge_revoked = true
         @pledge.revoked_on    = Time.now
@@ -69,7 +69,7 @@ class RevocationsController < ApplicationController
     
     def find_reported_twitch_user
       # Check if reported_twitch_name exists on Twitch
-      response = HTTParty.get(URI.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
+      response = HTTParty.get(URI::Parser.new.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
       
       if response["data"].blank?
        @reported_twitch_user = nil
