@@ -2,7 +2,7 @@
   <div class="faq-header">
     Eligibility Certification FAQ
   </div>
-  <% (1..17).each do |i| %>
+  <% (1..19).each do |i| %>
     <div class="faq-item <%= cycle "odd", "even", name: "item-cycler" %> flexbox vertical stretch"  data-number="<%= i %>">
       <div class="question">
         <%= t(".question-#{i}").html_safe %>
