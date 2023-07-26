@@ -64,6 +64,10 @@
   margin-top: 1em;
 }
 
+#backstage-container .panel-menu a.compact {
+  letter-spacing: -0.05em;
+}
+
 #backstage-container .panel-menu a.half {
   width: 42.5%;
 }
