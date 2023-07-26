@@ -39,10 +39,6 @@ class Verification < ApplicationRecord
   validates_format_of   :email,
                         with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,
                         if: lambda { |x| x.email.present? }
-                        
-  validates_format_of   :discord_username,
-                        with: /\A.+#[0-9]{4}\z/,
-                        if: lambda { |x| x.discord_username.present? }
   
   validate              :ensure_valid_social_url
   

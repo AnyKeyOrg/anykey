@@ -63,7 +63,6 @@ en:
               invalid: "must be valid"
             discord_username:
               blank: "is required"
-              invalid: "must include 4-digit # tag"
             player_id_type:
               blank: "is required"
             player_id:

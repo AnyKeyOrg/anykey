@@ -28,8 +28,8 @@
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="discord_username" class="text-field">Discord Username</label>
-      <div class="description">Include 4-digit # tag</div>
-      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required pattern=".+#[0-9]{4}" tabindex="4">
+      <div class="description">New or old style (# not mandatory)</div>
+      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required tabindex="4">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
@@ -55,12 +55,12 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="photo_id" class="text-field">Photo ID°</label>
-      <div class="description">With gender/sex marker</div>
+      <div class="description smaller">Physical credentials with gender/sex marker</div>
       <input id="verification_photo_id" name="verification[photo_id]" type="file" tabindex="9">
     </div>  
     <div class="item half-width flexbox vertical stretch">
       <label for="doctors_note" class="text-field">Doctor's Note°</label>
-      <div class="description">That affirms your gender</div>
+      <div class="description">Official document affirming your gender</div>
       <input id="verification_doctors_note" name="verification[doctors_note]" type="file" tabindex="10">
     </div>
   </div>
