@@ -17,6 +17,8 @@ function setupInputCSVListener() {
 function setupValidateSubmitListener() {
   $('#validate_certs_form').submit(function(e) {    
     e.preventDefault(); 
+    // Move button to deactive state
+    
     $.ajax({
       type: 'POST',
       data: new FormData(this),
@@ -24,7 +26,12 @@ function setupValidateSubmitListener() {
       contentType: false,
       url: this.action,
       success: function(data, textStatus, jqXHR) {
+        // Put results on page
+        // Show and enable download button
+        // Show and enable reset button
+        
         //clickedTrack.replaceWith(eval(data));
+        
         console.log("Ajax something good.")
         console.log(data)
         console.log(jqXHR.status)
@@ -32,6 +39,9 @@ function setupValidateSubmitListener() {
 
       },
       error: function(jqXHR, textStatus, errorThrown) {
+        // Clear file upload
+        // Show error message on page
+        
         console.log("Ajax something bad.")
         console.log(jqXHR.responseJSON)
         console.log(jqXHR.status)
