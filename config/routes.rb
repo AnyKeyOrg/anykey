@@ -48,7 +48,8 @@ Rails.application.routes.draw do
       end
     end
 
-    get '/certificate_validation', to: 'modtools#certificate_validation', as: :certificate_validation
+    get '/cert_validation',    to: 'modtools#cert_validation',  as: :cert_validation
+    post '/validate_certs',    to: 'modtools#validate_certs',   as: :validate_certs
 
     resources :staff,          only: [ :index ]
     resources :users,          only: [ :index, :show, :edit, :update ]
