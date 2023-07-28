@@ -46,6 +46,12 @@ function setupValidateSubmitListener() {
         // Hide cross check button
         $('#validate_certs_submit').hide();
         
+        // Hide instructions
+        $('#cross_check_instructions').hide();
+        
+        // Update subheading
+        document.getElementById('cross_check_subheading').innerHTML = "Results"
+        
         // Convert JSON response to CSV and show results on page
         document.getElementById('cross_check_results').innerHTML = JSONtoCSV(data.results);
         
@@ -62,6 +68,12 @@ function setupValidateSubmitListener() {
         
         // Show reset button
         $('#reset_validation_button').show();
+        
+        // Hide instructions
+        $('#cross_check_instructions').hide();
+        
+        // Update subheading
+        document.getElementById('cross_check_subheading').innerHTML = "Results"
         
         // Show error message on page
         var statusMessage = ""

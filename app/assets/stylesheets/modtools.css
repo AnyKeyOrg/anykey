@@ -2,8 +2,23 @@
 /*      Cert Validation Style       */
 /************************************/
 
-#backstage-container #cross_check_results {
+#backstage-container #cross_check_subheading {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 1em;
   margin-top: 2em;
+}
+
+#backstage-container #cross_check_instructions {
+  margin-top: 0.5em;
+  font-family: var(--body-font);
+  font-size: 0.9em;
+  width: 100%;
+  white-space: wrap;
+}
+
+#backstage-container #cross_check_results {
+  margin-top: 0.5em;
   font-family: var(--code-font);
   width: 100%;
   white-space: preserve nowrap;
