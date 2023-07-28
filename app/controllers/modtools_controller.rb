@@ -15,21 +15,43 @@ class ModtoolsController < ApplicationController
   def validate_certs
     respond_to :json
 
-    # Ensure uploaded file is actually CSV
+    # Ensure request includes a CSV file
+    if params[:validate_certs_input_csv].blank? || params[:validate_certs_input_csv].content_type != 'text/csv'
+      render :json => {:error => 'The request must contain a CSV file', :code => '400'}, :status => 400
+    else
+      # Process CSV file
+      cross_check_results = []
+      
+      CSV.open(params[:validate_certs_input_csv].path, headers: true).each do |row|
+        player_data = row.to_hash.symbolize_keys
+      
+        unless player_data[:certificate_code].blank?
+          verification = Verification.find_by(identifier: player_data[:certificate_code])
+          certificate_code = {certificate_code: player_data[:certificate_code]}
 
-    # Process uploaded CSV file
-    logger.info "******************************************************************"
-    CSV.open(params[:validate_certs_input_csv].path, headers: true).each do |row|
-      logger.info row.to_hash.symbolize_keys
+          # Check if cert code exists, look up state of request, and validate eligible player data with crosscheck
+          # Note: uses ** double splat trick to easily merge hashes
+          if verification.blank?
+            response = {response: "not_found"}
+            cross_check_results << {**certificate_code, **response}
+          elsif verification.denied? || verification.ignored? || verification.pending?
+            response = {response: "invalid"}
+            cross_check_results << {**certificate_code, **response}
+          elsif verification.eligible?
+            response = {response: "valid"}
+            validation_results = verification.validate(player_data)
+            validation_results.each do |key, value|
+              if value == "miss"
+                response = {response: "inconsistent"}
+              end
+            end
+            cross_check_results << {**certificate_code, **response, **validation_results, **verification.validated_details}
+          end
+        end
+      end
+      render :json => {results: cross_check_results}, :status => 200
     end
-    logger.info "******************************************************************"
     
-    # Return JSON object with results if all is good
-    # render :json => {}, :status => 200
-    
-    # If glitched, throw an error
-    render :json => {:error => 'The request must contain a CSV file', :code => '400'}, :status => 400    
-
   end
    
   private

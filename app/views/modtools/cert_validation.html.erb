@@ -12,11 +12,12 @@
             <label for="validate_certs_input_csv" class="text-field">CSV File</label>
             <input id="validate_certs_input_csv" name="validate_certs_input_csv" type="file" tabindex="1">
           </div>
-          <input id="validate_certs_submit" type="submit" class="button" value="Cross Check" tabindex="2" disabled>
+          <input id="validate_certs_submit" type="submit" class="button" value="Cross Check" tabindex="2">
+          <input id="download_csv" type="submit" class="button" value="Download CSV" tabindex="3" >
+          
         </form>
 
-        [Results display area]<br>
-                
+        <div id="cross_check_results" style="white-space: pre-wrap;">[Results display area]</div>
       </div>
     </div>
   </div>
