@@ -49,6 +49,16 @@ class ModtoolsController < ApplicationController
           end
         end
       end
+       
+      # Formulate CSV reponse of crosschecks
+      headers = cross_check_results.flat_map(&:keys).uniq
+      csv_response = CSV.generate(headers: true) do |csv|
+        csv << headers
+        cross_check_results.each do |result|
+          csv << result.values_at(*headers)
+        end
+      end
+      
       render :json => {results: cross_check_results}, :status => 200
     end
     

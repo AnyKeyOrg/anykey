@@ -1,8 +1,14 @@
 // Single page cert validation mod tool functions
 
-// Elegant solution found on Stack Overflow (Q8847766)
+
+// Converts JSON to plain CSV text
+// Adapts Ruby rake task to JS
+// Thanks to solution on Stack Overflow (Q8847766)
 function JSONtoCSV(data) {
-  return (Object.keys(data[0]).join(",") +"\n" + data.map((d) => Object.values(d).join(",")).join("\n"));
+  var keys = []
+  data.map((d) => keys.push(Object.keys(d)))
+  var headers = new Set(keys.flat(1))
+  return (Array.from(headers).join(",") +"\n" + data.map((d) => Object.values(d).join(",")).join("\n"));
 }
 
 // Toggles the cross check button to be enabled when a CSV file has been selected
@@ -19,9 +25,12 @@ function setupInputCSVListener() {
 
 // Handles cross check submit by sending input file via AJAX
 function setupValidateSubmitListener() {
-  $('#validate_certs_form').submit(function(e) {    
-    e.preventDefault(); 
-    // Move button to deactive state
+  $('#validate_certs_form').submit(function(e) {
+    
+    // Intercept click, release button from focus state and hide
+    e.preventDefault();
+    $('#validate_certs_submit').blur();
+    $('#validate_certs_submit').hide();
     
     $.ajax({
       type: 'POST',
@@ -35,18 +44,13 @@ function setupValidateSubmitListener() {
         console.log(data)
         console.log(jqXHR.status)
         console.log(textStatus)
-
-        // Put results on page
+        
+        // Convert JSON response to CSV and show results on page
         document.getElementById('cross_check_results').innerHTML = JSONtoCSV(data.results);
         
-        console.log(data.results)
-            
-        // Prepare CSV file from JSON
-        // https://www.itsolutionstuff.com/post/how-to-export-json-to-csv-file-using-javascript-jqueryexample.html
-        // https://stackoverflow.com/questions/32960857/how-to-convert-arbitrary-simple-json-to-csv-using-jq
-        
-        // Show and enable download button
-        // Show and enable reset button
+        // Show download and reset buttons
+        $("#download_csv_button").show();
+        $('#reset_validation_button').show();
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // Logging
@@ -62,11 +66,13 @@ function setupValidateSubmitListener() {
   }); 
 }
 
+// Generates downloadable CSV file from the JSON data dumped onto page
+// Thanks to another tip from Stack Overflow (Q609530)
 function setupDownloadCSVListener() {
-  $('#download_csv').click(function(e) {
+  $('#download_csv_button').click(function(e) {
     e.preventDefault();
     var l = document.createElement("a");
-    l.href = "data:text/plain;charset=UTF-8," + document.getElementById('cross_check_results').innerHTML;
+    l.href = "data:text/csv;charset=UTF-8," + escape(document.getElementById('cross_check_results').innerHTML);
     l.setAttribute("download", "results.csv");
     l.click();
   });
@@ -77,5 +83,3 @@ $(document).ready(function() {
   setupValidateSubmitListener();
   setupDownloadCSVListener();
 });
-
-

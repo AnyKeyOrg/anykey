@@ -169,6 +169,13 @@
   text-align: center;
 }
 
+#backstage-container form .button.mini {
+  border: 3px solid var(--light-black-color);
+  font-weight: 400;
+  font-size: 0.9em;
+  padding: 0.5em 0.75em 0.5em 0.75em;
+}
+
 #backstage-container form .button.left-padded {
   margin-left: 1em;
 }
@@ -180,7 +187,7 @@
 
 #backstage-container form .button:focus {
   cursor: pointer;
-  background-color: var(--bright-blue-color);  
+  background-color: var(--bright-blue-color);
   outline: none;
 }
 
