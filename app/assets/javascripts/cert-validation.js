@@ -37,7 +37,7 @@ function setupValidateSubmitListener() {
         console.log(textStatus)
 
         // Put results on page
-        document.getElementById('cross_check_results').innerHTML = JSONtoCSV(data.results));
+        document.getElementById('cross_check_results').innerHTML = JSONtoCSV(data.results);
         
         console.log(data.results)
             
