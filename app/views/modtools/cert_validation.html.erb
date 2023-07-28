@@ -7,17 +7,17 @@
           <div style="display:none">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           </div>
-          <div class="item flexbox vertical start flex-0">
-            <label for="validate_certs_input_csv" class="text-field">CSV File</label>
+          <div class="item no-bottom flexbox vertical start flex-0">
+            <label for="validate_certs_input_csv" class="text-field above">CSV File</label>
             <input id="validate_certs_input_csv" name="validate_certs_input_csv" type="file" tabindex="1">
           </div>
-          <div class="flexbox horizontal center flex-0">
-            <input id="validate_certs_submit" type="submit" class="button" value="Cross Check" tabindex="2" disabled>
+          <div class="validation-buttons flexbox horizontal center wrap">
             <%= link_to('Reset', cert_validation_path, id: "reset_validation_button", class: "button mini", tabindex: "14", style: "display:none") %>
+            <input id="validate_certs_submit" type="submit" class="button left-padded" value="Cross Check" tabindex="2" disabled>
             <input id="download_csv_button" type="submit" class="button left-padded" value="Download CSV" tabindex="3" style="display:none">
           </div>
         </form>
-        <div id="cross_check_results">[Results display area]</div>
+        <div id="cross_check_results"></div>
       </div>
     </div>
   </div>

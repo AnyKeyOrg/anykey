@@ -18,8 +18,13 @@ class ModtoolsController < ApplicationController
     # Ensure request includes a CSV file
     if params[:validate_certs_input_csv].blank? || params[:validate_certs_input_csv].content_type != 'text/csv'
       render :json => {:error => 'The request must contain a CSV file', :code => '400'}, :status => 400
+    
+    # Check CSV file for crucial cert code column
+    elsif !CSV.open(params[:validate_certs_input_csv].path, headers: true).read.headers.include? "certificate_code"
+      render :json => {:error => 'The CSV file must include certificate_codes', :code => '400'}, :status => 400
+    
+    # Process CSV file
     else
-      # Process CSV file
       cross_check_results = []
       
       CSV.open(params[:validate_certs_input_csv].path, headers: true).each do |row|
@@ -49,17 +54,15 @@ class ModtoolsController < ApplicationController
           end
         end
       end
-       
-      # Formulate CSV reponse of crosschecks
-      headers = cross_check_results.flat_map(&:keys).uniq
-      csv_response = CSV.generate(headers: true) do |csv|
-        csv << headers
-        cross_check_results.each do |result|
-          csv << result.values_at(*headers)
-        end
-      end
       
-      render :json => {results: cross_check_results}, :status => 200
+      # Ensure at least one actual cert code was included
+      if cross_check_results.empty?
+        render :json => {:error => 'The CSV file must include certificate_codes', :code => '400'}, :status => 400
+      
+      # Respond with JSON object of results
+      else
+        render :json => {results: cross_check_results}, :status => 200
+      end
     end
     
   end

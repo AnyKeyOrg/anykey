@@ -1,6 +1,5 @@
 // Single page cert validation mod tool functions
 
-
 // Converts JSON to plain CSV text
 // Adapts Ruby rake task to JS
 // Thanks to solution on Stack Overflow (Q8847766)
@@ -27,11 +26,10 @@ function setupInputCSVListener() {
 function setupValidateSubmitListener() {
   $('#validate_certs_form').submit(function(e) {
     
-    // Intercept click, release button from focus state and hide
+    // Intercept click and release button from focus state
     e.preventDefault();
     $('#validate_certs_submit').blur();
-    $('#validate_certs_submit').hide();
-    
+
     $.ajax({
       type: 'POST',
       data: new FormData(this),
@@ -40,10 +38,13 @@ function setupValidateSubmitListener() {
       url: this.action,
       success: function(data, textStatus, jqXHR) {
         // Logging
-        console.log("Ajax something good.")
-        console.log(data)
-        console.log(jqXHR.status)
-        console.log(textStatus)
+        // console.log("Ajax something good.")
+        // console.log(data)
+        // console.log(jqXHR.status)
+        // console.log(textStatus)
+        
+        // Hide cross check button
+        $('#validate_certs_submit').hide();
         
         // Convert JSON response to CSV and show results on page
         document.getElementById('cross_check_results').innerHTML = JSONtoCSV(data.results);
@@ -54,13 +55,21 @@ function setupValidateSubmitListener() {
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // Logging
-        console.log("Ajax something bad.")
-        console.log(jqXHR.responseJSON)
-        console.log(jqXHR.status)
-        console.log(textStatus)
+        // console.log("Ajax something bad.")
+        // console.log(jqXHR.responseJSON)
+        // console.log(jqXHR.status)
+        // console.log(textStatus)
         
-        // Clear file upload
+        // Show reset button
+        $('#reset_validation_button').show();
+        
         // Show error message on page
+        var statusMessage = ""
+        if (jqXHR.responseJSON)
+          statusMessage = jqXHR.responseJSON.error;
+        else
+          statusMessage = jqXHR.status;
+        document.getElementById('cross_check_results').innerHTML = textStatus.toUpperCase() + ": " + statusMessage;
       }
     });
   }); 
