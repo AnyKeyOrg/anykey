@@ -81,7 +81,7 @@ function setupDownloadCSVListener() {
   $('#download_csv_button').click(function(e) {
     e.preventDefault();
     var l = document.createElement("a");
-    l.href = "data:text/csv;charset=UTF-8," + escape(document.getElementById('cross_check_results').innerHTML);
+    l.href = "data:text/csv;charset=UTF-8," + encodeURIComponent(document.getElementById('cross_check_results').innerHTML);
     l.setAttribute("download", "results.csv");
     l.click();
   });
