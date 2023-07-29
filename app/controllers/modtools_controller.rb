@@ -11,7 +11,7 @@ class ModtoolsController < ApplicationController
   def cert_validation
   end
 
-  # POST: Crosscheck batch from CSV file and return results
+  # POST: Crosscheck batch from CSV file and return results as JSON
   def validate_certs
     respond_to :json
 

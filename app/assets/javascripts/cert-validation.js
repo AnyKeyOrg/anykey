@@ -37,12 +37,6 @@ function setupValidateSubmitListener() {
       contentType: false,
       url: this.action,
       success: function(data, textStatus, jqXHR) {
-        // Logging
-        // console.log("Ajax something good.")
-        // console.log(data)
-        // console.log(jqXHR.status)
-        // console.log(textStatus)
-        
         // Hide cross check button
         $('#validate_certs_submit').hide();
         
@@ -60,12 +54,6 @@ function setupValidateSubmitListener() {
         $('#reset_validation_button').show();
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        // Logging
-        // console.log("Ajax something bad.")
-        // console.log(jqXHR.responseJSON)
-        // console.log(jqXHR.status)
-        // console.log(textStatus)
-        
         // Show reset button
         $('#reset_validation_button').show();
         
