@@ -49,16 +49,22 @@
     <div class="item-text empty">None</div>
     <% end %>
   </div>
+  <div class="verification-item half-width flexbox vertical start">
+    <div class="item-title">
+      <%= @verification.eligible? ? "Certificate Code" : "Request Identifier" %>
+    </div>
+    <div class="item-text <%= @verification.status %>"><%= @verification.identifier %></div>
+  </div>
   <% if @verification.denied? %>
   <div class="verification-item flexbox vertical stretch">
     <div class="item-title">Reason for Denial</div>
     <div class="item-text small"><%= @verification.refusal_reason %></div>
   </div>
   <% end %>
-  <div class="verification-item half-width flexbox vertical start">
-    <div class="item-title">
-      <%= @verification.eligible? ? "Certificate Code" : "Request Identifier" %>
-    </div>
-    <div class="item-text <%= @verification.status %>"><%= @verification.identifier %></div>
-  </div>  
+  <% if @verification.withdrawn? %>
+  <div class="verification-item flexbox vertical stretch">
+    <div class="item-title">Reason for Withdrawal</div>
+    <div class="item-text small"><%= @verification.refusal_reason %></div>
+  </div>
+  <% end %>
 </div>
