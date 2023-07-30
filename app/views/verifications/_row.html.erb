@@ -10,7 +10,7 @@
     <% else %>
     <div class="flexbox horizontal center">
       <div class="row-detail">
-      <%= l(verification.reviewed_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
+      <%= l(verification.last_reviewed_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
       </div>
       <div class="row-detail <%= verification.status %>">
         <%= Verification::STATUSES[verification.status.to_sym].upcase %>

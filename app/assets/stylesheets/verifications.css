@@ -106,7 +106,8 @@
  color: var(--bright-green-color);
 }
 
-#backstage-container .record-row .row-detail.denied {
+#backstage-container .record-row .row-detail.denied,
+#backstage-container .record-row .row-detail.withdrawn  {
   font-weight: 700;
   color: var(--alert-red-color);
 }
@@ -139,6 +140,7 @@
 #backstage-container .verification-item .item-text.submitted,
 #backstage-container .verification-item .item-text.eligible,
 #backstage-container .verification-item .item-text.denied,
+#backstage-container .verification-item .item-text.withdrawn,
 #backstage-container .verification-item .item-text.ignored,
 #backstage-container .verification-item .item-text.pending {
   font-size: 0.8em;
@@ -158,7 +160,8 @@
   color: var(--bright-green-color);
 }
 
-#backstage-container .verification-item .item-text.denied {
+#backstage-container .verification-item .item-text.denied,
+#backstage-container .verification-item .item-text.withdrawn {
   color: var(--alert-red-color);
 }
 
@@ -266,6 +269,12 @@
   background-color: var(--light-green-overlay);
 }
 
+#backstage-container .verification-buttons .button.withdrawal-button {
+  border: 4px solid var(--alert-red-color);
+  color: var(--alert-red-color);
+  background-color: var(--light-red-overlay);
+}
+
 #backstage-container .verification-buttons .stamp {
   margin-left: 2em;
 }
@@ -275,7 +284,8 @@
   background-color: var(--bright-blue-color);
 }
 
-#backstage-container .verification-buttons .button.resend-button:hover {
+#backstage-container .verification-buttons .button.resend-button:hover,
+#backstage-container .verification-buttons .button.withdrawal-button:hover {
   border: 4px solid var(--bright-orange-color);
   color: var(--bright-orange-color);
   background-color: var(--light-orange-overlay);
@@ -287,7 +297,8 @@
   outline: none;
 }
 
-#backstage-container .verification-buttons .button.resend-button:focus {
+#backstage-container .verification-buttons .button.resend-button:focus,
+#backstage-container .verification-buttons .button.withdrawal-button:focus {
   border: 4px solid var(--bright-blue-color);
   color: var(--bright-blue-color);
   background-color: var(--light-blue-overlay);

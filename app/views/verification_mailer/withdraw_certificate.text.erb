@@ -1,0 +1,7 @@
+Hey <%= @verification.first_name %>,
+
+Our ComfyCrew has recently reviewed the status of your eligibility certificate issued on <%= l(@verification.reviewed_on, format: "%b. %-d, %Y") %>. After careful reconsideration, we've decided to withdraw your certificate for the following reason:
+
+<%= @verification.refusal_reason %>
+
+If you have any questions about this decision, you can drop by the #verification-lounge in our Discord server (https://discord.gg/Vpn8QQzTtS) to ask.

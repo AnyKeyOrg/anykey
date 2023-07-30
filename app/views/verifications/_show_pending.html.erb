@@ -3,7 +3,7 @@
     Verification Review
   </div>
   <div class="panel-descriptor">
-    Requested on <%= l(@verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P").upcase %>
+    Requested <%= l(@verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P") %>
   </div>
 </div>
 <%= render(partial: "verifications/identity") %>

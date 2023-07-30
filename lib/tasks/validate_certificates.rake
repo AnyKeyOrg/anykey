@@ -25,7 +25,7 @@ namespace :verifications do
         if verification.blank?
           response = {response: "not_found"}
           cross_check_results << {**certificate_code, **response}
-        elsif verification.denied? || verification.ignored? || verification.pending?
+        elsif verification.withdrawn? || verification.denied? || verification.ignored? || verification.pending?
           response = {response: "invalid"}
           cross_check_results << {**certificate_code, **response}
         elsif verification.eligible?

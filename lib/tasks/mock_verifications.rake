@@ -29,7 +29,7 @@ namespace :db do
     #     status: "pending")
     
     # Example to deny in walkthru
-    # denial_reason: "Note from botanist contained no gender-related affirmation, only confirmation of ongoing treatment for biting aggression."
+    # refusal_reason: "Note from botanist contained no gender-related affirmation, only confirmation of ongoing treatment for biting aggression."
     v = Verification.create(
         first_name: "Piranha",
         last_name: "Plant",
@@ -203,7 +203,7 @@ namespace :db do
         doctors_note_submitted: false,
         additional_notes: "",
         status: "denied",
-        denial_reason: "School ID provided does not have a sex/gender marker",
+        refusal_reason: "School ID provided does not have a sex/gender marker",
         requested_on: Time.now-5.days,
         reviewed_on: Time.now-4.days,
         reviewer_id: User.first.id)

@@ -4,13 +4,17 @@
       Ignored Request
     <% elsif @verification.denied? %>
       Eligibility Denied
+    <% elsif @verification.withdrawn? %>
+      Eligibility Withdrawn  
     <% elsif @verification.eligible? %>
       Eligibility Certification
     <% end %>
   </div>
   <div class="panel-descriptor">
-    Reviewed on <%= l(@verification.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P").upcase %><br>
-    by <%= link_to(@verification.reviewer.display_name, user_path(@verification.reviewer)) %>
+    <% if @verification.withdrawn? %>
+    Withdrawn <%= l(@verification.withdrawn_on, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@verification.withdrawer.display_name, user_path(@verification.withdrawer)) %>]<br>
+    <% end %>
+    <%= @verification.issued? ? "Issued" : Verification::STATUSES[@verification.status.to_sym].titlecase %> <%= l(@verification.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@verification.reviewer.display_name, user_path(@verification.reviewer)) %>]
   </div>
 </div>
 <%= render(partial: "verifications/identity") %>
@@ -28,6 +32,7 @@
       </div>
       <input id="resend_cert_submit" name="commit" type="submit" class="resend-button button" value="Resend Cert" data-confirm="<%="Are you sure you want to resend #{@verification.full_name}'s eligibility certificate for marginalized gender tournaments?\n\nRemember, this generates an email that cannot be unsent 🤖" %>" tabindex="2">
     </form>
+    <%= link_to("Withdraw", withdraw_eligibility_verification_path(@verification, back: request.fullpath), class: 'withdrawal-button button', tabindex: "3") %>
   <% end %>
   <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth", tabindex: "1" ) %>
 </div>

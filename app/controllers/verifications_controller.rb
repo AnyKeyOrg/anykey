@@ -1,10 +1,10 @@
 class VerificationsController < ApplicationController
   
-  layout "backstage",                       only: [ :index, :show, :verify_eligibility, :deny_eligibility ]
+  layout "backstage",                       only: [ :index, :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility ]
   
-  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny, :resend_cert ]
-  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny, :resend_cert ]
-  before_action :find_verification,         only: [ :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :verify, :deny, :resend_cert ]
+  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :resend_cert ]
+  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :resend_cert ]
+  before_action :find_verification,         only: [ :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :resend_cert ]
   around_action :display_timezone
   
   def index
@@ -89,6 +89,9 @@ class VerificationsController < ApplicationController
   def deny_eligibility
   end
   
+  def withdraw_eligibility
+  end
+  
   def verify
     if @verification.pending? # Reasonability check to only allow pending requests to be denied
       if @verification.update(status: :eligible, reviewer: current_user, reviewed_on: Time.now)
@@ -114,7 +117,7 @@ class VerificationsController < ApplicationController
   
   def deny
     if @verification.pending? # Reasonability check to only allow pending requests to be denied
-      if @verification.update(status: :denied, denial_reason: params[:verification][:denial_reason], reviewer: current_user, reviewed_on: Time.now)
+      if @verification.update(status: :denied, refusal_reason: params[:verification][:refusal_reason], reviewer: current_user, reviewed_on: Time.now)
 
         # Email denial to requester
         VerificationMailer.deny_request(@verification).deliver_now
@@ -130,6 +133,25 @@ class VerificationsController < ApplicationController
           flash.now[:alert] << message + ". "
         end
         render(action: :deny_eligibility, layout: "backstage") and return
+      end
+    end
+    redirect_to verifications_path
+  end
+  
+  def withdraw
+    if @verification.eligible? # Reasonability check to only allow eligible requests to be withdrawn
+      if @verification.update(status: :withdrawn, refusal_reason: params[:verification][:refusal_reason], withdrawer: current_user, withdrawn_on: Time.now)
+
+        # Email withdrawal to requester
+        VerificationMailer.withdraw_certificate(@verification).deliver_now
+
+        flash[:notice] = "You withdrew #{@verification.full_name}'s eligibility certificate."
+      else
+        flash.now[:alert] ||= ""
+        @verification.errors.full_messages.each do |message|
+          flash.now[:alert] << message + ". "
+        end
+        render(action: :withdraw_eligibility, layout: "backstage") and return
       end
     end
     redirect_to verifications_path

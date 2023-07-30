@@ -4,10 +4,11 @@ class Verification < ApplicationRecord
   require 'uri'
   
   STATUSES = {
-    pending:  "Pending",
-    ignored:  "Ignored",
-    denied:   "Denied",
-    eligible: "Eligible"
+    pending:   "Pending",
+    ignored:   "Ignored",
+    denied:    "Denied",
+    withdrawn: "Withdrawn",
+    eligible:  "Eligible"
   }.freeze
   
   SORT_FILTERS = {
@@ -15,6 +16,7 @@ class Verification < ApplicationRecord
     voice_requested:  "Voice",
     ignored:          "Ignored",
     denied:           "Denied",
+    withdrawn:        "Withdrawn",
     eligible:         "Eligible",
     all:              "All"
   }.freeze
@@ -42,23 +44,25 @@ class Verification < ApplicationRecord
   
   validate              :ensure_valid_social_url
   
-  validate              :ensure_denial_includes_reason
+  validate              :ensure_refusal_includes_reason
   
   validates             :additional_notes,
                         length: { maximum: 500 }
-                        
-  belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id, optional: true                      
-                          
+  
+  belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id, optional: true
+  belongs_to :withdrawer, class_name: :User, foreign_key: :withdrawer_id, optional: true
+  
   has_one_attached :photo_id
   has_one_attached :doctors_note
     
-  # Non-sequential identifier scheme   
+  # Non-sequential identifier scheme
   uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
 
   scope :pending,         lambda { where(status: :pending) }  
   scope :voice_requested, lambda { where(status: :pending, voice_requested: true) }
   scope :ignored,         lambda { where(status: :ignored) }
   scope :denied,          lambda { where(status: :denied) }
+  scope :withdrawn,       lambda { where(status: :withdrawn) }
   scope :eligible,        lambda { where(status: :eligible) }
   scope :search,          lambda { |search| where("lower(first_name) LIKE :search OR
                                                    lower(last_name) LIKE :search OR
@@ -88,12 +92,28 @@ class Verification < ApplicationRecord
     self.status.to_sym == :denied
   end
   
+  def withdrawn?
+    self.status.to_sym == :withdrawn
+  end
+  
   def eligible?
     self.status.to_sym == :eligible
   end
   
+  def issued?
+    self.status.to_sym == :eligible || self.status.to_sym == :withdrawn
+  end
+  
   def reviewed?
     !self.reviewer_id.nil?
+  end
+  
+  def last_reviewed_on
+    if !self.withdrawer_id.nil?
+      withdrawn_on
+    elsif !self.reviewer_id.nil?
+      reviewed_on
+    end
   end
   
   def related_requests
@@ -134,10 +154,10 @@ class Verification < ApplicationRecord
   end
 
   protected
-    def ensure_denial_includes_reason
+    def ensure_refusal_includes_reason
       if !self.status.blank?
-        if (self.denied? && self.denial_reason.blank? )
-          errors.add(:denial_reason, "is required")
+        if ((self.denied? || self.withdrawn?) && self.refusal_reason.blank? )
+          errors.add(:refusal_reason, "is required")
         end
       end
     end

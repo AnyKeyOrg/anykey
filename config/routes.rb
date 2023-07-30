@@ -42,8 +42,10 @@ Rails.application.routes.draw do
         post :unignore
         get  :verify_eligibility
         get  :deny_eligibility
+        get  :withdraw_eligibility
         post :verify
         post :deny
+        post :withdraw
         post :resend_cert
       end
     end

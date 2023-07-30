@@ -2,7 +2,7 @@
   <div class="inner flexbox vertical center">
     <div class="control-panel flexbox vertical stretch">
       <div class="flexbox horizontal center wrap justify-space-between">
-        <div class="panel-title">Eligibility Denial</div>
+        <div class="panel-title">Eligibility Withdrawal</div>
         <div class="panel-descriptor">
           To be issued on <%= l(Time.now, format: "%b. %-d, %Y · %-l:%M%P").upcase %>
         </div>
@@ -10,20 +10,20 @@
       <%= render(partial: "verifications/identity") %>
       <hr class="spacer">
       <div class="panel-text">
-        Explain to the player why their request for verification is being denied. The reason you provide will be included in the notification email, so be clear and considerate! 
+        Explain to the player why their eligibility certificate is being withdrawn. The reason you provide will be included in the notification email, so be clear and considerate! 
       </div>
-      <form action="<%= deny_verification_path(@verification) %>" id="deny" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+      <form action="<%= withdraw_verification_path(@verification) %>" id="withdraw" method="POST" enctype="multipart/form-data" class="flexbox vertical">
         <div style="hidden">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         </div>
         <div class="item flexbox vertical stretch">
           <textarea id="verification_refusal_reason" name="verification[refusal_reason]" class="text-field" type="text" autocomplete="off" tabindex="1"><%= @verification.refusal_reason %></textarea>
-          <label for="refusal_reason" class="text-field">Reason for denial (and tips for reapplying)</label>
+          <label for="refusal_reason" class="text-field">Reason for withdrawal (and tips for reapplying)</label>
         </div>
         <%= display_alerts %>
         <div class="verification-buttons flexbox vertical end">
           <div class="flexbox horizontal-reverse wrap-reverse center">
-            <input id="denied_submit" name="commit" type="submit" class="deny-button button" value="Deny Eligibility" data-confirm="<%="Are you sure you want to deny #{@verification.full_name}'s eligibility to compete in tournaments for marginalized genders?\n\nRemember, this will permanently destroy their uploaded documents and generate an irrevocable denial email 🤓" %>" tabindex="1">
+            <input id="withdrawn_submit" name="commit" type="submit" class="withdrawal-button button" value="Withdraw Certificate" data-confirm="<%="Are you sure you want to withdraw #{@verification.full_name}'s eligibility certificate for marginalized gender events?\n\nRemember, this will generate an irrevocable withdrawal email 🤓" %>" tabindex="1">
             <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "2") %>
           </div>
         </div>
