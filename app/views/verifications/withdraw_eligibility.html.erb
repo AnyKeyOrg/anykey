@@ -23,8 +23,8 @@
         <%= display_alerts %>
         <div class="verification-buttons flexbox vertical end">
           <div class="flexbox horizontal-reverse wrap-reverse center">
-            <input id="withdrawn_submit" name="commit" type="submit" class="withdrawal-button button" value="Withdraw Certificate" data-confirm="<%="Are you sure you want to withdraw #{@verification.full_name}'s eligibility certificate for marginalized gender events?\n\nRemember, this will generate an irrevocable withdrawal email 🤓" %>" tabindex="1">
-            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "2") %>
+            <input id="withdrawn_submit" name="commit" type="submit" class="withdrawal-button button" value="Withdraw Cert" data-confirm="<%="Are you sure you want to withdraw #{@verification.full_name}'s eligibility certificate for marginalized gender events?\n\nRemember, this will generate an irrevocable withdrawal email 🤓" %>" tabindex="1">
+            <%= link_to('Back', params[:back].present? ? params[:back] : staff_index_path, class: "back-button mini button", tabindex: "2") %>
           </div>
         </div>
       </form>

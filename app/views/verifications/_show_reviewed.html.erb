@@ -19,24 +19,26 @@
 </div>
 <%= render(partial: "verifications/identity") %>
 <%= render(partial: "verifications/review_details") %>
-<div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
-  <% if @verification.ignored? %>
+<% if @verification.ignored? %>
+  <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
     <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button', tabindex: "2") %>
-  <% else %>
-    <div class="stamp"><%= image_tag("/images/#{@verification.status}.svg", width: "200px") %></div>
-  <% end %>
-  <% if @verification.eligible? %>
-    <form action="<%= resend_cert_verification_path(@verification) %>" id="resend_cert" method="POST" enctype="multipart/form-data" class="flexbox vertical">
-      <div style="hidden">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      </div>
-      <input id="resend_cert_submit" name="commit" type="submit" class="resend-button button" value="Resend Cert" data-confirm="<%="Are you sure you want to resend #{@verification.full_name}'s eligibility certificate for marginalized gender tournaments?\n\nRemember, this generates an email that cannot be unsent 🤖" %>" tabindex="2">
-    </form>
+    <%= link_to('Back', params[:back].present? ? params[:back] : verifications_path, class: "back-button mini button", tabindex: "1" ) %>
+  </div>
+<% elsif @verification.eligible? %>  
+  <form action="<%= resend_cert_verification_path(@verification) %>" id="resend_cert" method="POST" enctype="multipart/form-data" class="verification-buttons eligible flexbox horizontal-reverse wrap-reverse center">
+    <div style="hidden">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    </div>
+    <input id="resend_cert_submit" name="commit" type="submit" class="resend-button button" value="Resend" data-confirm="<%="Are you sure you want to resend #{@verification.full_name}'s eligibility certificate for marginalized gender tournaments?\n\nRemember, this generates an email that cannot be unsent 🤖" %>" tabindex="2">
     <%= link_to("Voucher", voucher_verification_path(@verification, back: request.fullpath), class: 'voucher-button button', target: "_blank", tabindex: "3") %>
     <%= link_to("Withdraw", withdraw_eligibility_verification_path(@verification, back: request.fullpath), class: 'withdrawal-button button', tabindex: "4") %>
-  <% end %>
-  <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth", tabindex: "1" ) %>
-</div>
+    <%= link_to('Back', params[:back].present? ? params[:back] : verifications_path, class: "back-button mini button", tabindex: "1" ) %>
+  </form>
+<% else %>
+  <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
+    <%= link_to('Back', params[:back].present? ? params[:back] : verifications_path, class: "back-button mini button", tabindex: "1" ) %>
+  </div>
+<% end %>
 <hr class="spacer">
 <div class="flexbox horizontal end wrap-reverse justify-space-between">
   <div class="pledge-item flexbox vertical stretch flex-1" style="margin-top: 0em;">

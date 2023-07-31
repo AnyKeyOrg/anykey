@@ -20,7 +20,7 @@
         <div class="verification-buttons flexbox vertical end">
           <div class="flexbox horizontal-reverse wrap-reverse center">
             <input id="eligible_submit" name="commit" type="submit" class="verify-button button" value="Verify Eligibility" data-confirm="<%="Are you sure you want to verify #{@verification.full_name}'s eligibility to compete in tournaments for marginalized genders?\n\nRemember, this will permanently destroy their uploaded documents and generate an irrevocable certification email 🤓" %>" tabindex="1">
-            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "2") %>
+            <%= link_to('Back', params[:back].present? ? params[:back] : staff_index_path, class: "back-button mini button", tabindex: "2") %>
           </div>
         </div>
       </form>
