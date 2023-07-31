@@ -1,10 +1,10 @@
 class VerificationsController < ApplicationController
+
+  layout "backstage",                only: [ :index, :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility ]
   
-  layout "backstage",                       only: [ :index, :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility ]
-  
-  before_action :authenticate_user!,        only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :resend_cert ]
-  before_action :ensure_staff,              only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :resend_cert ]
-  before_action :find_verification,         only: [ :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :resend_cert ]
+  before_action :authenticate_user!, only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :voucher, :resend_cert ]
+  before_action :ensure_staff,       only: [ :index, :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :voucher, :resend_cert ]
+  before_action :find_verification,  only: [ :show, :ignore, :unignore, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :withdraw, :voucher, :resend_cert ]
   around_action :display_timezone
   
   def index
@@ -155,6 +155,14 @@ class VerificationsController < ApplicationController
       end
     end
     redirect_to verifications_path
+  end
+  
+  # Shows original email view that user received
+  def voucher
+    if !@verification.eligible? # Reasonability check to only allow eligible requests to be vouchered
+      redirect_to verifications_path
+    end
+    render layout: false
   end
 
   def resend_cert

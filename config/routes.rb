@@ -47,6 +47,7 @@ Rails.application.routes.draw do
         post :deny
         post :withdraw
         post :resend_cert
+        get  :voucher
       end
     end
 

@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name=viewport content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+  <style type="text/css"> 
+    body{
+      width:100% !important;
+      -webkit-text-size-adjust:none;
+      margin:0;
+      padding:0;
+      background-color:#F3F2F3;
+      color:#160919;
+      font-family:'Rubik', 'Helvetica', 'Arial', 'Verdana', sans-serif;
+      text-align:left;
+    }
+
+    img {
+      border:none;
+      outline:none;
+    }
+
+    #templateHeader {
+      background-color:#2FC872;
+      vertical-align:middle;
+    }
+
+    #headerImage {
+      max-width:150px !important;
+      height:auto;
+      padding-left:12px;
+      padding-top:10px;
+      padding-bottom:10px;
+    }
+
+    #bodyContent {
+      background-color:#FFFFFF;
+      font-size:14px;
+      line-height:150%;
+    }
+
+    #bodyContent div {
+      margin-top:20px;
+      margin-bottom:20px;
+    }
+
+    #bodyContent a:link,#bodyContent a:visited {
+      color:#2FC872;
+      text-decoration:underline;
+    }
+
+    #bodyContent img.cert-stamp {
+      margin: 0px;
+      width: 160px;
+    }
+
+    #certificate {
+      border: 5px solid #160919;
+    }
+
+    #certificate div {
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+
+    #certificate h4 {
+      margin-bottom: 4px;
+    }
+
+    h1,h2,h3,h4 {
+      display:block;
+      line-height:100%;
+      margin: 0;
+      margin-bottom:10px;
+    }
+
+    h1 {
+      font-size:34px;
+    }
+
+    h2 {
+      font-size:30px;
+    }
+
+    h3 {
+      font-size:26px;
+    }
+
+    h4 {
+      font-size:22px;
+    }
+
+    .small {
+      font-size: 12px;
+    }
+
+    .gray {
+      color: #84848C;
+    }
+
+    .key-code {
+      font-weight: 700;
+      color: #2FC872;
+    }
+
+    .right-justified {
+      text-align:right;
+    }
+
+    #templateFooter {
+      background-color:#160919;
+      color:#D0CED1;
+      font-size:11px;
+      line-height:14px;
+    }
+
+    #templateFooter a:link,	#templateFooter a:visited {
+      color:#FFFFFF;
+      text-decoration:underline;
+    }
+    
+    #footerImage {
+      display:inline;
+      height:auto;
+      max-width:40px !important;
+    }
+
+    @media only screen and (max-device-width: 600px), only screen and (max-width: 600px) {
+      body {
+        width: 100% !important;
+        width: 100vw !important;
+      }
+
+      table {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+
+      #bodyContent img.cert-stamp {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+  <center>
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="600">
+    <!-- Begin Template Header -->
+      <tr>
+        <td align="center" valign="top">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
+            <tr>
+              <td>
+                <img src="https://anykey.org/images/anykey-logo-white.png" id="headerImage">
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- End Template Header -->
+      <!-- Begin Template Body -->
+      <tr>
+        <td align="center" valign="top">
+          <table border="0" cellpadding="20" cellspacing="0" width="100%" id="bodyContent">
+            <tr>
+              <td valign="top">
+                <div>
+                  <table id="certificate" border="0" cellpadding="0" cellspacing="20" width="100%">
+                    <tr>
+                      <td colspan="2">
+                        <h4>Eligibility Certificate</h4>
+                        <span class="small">For marginalized gender gaming events</span><br>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tr>
+                            <td width="26" height="26">
+                              <img src="https://anykey.org/images/anykey-cap.png" width="22px">
+                            </td>
+                            <td valign="top">
+                              <span class="small gray"> AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %></span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%" valign="top">
+                        <strong>Full Name</strong><br>
+                        <%= @verification.full_name %>
+                      </td>
+                      <td width="50%" valign="top">
+                        <strong>Email</strong><br>
+                        <%= @verification.email %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%" valign="top">
+                        <strong>Discord</strong><br>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tr>
+                            <td width="24" height="26">
+                              <img src="https://anykey.org/images/discord.png" width="20px">
+                            </td>
+                            <td valign="top">
+                              <%= @verification.discord_username %>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td width="50%" valign="top">
+                        <strong><%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %></strong><br>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tr>
+                            <td width="20" height="26">
+                              <img src=<%= "https://anykey.org/images/#{@verification.player_id_type}.png" %> width="16px">
+                            </td>
+                            <td valign="top">
+                              <%= @verification.player_id %>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%" valign="top">
+                        <strong>Gender</strong><br>
+                        <%= @verification.gender %>
+                      </td>
+                      <td width="50%" valign="top">
+                        <strong>Pronouns</strong><br>
+                        <%= @verification.pronouns %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Certificate Code</strong><br>
+                        <span class="key-code"><%= @verification.identifier %></span>
+                      </td>
+                      <td>
+                        <img src="https://anykey.org/images/eligible.png" width="160px" class="cert-stamp">
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- End Template Body -->
+      <!-- Begin Template Footer -->
+      <tr>
+        <td align="center" valign="top">
+          <table border="0" cellpadding="20" cellspacing="0" width="100%" id="templateFooter">
+            <tr>
+              <td valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td width="50">
+                      <img src="https://anykey.org/images/anykey-cap.png" id="footerImage">
+                    </td>
+                    <td valign="top">
+                      <div>
+                        AnyKey<br>
+                        1901 E. 4th Street, Suite 100<br>
+                        Santa Ana, CA 92705
+                      </div>
+                    </td>
+                    <td valign="top">
+                      <div class="right-justified">
+                        <a href="https://discord.gg/Vpn8QQzTtS" target="_blank">Discord</a><br>
+                        <a href="https://www.twitch.tv/anykeyorg" target="_blank">Twitch</a><br>
+                        <a href="https://twitter.com/anykeyorg" target="_blank">Twitter</a><br>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- End Template Footer -->
+    </table>
+  </center>
+</body>
+</html>

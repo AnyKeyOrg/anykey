@@ -32,7 +32,8 @@
       </div>
       <input id="resend_cert_submit" name="commit" type="submit" class="resend-button button" value="Resend Cert" data-confirm="<%="Are you sure you want to resend #{@verification.full_name}'s eligibility certificate for marginalized gender tournaments?\n\nRemember, this generates an email that cannot be unsent 🤖" %>" tabindex="2">
     </form>
-    <%= link_to("Withdraw", withdraw_eligibility_verification_path(@verification, back: request.fullpath), class: 'withdrawal-button button', tabindex: "3") %>
+    <%= link_to("Voucher", voucher_verification_path(@verification, back: request.fullpath), class: 'voucher-button button', target: "_blank", tabindex: "3") %>
+    <%= link_to("Withdraw", withdraw_eligibility_verification_path(@verification, back: request.fullpath), class: 'withdrawal-button button', tabindex: "4") %>
   <% end %>
   <%= link_to('cancel', params[:back].present? ? params[:back] : verifications_path, class: "stealth", tabindex: "1" ) %>
 </div>
