@@ -55,11 +55,9 @@
     </div>
     <div class="item-text <%= @verification.status %>"><%= @verification.identifier %></div>
   </div>
-  <% unless @verification.ignored? %>
   <div class="verification-item stamp half-width flexbox vertical start">
     <%= image_tag("/images/#{@verification.status}.svg", width: "200px") %>
   </div>
-  <% end %>
   <% if @verification.denied? %>
   <div class="verification-item flexbox vertical stretch">
     <div class="item-title">Reason for Denial</div>
