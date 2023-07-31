@@ -98,7 +98,7 @@
 
 #backstage-container .record-row .row-detail.ignored {
   font-weight: 700;
-  color: var(--gray-color);
+  color: var(--bright-orange-color);
 }
 
 #backstage-container .record-row .row-detail.eligible {
@@ -167,7 +167,7 @@
 }
 
 #backstage-container .verification-item .item-text.ignored {
-  color: var(--gray-color);
+  color: var(--bright-orange-color);
 }
 
 #backstage-container .verification-item .item-text.pending {
@@ -265,9 +265,12 @@
   min-width: none;
 }
 
-#backstage-container .verification-buttons .button.ignore-button,
 #backstage-container .verification-buttons .button.back-button {
   background-color: var(--gray-color);
+}
+
+#backstage-container .verification-buttons .button.ignore-button {
+  background-color: var(--bright-orange-color);
 }
 
 #backstage-container .verification-buttons .button.unignore-button {
