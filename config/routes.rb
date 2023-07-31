@@ -38,13 +38,12 @@ Rails.application.routes.draw do
     get '/verification',       to: 'verifications#new',  as: :new_verification
     resources :verifications,  only: [ :index, :show, :create ] do
       member do
-        post :ignore
-        post :unignore
         get  :verify_eligibility
         get  :deny_eligibility
         get  :withdraw_eligibility
         post :verify
         post :deny
+        post :ignore
         post :withdraw
         post :resend_cert
         get  :voucher

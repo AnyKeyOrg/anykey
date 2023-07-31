@@ -19,12 +19,7 @@
 </div>
 <%= render(partial: "verifications/identity") %>
 <%= render(partial: "verifications/review_details") %>
-<% if @verification.ignored? %>
-  <div class="verification-buttons flexbox horizontal-reverse wrap-reverse center">
-    <%= link_to("Unignore", unignore_verification_path(@verification), method: :post, class: 'unignore-button button', tabindex: "2") %>
-    <%= link_to('Back', params[:back].present? ? params[:back] : verifications_path, class: "back-button mini button", tabindex: "1" ) %>
-  </div>
-<% elsif @verification.eligible? %>  
+<% if @verification.eligible? %>  
   <form action="<%= resend_cert_verification_path(@verification) %>" id="resend_cert" method="POST" enctype="multipart/form-data" class="verification-buttons eligible flexbox horizontal-reverse wrap-reverse center">
     <div style="hidden">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

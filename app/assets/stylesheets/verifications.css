@@ -273,10 +273,6 @@
   background-color: var(--bright-orange-color);
 }
 
-#backstage-container .verification-buttons .button.unignore-button {
-  background-color: var(--bright-green-color);
-}
-
 #backstage-container .verification-buttons .button.deny-button,
 #backstage-container .verification-buttons .button.withdrawal-button {
   background-color: var(--alert-red-color);
