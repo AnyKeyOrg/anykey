@@ -1,0 +1,21 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= concern_path(concern, back: request.fullpath) %>">
+  <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="row-title">
+      <%= concern.concerning_player_id %>
+    </div>
+    <% if concern.open? %>
+    <div class="row-detail">
+      <%= l(concern.shared_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
+    </div>
+    <% else %>
+    <div class="flexbox horizontal center">
+      <div class="row-detail">
+      <%= l(concern.reviewed_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
+      </div>
+      <div class="row-detail <%= verification.status %>">
+        <%= Concern::STATUSES[concern.status.to_sym].upcase %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

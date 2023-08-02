@@ -1,0 +1,51 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">Concerns</div>
+        <form action="<%= concerns_path %>" id="search" method="GET" class="flexbox vertical end">
+          <input type="submit" id="search-hidden" style="display: none;">
+          <input class="search-box" type="text" id="search-query" placeholder="search" name="q" autocomplete="off" value="<%=params[:q]%>">
+          <input type="submit" id="search-clear" value="X" onclick="q.value = '';">
+          <% if params[:f].present? %>
+          <div style="hidden">
+            <input type="hidden" id="filter" name="f" value="<%= params[:f] %>">
+          </div>
+          <% end %>
+        </form>
+      </div>
+      <div class="flexbox vertical end">
+        <div class="panel-filters flexbox horizontal center wrap">
+          <% Concern::SORT_FILTERS.each do |filter| %>
+            <% if @filter_category.to_s == filter[0].to_s %>
+              <% if params[:q].present? %>
+                <%= link_to("#{filter[1]} [#{@concerns.nil? ? '0' : @concerns.count}]", concerns_path(q: params[:q], f: filter[0]), class: "filter selected") %>
+              <% else %>
+                <%= link_to("#{filter[1]} [#{@concerns.nil? ? '0' : @concerns.count}]", concerns_path(f: filter[0]), class: "filter selected") %>            
+              <% end %>
+            <% else %>
+              <% if params[:q].present? %>
+                 <%= link_to(filter[1], concerns_path(q: params[:q], f: filter[0]), class: "filter") %>
+               <% else %>
+                 <%= link_to(filter[1], concerns_path(f: filter[0]), class: "filter") %>
+               <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="records-list flexbox vertical stretch">
+        <% if @concerns.present? %>
+        <%= render(partial: "concerns/row", collection: @concerns, as: :concern) %>
+        <div class="flexbox vertical center">
+          <%= will_paginate @concerns, class: "pagination full flexbox horizontal", previous_label: "« PREV", next_label: "NEXT »", inner_window: 3, outer_window: 0  %>
+          <%= will_paginate @concerns, class: "pagination mini flexbox horizontal justify-space-between", previous_label: "« PREV", next_label: "NEXT »", page_links: false  %>
+        </div>
+        <% else %>
+        <div class="empty">
+          No concerns found.
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

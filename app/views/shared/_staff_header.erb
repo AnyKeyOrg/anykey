@@ -7,6 +7,7 @@
         <%= link_to("Reports", reports_path, class: (controller_name == 'reports' ? 'selected ' : '') + 'item') %>
         <%= link_to("Pledges", pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'item') %>
         <%= link_to("Verifications", verifications_path, class: (controller_name == 'verifications' ? 'selected ' : '') + 'item') %>
+        <%= link_to("Concerns", concerns_path, class: (controller_name == 'concerns' ? 'selected ' : '') + 'item') %>
         <%= link_to("Validation", cert_validation_path, class: (controller.action_name == 'cert_validation' ? 'selected ' : '') + 'item') %>
         <% if current_user.is_admin? %>
         <%= link_to("Affiliates", affiliates_path(staff: true), class: (controller_name == 'affiliates' ? 'selected ' : '') + 'item') %>
@@ -45,6 +46,9 @@
   </div>
   <div class="row">
     <%= link_to("Verifications", verifications_path, class: controller_name == 'verifications' ? 'selected ' : '') %>
+  </div>
+  <div class="row">
+    <%= link_to("Concerns", concerns_path, class: controller_name == 'concerns' ? 'selected ' : '') %>
   </div>
   <div class="row">
     <%= link_to("Validation", cert_validation_path, class: controller.action_name == 'cert_validation' ? 'selected ' : '') %>    

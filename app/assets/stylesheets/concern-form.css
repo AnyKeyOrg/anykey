@@ -31,7 +31,7 @@
 
 #concern form .item.half-width {
   max-width: 17em;
-}  
+}
 
 #concern form label.text-field {
   font-family: var(--body-font);
