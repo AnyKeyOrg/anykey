@@ -49,9 +49,11 @@ Rails.application.routes.draw do
         get  :voucher
       end
     end
-
     get '/cert_validation',    to: 'modtools#cert_validation',  as: :cert_validation
     post '/validate_certs',    to: 'modtools#validate_certs',   as: :validate_certs
+
+    get '/concern',            to: 'concerns#new',  as: :new_concern
+    resources :concerns,       only: [ :index, :show, :create ]
 
     resources :staff,          only: [ :index ]
     resources :users,          only: [ :index, :show, :edit, :update ]

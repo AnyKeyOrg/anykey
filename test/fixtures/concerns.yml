@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concerning_player_id: MyString
+  concerning_player_id_type: MyString
+  concerning_player_description: MyText
+  concern_description: MyText
+  recommended_response: MyText
+  concerned_email: MyString
+  concerned_cert_code: MyString
+
+two:
+  concerning_player_id: MyString
+  concerning_player_id_type: MyString
+  concerning_player_description: MyText
+  concern_description: MyText
+  recommended_response: MyText
+  concerned_email: MyString
+  concerned_cert_code: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_30_181516) do
+ActiveRecord::Schema.define(version: 2023_08_02_171936) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(version: 2023_07_30_181516) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "discord"
     t.string "mixer"
+  end
+
+  create_table "concerns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "concerning_player_id"
+    t.string "concerning_player_id_type"
+    t.text "background"
+    t.text "description"
+    t.text "recommended_response"
+    t.string "concerned_email"
+    t.string "concerned_cert_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "conduct_warnings", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|

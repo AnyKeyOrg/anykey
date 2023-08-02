@@ -1,0 +1,68 @@
+<form action="<%= concerns_path %>" id="new_concern" method="POST" enctype="multipart/form-data" class="flexbox vertical">
+  <div style="hidden">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  </div>
+  <div class="title flexbox vertical center">
+    Competitor Concern
+  </div>
+  <%= display_alerts %>
+  <div class="intro">
+    Fields marked (°) are optional.
+  </div>
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="concering_player_id" class="text-field">Player You're Reporting</label>
+      <input id="concern_concerning_player_id" name="concern[concerning_player_id]" class="text-field" type="text" value="<%= @concern.concerning_player_id %>" autocomplete="off" required tabindex="1">
+    </div>
+    <div class="item half-width flexbox vertical stretch">
+      <label for="concerning_player_id_type" class="text-field">Type of ID/Name</label>
+      <%= select(:concern, :concerning_player_id_type, Concern::PLAYER_ID_TYPES.invert, {selected: @concern.concerning_player_id_type}, {tabindex: "2"}) %>
+    </div>
+  </div>
+  <div class="item half-width flexbox vertical stretch">
+    <label for="photo_id" class="text-field">Screenshots°</label>
+    <div class="description">Description here</div>
+    <input id="concern_screenshots" name="concern[screenshots]" type="file" multiple="true" tabindex="3">
+  </div>
+  <div class="item flexbox vertical stretch">
+    <label for="background" class="text-field">How do you know this player?°</label>
+    <div class="flexbox horizontal wrap justify-space-between">
+      <div class="description">Description here</div>
+      <div class="flexbox vertical end flex-1">
+      <div id="concern-background-counter" data-max-length="500">500</div>
+    </div>
+    </div>
+    <textarea id="concern_background" name="concern[background]" class="text-field" type="text" autocomplete="off" tabindex="4"><%= @concern.background %></textarea>
+  </div>
+  <div class="item flexbox vertical stretch">
+    <label for="description" class="text-field">What is your concern?</label>
+    <div class="flexbox horizontal wrap justify-space-between">
+      <div class="description">Description here</div>
+      <div class="flexbox vertical end flex-1">
+      <div id="concern-description-counter" data-max-length="1000">1000</div>
+    </div>
+    </div>
+    <textarea id="concern_description" name="concern[description]" class="text-field" type="text" autocomplete="off" required tabindex="5"><%= @concern.description %></textarea>
+  </div>
+  <div class="item flexbox vertical stretch">
+    <label for="recommended_response" class="text-field">What do you think we should do?°</label>
+    <div class="flexbox horizontal wrap justify-space-between">
+      <div class="description">Our mods will consider your opinion about handling the situation</div>
+      <div class="flexbox vertical end flex-1">
+      <div id="concern-recommended-response-counter" data-max-length="500">500</div>
+    </div>
+    </div>
+    <textarea id="concern_recommended_response" name="concern[recommended_response]" class="text-field" type="text" autocomplete="off" tabindex="6"><%= @concern.recommended_response %></textarea>
+  </div>
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="concerned_email" class="text-field">Your Email Address</label>
+      <input id="concern_concerned_email" name="concern[concerned_email]" class="text-field" type="email" value="<%= @concern.concerned_email %>" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]" tabindex="7">
+    </div>
+    <div class="item half-width flexbox vertical stretch">
+      <label for="concerned_cert_code" class="text-field">Your Certificate Code°</label>
+      <input id="concern_concerned_cert_code" name="concern[concerned_cert_code]" class="text-field" type="text" value="<%= @concern.concerned_cert_code %>" autocomplete="off" tabindex="8">
+    </div>
+  </div>
+  <input id="concernsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="9" onClick="gtag('event', 'ButtonClick', {'event_category': 'Concern', 'event_label': 'FormSubmit'});">
+</form>
