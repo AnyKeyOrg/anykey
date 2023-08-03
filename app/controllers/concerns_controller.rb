@@ -43,6 +43,7 @@ class ConcernsController < ApplicationController
     @concern = Concern.new(concern_params)
 
     if @concern.save
+                  
       # TODO: send notification to staff
       
       # Email confirmation to concerned player

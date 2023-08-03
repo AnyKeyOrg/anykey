@@ -156,6 +156,10 @@
   margin-right: 0.9em;
 }
 
+#backstage-container .record-row .row-subtitle.small {
+  font-size: 0.8em;
+}
+
 #backstage-container .record-row .row-subdetail {
   font-size: 0.8em;
 }
