@@ -15,7 +15,7 @@
       <div class="row-detail">
       <%= l(concern.reviewed_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
       </div>
-      <div class="row-detail <%= verification.status %>">
+      <div class="row-detail <%= concern.status %>">
         <%= Concern::STATUSES[concern.status.to_sym].upcase %>
       </div>
     </div>
@@ -40,7 +40,7 @@
         <div class="inline-icon">
           &#xf11c;
         </div>
-         &nbsp;<%= concern.total_text/5 %>&nbsp;Words
+         &nbsp;<%= concern.word_count %>&nbsp;<%= concern.word_count == 1 ? "Word" : "Words" %>
       </div>
     </div>
   </div>

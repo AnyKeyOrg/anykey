@@ -7,12 +7,18 @@ class Concern < ApplicationRecord
     name:    "Real Name"
   }.freeze
   
+  STATUSES = {
+    open:      "Open",
+    dismissed: "Dismissed",
+    reviewed:  "Reviewed"
+  }.freeze
+  
   SORT_FILTERS = {
-    open:             "Open",
-    dismissed:        "Dismissed",
-    reviewed:         "Reviewed",
-    flagged:          "Flagged",
-    all:              "All"
+    open:      "Open",
+    dismissed: "Dismissed",
+    reviewed:  "Reviewed",
+    flagged:   "Flagged",
+    all:       "All"
   }.freeze
   
   before_create :ensure_shared_on_set
@@ -37,7 +43,10 @@ class Concern < ApplicationRecord
                         length: { maximum: 500 }
 
   validates             :concerned_cert_code,
-                        length: { is: 8 }
+                        length: { is: 8 },
+                        if: lambda { |x| x.concerned_cert_code.present? }
+
+  belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id, optional: true
 
   has_many_attached :screenshots
   
@@ -60,11 +69,11 @@ class Concern < ApplicationRecord
   end
 
   def reviewed?
-    !self.reviewer_id.nil?
+    self.status.to_sym == :reviewed
   end
-  
-  def total_text
-    return self.description.length + self.background.length + self.recommended_response.length
+
+  def word_count
+    return (self.description + " " + self.background + " " + self.recommended_response).gsub(/[^\w\s]/,"").split.count
   end
   
   private

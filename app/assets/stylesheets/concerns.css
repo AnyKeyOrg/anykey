@@ -102,7 +102,8 @@
   background-color: var(--gray-color);
 }
 
-#backstage-container .concern-buttons .button.close-button {
+#backstage-container .concern-buttons .button.close-button,
+#backstage-container .concern-buttons .button.undismiss-button {
   background-color: var(--bright-green-color);
 }
 

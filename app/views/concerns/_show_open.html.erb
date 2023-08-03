@@ -7,8 +7,12 @@
   </div>
 </div>
 <%= render(partial: "concerns/body") %>
-<div class="concern-buttons flexbox horizontal-reverse wrap-reverse center">
-  <%= link_to("Close", concern_path(@concern, back: request.fullpath), class: 'close-button button', tabindex: "2") %>
-  <%= link_to("Dismiss", concern_path(@concern), method: :post, class: 'dismiss-button button', tabindex: "3") %>
+<form action="<%= review_concern_path(@concern) %>" method="POST" enctype="multipart/form-data" class="concern-buttons flexbox horizontal-reverse wrap-reverse center">
+  <div style="hidden">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  </div>
+  <input id="review_submit" name="commit" type="submit" class="review-button button" value="Finish Review" data-confirm="<%="Are you sure you want to finish reviewing the concern about #{@concern.concerning_player_id}?\n\nRemember, this will send an email notification to the person who shared this concern ✉️" %>" tabindex="2">
+  <%= link_to("Dismiss", dismiss_concern_path(@concern), method: :post, class: 'dismiss-button button', tabindex: "3") %>
   <%= link_to('Back', params[:back].present? ? params[:back] : concerns_path, class: "back-button mini button", tabindex: "4") %>
-</div>
+</form>
+

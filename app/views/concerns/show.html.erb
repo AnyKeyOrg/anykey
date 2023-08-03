@@ -3,6 +3,8 @@
     <div class="control-panel flexbox vertical stretch">
       <% if @concern.open? %>
       <%= render(partial: "concerns/show_open") %>
+      <% elsif @concern.dismissed? %>
+      <%= render(partial: "concerns/show_dismissed") %>
       <% else %>
       <%= render(partial: "concerns/show_reviewed") %>  
       <% end %>

@@ -53,7 +53,13 @@ Rails.application.routes.draw do
     post '/validate_certs',    to: 'modtools#validate_certs',   as: :validate_certs
 
     get '/concern',            to: 'concerns#new',  as: :new_concern
-    resources :concerns,       only: [ :index, :show, :create ]
+    resources :concerns,       only: [ :index, :show, :create ] do
+      member do
+        post :review
+        post :dismiss
+        post :undismiss
+      end
+    end
 
     resources :staff,          only: [ :index ]
     resources :users,          only: [ :index, :show, :edit, :update ]
