@@ -8,7 +8,7 @@
   <div class="concern-item half-width flexbox vertical stretch">
     <div class="item-title">Shared By</div>
     <div class="item-text flexbox horizontal center">
-      <%= @concern.concerned_email %>&nbsp;<%= link_to(@concern.concerned_cert_code, verifications_path(params: {q: @concern.concerned_cert_code}), class: "cert_code") %>
+      <%= @concern.concerned_email %><%= @concern.concerned_cert_code.blank? ? '' : link_to(@concern.concerned_cert_code, verifications_path(params: {q: @concern.concerned_cert_code}), class: "cert_code") %>
     </div>
   </div>
   <div class="concern-item flexbox vertical stretch">

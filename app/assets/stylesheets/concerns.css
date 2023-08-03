@@ -50,6 +50,7 @@
 #backstage-container .concern-item a.cert_code {
   font-size: 0.8em;
   font-weight: 500;
+  margin-left: 6px;
   padding: 4px 4px 2px 4px;
   color: var(--white-color);
   background: var(--bright-green-color);
