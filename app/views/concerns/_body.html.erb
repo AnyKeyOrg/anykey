@@ -1,0 +1,38 @@
+<div class="flexbox horizontal end wrap justify-space-between">
+  <div class="concern-item half-width flexbox vertical stretch">
+    <div class="item-title">Concerning <%= Concern::PLAYER_ID_TYPES[@concern.concerning_player_id_type.to_sym] %></div>
+    <div class="item-text flexbox horizontal center">
+      <%= image_tag("/images/#{@concern.concerning_player_id_type}.svg") %><%= @concern.concerning_player_id %>
+    </div>
+  </div>
+  <div class="concern-item half-width flexbox vertical stretch">
+    <div class="item-title">Shared By</div>
+    <div class="item-text flexbox horizontal center">
+      <%= @concern.concerned_email %>&nbsp;<%= link_to(@concern.concerned_cert_code, verifications_path(params: {q: @concern.concerned_cert_code}), class: "cert_code") %>
+    </div>
+  </div>
+  <div class="concern-item flexbox vertical stretch">
+    <div class="item-title">Background Information</div>
+    <% if !@concern.background.blank? %>
+    <div class="item-text small"><%= @concern.background %></div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+  <div class="concern-item flexbox vertical stretch">
+    <div class="item-title">Description of Concern</div>
+    <% if !@concern.description.blank? %>
+    <div class="item-text small"><%= @concern.description %></div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+  <div class="concern-item flexbox vertical stretch">
+    <div class="item-title">Concerned's Recommended Response</div>
+    <% if !@concern.recommended_response.blank? %>
+    <div class="item-text small"><%= @concern.recommended_response %></div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+</div>

@@ -36,6 +36,8 @@ class Concern < ApplicationRecord
   validates             :recommended_response,
                         length: { maximum: 500 }
 
+  validates             :concerned_cert_code,
+                        length: { is: 8 }
 
   has_many_attached :screenshots
   
@@ -59,6 +61,10 @@ class Concern < ApplicationRecord
 
   def reviewed?
     !self.reviewer_id.nil?
+  end
+  
+  def total_text
+    return self.description.length + self.background.length + self.recommended_response.length
   end
   
   private

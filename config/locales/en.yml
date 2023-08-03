@@ -98,6 +98,8 @@ en:
               too_long: "must be less than 500 characters"
             recommended_response:
               too_long: "must be less than 500 characters"
+            concerned_cert_code:
+              wrong_length: "must be 8 characters"
   pledges:
     new:
       pledge-button: "<span class=\"detail-text\">Join %{pledges_count} Gamers</span><br>Take the Pledge"

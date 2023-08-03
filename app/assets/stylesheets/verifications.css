@@ -266,7 +266,7 @@
 }
 
 #backstage-container .verification-buttons .button.back-button {
-  background-color: var(--gray-color);
+  background-color: var(--light-black-color);
 }
 
 #backstage-container .verification-buttons .button.ignore-button {

@@ -61,7 +61,7 @@
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="concerned_cert_code" class="text-field">Your Certificate Code°</label>
-      <input id="concern_concerned_cert_code" name="concern[concerned_cert_code]" class="text-field" type="text" value="<%= @concern.concerned_cert_code %>" autocomplete="off" tabindex="8">
+      <input id="concern_concerned_cert_code" name="concern[concerned_cert_code]" class="text-field" type="text" value="<%= @concern.concerned_cert_code %>" autocomplete="off" pattern="[A-Za-z0-9]{8}" tabindex="8">
     </div>
   </div>
   <input id="concernsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="9" onClick="gtag('event', 'ButtonClick', {'event_category': 'Concern', 'event_label': 'FormSubmit'});">

@@ -1,0 +1,14 @@
+<div class="flexbox horizontal center wrap justify-space-between">
+  <div class="panel-title">
+    Concern Review
+  </div>
+  <div class="panel-descriptor">
+    Shared <%= l(@concern.shared_on, format: "%b. %-d, %Y · %-l:%M%P") %>
+  </div>
+</div>
+<%= render(partial: "concerns/body") %>
+<div class="concern-buttons flexbox horizontal-reverse wrap-reverse center">
+  <%= link_to("Close", concern_path(@concern, back: request.fullpath), class: 'close-button button', tabindex: "2") %>
+  <%= link_to("Dismiss", concern_path(@concern), method: :post, class: 'dismiss-button button', tabindex: "3") %>
+  <%= link_to('Back', params[:back].present? ? params[:back] : concerns_path, class: "back-button mini button", tabindex: "4") %>
+</div>

@@ -2,13 +2,7 @@
   <div class="flexbox horizontal center wrap justify-space-between">
     <div class="row-title flexbox horizontal center">
       <div class="inline-icon">
-        <% if concern.concerning_player_id_type == "twitter" %>
-        &#xf099;
-        <% elsif concern.concerning_player_id_type == "name" %>
-        &#xf2c2;
-        <% else %>
-        <%= image_tag("/images/"+concern.concerning_player_id_type+".svg") %>
-        <% end %>
+        <%= image_tag("/images/#{concern.concerning_player_id_type}.svg") %>
       </div>
       <%= concern.concerning_player_id %>
     </div>
@@ -42,6 +36,12 @@
          &nbsp;<%= concern.screenshots.count %>&nbsp;<%= concern.screenshots.count == 1 ? "Screenshot" : "Screenshots" %>
       </div>
       <% end %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf11c;
+        </div>
+         &nbsp;<%= concern.total_text/5 %>&nbsp;Words
+      </div>
     </div>
   </div>
 </div>

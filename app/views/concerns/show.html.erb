@@ -1,0 +1,11 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <% if @concern.open? %>
+      <%= render(partial: "concerns/show_open") %>
+      <% else %>
+      <%= render(partial: "concerns/show_reviewed") %>  
+      <% end %>
+    </div>
+  </div>
+</div>
