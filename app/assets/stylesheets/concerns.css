@@ -42,6 +42,10 @@
   font-size: 0.9em;
 }
 
+#backstage-container .concern-item .item-text.tiny {
+  font-size: 0.7em;
+}
+
 #backstage-container .concern-item .item-text img {
   height: 1em;
   margin-right: 0.4em;
@@ -62,6 +66,41 @@
 
 #backstage-container .concern-item a.cert_code:active {
   background: var(--bright-blue-color);
+}
+
+#backstage-container .concern-item .concern-screenshot {
+  margin: 0em 1em 1em 1em;
+}
+
+
+/************************************/
+/*   Concern Verification Overlays  */
+/************************************/
+
+#backstage-container .concern-item .concern-screenshot {
+  position: relative;
+}
+
+#backstage-container .concern-item .concern-screenshot-overlay  {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--black-overlay);
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+#backstage-container .concern-item .concern-screenshot-overlay .action {
+  background-color: var(--white-overlay);
+  font-family: var(--alt-title-font);
+  font-weight: 400;
+  font-size: 0.7em;
+  text-align: center;
+  color: var(--white-color);
+  padding: 0.8em 1em 0.8em 1em;
 }
 
 
