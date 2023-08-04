@@ -58,6 +58,8 @@ Rails.application.routes.draw do
         post :review
         post :dismiss
         post :undismiss
+        post :watch
+        post :unwatch
       end
     end
 

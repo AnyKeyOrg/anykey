@@ -2,9 +2,11 @@ class ConcernsController < ApplicationController
   
   layout "backstage",                only: [ :index, :show ]
   
-  before_action :authenticate_user!, only: [ :index, :show, :dismiss, :undismiss, :review ]
-  before_action :ensure_staff,       only: [ :index, :show, :dismiss, :undismiss, :review ]
-  before_action :find_concern,       only: [ :show, :dismiss, :undismiss, :review ]
+  skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch ]
+  
+  before_action :authenticate_user!, only: [ :index, :show, :dismiss, :undismiss, :review, :watch, :unwatch ]
+  before_action :ensure_staff,       only: [ :index, :show, :dismiss, :undismiss, :review, :watch, :unwatch ]
+  before_action :find_concern,       only: [ :show, :dismiss, :undismiss, :review, :watch, :unwatch ]
   around_action :display_timezone
   
   def index
@@ -90,6 +92,24 @@ class ConcernsController < ApplicationController
       end
     end
     redirect_to concerns_path
+  end
+  
+  def watch
+    respond_to :json
+    if @concern.update(watched: true)
+      render :json => { watched: true }, :status => 200
+    else
+      render :json => {:error => 'An unexpected error occurred', :code => '500'}, :status => 500
+    end
+  end
+
+  def unwatch
+    respond_to :json
+    if @concern.update(watched: false)
+      render :json => { watched: false }, :status => 200
+    else
+      render :json => {:error => 'An unexpected error occurred', :code => '500'}, :status => 500
+    end
   end
   
   protected

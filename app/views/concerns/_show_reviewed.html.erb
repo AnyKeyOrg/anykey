@@ -1,9 +1,14 @@
 <div class="flexbox horizontal center wrap justify-space-between">
   <div class="panel-title">
     Reviewed Concern
-  </div>
-  <div class="panel-descriptor">
-    Reviewed <%= l(@concern.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@concern.reviewer.display_name, user_path(@concern.reviewer)) %>]
+  </div>  
+  <div class="flexbox horizontal center">
+    <div class="panel-descriptor">
+      Reviewed <%= l(@concern.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@concern.reviewer.display_name, user_path(@concern.reviewer)) %>]
+    </div>
+    <div class="watchable-panel <%= @concern.watched ? 'watched' : '' %>">
+      &#xf06e;
+    </div>
   </div>
 </div>
 <%= render(partial: "concerns/body") %>

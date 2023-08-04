@@ -5,11 +5,6 @@
         <%= image_tag("/images/#{concern.concerning_player_id_type}.svg") %>
       </div>
       <%= concern.concerning_player_id %>
-      <% if concern.watched %>
-      <div class="watched">
-        &#xf06e;
-      </div>
-      <% end %>
     </div>
     <div class="flexbox horizontal center">
       <% if concern.open? %>
@@ -22,6 +17,11 @@
       </div>
       <div class="row-detail <%= concern.status %>">
         <%= Concern::STATUSES[concern.status.to_sym].upcase %>
+      </div>
+      <% end %>
+      <% if concern.watched %>
+      <div class="watched">
+        &#xf06e;
       </div>
       <% end %>
     </div>

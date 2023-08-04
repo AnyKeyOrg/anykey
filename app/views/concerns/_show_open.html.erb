@@ -2,8 +2,15 @@
   <div class="panel-title">
     Concern Review
   </div>
-  <div class="panel-descriptor">
-    Shared <%= l(@concern.shared_on, format: "%b. %-d, %Y · %-l:%M%P") %>
+  <div class="flexbox horizontal center">
+    <div class="panel-descriptor">
+      Shared <%= l(@concern.shared_on, format: "%b. %-d, %Y · %-l:%M%P") %>
+    </div>
+    <% if @concern.watched %>
+    <%= link_to('&#xf06e;'.html_safe, unwatch_concern_path(@concern), id: "watchable-panel", class: "watched") %>
+    <% else %>
+    <%= link_to('&#xf06e;'.html_safe, watch_concern_path(@concern), id: "watchable-panel", class: "unwatched") %>
+    <% end %>
   </div>
 </div>
 <%= render(partial: "concerns/body") %>
