@@ -42,10 +42,6 @@
   font-size: 0.9em;
 }
 
-#backstage-container .concern-item .item-text.tiny {
-  font-size: 0.7em;
-}
-
 #backstage-container .concern-item .item-text img {
   height: 1em;
   margin-right: 0.4em;
@@ -68,8 +64,15 @@
   background: var(--bright-blue-color);
 }
 
-#backstage-container .concern-item .concern-screenshot {
-  margin: 0em 1em 1em 1em;
+#backstage-container .concern-item .concern-screenshot-container {
+  max-width: 10em;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+#backstage-container .concern-item .concern-screenshot-caption {
+  font-size: 0.7em;
+  margin-top: 0.5em;
 }
 
 

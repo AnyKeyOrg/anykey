@@ -14,19 +14,23 @@
   <div class="concern-item flexbox vertical start">
     <div class="item-title">Screenshots</div>
     <% if @concern.screenshots.attached? %>
-    <div id="concern-screenshots" data-count="<%= @concern.screenshots.count %>" class="flexbox horizontal center wrap justify-space-between">
-      <% @concern.screenshots.each_with_index do |screenshot, index| %>
-        <div id="<%= "concern-screenshot-#{index}" %>" class="concern-screenshot flexbox vertical center" data-url="<%= url_for(screenshot) %>">
-          <% if screenshot.variable? %>
-            <%= image_tag(screenshot.variant(resize_to_limit: [140, 140])) %>
-          <% else %>
-            <%= image_tag("/images/file.svg", width: 60) %>
-          <% end %>
-          <div class="item-text tiny"><%= screenshot.filename.to_s[0,10]+"..."+screenshot.filename.to_s.last(10) %></div>
-          <div id="<%= "concern-screenshot-overlay-#{index}" %>" class="concern-screenshot-overlay" style="display:none">
-            <div class="action">
-              Show Original
+    <div class="flexbox horizontal center wrap justify-space-between">
+      <% @concern.screenshots.each do |screenshot| %>
+        <div class="concern-screenshot-container flexbox vertical center">
+          <div class="concern-screenshot flexbox vertical" data-url="<%= url_for(screenshot) %>">
+            <% if screenshot.variable? %>
+              <%= image_tag(screenshot.variant(resize_to_limit: [160, 160])) %>
+            <% else %>
+              <%= image_tag("/images/file.svg", width: 80) %>
+            <% end %>
+            <div class="concern-screenshot-overlay" style="display:none">
+              <div class="action">
+                Show Original
+              </div>
             </div>
+          </div>
+          <div class="concern-screenshot-caption">
+            <%= screenshot.filename.to_s[0,10]+"..."+screenshot.filename.to_s.last(10) %>
           </div>
         </div>
       <% end %>
