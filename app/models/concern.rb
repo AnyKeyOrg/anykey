@@ -17,7 +17,7 @@ class Concern < ApplicationRecord
     open:      "Open",
     dismissed: "Dismissed",
     reviewed:  "Reviewed",
-    flagged:   "Flagged",
+    watched:   "Watched",
     all:       "All"
   }.freeze
   
@@ -53,7 +53,7 @@ class Concern < ApplicationRecord
   scope :open,         lambda { where(status: :open) }
   scope :dismissed,    lambda { where(status: :dismissed) }
   scope :reviewed,     lambda { where(status: :reviewed) }
-  scope :flagged,      lambda { where(flagged: true) }
+  scope :watched,      lambda { where(watched: true) }
   scope :search,       lambda { |search| where("lower(concerning_player_id) LIKE :search OR
                                                 lower(concerned_email) LIKE :search OR
                                                 lower(description) LIKE :search OR

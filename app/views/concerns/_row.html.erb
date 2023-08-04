@@ -5,21 +5,26 @@
         <%= image_tag("/images/#{concern.concerning_player_id_type}.svg") %>
       </div>
       <%= concern.concerning_player_id %>
+      <% if concern.watched %>
+      <div class="watched">
+        &#xf06e;
+      </div>
+      <% end %>
     </div>
-    <% if concern.open? %>
-    <div class="row-detail">
-      <%= l(concern.shared_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
-    </div>
-    <% else %>
     <div class="flexbox horizontal center">
+      <% if concern.open? %>
+      <div class="row-detail">
+        <%= l(concern.shared_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
+      </div>
+      <% else %>
       <div class="row-detail">
       <%= l(concern.reviewed_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
       </div>
       <div class="row-detail <%= concern.status %>">
         <%= Concern::STATUSES[concern.status.to_sym].upcase %>
       </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
   <div class="flexbox horizontal center wrap justify-space-between">
     <div class="flexbox horizontal center wrap">

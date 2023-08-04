@@ -8,6 +8,28 @@
 
 
 /************************************/
+/*      Backstage Concern Queue     */
+/************************************/
+
+#backstage-container .record-row .row-detail.dismissed {
+  font-weight: 700;
+  color: var(--gray-color);
+}
+
+#backstage-container .record-row .row-detail.reviewed {
+  font-weight: 700;
+  color: var(--bright-green-color);
+}
+
+#backstage-container .record-row .watched {
+  font-size: 0.9em;
+  font-family: var(--solid-icon-font);
+  color: var(--alert-red-color);
+  margin-left: 0.3em;
+}
+
+
+/************************************/
 /*     Backstage Concern Review     */
 /************************************/
 
