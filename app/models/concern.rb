@@ -50,6 +50,8 @@ class Concern < ApplicationRecord
 
   has_many_attached :screenshots
   
+  has_many :comments, as: :commentable
+  
   scope :open,         lambda { where(status: :open) }
   scope :dismissed,    lambda { where(status: :dismissed) }
   scope :reviewed,     lambda { where(status: :reviewed) }
