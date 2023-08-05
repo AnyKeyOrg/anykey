@@ -1,30 +1,36 @@
+// Toggles status for watchable items
 
-function setupWatchablePanelListener() {
-  $('#watchable-panel').click(function(e) {
+function setupWatchableToggleListener() {
+  $('#watchable-toggle').click(function(e) {
     
-    // Intercept click and release button from focus state
+    // Intercept click
     e.preventDefault();
-
+    
+    var url = '';
+    
+    // Determine which endpoint to use
+    if ($(this).hasClass('watched')) {
+      url = $(this).data('watched-url');
+    } else {
+      url = $(this).data('unwatched-url');
+    }
+    
     $.ajax({
       type: 'POST',
       processData: false,
       contentType: false,
-      url: this.href,
+      url: url,
       success: function(data, textStatus, jqXHR) {
         // Change the button
-        $('#watchable-panel').attr("href", "https://newlink");
-        $('#watchable-panel').attr("class", "newclass");
-        
-        
-        
+        $('#watchable-toggle').attr("class", data["watched_status"]);
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        // Don't
+        // Do nothing
       }
     });
   }); 
 }
 
 $(document).ready(function() {
-  setupWatchablePanelListener();
+  setupWatchableToggleListener();
 });

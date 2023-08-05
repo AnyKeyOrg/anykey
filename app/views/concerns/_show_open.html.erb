@@ -6,11 +6,7 @@
     <div class="panel-descriptor">
       Shared <%= l(@concern.shared_on, format: "%b. %-d, %Y · %-l:%M%P") %>
     </div>
-    <% if @concern.watched %>
-    <%= link_to('&#xf06e;'.html_safe, unwatch_concern_path(@concern), id: "watchable-panel", class: "watched") %>
-    <% else %>
-    <%= link_to('&#xf06e;'.html_safe, watch_concern_path(@concern), id: "watchable-panel", class: "unwatched") %>
-    <% end %>
+    <%= link_to('&#xf06e;'.html_safe, '', data: {watched_url: unwatch_concern_path(@concern), unwatched_url: watch_concern_path(@concern)}, id: "watchable-toggle", class: @concern.watched ? 'watched' : 'unwatched') %>
   </div>
 </div>
 <%= render(partial: "concerns/body") %>
