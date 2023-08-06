@@ -1,0 +1,65 @@
+/************************************/
+/*        Comment Form Style        */
+/************************************/
+
+#backstage-container .commenter-avatar {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 22px;
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  margin-top: 0.3em;
+  margin-right: 0.5em;
+}
+
+#backstage-container form#comment_box {
+  max-width: 30em;
+}
+
+#backstage-container form#comment_box textarea {
+  color: var(--black-color);
+  background: var(--white-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 1.2em;
+  border: 3px solid var(--light-black-color);
+  background: var(--dark-white-color);
+  outline: none;
+  padding: 0.7em 0.6em 0.7em 0.6em;
+  height: 2em;
+  resize: vertical;
+}
+
+#backstage-container form#comment_box textarea:hover {
+  border: 3px solid var(--bright-blue-color);
+}
+
+#backstage-container form#comment_box textarea:focus {
+  border: 3px solid var(--bright-blue-color);
+}
+
+#backstage-container form#comment_box .comment-buttons .button {
+  border: 3px solid var(--light-black-color);
+  color: var(--white-color);
+  background: var(--bright-blue-color);
+  font-family: var(--title-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  padding: 0.5em 0.75em 0.5em 0.75em;
+  text-transform: uppercase;
+  text-align: center;
+  min-width: none;
+  margin-left: 2em;
+}
+
+#backstage-container form#comment_box .comment-buttons .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-fuchsia-color);
+}
+
+#backstage-container form#comment_box .comment-buttons .button:focus {
+  cursor: pointer;
+  background-color: var(--bright-fuchsia-color);
+  outline: none;
+}

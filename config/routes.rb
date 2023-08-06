@@ -51,7 +51,6 @@ Rails.application.routes.draw do
     end
     get '/cert_validation',    to: 'modtools#cert_validation',  as: :cert_validation
     post '/validate_certs',    to: 'modtools#validate_certs',   as: :validate_certs
-
     get '/concern',            to: 'concerns#new',  as: :new_concern
     resources :concerns,       only: [ :index, :show, :create ] do
       member do
@@ -62,6 +61,8 @@ Rails.application.routes.draw do
         post :unwatch
       end
     end
+    
+    resources :comments,       only: [ :create, :update, :delete ]
 
     resources :staff,          only: [ :index ]
     resources :users,          only: [ :index, :show, :edit, :update ]

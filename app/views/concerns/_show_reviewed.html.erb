@@ -13,3 +13,4 @@
 <div class="concern-buttons flexbox horizontal-reverse wrap-reverse center">
   <%= link_to('Back', params[:back].present? ? params[:back] : concerns_path, class: "back-button mini button", tabindex: "1") %>
 </div>
+<%= render(partial: "concerns/comments")%>

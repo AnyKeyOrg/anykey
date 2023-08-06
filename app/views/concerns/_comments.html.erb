@@ -1,0 +1,32 @@
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="concern-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center">
+      <span class="icon">&#xf27a;</span> Comments <%= @concern.comments.present? ? "(#{@concern.comments.count})" : '' %>
+    </div>
+    
+    <div class="flexbox horizontal start">
+      <%= image_tag(user_image_src(current_user, :thumb), size: "44x44", class: "commenter-avatar") %>
+      
+      <form action="<%= comments_path %>" id="comment_box" method="POST" enctype="multipart/form-data" class="flexbox vertical end flex-1">
+        <div style="display:none">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" id="comment_commentable_id" name="comment[commentable_id]" value="<%= @concern.id %>">
+          <input type="hidden" id="comment_commentable_type" name="comment[commentable_type]" value="Concern">
+        </div>
+        <div class="item short-bottom flexbox vertical stretch">
+          <textarea id="comment_body" name="comment[body]" class="text-field" type="text" autocomplete="off" ></textarea>
+        </div>
+        <div class="comment-buttons flexbox horizontal center wrap">
+          <input id="comment_submit" type="submit" class="button" value="Comment">
+        </div>
+      </form>
+    </div>
+    
+    <% if @concern.comments.present? %>
+    <div class="item-list">
+      <%= render(partial: "comments/row", collection: @concern.comments, as: :comment) %>
+    </div>
+    <% end %>
+  </div>
+</div>

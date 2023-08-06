@@ -39,6 +39,10 @@
   overflow-wrap: break-word;
 }
 
+#backstage-container .concern-item.flush-top {
+  margin-top: 0em;
+}
+
 #backstage-container .concern-item.half-width {
   max-width: 20em;
 }
@@ -47,6 +51,17 @@
   font-weight: 600;
   font-size: 0.9em;
   margin-bottom: 0.2em;
+}
+
+#backstage-container .concern-item .item-title.large {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+#backstage-container .concern-item .item-title .icon {
+  position: relative;
+  font-family: var(--icon-font);
+  margin-right: 0.3em;
 }
 
 #backstage-container .concern-item .item-text {
