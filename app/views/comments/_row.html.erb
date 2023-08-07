@@ -1,17 +1,16 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <div class="flexbox horizontal center wrap justify-space-between">
-    <div class="row-title flexbox horizontal center">
-      <%= comment.commenter.display_name %>
-    </div>
+<div class="comment-row flexbox horizontal start">
+  <%= image_tag(user_image_src(comment.commenter, :thumb), size: "28x28", class: "comment-avatar") %>
+  <div class="flexbox vertical">
     <div class="flexbox horizontal center">
+      <div class="row-title flexbox horizontal center">
+        <%= comment.commenter.display_name %>
+      </div>
       <div class="row-detail">
         <%= time_ago_in_words(comment.posted_on) + " ago" %>
       </div>
     </div>
-  </div>
-  <div class="flexbox horizontal center wrap justify-space-between">
-    <div class="row-subtitle small flexbox horizontal center">
-      <em><%= comment.body %></em>
+    <div class="row-text flexbox horizontal center">
+      <%= comment.body %>
     </div>
   </div>
 </div>
