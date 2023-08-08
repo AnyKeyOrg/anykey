@@ -85,6 +85,10 @@
   margin-right: 0.5em;
 }
 
+#backstage-container .comment-row .row-heading {
+  margin-top: 0.35em;
+}
+
 #backstage-container .comment-row .row-title {
   font-weight: 500;
   font-size: 0.9em;
@@ -97,8 +101,9 @@
 }
 
 #backstage-container .comment-row .row-text {
+  white-space: preserve wrap;
   font-size: 0.9em;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 #backstage-container .comment-row .row-text {

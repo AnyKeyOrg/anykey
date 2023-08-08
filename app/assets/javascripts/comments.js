@@ -1,3 +1,4 @@
+// Handles posting and display of comments on commentable records
 
 function setupCommentSubmitListener() {
   $('#comment_box').submit(function(e) {
@@ -11,14 +12,12 @@ function setupCommentSubmitListener() {
       data: new FormData(this),
       processData: false,
       contentType: false,
-      url: this.action,
-      success: function(data, textStatus, jqXHR) {
-        // Show comment on page
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        // Panic and freak out
-      }
+      dataType: 'script',
+      url: this.action
     });
+    
+    // Clear comment box
+    $('#comment_body').val('');
   }); 
 }
 

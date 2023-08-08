@@ -1,7 +1,7 @@
 <div class="comment-row flexbox horizontal start">
   <%= image_tag(user_image_src(comment.commenter, :thumb), size: "28x28", class: "comment-avatar") %>
   <div class="flexbox vertical">
-    <div class="flexbox horizontal center">
+    <div class="row-heading flexbox horizontal center">
       <div class="row-title flexbox horizontal center">
         <%= comment.commenter.display_name %>
       </div>
@@ -9,8 +9,6 @@
         <%= time_ago_in_words(comment.posted_on) + " ago" %>
       </div>
     </div>
-    <div class="row-text flexbox horizontal center">
-      <%= comment.body %>
-    </div>
+    <div class="row-text flexbox horizontal center"><%= comment.body %></div>
   </div>
 </div>

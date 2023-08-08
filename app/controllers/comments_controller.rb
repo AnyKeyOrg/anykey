@@ -7,14 +7,13 @@ class CommentsController < ApplicationController
   around_action :display_timezone
 
   def create
-    respond_to :json
-    @comment = Comment.new(comment_params)
-    @comment.commenter = current_user
+    respond_to do |format|
+      @comment = Comment.new(comment_params)
+      @comment.commenter = current_user
     
-    if @comment.save
-      render :json => { }, :status => 200
-    else
-      render :json => {:error => 'An unexpected error occurred', :code => '500'}, :status => 500
+      if @comment.save
+        format.js
+      end
     end
   end
   
