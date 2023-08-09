@@ -78,7 +78,16 @@ class Concern < ApplicationRecord
   def word_count
     return (self.description + " " + self.background + " " + self.recommended_response).gsub(/[^\w\s]/,"").split.count
   end
-  
+
+  def concerned_salutation_name
+    if !self.concerned_cert_code.blank?
+      if player = Verification.find_by(identifier: self.concerned_cert_code)
+        return player.first_name
+      end
+    end
+    return self.concerned_email.gsub(/\@.*/,"")
+  end
+
   private
     # Set requested on time as concern is created
     def ensure_shared_on_set

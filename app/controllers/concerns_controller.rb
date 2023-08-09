@@ -46,10 +46,10 @@ class ConcernsController < ApplicationController
 
     if @concern.save
                   
-      # TODO: send notification to staff
+      # TODO: Send notification to staff
       
-      # TODO: Email confirmation to concerned player
-      # ConcernMailer.confirm_receipt(@concern).deliver_now
+      # Email confirmation to concerned player
+      ConcernMailer.confirm_receipt(@concern).deliver_now
       
       flash[:notice] = "You've successfully submitted your concern. Thank you."
       redirect_to root_path
@@ -85,8 +85,8 @@ class ConcernsController < ApplicationController
     if @concern.open? # Reasonability check to only allow open concerns to be reviewed
       if @concern.update(status: :reviewed, reviewer: current_user, reviewed_on: Time.now)
         
-        # TODO: Email status update to concerned player
-        # ConcernMailer.review_finished(@concern).deliver_now
+        # Email status update to concerned player
+        ConcernMailer.review_finished(@concern).deliver_now
         
         flash[:notice] = "You finished the review of the concern about #{@concern.concerning_player_id}."
       end
