@@ -13,6 +13,7 @@
         <%= link_to('Affiliates', affiliates_path, class: "stealth") %>
         <%= link_to('Badge Report', new_report_path, class: "stealth") %>
         <%= link_to('Changemakers', changemakers_path, class: "stealth") %>
+        <%= link_to('Concerns', new_concern_path, class: "stealth") %>
         <%= link_to('Contact', contact_path, class: "stealth") %>
       </div>
       <div class="left-column flexbox vertical start">
@@ -21,10 +22,11 @@
         <%= link_to('glhf PLEDGE', new_pledge_path, class: "stealth") %>
         <%= link_to("Inclusion 101", inclusion_101_path, class: "stealth") %>
         <%= link_to("Keystone Code", keystone_code_path, class: "stealth") %>
+        <%= link_to('Logo Guide', logo_guide_path, class: "stealth") %>
       </div>
       <div class="flexbox vertical start">
-        <%= link_to('Logo Guide', logo_guide_path, class: "stealth") %>
         <%= link_to('Resources', resources_path, class: "stealth") %>
+        <%= link_to('Shop', "https://anykey-shop.fourthwall.com", class: "stealth")%>
         <%= link_to('Stories', stories_path, class: "stealth") %>
         <%= link_to('Verification', new_verification_path, class: "stealth") %>
         <%= link_to('Work With Us', work_with_us_path, class: "stealth") %>
@@ -46,7 +48,11 @@
       Saw someone abusing<br>
       the AnyKey badge?
       <%= link_to('File a Report', new_report_path, class: "stealth", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Report', 'event_label': 'FooterLink'});") %>
-    </div>
+      <br><br>
+      Certified competitor<br>
+      causing trouble?
+      <%= link_to('Share a Concern', new_concern_path, class: "stealth", onClick: "gtag('event', 'ButtonClick', {'event_category': 'Concern', 'event_label': 'FooterLink'});") %>
+    </div>    
     <div class="sponsors flexbox horizontal center">
       <%= link_to(image_tag("/images/oneoc-logo-white.svg", size: "60x60", class: "sponsorship-logo"), "https://oneoc.org") %>
       <div>
