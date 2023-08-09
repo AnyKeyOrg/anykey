@@ -97,7 +97,25 @@
 #backstage-container .comment-row .row-detail {
   font-size: 0.7em;
   color: var(--gray-color);
-  margin-left: 0.5em;
+  margin-left: 0.7em;
+}
+
+#backstage-container .comment-row .comment-delete {
+  position: relative;
+  font-size: 0.8em;
+  font-family: var(--solid-icon-font);
+  color: var(--gray-color);
+  background: none;
+  border: 0px;
+  border-radius: 100%;
+  padding: 0.5em;
+  margin-left: 0.2em;
+}
+
+#backstage-container .comment-row .comment-delete:hover {
+  cursor: pointer;
+  color: var(--light-black-color);
+  background: var(--light-gray-color);
 }
 
 #backstage-container .comment-row .row-text {

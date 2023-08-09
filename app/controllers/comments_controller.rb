@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 
-  before_action :authenticate_user!, only: [ :create, :update, :delete ]
-  before_action :ensure_staff,       only: [ :create, :update, :delete ]
-  before_action :ensure_commenter,   only: [ :update, :delete ]
-  before_action :find_comment,       only: [ :update, :delete ]
+  before_action :authenticate_user!, only: [ :create, :destroy ]
+  before_action :ensure_staff,       only: [ :create, :destroy ]
+  before_action :find_comment,       only: [ :destroy ]
+  before_action :ensure_commenter,   only: [ :destroy ]
   around_action :display_timezone
 
   def create
@@ -17,10 +17,12 @@ class CommentsController < ApplicationController
     end
   end
   
-  def update
-  end
-  
-  def delete
+  def destroy
+    respond_to do |format|
+      if @comment.destroy
+        format.js
+      end
+    end
   end
   
   protected

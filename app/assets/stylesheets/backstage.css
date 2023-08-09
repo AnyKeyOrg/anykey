@@ -69,6 +69,7 @@
   display: none;
   content: "";
 }
+
 #backstage-container #watchable-toggle:hover:before {
   display: block;
 }

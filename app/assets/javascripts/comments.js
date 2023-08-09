@@ -1,4 +1,4 @@
-// Handles posting and display of comments on commentable records
+// Handles posting, display, and deletion of comments on commentable records
 
 function setupCommentSubmitListener() {
   $('#comment_box').submit(function(e) {
@@ -21,6 +21,26 @@ function setupCommentSubmitListener() {
   }); 
 }
 
+function setupCommentDeleteActions() {
+  $('.comment-delete-form').off('submit');
+  $('.comment-delete-form').submit(function(e) {
+    
+    // Intercept click
+    e.preventDefault();
+    
+    $.ajax({
+      type: 'DELETE',
+      data: new FormData(this),
+      processData: false,
+      contentType: false,
+      dataType: 'script',
+      url: this.action
+    });
+    
+  }); 
+}
+
 $(document).ready(function() {
   setupCommentSubmitListener();
+  setupCommentDeleteActions();
 });
