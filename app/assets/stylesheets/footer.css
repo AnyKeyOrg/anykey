@@ -23,8 +23,7 @@
 #footer-content .creators,
 #footer-content .sponsors,
 #footer-content .social-links,
-#footer-content .reporting,
-#footer-content .sitemap {
+#footer-content .reporting {
   margin-right: 1em;
   margin-left: 1em;
   padding-top: 1em;
@@ -60,8 +59,14 @@
   margin-bottom: -2px;
 }
 
-#footer-content .sitemap .left-column {
-  margin-right: 1.8em;
+#footer-content .sitemap {
+  padding-bottom: 2em;
+}
+
+#footer-content .sitemap .column {
+  margin-right: 0.8em;
+  margin-left: 0.8em;
+  padding-top: 1em;
 }
 
 #footer-content .sitemap a {
