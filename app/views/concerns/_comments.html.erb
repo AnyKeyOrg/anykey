@@ -4,12 +4,10 @@
     <div class="item-title large flexbox horizontal center">
       <span class="icon">&#xf27a;</span> Comments <%= @concern.comments.present? ? "(#{@concern.comments.count})" : '' %>
     </div>
-    <% if @concern.comments.present? %>
     <div class="comment-list">
       <%= render(partial: "comments/row", collection: @concern.comments, as: :comment) %>
     </div>
-    <% end %>
-    <div class="flexbox comment-area horizontal start">
+    <div class="flexbox horizontal start">
       <%= image_tag(user_image_src(current_user, :thumb), size: "28x28", class: "commenter-avatar") %>
       <form action="<%= comments_path %>" id="comment_box" method="POST" enctype="multipart/form-data" class="flexbox vertical end flex-1">
         <div style="display:none">

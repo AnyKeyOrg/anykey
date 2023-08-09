@@ -19,6 +19,11 @@
         <%= Concern::STATUSES[concern.status.to_sym].upcase %>
       </div>
       <% end %>
+      <% if concern.comments.present? %>
+      <div class="commented">
+        &#xf27a;
+      </div>
+      <% end %>
       <% if concern.watched %>
       <div class="watched">
         &#xf06e;
