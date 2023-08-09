@@ -1,5 +1,12 @@
 // Handles posting, display, and deletion of comments on commentable records
 
+function setupCommentBoxResize() {
+  $("#comment_body").on("input", function () {
+    this.style.height = 0;
+    this.style.height = (this.scrollHeight) + "px";
+  });
+}
+
 function setupCommentSubmitListener() {
   $('#comment_box').submit(function(e) {
     
@@ -18,7 +25,7 @@ function setupCommentSubmitListener() {
     
     // Clear comment box
     $('#comment_body').val('');
-  }); 
+  });
 }
 
 function setupCommentDeleteActions() {
@@ -37,10 +44,11 @@ function setupCommentDeleteActions() {
       url: this.action
     });
     
-  }); 
+  });
 }
 
 $(document).ready(function() {
+  setupCommentBoxResize();
   setupCommentSubmitListener();
   setupCommentDeleteActions();
 });

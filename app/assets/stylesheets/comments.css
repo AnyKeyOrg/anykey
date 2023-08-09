@@ -91,8 +91,9 @@
   background: var(--dark-white-color);
   outline: none;
   padding: 0.7em 0.6em 0.7em 0.6em;
-  height: 2em;
-  resize: vertical;
+  height: 37px; /* Necessary scrollHeight for autoresize magic */
+  resize: none;
+  overflow-y: hidden;
 }
 
 #backstage-container form#comment_box textarea:hover {
