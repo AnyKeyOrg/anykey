@@ -1,10 +1,11 @@
 class Concern < ApplicationRecord
   
   PLAYER_ID_TYPES = {
-    riot:    "Riot ID",
-    discord: "Discord Username",
-    twitter: "Twitter Handle",
-    name:    "Real Name"
+    riot:     "Riot ID",
+    discord:  "Discord Username",
+    twitter:  "Twitter Handle",
+    name:     "Real Name",
+    nickname: "Nickname"
   }.freeze
   
   STATUSES = {
