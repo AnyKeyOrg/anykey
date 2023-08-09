@@ -17,6 +17,6 @@
       </form>
       <% end %>
     </div>
-    <div class="row-text flexbox horizontal center"><%= comment.body %></div>
+    <div class="row-text"><%= comment.body.gsub(URI.regexp, '<a href="\0" class="inline">\0</a>').html_safe %></div>
   </div>
 </div>
