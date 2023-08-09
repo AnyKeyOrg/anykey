@@ -44,6 +44,7 @@
 #verification .faq-section {
   max-width: 32em;
   width: 100%;
+  margin-bottom: 3em;
   margin-left: 4em; /* Remove responsively */
 }
 
@@ -89,6 +90,67 @@
 #verification .faq-item .answer {
   display: none;
   margin-top: 1em;
+}
+
+#verification #concern-section {
+  width: 100%;
+  background: linear-gradient(315deg, var(--blue-overlay) 46%, var(--bright-blue-color) 46%);
+  margin-top: 0.5em;
+  color: var(--white-color);
+}
+
+#verification #concern-section .page-section {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#verification #concern-section .section-title {
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+}
+
+#verification #concern-section .text-section {
+  font-size: 1em;
+  font-weight: 500;
+  max-width: 34em;
+  width: 100%;
+}
+
+#verification #concern-section div.text-section p {
+  line-height: 1.6em;
+}
+
+#verification #concern-section .button {
+  border: 5px solid var(--light-gray-color);
+  background-color: var(--dark-blue-color);
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.6em;
+  padding: .4em .75em .45em .75em;
+  margin-top: 1em;
+  text-transform: uppercase;
+  max-width: 13.5em;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+#verification #concern-section .button:hover {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);
+}
+
+#verification #concern-section .button:active {
+  cursor: pointer;
+  background-color: var(--bright-blue-color);
+  outline: none;
+}
+
+#verification #concern-section .button::-moz-focus-inner {
+  border: 0 !important;
 }
 
 

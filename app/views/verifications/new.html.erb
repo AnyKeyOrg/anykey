@@ -31,4 +31,19 @@
       </div>
     </div>
   </div>
+  <div id="concern-section" class="flexbox vertical center">
+    <div class="page-section flexbox vertical stretch">
+      <div class="inner flexbox vertical stretch">
+        <div class="flexbox horizontal center wrap justify-space-around">
+          <div class="flexbox vertical start">
+            <div class="section-title">Trouble with a competitor?</div>
+            <div class="text-section flexbox vertical flex-1">
+              <p>Our ComfyCrew will review your reports about problematic players at events requiring AnyKey eligibility certification.</p>
+            </div>
+          </div>
+          <%= link_to("Share Concern", new_concern_path, class: 'button', onClick: "gtag('event', 'ButtonClick', {'event_category': 'Concern', 'event_label': 'VerificationCTA'});") %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
