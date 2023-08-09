@@ -58,12 +58,8 @@
 
 #backstage-container .comment-row .row-text {
   white-space: preserve wrap;
-  font-size: 0.9em;
+  font-size: 0.85em;
   margin-top: 0.5em;
-}
-
-#backstage-container .comment-row .row-text {
-  font-size: 0.8em;
 }
 
 
@@ -85,13 +81,13 @@
   background: var(--white-color);
   font-family: var(--body-font);
   font-weight: 400;
-  font-size: 0.9em;
+  font-size: 0.85em;
   line-height: 1.2em;
   border: 3px solid var(--light-black-color);
   background: var(--dark-white-color);
   outline: none;
   padding: 0.7em 0.6em 0.7em 0.6em;
-  height: 37px; /* Necessary scrollHeight for autoresize magic */
+  height: 35px; /* Necessary scrollHeight for autoresize magic */
   resize: none;
   overflow-y: hidden;
 }

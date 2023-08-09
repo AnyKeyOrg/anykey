@@ -7,6 +7,16 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
   belongs_to :commenter, class_name: :User, foreign_key: :commenter_id
   
+  # Finds and renders links in text using regex
+  # Thanks to solution on StackOverflow (16006016)
+  def clickable_body
+    self.body.gsub(%r{
+        (?:(?:https?|ftp|file):\/\/|www\.|ftp\.)
+        (?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*
+        (?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])
+      }ix, '<a href="\0" class="inline">\0</a>')
+  end
+  
   private
     # Set posted on time as comment is created
     def ensure_posted_on_set
