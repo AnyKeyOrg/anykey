@@ -16,21 +16,28 @@ class ConcernsController < ApplicationController
     else
       per_page = 30
     end
-
+    
     # f is used to filter reports by scope
     # q is used to search for keywords
-    if (params[:f].present? && Concern::SORT_FILTERS.key?(params[:f].to_sym)) && params[:q].present?
-      @concerns = eval("Concern."+params[:f]+".search('"+params[:q]+"').order(shared_on: :asc).paginate(page: params[:page], per_page: "+per_page.to_s+")")
-      @filter_category = params[:f]
-    elsif params[:f].present? && Concern::SORT_FILTERS.key?(params[:f].to_sym)
-      @concerns = eval("Concern."+params[:f]+".order(shared_on: :asc).paginate(page: params[:page], per_page: "+per_page.to_s+")")
+    # o is used to toggle ordering
+    if params[:f].present? && Concern::SORT_FILTERS.key?(params[:f].to_sym)
       @filter_category = params[:f]
     elsif params[:q].present?
-      @concerns = Concern.all.search(params[:q]).order(shared_on: :asc).paginate(page: params[:page], per_page: per_page)
       @filter_category = "all"
     else
-      @concerns = Concern.open.order(shared_on: :asc).paginate(page: params[:page], per_page: per_page)
       @filter_category = "open"
+    end
+    
+    if params[:o].present? && params[:o] == "desc"
+      @ordering = "desc"
+    else
+      @ordering = "asc"
+    end
+    
+    if params[:q].present?
+      @concerns = eval("Concern.#{@filter_category}.search('#{params[:q]}').order(shared_on: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+    else
+      @concerns = eval("Concern.#{@filter_category}.order(shared_on: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
     end
   end
 

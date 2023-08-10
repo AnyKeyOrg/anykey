@@ -134,9 +134,12 @@
 }
 
 #backstage-container .panel-filters a.selected {
-  padding-right: 0em;
   font-weight: 700;
   color: var(--light-black-color);
+}
+
+#backstage-container .panel-filters a.selected.togglable {
+  padding-right: 0em;
 }
 
 #backstage-container .panel-filters a.ordering {
