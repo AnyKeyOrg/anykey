@@ -127,15 +127,21 @@
 }
 
 #backstage-container .panel-filters a {
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 #backstage-container .panel-filters a.selected {
+  padding-right: 0em;
   font-weight: 700;
-  color: var(--light-black-color); 
+  color: var(--light-black-color);
+}
+
+#backstage-container .panel-filters a.ordering {
+  color: var(--light-black-color);
+  font-family: var(--solid-icon-font);
 }
 
 #backstage-container .panel-filters a:hover {
