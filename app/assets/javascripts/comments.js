@@ -13,7 +13,7 @@ function setupCommentSubmitListener() {
     // Intercept click and release button from focus state
     e.preventDefault();
     $('#comment_submit').blur();
-
+    
     $.ajax({
       type: 'POST',
       data: new FormData(this),

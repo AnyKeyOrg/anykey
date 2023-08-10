@@ -1,0 +1,1 @@
+<%= link_to('&#xf06e;'.html_safe, @concern.watched ? unwatch_concern_path(@concern) : watch_concern_path(@concern), id: "watchable-toggle", class: @concern.watched ? 'watched' : 'unwatched') %>

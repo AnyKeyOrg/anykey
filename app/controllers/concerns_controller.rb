@@ -95,20 +95,18 @@ class ConcernsController < ApplicationController
   end
   
   def watch
-    respond_to :json
-    if @concern.update(watched: true)
-      render :json => { watched_status: "watched" }, :status => 200
-    else
-      render :json => {:error => 'An unexpected error occurred', :code => '500'}, :status => 500
+    respond_to do |format|
+      if @concern.update(watched: true)
+        format.js
+      end
     end
   end
 
   def unwatch
-    respond_to :json
-    if @concern.update(watched: false)
-      render :json => { watched_status: "unwatched" }, :status => 200
-    else
-      render :json => {:error => 'An unexpected error occurred', :code => '500'}, :status => 500
+    respond_to do |format|
+      if @concern.update(watched: false)
+        format.js
+      end
     end
   end
   
