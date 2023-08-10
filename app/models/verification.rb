@@ -121,15 +121,16 @@ class Verification < ApplicationRecord
   end
   
   def related_requests
-    # Search for each of self's parameters aggregating results
+    # Search across the same fields for each of self's parameters aggregating results
     # Sort by most frequent matches across paramaters
     # Return ordered collection of uniques
-    reqs = (Verification.where.not(id: self.id).search(self.email) +
-            Verification.where.not(id: self.id).search(self.first_name) +
-            Verification.where.not(id: self.id).search(self.last_name) +
-            Verification.where.not(id: self.id).search(self.discord_username) +
-            Verification.where.not(id: self.id).search(self.player_id))
-
+    
+    reqs = (Verification.where.not(id: self.id).where("lower(email) LIKE '%#{self.email.downcase}%'") +
+            Verification.where.not(id: self.id).where("lower(first_name) LIKE '%#{self.first_name.downcase}%'") +
+            Verification.where.not(id: self.id).where("lower(last_name) LIKE '%#{self.last_name.downcase}%'") +
+            Verification.where.not(id: self.id).where("lower(discord_username) LIKE '%#{self.discord_username.downcase}%'") +
+            Verification.where.not(id: self.id).where("lower(player_id) LIKE '%#{self.player_id.downcase}%'"))
+    
     reqs.uniq.sort_by { |e| -reqs.count(e)}
   end
 
