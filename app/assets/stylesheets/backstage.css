@@ -214,6 +214,48 @@
 
 
 /************************************/
+/*   Backstage Queue Status Colors  */
+/************************************/
+
+#backstage-container .record-row .commented {
+  font-size: 0.75em;
+  font-family: var(--solid-icon-font);
+  color: var(--bright-blue-color);
+  margin-left: 0.5em;
+  margin-right: 0.1em;
+}
+
+#backstage-container .record-row .watched {
+  font-size: 0.9em;
+  font-family: var(--solid-icon-font);
+  color: var(--bright-fuchsia-color);
+  margin-left: 0.4em;
+}
+
+#backstage-container .record-row .row-detail.dismissed {
+  font-weight: 700;
+  color: var(--gray-color);
+}
+
+#backstage-container .record-row .row-detail.ignored {
+  font-weight: 700;
+  color: var(--bright-orange-color);
+}
+
+#backstage-container .record-row .row-detail.eligible,
+#backstage-container .record-row .row-detail.reviewed {
+ font-weight: 700;
+ color: var(--bright-green-color);
+}
+
+#backstage-container .record-row .row-detail.denied,
+#backstage-container .record-row .row-detail.withdrawn  {
+  font-weight: 700;
+  color: var(--alert-red-color);
+}
+
+
+/************************************/
 /*         Backstage Search         */
 /************************************/
 

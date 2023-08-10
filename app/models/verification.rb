@@ -18,6 +18,7 @@ class Verification < ApplicationRecord
     denied:           "Denied",
     withdrawn:        "Withdrawn",
     eligible:         "Eligible",
+    watched:          "Watched",    
     all:              "All"
   }.freeze
   
@@ -64,6 +65,7 @@ class Verification < ApplicationRecord
   scope :denied,          lambda { where(status: :denied) }
   scope :withdrawn,       lambda { where(status: :withdrawn) }
   scope :eligible,        lambda { where(status: :eligible) }
+  scope :watched,         lambda { where(watched: true) }  
   scope :search,          lambda { |search| where("lower(first_name) LIKE :search OR
                                                    lower(last_name) LIKE :search OR
                                                    lower(email) LIKE :search OR

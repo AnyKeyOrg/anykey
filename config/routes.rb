@@ -46,6 +46,8 @@ Rails.application.routes.draw do
         post :ignore
         post :withdraw
         post :resend_cert
+        post :watch
+        post :unwatch
         get  :voucher
       end
     end

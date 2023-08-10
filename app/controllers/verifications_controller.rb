@@ -2,9 +2,14 @@ class VerificationsController < ApplicationController
 
   layout "backstage",                only: [ :index, :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility ]
   
-  before_action :authenticate_user!, only: [ :index, :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :ignore, :withdraw, :voucher, :resend_cert ]
-  before_action :ensure_staff,       only: [ :index, :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :ignore, :withdraw, :voucher, :resend_cert ]
-  before_action :find_verification,  only: [ :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility, :verify, :deny, :ignore, :withdraw, :voucher, :resend_cert ]
+  skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch ]
+  
+  before_action :authenticate_user!, only: [ :index, :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility,
+                                            :verify, :deny, :ignore, :withdraw, :voucher, :resend_cert, :watch, :unwatch ]
+  before_action :ensure_staff,       only: [ :index, :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility,
+                                            :verify, :deny, :ignore, :withdraw, :voucher, :resend_cert, :watch, :unwatch ]
+  before_action :find_verification,  only: [ :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility,
+                                            :verify, :deny, :ignore, :withdraw, :voucher, :resend_cert, :watch, :unwatch ]
   around_action :display_timezone
   
   def index
@@ -170,7 +175,23 @@ class VerificationsController < ApplicationController
     end
     redirect_to verifications_path
   end
+  
+  def watch
+    respond_to do |format|
+      if @verification.update(watched: true)
+        format.js
+      end
+    end
+  end
 
+  def unwatch
+    respond_to do |format|
+      if @verification.update(watched: false)
+        format.js
+      end
+    end
+  end
+  
   protected
     def find_verification
       @verification = Verification.find_by(identifier: params[:id])

@@ -10,11 +10,14 @@
       Eligibility Certification
     <% end %>
   </div>
-  <div class="panel-descriptor">
-    <% if @verification.withdrawn? %>
-    Withdrawn <%= l(@verification.withdrawn_on, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@verification.withdrawer.display_name, user_path(@verification.withdrawer)) %>]<br>
-    <% end %>
-    <%= @verification.issued? ? "Issued" : Verification::STATUSES[@verification.status.to_sym].titlecase %> <%= l(@verification.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@verification.reviewer.display_name, user_path(@verification.reviewer)) %>]
+  <div class="flexbox horizontal center">
+    <div class="panel-descriptor">
+      <% if @verification.withdrawn? %>
+      Withdrawn <%= l(@verification.withdrawn_on, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@verification.withdrawer.display_name, user_path(@verification.withdrawer)) %>]<br>
+      <% end %>
+      <%= @verification.issued? ? "Issued" : Verification::STATUSES[@verification.status.to_sym].titlecase %> <%= l(@verification.reviewed_on, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@verification.reviewer.display_name, user_path(@verification.reviewer)) %>]
+    </div>
+    <%= render(partial: "verifications/watchable_toggle")%>
   </div>
 </div>
 <%= render(partial: "verifications/identity") %>
@@ -34,20 +37,4 @@
     <%= link_to('Back', params[:back].present? ? params[:back] : verifications_path, class: "back-button mini button", tabindex: "1" ) %>
   </div>
 <% end %>
-<hr class="spacer">
-<div class="flexbox horizontal end wrap-reverse justify-space-between">
-  <div class="pledge-item flexbox vertical stretch flex-1" style="margin-top: 0em;">
-    <div class="item-title flexbox horizontal center">
-      <span class="icon">&#xf002;</span> Related Requests <%= @related_requests.present? ? "(#{@related_requests.count})" : ''%>
-    </div>
-    <% if @related_requests.present? %>
-    <div class="item-list">
-      <%= render(partial: "verifications/row", collection: @related_requests, as: :verification) %>
-    </div>
-    <% else %>
-    <div class="item-text">
-      There are no related eligibility verification requests.
-    </div>
-    <% end %>
-  </div>
-</div>
+<%= render(partial: "verifications/related_requests") %>

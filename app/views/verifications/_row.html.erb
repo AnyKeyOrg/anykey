@@ -3,20 +3,25 @@
     <div class="row-title">
       <%= verification.full_name %>
     </div>
-    <% if verification.pending? %>
-    <div class="row-detail">
-      <%= l(verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
-    </div>
-    <% else %>
     <div class="flexbox horizontal center">
+      <% if verification.pending? %>
+      <div class="row-detail">
+        <%= l(verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
+      </div>
+      <% else %>
       <div class="row-detail">
       <%= l(verification.last_reviewed_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
       </div>
       <div class="row-detail <%= verification.status %>">
         <%= Verification::STATUSES[verification.status.to_sym].upcase %>
       </div>
+      <% end %>
+      <% if verification.watched %>
+      <div class="watched">
+        &#xf06e;
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
   <div class="flexbox horizontal center wrap justify-space-between">
     <div class="flexbox horizontal center wrap">

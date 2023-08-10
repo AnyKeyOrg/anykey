@@ -1,0 +1,1 @@
+<%= link_to('&#xf06e;'.html_safe, @verification.watched ? unwatch_verification_path(@verification) : watch_verification_path(@verification), id: "watchable-toggle", class: @verification.watched ? 'watched' : 'unwatched') %>

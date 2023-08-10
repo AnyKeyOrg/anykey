@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_05_014544) do
+ActiveRecord::Schema.define(version: 2023_08_10_031108) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -217,6 +217,7 @@ ActiveRecord::Schema.define(version: 2023_08_05_014544) do
     t.boolean "doctors_note_submitted", default: false
     t.datetime "withdrawn_on"
     t.integer "withdrawer_id"
+    t.boolean "watched", default: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

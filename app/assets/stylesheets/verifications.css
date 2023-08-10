@@ -155,27 +155,6 @@
 
 
 /************************************/
-/*   Backstage Verification Queue   */
-/************************************/
-
-#backstage-container .record-row .row-detail.ignored {
-  font-weight: 700;
-  color: var(--bright-orange-color);
-}
-
-#backstage-container .record-row .row-detail.eligible {
- font-weight: 700;
- color: var(--bright-green-color);
-}
-
-#backstage-container .record-row .row-detail.denied,
-#backstage-container .record-row .row-detail.withdrawn  {
-  font-weight: 700;
-  color: var(--alert-red-color);
-}
-
-
-/************************************/
 /*  Backstage Verification Review   */
 /************************************/
 

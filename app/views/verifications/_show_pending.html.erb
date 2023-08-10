@@ -2,8 +2,11 @@
   <div class="panel-title">
     Verification Review
   </div>
-  <div class="panel-descriptor">
-    Requested <%= l(@verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P") %>
+  <div class="flexbox horizontal center">
+    <div class="panel-descriptor">
+      Requested <%= l(@verification.requested_on, format: "%b. %-d, %Y · %-l:%M%P") %>
+    </div>
+    <%= render(partial: "verifications/watchable_toggle")%>
   </div>
 </div>
 <%= render(partial: "verifications/identity") %>
@@ -17,20 +20,4 @@
   <input id="ignore_submit" name="commit" type="submit" class="ignore-button button" value="Ignore" data-confirm="<%="Are you sure you want to ignore #{@verification.full_name}'s verification request?\n\nRemember, this will permanently destroy their uploaded documents and cannot be reversed 🤖" %>" tabindex="2">
   <%= link_to('Back', params[:back].present? ? params[:back] : verifications_path, class: "back-button mini button", tabindex: "4") %>
 </form>
-<hr class="spacer">
-<div class="flexbox horizontal end wrap-reverse justify-space-between">
-  <div class="pledge-item flexbox vertical stretch flex-1" style="margin-top: 0em;">
-    <div class="item-title flexbox horizontal center">
-      <span class="icon">&#xf002;</span> Related Requests <%= @related_requests.present? ? "(#{@related_requests.count})" : ''%>
-    </div>
-    <% if @related_requests.present? %>
-    <div class="item-list">
-      <%= render(partial: "verifications/row", collection: @related_requests, as: :verification) %>
-    </div>
-    <% else %>
-    <div class="item-text">
-      There are no related eligibility verification requests.
-    </div>
-    <% end %>
-  </div>
-</div>
+<%= render(partial: "verifications/related_requests") %>
