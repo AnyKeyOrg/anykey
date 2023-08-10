@@ -16,6 +16,11 @@
         <%= Verification::STATUSES[verification.status.to_sym].upcase %>
       </div>
       <% end %>
+      <% if verification.comments.present? %>
+      <div class="commented">
+        &#xf27a;
+      </div>
+      <% end %>
       <% if verification.watched %>
       <div class="watched">
         &#xf06e;
