@@ -18,8 +18,8 @@ namespace :verifications do
       player_data = row.to_hash.symbolize_keys
       
       unless player_data[:certificate_code].blank?
-        verification = Verification.find_by(identifier: player_data[:certificate_code])
-        certificate_code = {certificate_code: player_data[:certificate_code]}
+        verification = Verification.find_by(identifier: player_data[:certificate_code].upcase)
+        certificate_code = {certificate_code: player_data[:certificate_code].upcase}
 
         # Check if cert code exists, look up state of request, and validate eligible player data with crosscheck
         if verification.blank?
