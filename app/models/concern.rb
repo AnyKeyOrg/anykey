@@ -1,11 +1,14 @@
 class Concern < ApplicationRecord
   
   PLAYER_ID_TYPES = {
-    riot:     "Riot ID",
+    blizzard: "Blizzard BattleTag",
     discord:  "Discord Username",
-    twitter:  "Twitter Handle",
+    epic:     "Epic Games Display Name",
+    nickname: "Nickname",
     name:     "Real Name",
-    nickname: "Nickname"
+    riot:     "Riot ID",
+    steam:    "Steam Profile Name",
+    twitter:  "Twitter Handle"
   }.freeze
   
   STATUSES = {
