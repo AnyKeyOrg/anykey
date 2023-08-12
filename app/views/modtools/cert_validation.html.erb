@@ -7,9 +7,15 @@
           <div style="display:none">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           </div>
-          <div class="item no-bottom flexbox vertical start flex-0">
-            <label for="validate_certs_input_csv" class="text-field above">CSV File</label>
-            <input id="validate_certs_input_csv" name="validate_certs_input_csv" type="file" tabindex="1">
+          <div class="flexbox horizontal center wrap">
+            <div class="item flexbox vertical start flex-0">
+              <label for="validate_certs_input_csv" class="text-field above">CSV File</label>
+              <input id="validate_certs_input_csv" name="validate_certs_input_csv" type="file" tabindex="1">
+            </div>
+            <div class="item flexbox vertical start flex-0">
+              <label for="validate_certs_player_id_type" class="text-field above small">Player ID Type</label>
+              <%= select_tag("validate_certs_player_id_type", options_from_collection_for_select(Verification::PLAYER_ID_TYPES, :first, :last)) %>
+            </div>
           </div>
           <div class="validation-buttons flexbox horizontal center wrap">
             <%= link_to('Reset', cert_validation_path, id: "reset_validation_button", class: "button mini", tabindex: "14", style: "display:none") %>
@@ -18,8 +24,9 @@
           </div>
         </form>
         <div id="cross_check_subheading">Instructions</div>
-        <div id="cross_check_instructions">Upload CSV (comma separated value) data to validate. Headers must contain <em>certificate_code</em>. If present, cross check will compare: <em>full_name</em>, <em>player_id</em>, <em>email</em>, and <em>discord_username</em>. Other fields will be ignored.</div>
-        <div id="cross_check_results"></div>
+        <div id="cross_check_instructions">Upload CSV (comma separated value) data to validate. If headers contain <em>certificate_code</em>, cross check compares <em>full_name</em>, <em>email</em>, and <em>player_id</em> for each row. Batch must share ID type. Other fields are ignored. Results give authenticity, match/miss validation for each element, and the correct certificate details.<br><br>
+        </div>
+        <div id="cross_check_results"><strong style="color: var(--bright-green-color)">valid:</strong> player eligible, all details match<br><strong style="color: var(--bright-orange-color)">inconsistent:</strong> valid certificate code, but some details do not match<br><strong style="color: var(--alert-red-color)">invalid:</strong> code corresponds to withdrawn, denied, ignored, or pending request<br><strong style="color: var(--gray-color)">not_found:</strong> certificate code not found</div>
       </div>
     </div>
   </div>

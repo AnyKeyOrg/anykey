@@ -23,20 +23,20 @@ namespace :verifications do
 
         # Check if cert code exists, look up state of request, and validate eligible player data with crosscheck
         if verification.blank?
-          response = {response: "not_found"}
-          cross_check_results << {**certificate_code, **response}
+          authenticity = {authenticity: "not_found"}
+          cross_check_results << {**certificate_code, **authenticity}
         elsif verification.withdrawn? || verification.denied? || verification.ignored? || verification.pending?
-          response = {response: "invalid"}
-          cross_check_results << {**certificate_code, **response}
+          authenticity = {authenticity: "invalid"}
+          cross_check_results << {**certificate_code, **authenticity}
         elsif verification.eligible?
-          response = {response: "valid"}
+          authenticity = {authenticity: "valid"}
           validation_results = verification.validate(player_data)
           validation_results.each do |key, value|
             if value == "miss"
-              response = {response: "inconsistent"}
+              authenticity = {authenticity: "inconsistent"}
             end
           end
-          cross_check_results << {**certificate_code, **response, **validation_results, **verification.validated_details}
+          cross_check_results << {**certificate_code, **authenticity, **validation_results, **verification.validated_details}
         end
       end
     end

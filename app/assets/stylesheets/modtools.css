@@ -9,6 +9,24 @@
   margin-top: 2em;
 }
 
+#backstage-container form#validate_certs_form {
+  margin-top: 1em;
+}
+
+#backstage-container form input#validate_certs_input_csv {
+  margin-right: 1em;
+  max-width: 16em;
+}
+
+#backstage-container form select#validate_certs_player_id_type {
+  max-width: 14em;
+  text-overflow: ellipsis;
+}
+
+#backstage-container form#validate_certs_form label.text-field.small {
+  font-size: 0.8em;
+}
+
 #backstage-container #cross_check_instructions {
   margin-top: 0.5em;
   font-family: var(--body-font);
@@ -22,8 +40,7 @@
   font-family: var(--code-font);
   width: 100%;
   white-space: preserve nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 #backstage-container .button#reset_validation_button {
@@ -35,7 +52,7 @@
 /*         Responsiveness          */
 /***********************************/
 
-@media (max-width:46em) {
+@media (max-width:52em) {
   #backstage-container .validation-buttons {
     width: 100%;
   }

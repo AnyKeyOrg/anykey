@@ -123,11 +123,10 @@ class Verification < ApplicationRecord
     end
   end
   
+  # Search across the same fields for each of self's parameters aggregating results
+  # Sort by most frequent matches across paramaters
+  # Return ordered collection of uniques
   def related_requests
-    # Search across the same fields for each of self's parameters aggregating results
-    # Sort by most frequent matches across paramaters
-    # Return ordered collection of uniques
-    
     reqs = (Verification.where.not(id: self.id).where("lower(email) LIKE '%#{self.email.downcase}%'") +
             Verification.where.not(id: self.id).where("lower(first_name) LIKE '%#{self.first_name.downcase}%'") +
             Verification.where.not(id: self.id).where("lower(last_name) LIKE '%#{self.last_name.downcase}%'") +
@@ -136,29 +135,34 @@ class Verification < ApplicationRecord
     
     reqs.uniq.sort_by { |e| -reqs.count(e)}
   end
-
-
-  def validated_details
-    # Returns hash of player data submitted for certificate
-    # TODO: Generalize this method for future player_id_types
-    {full_name:       self.full_name,
-    email:            self.email,
-    discord_username: self.discord_username,
-    player_id:        self.player_id,
-    gender:           self.gender,
-    pronouns:         self.pronouns}
+  
+  # Relaxed comparison that ignores case and leading/trailing whitespace
+  def matching?(a, b)
+    if a.blank? || b.blank?
+      return false
+    else
+      a.downcase.strip == b.downcase.strip
+    end
   end
 
+  # Compares player data given to information on file for a given eligibility certificate
+  # Returns hash of match/miss booleans showing matching parameters
   def validate(player_data)
-    # Compares player data given to information on file for a given eligibility certificate
-    # Returns hash of booleans showing matching parameters
-    # TODO: DRY and generalize this method for future player_id_types
     cross_check = {}
-    cross_check[:full_name_validation]        = self.full_name == player_data[:full_name] ? 'match' : 'miss'
-    cross_check[:email_validation]            = self.email == player_data[:email] ? 'match' : 'miss'
-    cross_check[:discord_username_validation] = self.discord_username == player_data[:discord_username] ? 'match' : 'miss'
-    cross_check[:player_id_validation]        = self.player_id == player_data[:player_id] ? 'match' : 'miss'
+    cross_check[:full_name_validation] = matching?(self.full_name, player_data[:full_name]) ? 'match' : 'miss'
+    cross_check[:email_validation]     = matching?(self.email, player_data[:email]) ? 'match' : 'miss'
+    cross_check[:player_id_validation] = (matching?(self.player_id, player_data[:player_id]) && self.player_id_type == player_data[:player_id_type]) ? 'match' : 'miss'
     return cross_check
+  end
+  
+  # Returns hash of player data submitted for certificate
+  def validated_details
+    {full_name:       self.full_name,
+    email:            self.email,
+    player_id:        self.player_id,
+    player_id_type:   self.player_id_type,
+    gender:           self.gender,
+    pronouns:         self.pronouns}
   end
 
   protected
