@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="concern-screenshot-caption">
-            <%= screenshot.filename.to_s[0,10]+"..."+screenshot.filename.to_s.last(10) %>
+            <%= screenshot.filename.to_s.length > 25 ? screenshot.filename.to_s[0,10]+"..."+screenshot.filename.to_s.last(10) : screenshot.filename %>
           </div>
         </div>
       <% end %>
