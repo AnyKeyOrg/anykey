@@ -16,6 +16,10 @@
       <div class="records-list flexbox vertical stretch">
         <% if @reports.present? %>
         <%= render(partial: "reports/row", collection: @reports, as: :report) %>
+        <div class="flexbox vertical center">
+          <%= will_paginate @reports, class: "pagination full flexbox horizontal", previous_label: "« PREV", next_label: "NEXT »", inner_window: 3, outer_window: 0  %>
+          <%= will_paginate @reports, class: "pagination mini flexbox horizontal justify-space-between", previous_label: "« PREV", next_label: "NEXT »", page_links: false  %>
+        </div>
         <% else %>
         <div class="empty">
           No reports found.

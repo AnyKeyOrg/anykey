@@ -9,13 +9,19 @@ class ReportsController < ApplicationController
   around_action :display_timezone
   
   def index
+    # per_page is a silent param to show more records per page
+    if params[:per_page].present?
+      per_page = params[:per_page]
+    else
+      per_page = 30
+    end
+    
     # f is used to filter reports by scope
     if params[:f].present? && Report::AVAILABLE_SCOPES.key?(params[:f].to_sym)
-      @reports = eval("Report."+params[:f]+".all.order(created_at: :desc)")
-      # TODO add: paginate(page: params[:page], per_page: 30)
+      @reports = eval("Report."+params[:f]+".all.order(created_at: :desc).paginate(page: params[:page], per_page: #{per_page.to_s})")
       @filter_category = params[:f]
     else
-      @reports = Report.unresolved.all.order(created_at: :desc)
+      @reports = Report.unresolved.all.order(created_at: :desc).paginate(page: params[:page], per_page: per_page.to_s)
       @filter_category = "unresolved"
     end
   end
