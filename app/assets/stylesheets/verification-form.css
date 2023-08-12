@@ -81,6 +81,7 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  text-overflow: ellipsis;
   
   /** Use Bootstrap's hack for adjusting the dropdown indicator so it respects padding **/
   appearance: none;

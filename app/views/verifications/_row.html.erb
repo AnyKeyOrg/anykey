@@ -32,21 +32,21 @@
     <div class="flexbox horizontal center wrap">
       <div class="row-subtitle flexbox horizontal center">
         <div class="inline-icon">
-          <%= image_tag("/images/riot.svg") %>
+          <%= image_tag("/images/#{verification.player_id_type}.svg") %>
         </div>
         <%= verification.player_id %>
-      </div>
-      <div class="row-subtitle flexbox horizontal center">
-        <div class="inline-icon">
-          <%= image_tag("/images/discord.svg") %>
-        </div>
-        <%= verification.discord_username %>
       </div>
       <div class="row-subtitle flexbox horizontal center">
         <div class="inline-icon">
           &#xf0e0;
         </div>
         <%= verification.email %>
+      </div>
+      <div class="row-subtitle flexbox horizontal center">
+        <div class="inline-icon">
+          <%= image_tag("/images/discord.svg") %>
+        </div>
+        <%= verification.discord_username %>
       </div>
     </div>
     <div class="flexbox horizontal center wrap">

@@ -35,7 +35,7 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="player_id_type" class="text-field">Player ID Type</label>
-      <%= select(:verification, :player_id_type, [[Verification::PLAYER_ID_TYPES[:riot], :riot]], {selected: @verification.player_id_type}, {tabindex: "5"}) %>
+      <%= collection_select(:verification, :player_id_type, Verification::PLAYER_ID_TYPES, :first, :last, {selected: @verification.player_id_type}, {tabindex: "5"}) %>
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="player_id" class="text-field">Player ID</label>

@@ -23,7 +23,10 @@ class Verification < ApplicationRecord
   }.freeze
   
   PLAYER_ID_TYPES = {
-    riot: "Riot ID"
+    blizzard: "Blizzard BattleTag",
+    epic:     "Epic Games Display Name",
+    riot:     "Riot ID",
+    steam:    "Steam Profile Name"
   }.freeze
 
   before_create :ensure_requested_on_set

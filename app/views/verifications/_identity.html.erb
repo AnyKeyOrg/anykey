@@ -8,15 +8,15 @@
     <div class="item-text"><%= @verification.email %></div>
   </div>
   <div class="verification-item half-width flexbox vertical stretch">
-    <div class="item-title">Discord Username</div>
-    <div class="item-text flexbox horizontal center">
-      <%= image_tag("/images/discord.svg") %><%= @verification.discord_username %>
-    </div>
-  </div>
-  <div class="verification-item half-width flexbox vertical stretch">
     <div class="item-title"><%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %></div>
     <div class="item-text flexbox horizontal center">
       <%= image_tag("/images/#{@verification.player_id_type}.svg") %><%= @verification.player_id %>
+    </div>
+  </div>
+  <div class="verification-item half-width flexbox vertical stretch">
+    <div class="item-title">Discord Username</div>
+    <div class="item-text flexbox horizontal center">
+      <%= image_tag("/images/discord.svg") %><%= @verification.discord_username %>
     </div>
   </div>
   <div class="verification-item half-width flexbox vertical stretch">
