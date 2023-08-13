@@ -15,14 +15,28 @@ class ReportsController < ApplicationController
     else
       per_page = 30
     end
-    
+
     # f is used to filter reports by scope
-    if params[:f].present? && Report::AVAILABLE_SCOPES.key?(params[:f].to_sym)
-      @reports = eval("Report."+params[:f]+".all.order(created_at: :desc).paginate(page: params[:page], per_page: #{per_page.to_s})")
+    # q is used to search for keywords
+    # o is used to toggle ordering
+    if params[:f].present? && Report::SORT_FILTERS.key?(params[:f].to_sym)
       @filter_category = params[:f]
+    elsif params[:q].present?
+      @filter_category = "all"
     else
-      @reports = Report.unresolved.all.order(created_at: :desc).paginate(page: params[:page], per_page: per_page.to_s)
       @filter_category = "unresolved"
+    end
+    
+    if params[:o].present? && params[:o] == "asc"
+      @ordering = "asc"
+    else
+      @ordering = "desc"
+    end
+    
+    if params[:q].present?
+      @reports = eval("Report.#{@filter_category}.search('#{params[:q]}').order(created_at: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+    else
+      @reports = eval("Report.#{@filter_category}.order(created_at: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
     end
   end
   
