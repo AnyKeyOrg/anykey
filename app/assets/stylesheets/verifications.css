@@ -164,6 +164,10 @@
   overflow-wrap: break-word;
 }
 
+#backstage-container .verification-item.flush-top {
+  margin-top: 0em;
+}
+
 #backstage-container .verification-item.half-width {
   max-width: 20em;
 }
@@ -243,7 +247,6 @@
 #backstage-container .verification-item .item-text.empty .inline-icon {
   margin-bottom: 0.2em;
 }
-
 
 #backstage-container .verification-item.stamp {
   margin-top: 0em;

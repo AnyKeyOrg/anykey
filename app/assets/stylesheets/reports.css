@@ -10,6 +10,52 @@
 /************************************/
 /*     Backstage Report Review      */
 /************************************/
+
+#backstage-container .report-item {
+  margin-top: 1.25em;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+#backstage-container .report-item.flush-top {
+  margin-top: 0em;
+}
+
+#backstage-container .report-item.half-width {
+  max-width: 20em;
+}
+
+#backstage-container .report-item .item-title {
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-bottom: 0.2em;
+}
+
+#backstage-container .report-item .item-text {
+  font-size: 1em;
+}
+
+#backstage-container .report-item .item-text.empty {
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-top: 0.3em;
+  color: var(--light-gray-color);
+}
+
+#backstage-container .report-item .item-text.small {
+  font-size: 0.9em;
+}
+
+#backstage-container .report-item .item-text .inline-icon {
+  font-family: var(--solid-icon-font), var(--icon-font);
+  margin-right: 0.4em;
+}
+
+
+/************************************/
+/*    Report Screenshot Overlay     */
+/************************************/
+
 #report-screenshot {
   position: relative;
 }
@@ -36,23 +82,10 @@
   padding: 0.8em 1em 0.8em 1em;
 }
 
-#backstage-container .report-item {
-  margin-top: 1.25em;
-}
 
-#backstage-container .report-item .item-title {
-  font-weight: 600;
-  font-size: 0.9em;
-  margin-bottom: 0.2em;
-}
-
-#backstage-container .report-item .item-text {
-  font-size: 1em;
-}
-
-#backstage-container .report-item .item-text.small {
-  font-size: 0.9em;
-}
+/************************************/
+/*     Backstage Report Buttons     */
+/************************************/
 
 #backstage-container .report-buttons {
   margin-top: 2em;
@@ -69,6 +102,18 @@
   text-align: center;
   min-width: 4.5em;
   margin-left: 2em;
+}
+
+#backstage-container .report-buttons .button.mini {
+  border: 3px solid var(--light-black-color);
+  font-weight: 400;
+  font-size: 0.9em;
+  padding: 0.5em 0.75em 0.5em 0.75em;
+  min-width: none;
+}
+
+#backstage-container .report-buttons .button.back-button {
+  background-color: var(--light-black-color);
 }
 
 #backstage-container .report-buttons .button.dismiss-button {
