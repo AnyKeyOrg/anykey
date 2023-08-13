@@ -1,33 +1,15 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
     <div class="control-panel flexbox vertical stretch">
-      <div class="flexbox horizontal center wrap justify-space-between">
-        <div class="panel-title">Report Review</div>
-        <div class="panel-descriptor">
-          Filed <%= l(@report.created_at, format: "%b. %-d, %Y · %-l:%M%P") %>
-        </div>
-      </div>
-      <%= render(partial: "reports/body") %>
-      <div class="report-facts flexbox vertical stretch">
-        <hr class="spacer">
-        Keybot says: <%= @message %>
-      </div>
-      <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
-        <% if @report.dismissed %>
-          <%= link_to("Undismiss", undismiss_report_path(@report), method: :post, class: 'undismiss-button button') %>
-        <% elsif @report.warned %>
-          <div class="resolved-button button">Warned</div>
-        <% elsif @report.revoked %>
-          <div class="resolved-button button">Revoked</div>  
-        <% else %>
-          <% if @pledge %>
-          <%= link_to("Revoke", new_report_revocation_path(@report, back: request.fullpath), class: 'revoke-button button') %>
-          <%= link_to("Warn", new_report_warning_path(@report, back: request.fullpath), class: 'warn-button button') %>
-          <% end %>
-          <%= link_to("Dismiss", dismiss_report_path(@report), method: :post, class: 'dismiss-button button') %>
-        <% end %>
-        <%= link_to('Back', params[:back].present? ? params[:back] : reports_path, class: "back-button mini button") %>        
-      </div>
+      <% if @report.unresolved? %>
+      <%= render(partial: "reports/show_unresolved") %>
+      <% elsif @report.dismissed? %>
+      <%= render(partial: "reports/show_dismissed") %>
+      <% elsif @report.warned? %>
+      <%= render(partial: "reports/show_warned") %>
+      <% elsif @report.revoked? %>
+      <%= render(partial: "reports/show_revoked") %>
+      <% end %>
     </div>
   </div>
 </div>
