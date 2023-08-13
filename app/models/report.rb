@@ -31,6 +31,10 @@ class Report < ApplicationRecord
   validate                  :ensure_sane_review
 
   belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id, optional: true
+  
+  has_one :conduct_warning
+
+  has_one :revocation
                            
   image_accessor :image
   
@@ -39,6 +43,14 @@ class Report < ApplicationRecord
   scope :revoked,      lambda { where("#{table_name}.revoked IS TRUE") }
   scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
   
+  
+  def unresolved?
+    self.dismissed == false && self.warned == false && self.revoked == false
+  end
+  
+  def word_count
+    return (self.incident_description + " " + self.recommended_response).gsub(/[^\w\s]/,"").split.count
+  end
   
   def image_url(style = :thumb)
     if style == :original

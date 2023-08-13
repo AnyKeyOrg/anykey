@@ -1,6 +1,61 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= report_path(report, back: request.fullpath) %>">
   <div class="flexbox horizontal center wrap justify-space-between">
-    <div class="row-title"><%= report.reported_twitch_name %></div>
-    <div class="row-detail"><%= l(report.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %></div>
+    <div class="row-title flexbox horizontal center">
+      <div class="inline-icon">
+        &#xf1e8;
+      </div>
+      <%= report.reported_twitch_name %>
+    </div>
+    <div class="flexbox horizontal center">
+      <% if report.unresolved? %>
+      <div class="row-detail">
+        <%= l(report.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %>
+      </div>
+      <% elsif report.dismissed %>
+      <div class="row-detail">
+        <%= l(report.created_at, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
+      </div>
+      <div class="row-detail dismissed">
+        DISMISSED
+      </div>
+      <% elsif report.warned %>
+      <div class="row-detail">
+        <%= l(report.conduct_warning.created_at, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
+      </div>
+      <div class="row-detail warned">
+        WARNED
+      </div>
+      <% elsif report.revoked %>
+      <div class="row-detail">
+        <%= l(report.revocation.created_at, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
+      </div>
+      <div class="row-detail revoked">
+        REVOKED
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="flexbox horizontal center wrap">
+      <div class="row-subtitle small flexbox horizontal center">
+        <em>Reporter: <%= report.reporter_email %></em>
+      </div>
+    </div>
+    <div class="flexbox horizontal center wrap">
+      <% if report.image.present? %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf030;
+        </div>
+         &nbsp;Screenshot
+      </div>
+      <% end %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf11c;
+        </div>
+         &nbsp;<%= report.word_count %>&nbsp;<%= report.word_count == 1 ? "Word" : "Words" %>
+      </div>
+    </div>
   </div>
 </div>

@@ -246,6 +246,7 @@
   color: var(--gray-color);
 }
 
+#backstage-container .record-row .row-detail.warned,
 #backstage-container .record-row .row-detail.ignored {
   font-weight: 700;
   color: var(--bright-orange-color);
@@ -257,6 +258,7 @@
  color: var(--bright-green-color);
 }
 
+#backstage-container .record-row .row-detail.revoked,
 #backstage-container .record-row .row-detail.denied,
 #backstage-container .record-row .row-detail.withdrawn  {
   font-weight: 700;

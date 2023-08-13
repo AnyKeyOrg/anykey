@@ -5,5 +5,4 @@ class ConductWarning < ApplicationRecord
   belongs_to :report
   belongs_to :reviewer, class_name: :User, foreign_key: :reviewer_id
   
-
 end
