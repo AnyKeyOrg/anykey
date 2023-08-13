@@ -17,7 +17,7 @@
   </div>
   <div class="report-item half-width flexbox vertical stretch">
     <div class="item-title">Date of Incident</div>
-    <% if !@report.recommended_response.blank? %>
+    <% if !@report.incident_occurred.blank? %>
     <div class="item-text small"><%= l(@report.incident_occurred, format: "%b. %-d, %Y") %></div>
     <% else %>
     <div class="item-text empty">Not Specified</div>

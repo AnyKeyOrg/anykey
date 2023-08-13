@@ -22,7 +22,7 @@
         <div class="report-buttons flexbox vertical end">
           <div class="flexbox horizontal-reverse wrap-reverse center">
             <input id="warning_submit" name="commit" type="submit" class="warn-button button" value="Issue Warning" data-confirm="<%="Are you sure you want to warn #{@pledge.email} (#{@report.reported_twitch_name})?\nRemember, there's no way to unsend an email 😉" %>" tabindex="2">
-            <%= link_to('cancel', params[:back].present? ? params[:back] : staff_index_path, class: "stealth", tabindex: "3") %>
+            <%= link_to('Back', params[:back].present? ? params[:back] : staff_index_path, class: "back-button mini button", tabindex: "3") %>
           </div>
         </div>
       </form>

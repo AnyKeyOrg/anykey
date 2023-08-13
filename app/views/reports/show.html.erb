@@ -26,7 +26,7 @@
           <% end %>
           <%= link_to("Dismiss", dismiss_report_path(@report), method: :post, class: 'dismiss-button button') %>
         <% end %>
-        <%= link_to('cancel', params[:back].present? ? params[:back] : reports_path, class: "stealth" ) %>        
+        <%= link_to('Back', params[:back].present? ? params[:back] : reports_path, class: "back-button mini button") %>        
       </div>
     </div>
   </div>
