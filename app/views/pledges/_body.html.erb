@@ -1,0 +1,41 @@
+<div class="flexbox horizontal end wrap justify-space-between">
+  <div class="pledge-item half-width flexbox vertical stretch">
+    <div class="item-title">Full Name</div>
+    <div class="item-text"><%= @pledge.full_name %></div>
+  </div>
+  <div class="pledge-item half-width flexbox vertical stretch">
+    <div class="item-title">Email</div>
+    <div class="item-text"><%= @pledge.email %></div>
+  </div>
+  <div class="pledge-item half-width flexbox vertical stretch">
+    <div class="item-title">Twitch Username</div>
+    <% if @pledge.twitch_id.present? %>
+    <div class="item-text flexbox horizontal center">
+      <div class="inline-icon">
+        &#xf1e8;
+      </div>
+      <%= link_to(@pledge.twitch_display_name, "https://twitch.tv/#{@pledge.twitch_display_name}", class: "inline", target: "blank") %>
+    </div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+  <div class="pledge-item half-width flexbox vertical stretch">
+    <div class="item-title">Twitch Badge</div>
+    <% if @pledge.twitch_id.blank? %>
+    <div class="item-text empty">Not Activated</div>
+    <% elsif @pledge.badge_revoked %>
+    <div class="item-text revoked">Revoked <%= l(@pledge.revoked_on, format: "%b. %-d, %Y") %></div>
+    <% else %>
+    <div class="item-text activated">Activated <%= l(@pledge.twitch_authed_on, format: "%b. %-d, %Y") %></div>
+    <% end %>
+  </div>
+  <div class="pledge-item half-width flexbox vertical stretch">
+    <div class="item-title">Referrer</div>
+    <% if @pledge.referrer.present? %>
+    <div class="item-text flexbox horizontal center"><%= image_tag("/images/anykey-cap.svg") %> <%= link_to(@pledge.referrer.email, pledge_path(@pledge.referrer, staff: "true"), class: "inline") %></div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+</div>

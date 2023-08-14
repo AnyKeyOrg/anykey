@@ -3,10 +3,26 @@
 /************************************/
 
 #backstage-container .pledge-item {
-  margin-top: 2em;
+  margin-top: 1.25em;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+#backstage-container .pledge-item.flush-top {
+  margin-top: 0em;
+}
+
+#backstage-container .pledge-item.half-width {
+  max-width: 20em;
 }
 
 #backstage-container .pledge-item .item-title {
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-bottom: 0.2em;
+}
+
+#backstage-container .pledge-item .item-title.large {
   font-weight: 600;
   font-size: 1.1em;
 }
@@ -19,28 +35,50 @@
 
 #backstage-container .pledge-item .item-text {
   font-size: 1em;
+}
+
+#backstage-container .pledge-item .item-text.empty,
+#backstage-container .pledge-item .item-text.activated,
+#backstage-container .pledge-item .item-text.revoked {
+  font-size: 0.8em;
+  font-weight: 700;
   margin-top: 0.3em;
 }
 
-#backstage-container .pledge-item .item-text .status {
-  font-weight: 500;
+#backstage-container .pledge-item .item-text.empty.large {
+  font-size: 0.9em;
 }
 
-#backstage-container .pledge-item .item-text .gray {
-  color: var(--gray-color);
+#backstage-container .pledge-item .item-text.empty {
+  color: var(--light-gray-color);
 }
 
-#backstage-container .pledge-item .item-text .red {
+#backstage-container .pledge-item .item-text.activated {
+  color: var(--bright-green-color);
+}
+
+#backstage-container .pledge-item .item-text.revoked {
   color: var(--alert-red-color);
 }
 
-#backstage-container .pledge-item .item-text .green {
-  color: var(--bright-green-color);
+#backstage-container .pledge-item .item-text img {
+  height: 1.2em;
+  margin-right: 0.3em;
+}
+
+#backstage-container .pledge-item .item-text .inline-icon {
+  font-family: var(--solid-icon-font), var(--icon-font);
+  margin-right: 0.4em;
 }
 
 #backstage-container .pledge-item .item-list {
   margin-top: 0.6em;
 }
+
+
+/************************************/
+/*     Backstage Pledge Buttons     */
+/************************************/
 
 #backstage-container .pledge-buttons {
   margin-top: 2em;
@@ -59,8 +97,16 @@
   margin-left: 2em;
 }
 
-#backstage-container .pledge-buttons .button.okay-button {
-  background-color: var(--bright-green-color);
+#backstage-container .pledge-buttons .button.mini {
+  border: 3px solid var(--light-black-color);
+  font-weight: 400;
+  font-size: 0.9em;
+  padding: 0.5em 0.75em 0.5em 0.75em;
+  min-width: none;
+}
+
+#backstage-container .pledge-buttons .button.back-button {
+  background-color: var(--light-black-color);
 }
 
 #backstage-container .pledge-buttons .button:hover {

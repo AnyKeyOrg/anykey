@@ -1,0 +1,11 @@
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="pledge-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center"><span class="icon">&#xf303;</span> Reports Filed <%= @pledge.reports_filed.present? ? "(#{@pledge.reports_filed.count})" : ''%></div>
+    <% if @pledge.reports_filed.present? %>
+    <div class="item-list"><%= render(partial: "reports/row", collection: @pledge.reports_filed, as: :report) %></div>
+    <% else %>
+    <div class="item-text large empty">No reports filed by this pledger.</div>
+    <% end %>
+  </div>
+</div>

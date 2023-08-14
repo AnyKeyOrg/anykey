@@ -1,7 +1,7 @@
 <hr class="spacer">
 <div class="flexbox horizontal end wrap-reverse justify-space-between">
-  <div class="pledge-item flexbox vertical stretch flex-1" style="margin-top: 0em;">
-    <div class="item-title flexbox horizontal center">
+  <div class="verification-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center">
       <span class="icon">&#xf002;</span> Related Requests <%= @related_requests.present? ? "(#{@related_requests.count})" : ''%>
     </div>
     <% if @related_requests.present? %>
@@ -9,8 +9,8 @@
       <%= render(partial: "verifications/row", collection: @related_requests, as: :verification) %>
     </div>
     <% else %>
-    <div class="item-text">
-      There are no related eligibility verification requests.
+    <div class="item-text large empty">
+      No related eligibility verification requests found.
     </div>
     <% end %>
   </div>

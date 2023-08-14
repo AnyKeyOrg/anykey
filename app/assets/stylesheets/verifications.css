@@ -205,6 +205,10 @@
   margin-top: 0.3em;
 }
 
+#backstage-container .verification-item .item-text.empty.large {
+  font-size: 0.9em;
+}
+
 #backstage-container .verification-item .item-text.empty {
   color: var(--light-gray-color);
 }
