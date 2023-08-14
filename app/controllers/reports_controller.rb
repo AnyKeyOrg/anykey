@@ -2,9 +2,11 @@ class ReportsController < ApplicationController
   
   layout "backstage",                       only: [ :index, :show ]
   
-  before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss ]
-  before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss ]
-  before_action :find_report,               only: [ :show, :dismiss, :undismiss ]
+  skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch ]
+  
+  before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
+  before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
+  before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :find_reported_twitch_user, only: [ :show ]
   around_action :display_timezone
   
@@ -89,6 +91,22 @@ class ReportsController < ApplicationController
       redirect_to report_path(@report)
     else    
       redirect_to reports_path
+    end
+  end
+  
+  def watch
+    respond_to do |format|
+      if @report.update(watched: true)
+        format.js
+      end
+    end
+  end
+
+  def unwatch
+    respond_to do |format|
+      if @report.update(watched: false)
+        format.js
+      end
     end
   end
 

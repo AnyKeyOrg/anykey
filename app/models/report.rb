@@ -5,6 +5,7 @@ class Report < ApplicationRecord
     dismissed:  "Dismissed",
     warned:     "Warned",
     revoked:    "Revoked",
+    watched:    "Watched",
     all:        "All"
   }.freeze
     
@@ -38,10 +39,11 @@ class Report < ApplicationRecord
                            
   image_accessor :image
   
-  scope :dismissed,    lambda { where("#{table_name}.dismissed IS TRUE") }
-  scope :warned,       lambda { where("#{table_name}.warned IS TRUE") }
-  scope :revoked,      lambda { where("#{table_name}.revoked IS TRUE") }
+  scope :dismissed,    lambda { where(dismissed: true) }
+  scope :warned,       lambda { where(warned: true) }
+  scope :revoked,      lambda { where(revoked: true) }
   scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
+  scope :watched,      lambda { where(watched: true) }
   
   # TODO: add Twitch IDs to search
   scope :search,       lambda { |search| where("lower(reported_twitch_name) LIKE :search OR

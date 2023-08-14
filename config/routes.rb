@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       member do
         post :dismiss
         post :undismiss
+        post :watch
+        post :unwatch
       end
       resources :warnings,     only: [ :new, :create ]
       resources :revocations,  only: [ :new, :create ]

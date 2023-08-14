@@ -1,7 +1,10 @@
 <div class="flexbox horizontal center wrap justify-space-between">
   <div class="panel-title">Report Review</div>
-  <div class="panel-descriptor">
-    Filed <%= l(@report.created_at, format: "%b. %-d, %Y · %-l:%M%P") %>
+  <div class="flexbox horizontal center">
+    <div class="panel-descriptor">
+      Filed <%= l(@report.created_at, format: "%b. %-d, %Y · %-l:%M%P") %>
+    </div>
+    <%= render(partial: "reports/watchable_toggle")%>
   </div>
 </div>
 <%= render(partial: "reports/identifiers") %>

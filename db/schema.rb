@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_10_031108) do
+ActiveRecord::Schema.define(version: 2023_08_14_113113) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2023_08_10_031108) do
     t.boolean "dismissed", default: false
     t.boolean "warned", default: false
     t.boolean "revoked", default: false
+    t.boolean "watched", default: false
     t.index ["reviewer_id"], name: "index_reports_on_reviewer_id"
   end
 

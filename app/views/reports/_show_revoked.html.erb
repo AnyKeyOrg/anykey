@@ -1,7 +1,10 @@
 <div class="flexbox horizontal center wrap justify-space-between">
   <div class="panel-title">Revoked Badge</div>
-  <div class="panel-descriptor">
-    Revoked <%= l(@report.revocation.created_at, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@report.reviewer.display_name, user_path(@report.reviewer)) %>]
+  <div class="flexbox horizontal center">
+    <div class="panel-descriptor">
+      Revoked <%= l(@report.revocation.created_at, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@report.reviewer.display_name, user_path(@report.reviewer)) %>]
+    </div>
+    <%= render(partial: "reports/watchable_toggle")%>
   </div>
 </div>
 <%= render(partial: "reports/identifiers") %>
