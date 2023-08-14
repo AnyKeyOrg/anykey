@@ -31,10 +31,10 @@ class VerificationsController < ApplicationController
       @filter_category = "pending"
     end
     
-    if params[:o].present? && params[:o] == "desc"
-      @ordering = "desc"
-    else
+    if params[:o].present? && params[:o] == "asc"
       @ordering = "asc"
+    else
+      @ordering = "desc"
     end
     
     if params[:q].present?
