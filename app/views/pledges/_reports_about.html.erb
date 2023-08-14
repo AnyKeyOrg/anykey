@@ -1,7 +1,7 @@
 <hr class="spacer">
 <div class="flexbox horizontal end wrap-reverse justify-space-between">
   <div class="pledge-item flush-top flexbox vertical stretch flex-1">
-    <div class="item-title large flexbox horizontal center"><span class="icon">&#xf071;</span> Reports About <%= @pledge.reports_about.present? ? "(#{@pledge.reports_about.count})" : ''%></div>
+    <div class="item-title large flexbox horizontal center"><span class="icon">&#xf071;</span> Reports About <%= @pledge.reports_about.present? ? "(#{@pledge.reports_about.size})" : ''%></div>
     <% if @pledge.reports_about.present? %>
     <div class="item-list"><%= render(partial: "reports/row", collection: @pledge.reports_about, as: :report) %></div>
     <% else %>

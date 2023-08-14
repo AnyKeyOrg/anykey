@@ -48,7 +48,7 @@
         <div class="inline-icon">
           &#xf071;
         </div>
-        &nbsp;<%= pledge.reports_about.count %>&nbsp;<%= pledge.reports_about.count == 1 ? "Report" : "Reports" %>
+        &nbsp;<%= pledge.reports_about.size %>&nbsp;<%= pledge.reports_about.size == 1 ? "Report" : "Reports" %>
       </div>
       <% end %>
       <% if pledge.reports_filed.present? %>
@@ -56,7 +56,7 @@
         <div class="inline-icon">
           &#xf303;
         </div>
-        &nbsp;<%= pledge.reports_filed.count %>&nbsp;<%= pledge.reports_filed.count == 1 ? "Filed" : "Filed" %>
+        &nbsp;<%= pledge.reports_filed.size %>&nbsp;<%= pledge.reports_filed.size == 1 ? "Filed" : "Filed" %>
       </div>
       <% end %>
       <% if pledge.referrals.present? %>
@@ -64,7 +64,7 @@
         <div class="inline-icon">
           &#xf4c4;
         </div>
-        &nbsp;<%= pledge.referrals.count %>&nbsp;<%= pledge.referrals.count == 1 ? "Referral" : "Referrals" %>
+        &nbsp;<%= pledge.referrals.size %>&nbsp;<%= pledge.referrals.size == 1 ? "Referral" : "Referrals" %>
       </div>
       <% end %>
     </div>

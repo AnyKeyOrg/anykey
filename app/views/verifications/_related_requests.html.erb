@@ -2,7 +2,7 @@
 <div class="flexbox horizontal end wrap-reverse justify-space-between">
   <div class="verification-item flush-top flexbox vertical stretch flex-1">
     <div class="item-title large flexbox horizontal center">
-      <span class="icon">&#xf002;</span> Related Requests <%= @related_requests.present? ? "(#{@related_requests.count})" : ''%>
+      <span class="icon">&#xf002;</span> Related Requests <%= @related_requests.present? ? "(#{@related_requests.size})" : ''%>
     </div>
     <% if @related_requests.present? %>
     <div class="item-list">

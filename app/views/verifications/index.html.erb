@@ -19,10 +19,10 @@
           <% Verification::SORT_FILTERS.each do |filter| %>
             <% if @filter_category.to_s == filter[0].to_s %>
               <% if params[:q].present? %>
-                <%= link_to("#{filter[1]} [#{@verifications.nil? ? '0' : @verifications.count}]", verifications_path(q: params[:q], f: filter[0]), class: "filter selected togglable") %>
+                <%= link_to("#{filter[1]} [#{@verifications.nil? ? '0' : @verifications.size}]", verifications_path(q: params[:q], f: filter[0]), class: "filter selected togglable") %>
                 <%= link_to(@ordering == "asc" ? "&#xf309;".html_safe : "&#xf30c;".html_safe, verifications_path(q: params[:q], f: filter[0], o: @ordering == "asc" ? "desc" : "asc"), class: "ordering") %>
               <% else %>
-                <%= link_to("#{filter[1]} [#{@verifications.nil? ? '0' : @verifications.count}]", verifications_path(f: filter[0]), class: "filter selected togglable") %>
+                <%= link_to("#{filter[1]} [#{@verifications.nil? ? '0' : @verifications.size}]", verifications_path(f: filter[0]), class: "filter selected togglable") %>
                 <%= link_to(@ordering == "asc" ? "&#xf309;".html_safe : "&#xf30c;".html_safe, verifications_path(f: filter[0], o: @ordering == "asc" ? "desc" : "asc"), class: "ordering") %>
               <% end %>
             <% else %>

@@ -2,7 +2,7 @@
 <div class="flexbox horizontal end wrap-reverse justify-space-between">
   <div class="concern-item flush-top flexbox vertical stretch flex-1">
     <div class="item-title large flexbox horizontal center">
-      <span class="icon">&#xf27a;</span> Comments <%= @concern.comments.present? ? "(#{@concern.comments.count})" : '' %>
+      <span class="icon">&#xf27a;</span> Comments <%= @concern.comments.present? ? "(#{@concern.comments.size})" : '' %>
     </div>
     <div class="comment-list">
       <%= render(partial: "comments/row", collection: @concern.comments, as: :comment) %>
