@@ -159,13 +159,22 @@
   background-color: var(--alert-red-color);
 }
 
-#backstage-container .report-buttons .button.resolved-button,
-#backstage-container .report-buttons .button.resolved-button:hover,
-#backstage-container .report-buttons .button.resolved-button:focus {
+#backstage-container .report-buttons .button.warned-button,
+#backstage-container .report-buttons .button.warned-button:hover,
+#backstage-container .report-buttons .button.warned-button:focus {
   cursor: default;
-  background-color: var(--light-gray-color);
-  border: 4px solid var(--dark-white-color);
-  color: var(--gray-color);
+  background-color: var(--light-orange-overlay);
+  border: 4px solid var(--bright-orange-color);
+  color: var(--bright-orange-color);
+}
+
+#backstage-container .report-buttons .button.revoked-button,
+#backstage-container .report-buttons .button.revoked-button:hover,
+#backstage-container .report-buttons .button.revoked-button:focus {
+  cursor: default;
+  background-color: var(--light-red-overlay);
+  border: 4px solid var(--alert-red-color);
+  color: var(--alert-red-color);
 }
 
 #backstage-container .report-buttons .button:hover {
