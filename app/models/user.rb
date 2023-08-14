@@ -11,7 +11,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :reviewed_reports, class_name: :Report, foreign_key: :reviewer_id
-  
+  has_many :reviewed_verifications, class_name: :Verification, foreign_key: :reviewer_id
+  has_many :reviewed_concerns, class_name: :Concern, foreign_key: :reviewer_id
+
   image_accessor :image
 
   def image_url(style = :thumb)
@@ -33,17 +35,17 @@ class User < ApplicationRecord
     elsif !self.friendo_name.blank?
       return self.friendo_name
     else
-      return self.email
+      return self.email.gsub(/\@.*/,"")
     end
   end
   
   def friendo_name
     if !self.first_name.blank? && !self.last_name.blank?
-      return self.first_name + ' ' + self.last_name.first + '.'
+      return self.first_name + ' ' + self.last_name
     elsif !self.first_name.blank?
       return self.first_name
     elsif !self.last_name.blank?
-      return 'Mx. ' + self.last_name.first + '.'
+      return 'Mx. ' + self.last_name
     else
       return nil
     end

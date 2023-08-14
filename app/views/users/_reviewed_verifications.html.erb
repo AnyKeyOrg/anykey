@@ -1,0 +1,11 @@
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="user-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center"><span class="icon">&#xf5bf;</span> Reviewed Verifications <%= @user.reviewed_verifications.present? ? "(#{@user.reviewed_verifications.size})" : ''%></div>
+    <% if @user.reviewed_verifications.present? %>
+    <div class="item-list"><%= render(partial: "verifications/row", collection: @user.reviewed_verifications.last(3), as: :verification) %></div>
+    <% else %>
+    <div class="item-text large empty">No eligibility verification requests reviewed.</div>
+    <% end %>
+  </div>
+</div>

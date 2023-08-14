@@ -1,39 +1,25 @@
 <div class="page-section flexbox vertical stretch">
   <div class="inner flexbox vertical center">
-    <div class="session-box flexbox vertical stretch">
-      <form class="flexbox vertical stretch">
-        <div class="flexbox horizontal center wrap justify-space-between">
-          <div class="title">
-            <%= @user.display_name %>
-          </div>
-          <div class="item flexbox vertical flex-0">
-            <div id="editable-avatar" class="flexbox horizontal center">
-              <%= image_tag(user_image_src(@user, :thumb), size: "120x120") %>
-            </div>
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox horizontal center wrap justify-space-between">
+        <div class="panel-title">
+          Staff Profile
+        </div>
+        <div class="flexbox horizontal center">
+          <div class="panel-descriptor">
+            Created <%= l(@user.created_at, format: "%b. %-d, %Y · %-l:%M%P") %>
           </div>
         </div>
-        <div class="item flexbox vertical stretch">
-          <input id="user_email" name="user[email]" class="text-field read-only" type="text" value="<%= @user.email %>" autocomplete="off" tabindex="-1" readonly="true">
-          <label for="user_email" class="text-field read-only">Email</label> 
+      </div>
+      <%= render(partial: "users/body") %>
+      <div class="user-buttons flexbox vertical end">
+        <div class="flexbox horizontal center">
+          <%= link_to('Back', params[:back].present? ? params[:back] : staff_index_path, class: "back-button mini button", tabindex: "1") %>
         </div>
-        <div class="item flexbox vertical stretch">
-          <input id="user_username" name="user[username]" class="text-field read-only" type="text" value="<%= @user.username %>" autocomplete="off" tabindex="-1" readonly="true">
-          <label for="user_username" class="text-field read-only">Username</label>
-        </div>
-        <div class="item flexbox vertical stretch">
-          <input id="user_first_name" name="user[first_name]" class="text-field read-only" type="text" value="<%= @user.first_name %>" autocomplete="off" tabindex="-1" readonly="true">
-          <label for="user_first_name" class="text-field read-only">First Name</label>
-        </div>
-        <div class="item flexbox vertical stretch">
-          <input id="user_last_name" name="user[last_name]" class="text-field read-only" type="text" value="<%= @user.last_name %>" autocomplete="off" tabindex="-1" readonly="true">
-          <label for="user_last_name" class="text-field read-only">Last Name</label>
-        </div>
-        <div class="buttons flexbox vertical end">
-          <div class="flexbox horizontal center">
-            <%= link_to('Okay', params[:back].present? ? params[:back] : staff_index_path, class: "button", tabindex: "1") %>
-          </div>
-        </div>
-      </form>
+      </div>
+      <%= render(partial: "users/reviewed_reports") %>
+      <%= render(partial: "users/reviewed_verifications") %>
+      <%= render(partial: "users/reviewed_concerns") %>
     </div>
   </div>
 </div>

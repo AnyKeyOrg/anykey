@@ -1,0 +1,11 @@
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="user-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center"><span class="icon">&#xf06a;</span> Reviewed Concerns <%= @user.reviewed_concerns.present? ? "(#{@user.reviewed_concerns.size})" : ''%></div>
+    <% if @user.reviewed_concerns.present? %>
+    <div class="item-list"><%= render(partial: "concerns/row", collection: @user.reviewed_concerns.last(3), as: :concern) %></div>
+    <% else %>
+    <div class="item-text large empty">No concerns reviewed.</div>
+    <% end %>
+  </div>
+</div>

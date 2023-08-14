@@ -1,0 +1,21 @@
+<div class="flexbox horizontal center wrap justify-space-between">
+  <div class="user-item flexbox vertical start flex-0">
+    <%= image_tag(user_image_src(@user, :thumb), size: "120x120", class: "user-avatar") %>
+  </div>
+  <div class="user-item third-width flexbox vertical stretch">
+    <div class="item-title">AnyKey Username</div>
+    <div class="item-text flexbox horizontal center"><%= image_tag("/images/anykey-cap.svg") %> <%= @user.display_name %></div>
+  </div>
+  <div class="user-item third-width flexbox vertical stretch">
+    <div class="item-title">Name</div>
+    <% if @user.friendo_name.present? %>
+    <div class="item-text"><%= @user.friendo_name %></div>
+    <% else %>
+    <div class="item-text empty">Not Set</div>
+    <% end %>
+  </div>
+  <div class="user-item third-width flexbox vertical stretch">
+    <div class="item-title">Email</div>
+    <div class="item-text"><%= @user.email %></div>
+  </div>
+</div>
