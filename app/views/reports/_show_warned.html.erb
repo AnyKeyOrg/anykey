@@ -6,6 +6,12 @@
 </div>
 <%= render(partial: "reports/identifiers") %>
 <%= render(partial: "reports/materials") %>
+<div class="flexbox horizontal start wrap justify-space-between">
+  <div class="report-item flexbox vertical stretch">
+    <div class="item-title">Reason for Warning</div>
+    <div class="item-text small"><%= @report.conduct_warning.reason%></div>
+  </div>
+</div>
 <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
   <div class="resolved-button button">Warned</div>
   <%= link_to('Back', params[:back].present? ? params[:back] : reports_path, class: "back-button mini button") %>
