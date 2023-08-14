@@ -1,6 +1,65 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" data-url="<%= pledge_path(pledge, back: request.fullpath, staff: true) %>">
   <div class="flexbox horizontal center wrap justify-space-between">
-    <div class="row-title"><%= pledge.email %><%= pledge.twitch_display_name ? ' ('+pledge.twitch_display_name+')' : '' %></div>
-    <div class="row-detail"><%= l(pledge.signed_on, format: "%b. %-d, %Y · %-l:%M%P ") %></div>
+    <div class="row-title">
+      <%= pledge.full_name %>
+    </div>
+    <div class="flexbox horizontal center">
+      <% if pledge.badge_revoked %>
+      <div class="row-detail">
+      <%= l(pledge.revoked_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
+      </div>
+      <div class="row-detail revoked">
+        REVOKED
+      </div>
+      <% else %>
+      <div class="row-detail">
+        <%= l(pledge.signed_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="flexbox horizontal center wrap justify-space-between">
+    <div class="flexbox horizontal center wrap">
+      <% unless pledge.twitch_display_name.blank? %>
+      <div class="row-subtitle flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf1e8;
+        </div>
+        <%= pledge.twitch_display_name %>
+      </div>
+      <% end %>
+      <div class="row-subtitle flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf0e0;
+        </div>
+        <%= pledge.email %>
+      </div>
+    </div>
+    <div class="flexbox horizontal center wrap">
+      <% if pledge.reports_about.present? %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf071;
+        </div>
+        &nbsp;<%= pledge.reports_about.count %>&nbsp;<%= pledge.reports_about.count == 1 ? "Report" : "Reports" %>
+      </div>
+      <% end %>
+      <% if pledge.reports_filed.present? %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf303;
+        </div>
+        &nbsp;<%= pledge.reports_filed.count %>&nbsp;<%= pledge.reports_filed.count == 1 ? "Filed" : "Filed" %>
+      </div>
+      <% end %>
+      <% if pledge.referrals.present? %>
+      <div class="row-subdetail flexbox horizontal center">
+        <div class="inline-icon">
+          &#xf4c4;
+        </div>
+        &nbsp;<%= pledge.referrals.count %>&nbsp;<%= pledge.referrals.count == 1 ? "Referral" : "Referrals" %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

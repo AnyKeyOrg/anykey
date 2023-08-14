@@ -22,12 +22,26 @@ class Pledge < ApplicationRecord
     identifier
   end
   
+  def full_name
+    self.first_name + ' ' + self.last_name
+  end
+  
   def display_name
     if !self.twitch_display_name.blank?
       return self.twitch_display_name
     else
       return self.first_name + ' ' + self.last_name.first + '.'
     end
+  end
+  
+  # TODO: Key on Twitch ID after those are automatically collected in report process
+  def reports_about
+    Report.where(reported_twitch_name: self.twitch_display_name)
+  end
+  
+  # TODO: Key on Twitch ID after those are automatically collected in report process
+  def reports_filed
+    Report.where("reporter_email= ? OR reporter_twitch_name = ?", self.email, self.twitch_display_name)
   end
   
   private

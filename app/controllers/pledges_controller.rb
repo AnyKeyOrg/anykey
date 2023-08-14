@@ -68,14 +68,7 @@ class PledgesController < ApplicationController
     if staff_view?
       authenticate_user!
       ensure_staff
-      
-      @referrer = @pledge.referrer
-      if @pledge.referrals.present?
-        @referrals = @pledge.referrals.order(signed_on: :asc)
-      end      
-      @reports_about = Report.where(reported_twitch_name: @pledge.twitch_display_name)
-      @reports_filed = Report.where("reporter_email= ? OR reporter_twitch_name = ?", @pledge.email, @pledge.twitch_display_name)
-      
+
       render action: "staff_show", layout: "backstage"    
     
     # Otherwise, check for cookie to ensure user visit is valid
