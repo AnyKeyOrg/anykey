@@ -41,18 +41,13 @@ class ReportsController < ApplicationController
   end
   
   def show
-    # Create keybot advice message
-    if @reported_twitch_user == nil
-      @message = "The reported Twitch user does not exist."
-    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
-      @message = "The reported Twitch user signed the pledge as " + @pledge.twitch_display_name + " on " + @pledge.signed_on.strftime('%b. %-d, %Y.')
-    else
-      @message = "The reported Twitch user did not sign the pledge."
+    # Set Up Keybot Clues until we TODO: something better
+    unless @reported_twitch_user == nil
+      @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
     end
     
     # TODO: check if reporter has pledged (lookup email/Twitch name) and add info to keybot message
     # TODO: check if incident stream owner has pledged (Twitch name) and add info to keybot message
-
   end
   
   def new

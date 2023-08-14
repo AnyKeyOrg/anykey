@@ -31,8 +31,22 @@
   margin-bottom: 0.2em;
 }
 
+#backstage-container .report-item .item-title.large {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+#backstage-container .report-item .item-title img {
+  height: 1.4em;
+  margin-right: 0.2em;
+}
+
 #backstage-container .report-item .item-text {
   font-size: 1em;
+}
+
+#backstage-container .report-item .item-text.empty.large {
+  font-size: 0.9em;
 }
 
 #backstage-container .report-item .item-text.empty {
@@ -60,6 +74,10 @@
   background: var(--twitch-purple-color);
 }
 
+
+#backstage-container .report-item .item-list {
+  margin-top: 0.6em;
+}
 
 /************************************/
 /*    Report Screenshot Overlay     */

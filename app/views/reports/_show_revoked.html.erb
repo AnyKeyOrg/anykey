@@ -5,11 +5,8 @@
   </div>
 </div>
 <%= render(partial: "reports/body") %>
-<div class="report-facts flexbox vertical stretch">
-  <hr class="spacer">
-  Keybot says: <%= @message %>
-</div>
 <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
   <div class="resolved-button button">Revoked</div>
   <%= link_to('Back', params[:back].present? ? params[:back] : reports_path, class: "back-button mini button") %>
 </div>
+<%= render(partial: "reports/associated_pledge") %>

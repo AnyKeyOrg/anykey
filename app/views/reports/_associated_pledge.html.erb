@@ -1,0 +1,11 @@
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="report-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center"><%= image_tag("/images/anykey-cap.svg") %> Associated Pledge</div>
+    <% if @pledge.present? %>
+    <div class="item-list"><%= render(partial: "pledges/row", locals: { pledge: @pledge } ) %></div>
+    <% else %>
+    <div class="item-text large empty">No associated pledge found.</div>
+    <% end %>
+  </div>
+</div>
