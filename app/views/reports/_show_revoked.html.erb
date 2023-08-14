@@ -4,7 +4,8 @@
     Revoked <%= l(@report.revocation.created_at, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@report.reviewer.display_name, user_path(@report.reviewer)) %>]
   </div>
 </div>
-<%= render(partial: "reports/body") %>
+<%= render(partial: "reports/identifiers") %>
+<%= render(partial: "reports/materials") %>
 <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
   <div class="resolved-button button">Revoked</div>
   <%= link_to('Back', params[:back].present? ? params[:back] : reports_path, class: "back-button mini button") %>

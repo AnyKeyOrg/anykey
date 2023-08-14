@@ -7,6 +7,8 @@
           Will be sent to <%= @pledge.email %> (<%= @report.reported_twitch_name %>)
         </div>
       </div>
+      <%= render(partial: "reports/identifiers") %>
+      <hr class="spacer">
       <div class="panel-text">
         Describe to the pledge-taker why they are being warned. The reason you provide will be included in the warning email, so be clear and considerate! 
       </div>
@@ -26,14 +28,6 @@
           </div>
         </div>
       </form>
-      <hr class="spacer">
-      <div class="flexbox horizontal center wrap justify-space-between">
-        <div class="panel-title">Original Report</div>
-        <div class="panel-descriptor">
-          Filed <%= l(@report.created_at, format: "%b. %-d, %Y · %-l:%M%P") %>
-        </div>
-      </div>
-      <%= render(partial: "reports/body") %>
     </div>
   </div>
 </div>

@@ -4,7 +4,8 @@
     Dismissed <%= l(@report.updated_at, format: "%b. %-d, %Y · %-l:%M%P") %> [<%= link_to(@report.reviewer.display_name, user_path(@report.reviewer)) %>]
   </div>
 </div>
-<%= render(partial: "reports/body") %>
+<%= render(partial: "reports/identifiers") %>
+<%= render(partial: "reports/materials") %>
 <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
   <%= link_to("Undismiss", undismiss_report_path(@report), method: :post, class: 'undismiss-button button') %>
   <%= link_to('Back', params[:back].present? ? params[:back] : reports_path, class: "back-button mini button") %>

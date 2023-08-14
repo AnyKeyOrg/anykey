@@ -1,0 +1,30 @@
+<div class="flexbox horizontal end wrap justify-space-between">
+  <div class="report-item flexbox vertical start">
+    <div class="item-title">Screenshot</div>
+    <% if @report.image.present? %>
+    <div id="report-screenshot" class="flexbox horizontal center" data-url="<%= report_image_src(@report, :original) %>">
+      <%= image_tag(report_image_src(@report, :preview)) %>
+      <div id="screenshot-overlay" style="display:none">
+        <div class="action">
+          Show Original
+        </div>
+      </div>
+    </div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+  <div class="report-item flexbox vertical stretch">
+    <div class="item-title">Incident Description</div>
+    <div class="item-text small"><%= @report.incident_description %></div>
+  </div>
+  <div class="report-item flexbox vertical stretch">
+    <div class="item-title">Reporter's Recommended Response</div>
+    <% if !@report.recommended_response.blank? %>
+    <div class="item-text small"><%= @report.recommended_response %></div>
+    <% else %>
+    <div class="item-text empty">None</div>
+    <% end %>
+  </div>
+</div>
+

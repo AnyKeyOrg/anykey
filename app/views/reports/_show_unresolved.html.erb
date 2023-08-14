@@ -4,7 +4,8 @@
     Filed <%= l(@report.created_at, format: "%b. %-d, %Y · %-l:%M%P") %>
   </div>
 </div>
-<%= render(partial: "reports/body") %>
+<%= render(partial: "reports/identifiers") %>
+<%= render(partial: "reports/materials") %>
 <div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
   <% if @pledge %>
   <%= link_to("Revoke", new_report_revocation_path(@report, back: request.fullpath), class: 'revoke-button button') %>
