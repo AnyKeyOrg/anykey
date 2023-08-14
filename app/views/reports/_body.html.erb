@@ -2,7 +2,13 @@
   <div class="report-item half-width flexbox vertical stretch">
     <div class="item-title">Reported Twitch Username</div>
     <div class="item-text flexbox horizontal center">
-      <div class="inline-icon">&#xf1e8;</div><%= link_to(@report.reported_twitch_name, "https://twitch.tv/#{@report.reported_twitch_name}", class: "inline", target: "blank") %>
+      <div class="inline-icon">
+        &#xf1e8;
+      </div>
+      <%= link_to(@report.reported_twitch_name, "https://twitch.tv/#{@report.reported_twitch_name}", class: "inline", target: "blank") %>
+      <% if @reported_twitch_user.present? %>
+      <div class="twitch_id"><%= @reported_twitch_user %></div>
+      <% end %>
     </div>
   </div>
   <div class="report-item half-width flexbox vertical stretch">
