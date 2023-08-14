@@ -11,6 +11,13 @@
       <div class="row-detail revoked">
         REVOKED
       </div>
+      <% elsif pledge.twitch_id.present? %>
+      <div class="row-detail">
+      <%= l(pledge.twitch_authed_on, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;
+      </div>
+      <div class="row-detail activated">
+        ACTIVATED
+      </div>
       <% else %>
       <div class="row-detail">
         <%= l(pledge.signed_on, format: "%b. %-d, %Y · %-l:%M%P ") %>
