@@ -36,6 +36,12 @@
   font-size: 1.1em;
 }
 
+#backstage-container .report-item .item-title .icon {
+  position: relative;
+  font-family: var(--solid-icon-font);
+  margin-right: 0.3em;
+}
+
 #backstage-container .report-item .item-title img {
   height: 1.4em;
   margin-right: 0.2em;

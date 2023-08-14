@@ -36,6 +36,8 @@ class Report < ApplicationRecord
   has_one :conduct_warning
 
   has_one :revocation
+  
+  has_many :comments, as: :commentable
                            
   image_accessor :image
   
