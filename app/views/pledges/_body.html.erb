@@ -15,6 +15,7 @@
         &#xf1e8;
       </div>
       <%= link_to(@pledge.twitch_display_name, "https://twitch.tv/#{@pledge.twitch_display_name}", class: "inline", target: "blank") %>
+      <div class="twitch_id"><%= @pledge.twitch_id %></div>
     </div>
     <% else %>
     <div class="item-text empty">None</div>

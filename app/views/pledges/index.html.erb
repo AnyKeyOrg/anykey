@@ -3,7 +3,37 @@
     <div class="control-panel flexbox vertical stretch">
       <div class="flexbox horizontal center wrap justify-space-between">
         <div class="panel-title">Pledges</div>
-        <%= link_to("Public Page", new_pledge_path, class: "stealth") %>
+        <form action="<%= pledges_path %>" id="search" method="GET" class="flexbox vertical end">
+          <input type="submit" id="search-hidden" style="display: none;">
+          <input class="search-box" type="text" id="search-query" placeholder="search" name="q" autocomplete="off" value="<%=params[:q]%>">
+          <input type="submit" id="search-clear" value="X" onclick="q.value = '';">
+          <% if params[:f].present? %>
+          <div style="hidden">
+            <input type="hidden" id="filter" name="f" value="<%= params[:f] %>">
+          </div>
+          <% end %>
+        </form>
+      </div>
+      <div class="flexbox vertical end">
+        <div class="panel-filters flexbox horizontal center wrap">
+          <% Pledge::SORT_FILTERS.each do |filter| %>
+            <% if @filter_category.to_s == filter[0].to_s %>
+              <% if params[:q].present? %>
+                <%= link_to("#{filter[1]} [#{@pledges.nil? ? '0' : @pledges.count}]", pledges_path(q: params[:q], f: filter[0]), class: "filter selected togglable") %>
+                <%= link_to(@ordering == "asc" ? "&#xf309;".html_safe : "&#xf30c;".html_safe, pledges_path(q: params[:q], f: filter[0], o: @ordering == "asc" ? "desc" : "asc"), class: "ordering") %>
+              <% else %>
+                <%= link_to("#{filter[1]} [#{@pledges.nil? ? '0' : @pledges.count}]", pledges_path(f: filter[0]), class: "filter selected togglable") %>
+                <%= link_to(@ordering == "asc" ? "&#xf309;".html_safe : "&#xf30c;".html_safe, pledges_path(f: filter[0], o: @ordering == "asc" ? "desc" : "asc"), class: "ordering") %>
+              <% end %>
+            <% else %>
+              <% if params[:q].present? %>
+                 <%= link_to(filter[1], pledges_path(q: params[:q], f: filter[0]), class: "filter") %>
+               <% else %>
+                 <%= link_to(filter[1], pledges_path(f: filter[0]), class: "filter") %>
+               <% end %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
       <div class="records-list flexbox vertical stretch">
         <% if @pledges.present? %>

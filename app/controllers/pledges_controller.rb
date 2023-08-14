@@ -8,7 +8,33 @@ class PledgesController < ApplicationController
   before_action :handle_twitch_auth, only: [ :new ]
   
   def index
-    @pledges = Pledge.all.order(signed_on: :desc).paginate(page: params[:page], per_page: 30)
+    # per_page is a silent param to show more records per page
+    if params[:per_page].present?
+      per_page = params[:per_page]
+    else
+      per_page = 30
+    end
+
+    # f is used to filter reports by scope
+    # q is used to search for keywords
+    # o is used to toggle ordering
+    if params[:f].present? && Pledge::SORT_FILTERS.key?(params[:f].to_sym)
+      @filter_category = params[:f]
+    else
+      @filter_category = "all"
+    end
+    
+    if params[:o].present? && params[:o] == "asc"
+      @ordering = "asc"
+    else
+      @ordering = "desc"
+    end
+    
+    if params[:q].present?
+      @pledges = eval("Pledge.#{@filter_category}.search('#{params[:q]}').order(signed_on: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+    else
+      @pledges = eval("Pledge.#{@filter_category}.order(signed_on: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+    end
   end
   
   def new

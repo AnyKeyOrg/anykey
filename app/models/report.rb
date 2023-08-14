@@ -42,6 +42,8 @@ class Report < ApplicationRecord
   scope :warned,       lambda { where("#{table_name}.warned IS TRUE") }
   scope :revoked,      lambda { where("#{table_name}.revoked IS TRUE") }
   scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
+  
+  # TODO: add Twitch IDs to search
   scope :search,       lambda { |search| where("lower(reported_twitch_name) LIKE :search OR
                                                 lower(reporter_email) LIKE :search OR
                                                 lower(incident_description) LIKE :search OR

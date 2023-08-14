@@ -1,5 +1,12 @@
 class Pledge < ApplicationRecord
   
+  SORT_FILTERS = {
+    unactivated: "Unactivated",
+    activated:   "Activated",
+    revoked:     "Revoked",
+    all:         "All"
+  }.freeze
+  
   before_create :ensure_signed_on_set
     
   validates_presence_of    :first_name,
@@ -17,6 +24,18 @@ class Pledge < ApplicationRecord
 
   # Non-sequential identifier scheme   
   uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
+
+
+  scope :unactivated,  lambda { where(twitch_id: nil) }
+  scope :activated,    lambda { where.not(twitch_id: nil).where(badge_revoked: false) }
+  scope :revoked,      lambda { where(badge_revoked: true) }
+  scope :search,       lambda { |search| where("lower(first_name) LIKE :search OR
+                                                lower(last_name) LIKE :search OR
+                                                lower(email) LIKE :search OR
+                                                lower(twitch_display_name) LIKE :search OR
+                                                lower(twitch_id) LIKE :search OR
+                                                lower(twitch_email) LIKE :search",
+                                                search: "%#{search.downcase}%") }
 
   def to_param
     identifier

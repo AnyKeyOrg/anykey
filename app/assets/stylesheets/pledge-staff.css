@@ -71,6 +71,15 @@
   margin-right: 0.4em;
 }
 
+#backstage-container .pledge-item .item-text .twitch_id {
+  font-size: 0.7em;
+  font-weight: 500;
+  margin-left: 0.7em;
+  padding: 3px 3px 2px 3px;
+  color: var(--white-color);
+  background: var(--twitch-purple-color);
+}
+
 #backstage-container .pledge-item .item-list {
   margin-top: 0.6em;
 }
