@@ -39,6 +39,12 @@ class Pledge < ApplicationRecord
      end
   end
   
+  def self.cached_leaders
+    Rails.cache.fetch(:pledge_leaders, expires_in: 6.hours) do
+      Pledge.order(referrals_count: :desc).where(badge_revoked: false).limit(10)
+     end
+  end
+  
   private
     def ensure_signed_on_set
       if !self.signed_on.present?

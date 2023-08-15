@@ -14,7 +14,7 @@ class PledgesController < ApplicationController
   def new
     @pledge = Pledge.new
     @pledges_count = Pledge.cached_count
-    @leaders = Pledge.order(referrals_count: :desc).where(badge_revoked: false).limit(10)
+    @leaders = Pledge.cached_leaders
   end
   
   def create
@@ -57,7 +57,7 @@ class PledgesController < ApplicationController
           flash.now[:alert] << message + ". "
         end
         @pledges_count = Pledge.cached_count
-        @leaders = Pledge.order(referrals_count: :desc).limit(10)
+        @leaders = Pledge.cached_leaders
         render(action: :new)
       end
     end
