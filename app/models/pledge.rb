@@ -41,8 +41,8 @@ class Pledge < ApplicationRecord
   
   def self.cached_leaders
     Rails.cache.fetch(:pledge_leaders, expires_in: 6.hours) do
-      Pledge.order(referrals_count: :desc).where(badge_revoked: false).limit(10)
-     end
+      Pledge.order(referrals_count: :desc).where(badge_revoked: false).limit(10).to_a
+    end
   end
   
   private
