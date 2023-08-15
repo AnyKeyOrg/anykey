@@ -19,7 +19,7 @@
         <%= Concern::STATUSES[concern.status.to_sym].upcase %>
       </div>
       <% end %>
-      <% if concern.comments.present? %>
+      <% if concern.comments.size > 0 %>
       <div class="commented">
         &#xf27a;
       </div>

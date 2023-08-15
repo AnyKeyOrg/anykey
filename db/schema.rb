@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_15_032108) do
+ActiveRecord::Schema.define(version: 2023_08_15_111452) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2023_08_15_032108) do
     t.datetime "shared_on"
     t.datetime "reviewed_on"
     t.integer "reviewer_id"
+    t.integer "comments_count"
   end
 
   create_table "conduct_warnings", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
@@ -131,6 +132,7 @@ ActiveRecord::Schema.define(version: 2023_08_15_032108) do
     t.boolean "warned", default: false
     t.boolean "revoked", default: false
     t.boolean "watched", default: false
+    t.integer "comments_count"
     t.index ["reviewer_id"], name: "index_reports_on_reviewer_id"
   end
 
@@ -222,6 +224,7 @@ ActiveRecord::Schema.define(version: 2023_08_15_032108) do
     t.datetime "withdrawn_on"
     t.integer "withdrawer_id"
     t.boolean "watched", default: false
+    t.integer "comments_count"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

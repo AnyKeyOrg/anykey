@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
   
   validates_presence_of :body
   
-  belongs_to :commentable, polymorphic: true
+  belongs_to :commentable, polymorphic: true, counter_cache: true
   belongs_to :commenter, class_name: :User, foreign_key: :commenter_id
   
   # Finds and renders links in text using regex

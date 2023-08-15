@@ -16,7 +16,7 @@
         <%= Verification::STATUSES[verification.status.to_sym].upcase %>
       </div>
       <% end %>
-      <% if verification.comments.present? %>
+      <% if verification.comments.size > 0 %>
       <div class="commented">
         &#xf27a;
       </div>
