@@ -1,8 +1,8 @@
 <hr class="spacer">
 <div class="flexbox horizontal end wrap-reverse justify-space-between">
   <div class="pledge-item flush-top flexbox vertical stretch flex-1">
-    <div class="item-title large flexbox horizontal center"><span class="icon">&#xf4c4;</span> Referrals <%= @pledge.referrals.present? ? "(#{@pledge.referrals.size})" : ''%></div>
-    <% if @pledge.referrals.present? %>
+    <div class="item-title large flexbox horizontal center"><span class="icon">&#xf4c4;</span> Referrals <%= @pledge.referrals_count > 0 ? "(#{@pledge.referrals_count})" : ''%></div>
+    <% if @pledge.referrals_count > 0 %>
     <div class="item-list"><%= render(partial: "pledges/row", collection: @pledge.referrals, as: :pledge) %></div>
     <% else %>
     <div class="item-text large empty">No referrals from this pledger.</div>

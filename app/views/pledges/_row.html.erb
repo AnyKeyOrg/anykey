@@ -43,7 +43,7 @@
       </div>
     </div>
     <div class="flexbox horizontal center wrap">
-      <% if pledge.reports_about.present? %>
+      <% if pledge.reports_about.size > 0 %>
       <div class="row-subdetail flexbox horizontal center">
         <div class="inline-icon">
           &#xf071;
@@ -51,7 +51,7 @@
         &nbsp;<%= pledge.reports_about.size %>&nbsp;<%= pledge.reports_about.size == 1 ? "Report" : "Reports" %>
       </div>
       <% end %>
-      <% if pledge.reports_filed.present? %>
+      <% if pledge.reports_filed.size > 0 %>
       <div class="row-subdetail flexbox horizontal center">
         <div class="inline-icon">
           &#xf303;
@@ -59,12 +59,12 @@
         &nbsp;<%= pledge.reports_filed.size %>&nbsp;<%= pledge.reports_filed.size == 1 ? "Filed" : "Filed" %>
       </div>
       <% end %>
-      <% if pledge.referrals.present? %>
+      <% if pledge.referrals_count > 0 %>
       <div class="row-subdetail flexbox horizontal center">
         <div class="inline-icon">
           &#xf4c4;
         </div>
-        &nbsp;<%= pledge.referrals.size %>&nbsp;<%= pledge.referrals.size == 1 ? "Referral" : "Referrals" %>
+        &nbsp;<%= pledge.referrals_count %>&nbsp;<%= pledge.referrals_count == 1 ? "Referral" : "Referrals" %>
       </div>
       <% end %>
     </div>
