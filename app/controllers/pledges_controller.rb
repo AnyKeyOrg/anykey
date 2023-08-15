@@ -39,8 +39,8 @@ class PledgesController < ApplicationController
   
   def new
     @pledge = Pledge.new
-    @pledges_count = Pledge.count
-    @leaders = Pledge.order(referrals_count: :desc).where(badge_revoked: false).limit(10)
+    @pledges_count = Pledge.cached_count
+    @leaders = Pledge.cached_leaders
   end
   
   def create
@@ -82,8 +82,8 @@ class PledgesController < ApplicationController
         @pledge.errors.full_messages.each do |message|
           flash.now[:alert] << message + ". "
         end
-        @pledges_count = Pledge.count
-        @leaders = Pledge.order(referrals_count: :desc).limit(10)
+        @pledges_count = Pledge.cached_count
+        @leaders = Pledge.cached_leaders
         render(action: :new)
       end
     end
@@ -102,7 +102,7 @@ class PledgesController < ApplicationController
       redirect_to root_url
     
     else
-      @pledges_count = Pledge.count
+      @pledges_count = Pledge.cached_count
       cookies.delete(:pledge_redirect)
     end
   end

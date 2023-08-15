@@ -8,7 +8,11 @@ class Pledge < ApplicationRecord
   }.freeze
   
   before_create :ensure_signed_on_set
-    
+  
+  after_create :increment_counter
+  
+  after_destroy :decrement_counter
+  
   validates_presence_of    :first_name,
                            :last_name,
                            :email
@@ -16,16 +20,14 @@ class Pledge < ApplicationRecord
                            case_sensitive: false
   validates_format_of      :email,
                            with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,
-                           if: lambda { |x| x.email.present? } 
-                             
+                           if: lambda { |x| x.email.present? }
   
   belongs_to :referrer, class_name: :Pledge, foreign_key: :referrer_id, optional: true
   has_many :referrals, class_name: :Pledge, foreign_key: :referrer_id
-
+  
   # Non-sequential identifier scheme   
   uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
-
-
+  
   scope :unactivated,  lambda { where(twitch_id: nil) }
   scope :activated,    lambda { where.not(twitch_id: nil).where(badge_revoked: false) }
   scope :revoked,      lambda { where(badge_revoked: true) }
@@ -36,7 +38,7 @@ class Pledge < ApplicationRecord
                                                 lower(twitch_id) LIKE :search OR
                                                 lower(twitch_email) LIKE :search",
                                                 search: "%#{search.downcase}%") }
-
+  
   def to_param
     identifier
   end
@@ -62,6 +64,18 @@ class Pledge < ApplicationRecord
   def reports_filed
     Report.where("reporter_email= ? OR reporter_twitch_name = ?", self.email, self.twitch_display_name)
   end
+
+  def self.cached_count
+    Rails.cache.fetch(:pledge_count, expires_in: 1.day) do
+      Pledge.count
+     end
+  end
+  
+  def self.cached_leaders
+    Rails.cache.fetch(:pledge_leaders, expires_in: 6.hours) do
+      Pledge.order(referrals_count: :desc).where(badge_revoked: false).limit(10).to_a
+    end
+  end
   
   private
     def ensure_signed_on_set
@@ -69,5 +83,13 @@ class Pledge < ApplicationRecord
         self.signed_on = Time.now
       end
     end
-      
+    
+    def increment_counter
+      Rails.cache.increment('pledge_count')
+    end
+    
+    def decrement_counter
+      Rails.cache.decrement('pledge_count')
+    end
+    
 end
