@@ -74,7 +74,7 @@
 
 # Countless extra: Paginate without any count, saving one query per rendering
 # See https://ddnexus.github.io/pagy/docs/extras/countless
-# require 'pagy/extras/countless'
+  require 'pagy/extras/countless'
 # Pagy::DEFAULT[:countless_minimal] = false   # default (eager loading)
 
 # Elasticsearch Rails extra: Paginate `ElasticsearchRails::Results` objects

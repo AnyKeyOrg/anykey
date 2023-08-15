@@ -24,9 +24,9 @@ class PledgesController < ApplicationController
     end
     
     if params[:q].present?
-      @pagy, @pledges = eval("pagy(Pledge.#{@filter_category}.search('#{params[:q]}').order(signed_on: :#{@ordering}))")
+      @pagy, @pledges = eval("pagy_countless(Pledge.#{@filter_category}.search('#{params[:q]}').order(signed_on: :#{@ordering}))")
     else
-      @pagy, @pledges = eval("pagy(Pledge.#{@filter_category}.order(signed_on: :#{@ordering}))")
+      @pagy, @pledges = eval("pagy_countless(Pledge.#{@filter_category}.order(signed_on: :#{@ordering}))")
     end
   end
   
