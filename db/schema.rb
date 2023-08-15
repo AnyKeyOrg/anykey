@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_15_111452) do
+ActiveRecord::Schema.define(version: 2023_08_15_115036) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2023_08_15_111452) do
     t.datetime "reviewed_on"
     t.integer "reviewer_id"
     t.integer "comments_count"
+    t.integer "screenshots_submitted_count"
   end
 
   create_table "conduct_warnings", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|

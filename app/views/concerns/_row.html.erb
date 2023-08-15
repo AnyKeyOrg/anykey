@@ -38,12 +38,12 @@
       </div>
     </div>
     <div class="flexbox horizontal center wrap">
-      <% if concern.screenshots.attached? %>
+      <% if concern.screenshots_submitted_count > 0 %>
       <div class="row-subdetail flexbox horizontal center">
         <div class="inline-icon">
           &#xf030;
         </div>
-         &nbsp;<%= concern.screenshots.size %>&nbsp;<%= concern.screenshots.size == 1 ? "Screenshot" : "Screenshots" %>
+         &nbsp;<%= concern.screenshots_submitted_count %>&nbsp;<%= concern.screenshots_submitted_count == 1 ? "Screenshot" : "Screenshots" %>
       </div>
       <% end %>
       <div class="row-subdetail flexbox horizontal center">

@@ -27,6 +27,7 @@ class Concern < ApplicationRecord
   
   before_create :ensure_shared_on_set
   before_create :ensure_status_set
+  before_create :count_screenshots_submitted
     
   validates_presence_of :concerning_player_id,
                         :concerning_player_id_type,
@@ -103,6 +104,15 @@ class Concern < ApplicationRecord
     def ensure_status_set
       if !self.status.present?
         self.status = :open
+      end
+    end
+    
+    # Store count of attachments submitted as concern is created
+    def count_screenshots_submitted
+      if self.screenshots.attached?
+        self.screenshots_submitted_count = self.screenshots.size
+      else
+        self.screenshots_submitted_count = 0
       end
     end
 end
