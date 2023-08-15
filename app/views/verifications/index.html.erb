@@ -39,8 +39,7 @@
         <% if @verifications.present? %>
         <%= render(partial: "verifications/row", collection: @verifications, as: :verification) %>
         <div class="flexbox vertical center">
-          <%= will_paginate @verifications, class: "pagination full flexbox horizontal", previous_label: "« PREV", next_label: "NEXT »", inner_window: 3, outer_window: 0  %>
-          <%= will_paginate @verifications, class: "pagination mini flexbox horizontal justify-space-between", previous_label: "« PREV", next_label: "NEXT »", page_links: false  %>
+          <%== pagy_nav @pagy %>
         </div>
         <% else %>
         <div class="empty">

@@ -8,13 +8,6 @@ class PledgesController < ApplicationController
   before_action :handle_twitch_auth, only: [ :new ]
   
   def index
-    # per_page is a silent param to show more records per page
-    if params[:per_page].present?
-      per_page = params[:per_page]
-    else
-      per_page = 30
-    end
-
     # f is used to filter reports by scope
     # q is used to search for keywords
     # o is used to toggle ordering
@@ -31,9 +24,9 @@ class PledgesController < ApplicationController
     end
     
     if params[:q].present?
-      @pledges = eval("Pledge.#{@filter_category}.search('#{params[:q]}').order(signed_on: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+      @pagy, @pledges = eval("pagy(Pledge.#{@filter_category}.search('#{params[:q]}').order(signed_on: :#{@ordering}))")
     else
-      @pledges = eval("Pledge.#{@filter_category}.order(signed_on: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+      @pagy, @pledges = eval("pagy(Pledge.#{@filter_category}.order(signed_on: :#{@ordering}))")
     end
   end
   

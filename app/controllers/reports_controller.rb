@@ -11,13 +11,6 @@ class ReportsController < ApplicationController
   around_action :display_timezone
   
   def index
-    # per_page is a silent param to show more records per page
-    if params[:per_page].present?
-      per_page = params[:per_page]
-    else
-      per_page = 30
-    end
-
     # f is used to filter reports by scope
     # q is used to search for keywords
     # o is used to toggle ordering
@@ -36,9 +29,9 @@ class ReportsController < ApplicationController
     end
     
     if params[:q].present?
-      @reports = eval("Report.#{@filter_category}.search('#{params[:q]}').order(created_at: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+      @pagy, @reports = eval("pagy(Report.#{@filter_category}.search('#{params[:q]}').order(created_at: :#{@ordering}))")
     else
-      @reports = eval("Report.#{@filter_category}.order(created_at: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+      @pagy, @reports = eval("pagy(Report.#{@filter_category}.order(created_at: :#{@ordering}))")
     end
   end
   

@@ -19,10 +19,10 @@
           <% Report::SORT_FILTERS.each do |filter| %>
             <% if @filter_category.to_s == filter[0].to_s %>
               <% if params[:q].present? %>
-                <%= link_to("#{filter[1]} [#{@reports.nil? ? '0' : @reports.size}]", reports_path(q: params[:q], f: filter[0]), class: "filter selected togglable") %>
+                <%= link_to("#{filter[1]} [#{@pagy.count}]", reports_path(q: params[:q], f: filter[0]), class: "filter selected togglable") %>
                 <%= link_to(@ordering == "asc" ? "&#xf309;".html_safe : "&#xf30c;".html_safe, reports_path(q: params[:q], f: filter[0], o: @ordering == "asc" ? "desc" : "asc"), class: "ordering") %>
               <% else %>
-                <%= link_to("#{filter[1]} [#{@reports.nil? ? '0' : @reports.size}]", reports_path(f: filter[0]), class: "filter selected togglable") %>
+                <%= link_to("#{filter[1]} [#{@pagy.count}]", reports_path(f: filter[0]), class: "filter selected togglable") %>
                 <%= link_to(@ordering == "asc" ? "&#xf309;".html_safe : "&#xf30c;".html_safe, reports_path(f: filter[0], o: @ordering == "asc" ? "desc" : "asc"), class: "ordering") %>
               <% end %>
             <% else %>
@@ -39,8 +39,7 @@
         <% if @reports.present? %>
         <%= render(partial: "reports/row", collection: @reports, as: :report) %>
         <div class="flexbox vertical center">
-          <%= will_paginate @reports, class: "pagination full flexbox horizontal", previous_label: "« PREV", next_label: "NEXT »", inner_window: 3, outer_window: 0  %>
-          <%= will_paginate @reports, class: "pagination mini flexbox horizontal justify-space-between", previous_label: "« PREV", next_label: "NEXT »", page_links: false  %>
+          <%== pagy_nav @pagy %>
         </div>
         <% else %>
         <div class="empty">

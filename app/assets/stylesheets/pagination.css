@@ -12,45 +12,29 @@
   white-space: nowrap;
 }
 
-.pagination.mini {
-  display: none;
-  width: 100%;
-  max-width: 20em;
-}
-
-.pagination a,
-.pagination .disabled,
-.pagination .current,
-.pagination .gap {
+.pagination .page.active,
+.pagination .page.disabled,
+.pagination .page a {
   padding: 0.5em 1em 0.5em 1em;
 }
 
-.pagination .previous_page {
-  margin-left: 0.5em;
-}
-
-.pagination .next_page {
-  margin-right: 0.5em;
-}
-
-.pagination em {
+.pagination .page.active {
   font-style: normal;
-  color: var(--black-color);
+  color: var(--light-black-color);
   font-weight: 600;
 }
 
-.pagination a:link,
-.pagination a:visited {
-  color: var(--tertiary-font-color);
-  text-decoration: none;
+.pagination .page.disabled {
+  font-style: normal;
+  color: var(--light-gray-color);
 }
 
-.pagination a:hover {
+.pagination .page a:hover {
   color: var(--bright-orange-color);
   text-decoration: none;
 }
 
-.pagination a:active {
+.pagination .page a:active {
   color: var(--bright-blue-color);
   text-decoration: none;
 }
@@ -61,10 +45,9 @@
 /***********************************/
 
 @media (max-width: 44em) {
-  .pagination.mini {
-    display: inherit;
-  }
-  .pagination.full {
-    display: none;
+  .pagination .page.active,
+  .pagination .page.disabled,
+  .pagination .page a {
+    padding: 0.5em;
   }
 }

@@ -19,10 +19,10 @@
           <% Pledge::SORT_FILTERS.each do |filter| %>
             <% if @filter_category.to_s == filter[0].to_s %>
               <% if params[:q].present? %>
-                <%= link_to("#{filter[1]} [#{@pledges.nil? ? '0' : @pledges.size}]", pledges_path(q: params[:q], f: filter[0]), class: "filter selected togglable") %>
+                <%= link_to("#{filter[1]} [#{@pagy.count}]", pledges_path(q: params[:q], f: filter[0]), class: "filter selected togglable") %>
                 <%= link_to(@ordering == "asc" ? "&#xf309;".html_safe : "&#xf30c;".html_safe, pledges_path(q: params[:q], f: filter[0], o: @ordering == "asc" ? "desc" : "asc"), class: "ordering") %>
               <% else %>
-                <%= link_to("#{filter[1]} [#{@pledges.nil? ? '0' : @pledges.size}]", pledges_path(f: filter[0]), class: "filter selected togglable") %>
+                <%= link_to("#{filter[1]} [#{@pagy.count}]", pledges_path(f: filter[0]), class: "filter selected togglable") %>
                 <%= link_to(@ordering == "asc" ? "&#xf309;".html_safe : "&#xf30c;".html_safe, pledges_path(f: filter[0], o: @ordering == "asc" ? "desc" : "asc"), class: "ordering") %>
               <% end %>
             <% else %>
@@ -37,11 +37,10 @@
       </div>
       <div class="records-list flexbox vertical stretch">
         <% if @pledges.present? %>
-          <%= render(partial: "pledges/row", collection: @pledges, as: :pledge) %>
-          <div class="flexbox vertical center">
-            <%= will_paginate @pledges, class: "pagination full flexbox horizontal", previous_label: "« PREV", next_label: "NEXT »", inner_window: 3, outer_window: 0  %>
-            <%= will_paginate @pledges, class: "pagination mini flexbox horizontal justify-space-between", previous_label: "« PREV", next_label: "NEXT »", page_links: false  %>
-          </div>
+        <%= render(partial: "pledges/row", collection: @pledges, as: :pledge) %>
+        <div class="flexbox vertical center">
+          <%== pagy_nav @pagy %>
+        </div>
         <% else %>
         <div class="empty">
           No pledges found.

@@ -39,8 +39,7 @@
         <% if @concerns.present? %>
         <%= render(partial: "concerns/row", collection: @concerns, as: :concern) %>
         <div class="flexbox vertical center">
-          <%= will_paginate @concerns, class: "pagination full flexbox horizontal", previous_label: "« PREV", next_label: "NEXT »", inner_window: 3, outer_window: 0  %>
-          <%= will_paginate @concerns, class: "pagination mini flexbox horizontal justify-space-between", previous_label: "« PREV", next_label: "NEXT »", page_links: false  %>
+          <%== pagy_nav @pagy %>
         </div>
         <% else %>
         <div class="empty">

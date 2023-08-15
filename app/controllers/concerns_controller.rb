@@ -10,13 +10,6 @@ class ConcernsController < ApplicationController
   around_action :display_timezone
   
   def index
-    # per_page is a silent param to show more records per page
-    if params[:per_page].present?
-      per_page = params[:per_page]
-    else
-      per_page = 30
-    end
-    
     # f is used to filter reports by scope
     # q is used to search for keywords
     # o is used to toggle ordering
@@ -35,9 +28,9 @@ class ConcernsController < ApplicationController
     end
     
     if params[:q].present?
-      @concerns = eval("Concern.#{@filter_category}.search('#{params[:q]}').order(shared_on: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+      @pagy, @concerns = eval("pagy(Concern.#{@filter_category}.search('#{params[:q]}').order(shared_on: :#{@ordering}))")
     else
-      @concerns = eval("Concern.#{@filter_category}.order(shared_on: :#{@ordering}).paginate(page: params[:page], per_page: #{per_page.to_s})")
+      @pagy, @concerns = eval("pagy(Concern.#{@filter_category}.order(shared_on: :#{@ordering}))")
     end
   end
 
