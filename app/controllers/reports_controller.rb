@@ -38,6 +38,7 @@ class ReportsController < ApplicationController
     unless @report.reported_twitch_id == nil
       @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
     end
+    @related_reports = @report.related_reports
   end
   
   def new

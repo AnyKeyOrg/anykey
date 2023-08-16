@@ -18,4 +18,5 @@
   <%= link_to("Dismiss", dismiss_report_path(@report), method: :post, class: 'dismiss-button button') %>
   <%= link_to('Back', params[:back].present? ? params[:back] : reports_path, class: "back-button mini button") %>
 </div>
+<%= render(partial: "reports/related_reports") %>
 <%= render(partial: "reports/comments")%>

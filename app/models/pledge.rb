@@ -55,14 +55,12 @@ class Pledge < ApplicationRecord
     end
   end
   
-  # TODO: Key on Twitch ID after those are automatically collected in report process
   def reports_about
-    Report.where(reported_twitch_name: self.twitch_display_name)
+    Report.where(reported_twitch_id: self.twitch_id)
   end
   
-  # TODO: Key on Twitch ID after those are automatically collected in report process
   def reports_filed
-    Report.where("reporter_email= ? OR reporter_twitch_name = ?", self.email, self.twitch_display_name)
+    Report.where("reporter_email= ? OR reporter_twitch_id = ?", self.email, self.twitch_id)
   end
 
   def self.cached_count

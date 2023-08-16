@@ -1,0 +1,17 @@
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="report-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center">
+      <span class="icon">&#xf002;</span> Related Reports <%= @related_reports.present? ? "(#{@related_reports.size})" : ''%>
+    </div>
+    <% if @related_reports.present? %>
+    <div class="item-list">
+      <%= render(partial: "reports/row", collection: @related_reports, as: :report) %>
+    </div>
+    <% else %>
+    <div class="item-text large empty">
+      No related badge abuse reports found.
+    </div>
+    <% end %>
+  </div>
+</div>

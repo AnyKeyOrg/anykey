@@ -73,6 +73,13 @@ class Report < ApplicationRecord
     end
   end
   
+  # Return report about the same Twitch ID
+  def related_reports
+    unless self.reported_twitch_id.blank?
+      Report.where.not(id: self.id).where(reported_twitch_id: self.reported_twitch_id)
+    end
+  end
+  
   protected
     def ensure_sane_review
       if (self.dismissed || self.warned || self.revoked) && !(self.dismissed ^ self.warned ^ self.revoked)
