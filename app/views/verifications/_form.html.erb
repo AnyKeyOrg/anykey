@@ -24,7 +24,7 @@
     <div class="item half-width flexbox vertical stretch">
       <label for="email" class="text-field">Email</label>
       <div class="description">To receive your certificate</div>
-      <input id="verification_email" name="verification[email]" class="text-field" type="email" value="<%= @verification.email %>" autocomplete="off" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]" tabindex="3">
+      <input id="verification_email" name="verification[email]" class="text-field" type="email" value="<%= @verification.email %>" autocomplete="off" required pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+.[A-Za-z]" tabindex="3">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="discord_username" class="text-field">Discord Username</label>

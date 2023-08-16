@@ -55,7 +55,7 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="concerned_email" class="text-field">Your Email Address</label>
-      <input id="concern_concerned_email" name="concern[concerned_email]" class="text-field" type="email" value="<%= @concern.concerned_email %>" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]" tabindex="7">
+      <input id="concern_concerned_email" name="concern[concerned_email]" class="text-field" type="email" value="<%= @concern.concerned_email %>" required pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+.[A-Za-z]" tabindex="7">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="concerned_cert_code" class="text-field">Your Certificate Code°</label>

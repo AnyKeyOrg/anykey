@@ -16,12 +16,12 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="reported_twitch_name" class="text-field">Twitch User You're Reporting</label>
-      <input id="report_reported_twitch_name" name="report[reported_twitch_name]" class="text-field" type="text" value="<%= @report.reported_twitch_name %>" autocomplete="off" data-url="<%= lookup_twitch_id_path %>" tabindex="1">
+      <input id="report_reported_twitch_name" name="report[reported_twitch_name]" class="text-field" type="text" value="<%= @report.reported_twitch_name %>" autocomplete="off" data-url="<%= lookup_twitch_id_path %>" required tabindex="1">
       <div id="reported_twitch_name_status" class="status-response flexbox vertical end"></div>
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="incident_stream" class="text-field">Stream Where Incident Happened</label>
-      <input id="report_incident_stream" name="report[incident_stream]" class="text-field" type="text" value="<%= @report.incident_stream %>" autocomplete="off" data-url="<%= lookup_twitch_id_path %>" tabindex="2">
+      <input id="report_incident_stream" name="report[incident_stream]" class="text-field" type="text" value="<%= @report.incident_stream %>" autocomplete="off" data-url="<%= lookup_twitch_id_path %>" required tabindex="2">
       <div id="incident_stream_status" class="status-response flexbox vertical end"></div>
     </div>
   </div>
@@ -41,7 +41,7 @@
       <label for="incident_description" class="text-field">Description of the Incident</label>
       <div id="incident-descripton-counter" data-max-length="1000">1000</div>
     </div>  
-    <textarea id="report_incident_description" name="report[incident_description]" class="text-field" type="text" autocomplete="off" tabindex="5"><%= @report.incident_description %></textarea>
+    <textarea id="report_incident_description" name="report[incident_description]" class="text-field" type="text" autocomplete="off" required tabindex="5"><%= @report.incident_description %></textarea>
   </div>
   <div class="item flexbox vertical stretch">
     <label for="recommended_response" class="text-field">What Do You Think We Should Do?°</label>
@@ -56,7 +56,7 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="reporter_email" class="text-field">Your Email Address</label>
-      <input id="report_reporter_email" name="report[reporter_email]" class="text-field" type="text" value="<%= @report.reporter_email %>" tabindex="7">
+      <input id="report_reporter_email" name="report[reporter_email]" class="text-field" type="email" value="<%= @report.reporter_email %>" required pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+.[A-Za-z]" tabindex="7">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="reporter_twitch_name" class="text-field">Your Twitch Name°</label>
