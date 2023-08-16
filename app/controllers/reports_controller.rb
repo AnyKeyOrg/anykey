@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   
   layout "backstage",                       only: [ :index, :show ]
   
-  skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch, :lookup_twitch_id ]
+  skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch, :twitch_lookup ]
   
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
@@ -105,23 +105,32 @@ class ReportsController < ApplicationController
     end
   end
   
-  def lookup_twitch_id
+  def twitch_lookup
     if params[:twitch_username].blank?
       render :json => { error: 'The request must contain a Twitch username', code: '400' }, :status => 400
     else
-      url      = "#{ENV['TWITCH_API_BASE_URL']}/users?login=#{params[:twitch_username]}"
+      twitch_id = lookup_twitch_id(params[:twitch_username])
+      if twitch_id.nil?
+        render :json => { error: 'Twitch username not found', code: '404' }, :status => 404
+      else
+        render :json => { twitch_id: twitch_id }, :status => 200
+      end
+    end
+  end
+  
+  protected
+    def lookup_twitch_id(twitch_username)
+      url      = "#{ENV['TWITCH_API_BASE_URL']}/users?login=#{twitch_username}"
       headers  = {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"}
       response = HTTParty.get(URI::Parser.new.escape(url), headers: headers)
       
       if response["data"].blank?
-        render :json => { error: 'Twitch username not found', code: '404' }, :status => 404
+        return nil
       else
-        render :json => { twitch_id: response["data"][0]["id"] }, :status => 200
+        return response["data"][0]["id"]
       end
     end
-  end
-
-  protected
+    
     def find_report
       @report = Report.find(params[:id])
     rescue ActiveRecord::RecordNotFound

@@ -16,12 +16,12 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="reported_twitch_name" class="text-field">Twitch User You're Reporting</label>
-      <input id="report_reported_twitch_name" name="report[reported_twitch_name]" class="text-field" type="text" value="<%= @report.reported_twitch_name %>" autocomplete="off" data-url="<%= lookup_twitch_id_path %>" required tabindex="1">
+      <input id="report_reported_twitch_name" name="report[reported_twitch_name]" class="text-field" type="text" value="<%= @report.reported_twitch_name %>" autocomplete="off" data-url="<%= twitch_lookup_path %>" required tabindex="1">
       <div id="reported_twitch_name_status" class="status-response flexbox vertical end"></div>
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="incident_stream" class="text-field">Stream Where Incident Happened</label>
-      <input id="report_incident_stream" name="report[incident_stream]" class="text-field" type="text" value="<%= @report.incident_stream %>" autocomplete="off" data-url="<%= lookup_twitch_id_path %>" required tabindex="2">
+      <input id="report_incident_stream" name="report[incident_stream]" class="text-field" type="text" value="<%= @report.incident_stream %>" autocomplete="off" data-url="<%= twitch_lookup_path %>" required tabindex="2">
       <div id="incident_stream_status" class="status-response flexbox vertical end"></div>
     </div>
   </div>
@@ -60,7 +60,7 @@
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="reporter_twitch_name" class="text-field">Your Twitch Name°</label>
-      <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" data-url="<%= lookup_twitch_id_path %>" tabindex="8">
+      <input id="report_reporter_twitch_name" name="report[reporter_twitch_name]" class="text-field" type="text" value="<%= @report.reporter_twitch_name %>" autocomplete="off" data-url="<%= twitch_lookup_path %>" tabindex="8">
       <div id="reporter_twitch_name_status" class="status-response flexbox vertical end"></div>
     </div>
   </div>
