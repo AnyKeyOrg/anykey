@@ -63,6 +63,7 @@ class Concern < ApplicationRecord
   scope :watched,      lambda { where(watched: true) }
   scope :search,       lambda { |search| where("lower(concerning_player_id) LIKE :search OR
                                                 lower(concerned_email) LIKE :search OR
+                                                lower(concerned_cert_code) LIKE :search OR
                                                 lower(description) LIKE :search OR
                                                 lower(background) LIKE :search",
                                                 search: "%#{search.downcase}%") }

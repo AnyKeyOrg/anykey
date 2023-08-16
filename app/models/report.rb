@@ -46,12 +46,14 @@ class Report < ApplicationRecord
   scope :revoked,      lambda { where(revoked: true) }
   scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
   scope :watched,      lambda { where(watched: true) }
-  
-  # TODO: add Twitch IDs to search
   scope :search,       lambda { |search| where("lower(reported_twitch_name) LIKE :search OR
+                                                lower(reported_twitch_id) LIKE :search OR
                                                 lower(reporter_email) LIKE :search OR
-                                                lower(incident_description) LIKE :search OR
-                                                lower(incident_stream) LIKE :search",
+                                                lower(reporter_twitch_name) LIKE :search OR
+                                                lower(reported_twitch_id) LIKE :search OR
+                                                lower(incident_stream) LIKE :search OR
+                                                lower(incident_stream_twitch_id) LIKE :search OR
+                                                lower(incident_description) LIKE :search",
                                                 search: "%#{search.downcase}%") }
   
   
