@@ -6,13 +6,12 @@ class WarningsController < ApplicationController
   before_action :ensure_staff
   before_action :find_report
   before_action :ensure_sane_review
-  before_action :find_reported_twitch_user
   around_action :display_timezone
   
   def new
-    if @reported_twitch_user == nil
+    if @report.reported_twitch_id == nil
       redirect_to staff_index_path
-    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+    elsif @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
       @warning = ConductWarning.new
     else
       redirect_to staff_index_path
@@ -20,9 +19,9 @@ class WarningsController < ApplicationController
   end
   
   def create
-    if @reported_twitch_user == nil
+    if @report.reported_twitch_id == nil
       redirect_to staff_index_path
-    elsif @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+    elsif @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
       @warning = ConductWarning.new(conduct_warning_params)
       @warning.report = @report
       @warning.pledge = @pledge
@@ -58,17 +57,6 @@ class WarningsController < ApplicationController
       @report = Report.find(params[:report_id])
     rescue ActiveRecord::RecordNotFound
       redirect_to staff_index_path
-    end
-    
-    def find_reported_twitch_user
-      # Check if reported_twitch_name exists on Twitch
-      response = HTTParty.get(URI::Parser.new.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
-      
-      if response["data"].blank?
-       @reported_twitch_user = nil
-      else
-        @reported_twitch_user = response["data"][0]["id"]
-      end
     end
 
   private

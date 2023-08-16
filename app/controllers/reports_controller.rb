@@ -7,7 +7,6 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch ]
-  before_action :find_reported_twitch_user, only: [ :show ]
   around_action :display_timezone
   
   def index
@@ -36,13 +35,9 @@ class ReportsController < ApplicationController
   end
   
   def show
-    # Set Up Keybot Clues until we TODO: something better
-    unless @reported_twitch_user == nil
-      @pledge = Pledge.find_by(twitch_id: @reported_twitch_user)
+    unless @report.reported_twitch_id == nil
+      @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
     end
-    
-    # TODO: check if reporter has pledged (lookup email/Twitch name) and add info to keybot message
-    # TODO: check if incident stream owner has pledged (Twitch name) and add info to keybot message
   end
   
   def new
@@ -150,19 +145,6 @@ class ReportsController < ApplicationController
       @report = Report.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to staff_index_path
-    end
-    
-    # TODO: stop doing this! ;]
-    # Fetch and store Twitch IDs when reports come in (as background task with Active Job / Resque)
-    def find_reported_twitch_user
-      # Check if reported_twitch_name exists on Twitch
-      response = HTTParty.get(URI::Parser.new.escape("#{ENV['TWITCH_API_BASE_URL']}/users?login=#{@report.reported_twitch_name}"), headers: {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"})
-      
-      if response["data"].blank?
-       @reported_twitch_user = nil
-      else
-        @reported_twitch_user = response["data"][0]["id"]
-      end
     end
 
   private          
