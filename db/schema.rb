@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_16_063658) do
+ActiveRecord::Schema.define(version: 2023_08_16_110151) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 2023_08_16_063658) do
     t.datetime "shared_on"
     t.datetime "reviewed_on"
     t.integer "reviewer_id"
-    t.integer "comments_count"
-    t.integer "screenshots_submitted_count"
+    t.integer "comments_count", default: 0
+    t.integer "screenshots_submitted_count", default: 0
   end
 
   create_table "conduct_warnings", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 2023_08_16_063658) do
     t.boolean "warned", default: false
     t.boolean "revoked", default: false
     t.boolean "watched", default: false
-    t.integer "comments_count"
+    t.integer "comments_count", default: 0
     t.integer "reporter_twitch_id"
     t.integer "reported_twitch_id"
     t.integer "incident_stream_twitch_id"
@@ -228,7 +228,7 @@ ActiveRecord::Schema.define(version: 2023_08_16_063658) do
     t.datetime "withdrawn_on"
     t.integer "withdrawer_id"
     t.boolean "watched", default: false
-    t.integer "comments_count"
+    t.integer "comments_count", default: 0
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
