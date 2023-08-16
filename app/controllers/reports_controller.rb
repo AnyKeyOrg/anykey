@@ -51,7 +51,20 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-  
+     
+    # Lookup Twitch IDs (if not fetched via Ajax)
+    if @report.reporter_twitch_name && @report.reporter_twitch_id.blank?
+      @report.reporter_twitch_id = lookup_twitch_id(@report.reporter_twitch_name)
+    end
+    
+    if @report.reported_twitch_name && @report.reported_twitch_id.blank?
+      @report.reported_twitch_id = lookup_twitch_id(@report.reported_twitch_name)
+    end
+    
+    if @report.incident_stream && @report.incident_stream_twitch_id.blank?
+      @report.incident_stream_twitch_id = lookup_twitch_id(@report.incident_stream)
+    end
+    
     if @report.save
       # Email notification to staff
       StaffMailer.notify_staff_new_report(@report).deliver_now
@@ -120,15 +133,17 @@ class ReportsController < ApplicationController
   
   protected
     def lookup_twitch_id(twitch_username)
-      url      = "#{ENV['TWITCH_API_BASE_URL']}/users?login=#{twitch_username}"
-      headers  = {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"}
-      response = HTTParty.get(URI::Parser.new.escape(url), headers: headers)
+      # Only lookup IDs for valid Twitch usernames (4-25 alphanumeric incl. underscore)
+      if twitch_username.match? /^([A-Za-z0-9_]{4,25})$/
+        url      = "#{ENV['TWITCH_API_BASE_URL']}/users?login=#{twitch_username}"
+        headers  = {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"}
+        response = HTTParty.get(URI::Parser.new.escape(url), headers: headers)
       
-      if response["data"].blank?
-        return nil
-      else
-        return response["data"][0]["id"]
+        if !response["data"].blank?
+          return response["data"][0]["id"]
+        end
       end
+      return nil
     end
     
     def find_report
