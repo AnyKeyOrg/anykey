@@ -56,11 +56,17 @@ class Pledge < ApplicationRecord
   end
   
   def reports_about
-    Report.where(reported_twitch_id: self.twitch_id)
+    unless self.twitch_id.blank?
+      Report.where(reported_twitch_id: self.twitch_id)
+    end
   end
   
   def reports_filed
-    Report.where("reporter_email= ? OR reporter_twitch_id = ?", self.email, self.twitch_id)
+    if self.twitch_id.blank?
+      Report.where(reporter_email: self.email)
+    else
+      Report.where("reporter_email= ? OR reporter_twitch_id = ?", self.email, self.twitch_id)
+    end
   end
 
   def self.cached_count

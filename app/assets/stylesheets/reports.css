@@ -66,8 +66,17 @@
   font-size: 0.9em;
 }
 
-#backstage-container .report-item .item-text.right-padded {
+#backstage-container .report-item .item-text.stacking {
+  margin-bottom: 0.5em;
+}
+
+#backstage-container .report-item .item-text.stacking:not(:last-child) {
   margin-right: 1em;
+}
+
+#backstage-container .report-item .item-text img {
+  height: 1.2em;
+  margin-right: 0.3em;
 }
 
 #backstage-container .report-item .item-text .inline-icon {

@@ -32,7 +32,7 @@
   <div class="pledge-item half-width flexbox vertical stretch">
     <div class="item-title">Referrer</div>
     <% if @pledge.referrer.present? %>
-    <div class="item-text flexbox horizontal center"><%= image_tag("/images/anykey-cap.svg") %> <%= link_to(@pledge.referrer.full_name, pledge_path(@pledge.referrer, staff: "true"), class: "inline") %></div>
+    <div class="item-text flexbox horizontal center"><%= image_tag("/images/anykey-cap.svg") %> <%= link_to(@pledge.referrer.full_name, pledge_path(@pledge.referrer, staff: "true", back: request.fullpath), class: "inline") %></div>
     <% else %>
     <div class="item-text empty">None</div>
     <% end %>

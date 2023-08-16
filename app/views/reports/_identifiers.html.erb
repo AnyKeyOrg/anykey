@@ -11,17 +11,22 @@
   </div>
   <div class="report-item half-width flexbox vertical stretch">
     <div class="item-title">Reported By</div>
-    <div class="flexbox horizontal center">
-      <div class="item-text right-padded">
+    <div class="flexbox horizontal center wrap">
+      <div class="item-text stacking">
         <%= @report.reporter_email %>
       </div>
       <% if @report.reporter_twitch_name.present? %>
-      <div class="item-text flexbox horizontal center">
+      <div class="item-text stacking flexbox horizontal center">
         <div class="inline-icon">&#xf1e8;</div>
         <%= @report.reporter_twitch_name %>
         <% if @report.reporter_twitch_id.present? %>
         <%= link_to(@report.reporter_twitch_id, "https://twitch.tv/#{@report.reporter_twitch_name}", class: "twitch_id", target: "blank") %>
         <% end %>
+      </div>
+      <% end %>
+      <% if @reporter_pledge.present? %>
+      <div class="item-text stacking flexbox horizontal center">
+        <%= image_tag("/images/anykey-cap.svg") %> <%= link_to(@reporter_pledge.full_name, pledge_path(@reporter_pledge, staff: "true", back: request.fullpath), class: "inline") %>
       </div>
       <% end %>
     </div>
