@@ -11,11 +11,9 @@
     <div class="item-title">Twitch Username</div>
     <% if @pledge.twitch_id.present? %>
     <div class="item-text flexbox horizontal center">
-      <div class="inline-icon">
-        &#xf1e8;
-      </div>
-      <%= link_to(@pledge.twitch_display_name, "https://twitch.tv/#{@pledge.twitch_display_name}", class: "inline", target: "blank") %>
-      <div class="twitch_id"><%= @pledge.twitch_id %></div>
+      <div class="inline-icon">&#xf1e8;</div>
+      <%= @pledge.twitch_display_name %>
+      <%= link_to(@pledge.twitch_id, "https://twitch.tv/#{@pledge.twitch_display_name}", class: "twitch_id", target: "blank") %>
     </div>
     <% else %>
     <div class="item-text empty">None</div>
