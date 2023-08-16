@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   
   layout "backstage",                       only: [ :index, :show ]
   
-  skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch ]
+  skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch, :lookup_twitch_id ]
   
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
@@ -56,6 +56,8 @@ class ReportsController < ApplicationController
       # Email notification to staff
       StaffMailer.notify_staff_new_report(@report).deliver_now
       
+      # TODO: Send confirmation receipt to reporter
+      
       flash[:notice] = "You've successfully submitted the report. Thank you."
       redirect_to root_path
     else      
@@ -102,6 +104,22 @@ class ReportsController < ApplicationController
       end
     end
   end
+  
+  def lookup_twitch_id
+    if params[:twitch_username].blank?
+      render :json => { error: 'The request must contain a Twitch username', code: '400' }, :status => 400
+    else
+      url      = "#{ENV['TWITCH_API_BASE_URL']}/users?login=#{params[:twitch_username]}"
+      headers  = {"Client-ID": ENV['TWITCH_CLIENT_ID'], "Authorization": "Bearer #{TwitchToken.first.valid_token!}"}
+      response = HTTParty.get(URI::Parser.new.escape(url), headers: headers)
+      
+      if response["data"].blank?
+        render :json => { error: 'Twitch username not found', code: '404' }, :status => 404
+      else
+        render :json => { twitch_id: response["data"][0]["id"] }, :status => 200
+      end
+    end
+  end
 
   protected
     def find_report
@@ -136,7 +154,7 @@ class ReportsController < ApplicationController
     end
     
     def report_params
-      params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reported_twitch_name, :incident_stream, :incident_occurred, :incident_description, :recommended_response, :image)
+      params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reporter_twitch_id, :reported_twitch_name, :reported_twitch_id, :incident_stream, :incident_stream_twitch_id, :incident_occurred, :incident_description, :recommended_response, :image,)
     end
   
 end

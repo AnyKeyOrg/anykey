@@ -4,7 +4,7 @@
 
 #report form {
   border: 5px solid var(--dark-fuchsia-color);
-  background: var(--dark-white-color);
+  background: var(--faint-darkfuch-overlay);
   padding: 2em 2em 2.5em 2em;
 }
 
@@ -108,6 +108,34 @@
 
 #report form textarea:focus {
   border: 4px solid var(--bright-blue-color);
+}
+
+#report form .status-response {
+  font-family: var(--body-font), var(--icon-font);
+  font-weight: 500;
+  font-size: 0.8em;
+  margin-top: 0.4em;
+  height: 0.8em;
+}
+
+#report form .status-response.searching:before {
+  content: "\f002  Searching...";
+  color: var(--gray-color);
+}
+
+#report form .status-response.invalid:before {
+  content: "\f071  Invalid";
+  color: var(--bright-orange-color);
+}
+
+#report form .status-response.not-found:before {
+  content: "\f05e  Not Found";
+  color: var(--alert-red-color);
+}
+
+#report form .status-response.found:before {
+  content: "\f1e8  Found";
+  color: var(--bright-green-color);  
 }
 
 #report form .flash {

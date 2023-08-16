@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_15_115036) do
+ActiveRecord::Schema.define(version: 2023_08_16_063658) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -134,6 +134,9 @@ ActiveRecord::Schema.define(version: 2023_08_15_115036) do
     t.boolean "revoked", default: false
     t.boolean "watched", default: false
     t.integer "comments_count"
+    t.integer "reporter_twitch_id"
+    t.integer "reported_twitch_id"
+    t.integer "incident_stream_twitch_id"
     t.index ["reviewer_id"], name: "index_reports_on_reviewer_id"
   end
 

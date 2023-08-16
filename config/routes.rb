@@ -36,7 +36,8 @@ Rails.application.routes.draw do
       resources :warnings,     only: [ :new, :create ]
       resources :revocations,  only: [ :new, :create ]
     end
-    get '/report',             to: 'reports#new',        as: :short_report
+    get '/report',             to: 'reports#new',                as: :short_report
+    get '/lookup_twitch_id',   to: 'reports#lookup_twitch_id',   as: :lookup_twitch_id
     get '/verification',       to: 'verifications#new',  as: :new_verification
     resources :verifications,  only: [ :index, :show, :create ] do
       member do
