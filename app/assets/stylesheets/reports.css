@@ -66,20 +66,27 @@
   font-size: 0.9em;
 }
 
+#backstage-container .report-item .item-text.right-padded {
+  margin-right: 1em;
+}
+
 #backstage-container .report-item .item-text .inline-icon {
   font-family: var(--solid-icon-font), var(--icon-font);
   margin-right: 0.4em;
 }
 
-#backstage-container .report-item .item-text .twitch_id {
-  font-size: 0.7em;
+#backstage-container .report-item .item-text a.twitch_id {
+  font-size: 0.65em;
   font-weight: 500;
-  margin-left: 0.7em;
+  margin-left: 0.6em;
   padding: 3px 3px 2px 3px;
   color: var(--white-color);
   background: var(--twitch-purple-color);
 }
 
+#backstage-container .report-item .item-text a.twitch_id:hover {
+  background: var(--bright-orange-color);
+}
 
 #backstage-container .report-item .item-list {
   margin-top: 0.6em;

@@ -1,25 +1,40 @@
-<div class="flexbox horizontal end wrap justify-space-between">
+<div class="flexbox horizontal start wrap justify-space-between">
   <div class="report-item half-width flexbox vertical stretch">
     <div class="item-title">Reported Twitch Username</div>
     <div class="item-text flexbox horizontal center">
-      <div class="inline-icon">
-        &#xf1e8;
-      </div>
-      <%= link_to(@report.reported_twitch_name, "https://twitch.tv/#{@report.reported_twitch_name}", class: "inline", target: "blank") %>
-      <% if @reported_twitch_user.present? %>
-      <div class="twitch_id"><%= @reported_twitch_user %></div>
+      <div class="inline-icon">&#xf1e8;</div>
+      <%= @report.reported_twitch_name %>
+      <% if @report.reported_twitch_id.present? %>
+      <%= link_to(@report.reported_twitch_id, "https://twitch.tv/#{@report.reported_twitch_name}", class: "twitch_id", target: "blank") %>
       <% end %>
     </div>
   </div>
   <div class="report-item half-width flexbox vertical stretch">
     <div class="item-title">Reported By</div>
-    <div class="item-text flexbox horizontal center">
-      <%= @report.reporter_email %> <%= @report.reporter_twitch_name.blank? ? '' : link_to(@report.reporter_twitch_name, "https://twitch.tv/#{@report.reporter_twitch_name}", class: "inline", target: "blank", style: "margin-left: 0.5em") %>      
+    <div class="flexbox horizontal center">
+      <div class="item-text right-padded">
+        <%= @report.reporter_email %>
+      </div>
+      <% if @report.reporter_twitch_name.present? %>
+      <div class="item-text flexbox horizontal center">
+        <div class="inline-icon">&#xf1e8;</div>
+        <%= @report.reporter_twitch_name %>
+        <% if @report.reporter_twitch_id.present? %>
+        <%= link_to(@report.reporter_twitch_id, "https://twitch.tv/#{@report.reporter_twitch_name}", class: "twitch_id", target: "blank") %>
+        <% end %>
+      </div>
+      <% end %>
     </div>
   </div>
   <div class="report-item half-width flexbox vertical stretch">
     <div class="item-title">Stream Where Incident Occurred</div>
-    <div class="item-text"><%= link_to(@report.incident_stream, "https://twitch.tv/#{@report.incident_stream}", class: "inline", target: "blank") %></div>
+    <div class="item-text flexbox horizontal center">
+      <div class="inline-icon">&#xf1e8;</div>
+      <%= @report.incident_stream %>
+      <% if @report.incident_stream_twitch_id.present? %>
+      <%= link_to(@report.incident_stream_twitch_id, "https://twitch.tv/#{@report.incident_stream}", class: "twitch_id", target: "blank") %>
+      <% end %>
+    </div>
   </div>
   <div class="report-item half-width flexbox vertical stretch">
     <div class="item-title">Date of Incident</div>
