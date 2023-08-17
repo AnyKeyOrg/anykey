@@ -14,7 +14,7 @@
 }
 
 #backstage-container form#activate_badge_form input#activate_badge_twitch_username {
-  max-width: 16em;
+  width: 14em;
   color: var(--black-color);
   background: var(--white-color);
   font-family: var(--body-font);
@@ -48,7 +48,7 @@
   font-family: var(--body-font), var(--icon-font);
   font-weight: 500;
   font-size: 0.8em;
-  margin-top: 0.8em;
+  margin-top: 0.6em;
   height: 0.8em;
 }
 

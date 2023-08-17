@@ -3,11 +3,11 @@
 
 function setupActivationTwitchListeners() {
   $("#activate_badge_twitch_username").on("keyup", function(e) {
-    if (this.value.length == 0) {
+    if (!this.value) {
       $("#activate_badge_twitch_username_status").attr("class","status-response"); // Reset status of empty field
       $("#activate_badge_twitch_id").val('');
       $("#activate_badge_twitch_id").hide();
-      
+      $("#activate_badge_submit").prop("disabled", true);
     }
     else {
       $("#activate_badge_twitch_username_status").attr("class","status-response searching"); // Set status to searching
@@ -20,18 +20,22 @@ function setupActivationTwitchListeners() {
             $("#activate_badge_twitch_username_status").attr("class","status-response found");  // Set status to found
             $("#activate_badge_twitch_id").val(data.twitch_id);
             $("#activate_badge_twitch_id").show();
+            $("#activate_badge_submit").prop("disabled", false);
           },
           error: function(jqXHR, textStatus, errorThrown) {
             $("#activate_badge_twitch_username_status").attr("class","status-response not-found"); // Set status to not found
             $("#activate_badge_twitch_id").val('');
             $("#activate_badge_twitch_id").hide();
+            $("#activate_badge_submit").prop("disabled", true);
           }
         });
       }
-      else
+      else {
         $("#activate_badge_twitch_username_status").attr("class","status-response invalid"); // Set status to invalid
         $("#activate_badge_twitch_id").val('');
         $("#activate_badge_twitch_id").hide();
+        $("#activate_badge_submit").prop("disabled", true);
+      }
     }
   });
 }
