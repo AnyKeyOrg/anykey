@@ -31,6 +31,7 @@ class Pledge < ApplicationRecord
   scope :unactivated,  lambda { where(twitch_id: nil) }
   scope :activated,    lambda { where.not(twitch_id: nil).where(badge_revoked: false) }
   scope :revoked,      lambda { where(badge_revoked: true) }
+  scope :referred,     lambda { where.not(referrer_id: nil)}
   scope :search,       lambda { |search| where("lower(first_name) LIKE :search OR
                                                 lower(last_name) LIKE :search OR
                                                 lower(email) LIKE :search OR

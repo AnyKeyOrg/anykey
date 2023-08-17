@@ -56,16 +56,18 @@ class PledgesController < ApplicationController
       end
             
       if @pledge.save
-        # Email pledger
+        # Email welcome to pledger
         PledgeMailer.welcome_pledger(@pledge).deliver_now
 
         # Increment referral counter
+        # TODO: Refeactor counter to be yearly and add recurring yearly job to recaulate for faster leaderboard loading
         if @referrer
           @referrer.increment!(:referrals_count)
+        
+          # Email pledge notification to referrer
+          PledgeMailer.notify_referrer(@pledge).deliver_now
         end
         
-        # TODO: email referrer
-
         # Set cookie to enforce single visit to redirect page
         cookies[:pledge_redirect] =  { value: true, expires: 5.minutes }
         
@@ -108,7 +110,7 @@ class PledgesController < ApplicationController
     @pledge = Pledge.find_by(email: pledge_params[:email])
 
     if @pledge
-      # Email pledger
+      # Email refrral link to pledger
       PledgeMailer.send_pledger_referral(@pledge).deliver_now
       
       flash[:notice] = "We've successfully sent an email with your referral link. Check your inbox!"

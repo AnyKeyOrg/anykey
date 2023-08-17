@@ -8,6 +8,10 @@ class PledgeMailerPreview < ActionMailer::Preview
     PledgeMailer.send_pledger_referral(Pledge.last)
   end
   
+  def notify_referrer
+    PledgeMailer.notify_referrer(Pledge.referred.last)
+  end
+  
   def confirm_receipt
     PledgeMailer.confirm_receipt(Report.last)
   end
