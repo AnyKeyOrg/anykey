@@ -12,6 +12,11 @@ class PledgeMailer < ApplicationMailer
     mail(to: pledge.email, subject: "Your GLHF pledge referral link")
   end
   
+  def confirm_receipt(report)
+    @report = report
+    mail(to: report.reporter_email, subject: "We received your report. We'll review it soon!")
+  end
+  
   def warn_pledger(warning)
     @warning = warning
     mail(to: warning.pledge.email, subject: "Warning about your conduct")

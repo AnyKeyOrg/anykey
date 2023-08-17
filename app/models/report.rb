@@ -76,6 +76,13 @@ class Report < ApplicationRecord
       Pledge.find_by(twitch_id: self.reporter_twitch_id)
     end
   end
+
+  def reporter_salutation_name
+    if self.reporter_pledge
+      return self.reporter_pledge.first_name
+    end
+    return self.reporter_email.gsub(/\@.*/,"")
+  end
   
   def image_url(style = :thumb)
     if style == :original

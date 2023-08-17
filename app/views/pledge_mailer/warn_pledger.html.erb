@@ -1,7 +1,17 @@
 Hey <%= @warning.pledge.first_name %>,
 <br><br>
-Our moderation team received a report regarding your conduct in <%= @warning.report.incident_stream %>'s stream<%= @warning.report.incident_occurred.blank? ? '' : ' on ' + l(@warning.report.incident_occurred, format: "%b. %-d, %Y") %>. After reviewing the incident, we've decided to issue you a warning for the following reason:
+Our ComfyCrew received a report regarding your conduct in <%= @warning.report.incident_stream %>'s stream<%= @warning.report.incident_occurred.blank? ? '' : ' on ' + l(@warning.report.incident_occurred, format: "%b. %-d, %Y") %>. After reviewing the incident, we've decided to issue you a warning for the following reason:
 <br><br>
 <%= @warning.reason %>
 <br><br>
-If you are seen violating the promises of the GLHF pledge again, your AnyKey badge will be permanently revoked.
+Remember that when you rock the AnyKey badge you are promising to...
+<ol>
+<li>Be a good sport whether you win or lose</li>
+<li>Know that people online are real people and your words have real impact</li>
+<li>Set a positive example with your behavior</li>
+<li>Speak up against discrimination, hate speech, harassment, and abuse</li>
+<li>Show integrity by honoring the rules, your opponents, and your teammates</li>
+<li>Stop, listen, and reassess if you're told that your words or actions are harmful</li>
+<li>Respect others, even if their sincere opinions are different from your own</li>
+</ol>
+If you are seen violating the promises of the GLHF pledge again, your AnyKey badge will be permanently revoked. So if you need advice about keeping it comfy, drop by the #support-lounge in our <%= link_to("Discord server", "https://discord.gg/Vpn8QQzTtS") %> to ask for help.

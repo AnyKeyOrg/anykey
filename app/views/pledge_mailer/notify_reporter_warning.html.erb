@@ -1,6 +1,6 @@
-Hey friend,
+Hey <%= @warning.report.reporter_salutation_name %>,
 <br><br>
-Our moderation team received your report regarding <%= @warning.report.reported_twitch_name %>'s conduct in <%= @warning.report.incident_stream %>'s stream<%= @warning.report.incident_occurred.blank? ? '' : ' on ' + l(@warning.report.incident_occurred, format: "%b. %-d, %Y") %>.
+Our ComfyCrew has taken action on your report regarding <%= @warning.report.reported_twitch_name %>'s conduct in <%= @warning.report.incident_stream %>'s stream<%= @warning.report.incident_occurred.blank? ? '' : ' on ' + l(@warning.report.incident_occurred, format: "%b. %-d, %Y") %>.
 <br><br>
 After reviewing the incident, we've decided to issue a warning to the user you reported. If they are seen violating the promises of the GLHF pledge again, their AnyKey badge will be permanently revoked.
 <br><br>

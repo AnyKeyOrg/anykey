@@ -1,0 +1,5 @@
+Hey <%= @report.reporter_salutation_name %>,
+
+We received your report about <%= @report.reported_twitch_name %>'s conduct in <%= @report.incident_stream %>'s stream<%= @report.incident_occurred.blank? ? '' : ' on ' + l(@report.incident_occurred, format: "%b. %-d, %Y") %> and it will be reviewed by our ComfyCrew soon.
+
+If you have any questions to ask or further information to share, please drop by the #support-lounge in our Discord server (https://discord.gg/Vpn8QQzTtS) to start a ModMail conversation with us.
