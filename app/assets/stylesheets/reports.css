@@ -64,6 +64,7 @@
 
 #backstage-container .report-item .item-text.small {
   font-size: 0.9em;
+  white-space: preserve;
 }
 
 #backstage-container .report-item .item-text.stacking {
