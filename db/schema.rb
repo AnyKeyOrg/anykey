@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_16_110151) do
+ActiveRecord::Schema.define(version: 2023_08_17_102446) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -137,6 +137,9 @@ ActiveRecord::Schema.define(version: 2023_08_16_110151) do
     t.integer "reporter_twitch_id"
     t.integer "reported_twitch_id"
     t.integer "incident_stream_twitch_id"
+    t.index ["reported_twitch_id"], name: "index_reports_on_reported_twitch_id"
+    t.index ["reporter_email"], name: "index_reports_on_reporter_email"
+    t.index ["reporter_twitch_id"], name: "index_reports_on_reporter_twitch_id"
     t.index ["reviewer_id"], name: "index_reports_on_reviewer_id"
   end
 
@@ -229,6 +232,7 @@ ActiveRecord::Schema.define(version: 2023_08_16_110151) do
     t.integer "withdrawer_id"
     t.boolean "watched", default: false
     t.integer "comments_count", default: 0
+    t.index ["identifier"], name: "index_verifications_on_identifier"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
