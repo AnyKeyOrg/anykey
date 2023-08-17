@@ -3,6 +3,7 @@ class Concern < ApplicationRecord
   PLAYER_ID_TYPES = {
     blizzard: "Blizzard BattleTag",
     discord:  "Discord Username",
+    ea:       "EA (Electronic Arts) ID",
     epic:     "Epic Games Display Name",
     nickname: "Nickname",
     name:     "Real Name",

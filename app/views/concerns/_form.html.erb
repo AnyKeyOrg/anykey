@@ -17,7 +17,7 @@
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="concerning_player_id_type" class="text-field">Type of ID/Name</label>
-      <%= select(:concern, :concerning_player_id_type, Concern::PLAYER_ID_TYPES.invert, {selected: @concern.concerning_player_id_type}, {tabindex: "2"}) %>
+      <%= select(:concern, :concerning_player_id_type, Concern::PLAYER_ID_TYPES.invert, {selected: @concern.concerning_player_id_type ? @concern.concerning_player_id_type : "nickname"}, {tabindex: "2"}) %>
     </div>
   </div>
   <div class="item flexbox vertical start">

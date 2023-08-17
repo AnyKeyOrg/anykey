@@ -13,7 +13,7 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="first_name" class="text-field">First Name</label>
-      <input id="verification_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off" required tabindex="1">
+      <input id="verification_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off"  tabindex="1">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="last_name" class="text-field">Last Name</label>
@@ -35,7 +35,7 @@
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="player_id_type" class="text-field">Player ID Type</label>
-      <%= collection_select(:verification, :player_id_type, Verification::PLAYER_ID_TYPES, :first, :last, {selected: @verification.player_id_type}, {tabindex: "5"}) %>
+      <%= collection_select(:verification, :player_id_type, Verification::PLAYER_ID_TYPES, :first, :last, {selected: @verification.player_id_type ? @verification.player_id_type : "riot" }, {tabindex: "5"}) %>
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="player_id" class="text-field">Player ID</label>

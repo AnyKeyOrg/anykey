@@ -24,6 +24,7 @@ class Verification < ApplicationRecord
   
   PLAYER_ID_TYPES = {
     blizzard: "Blizzard BattleTag",
+    ea:       "EA (Electronic Arts) ID",
     epic:     "Epic Games Display Name",
     riot:     "Riot ID",
     steam:    "Steam Profile Name"
