@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  twitch_username: MyString
+  twitch_id: 1
+  activated_on: 2023-08-17 14:34:58
+  activator_id: 1
+
+two:
+  twitch_username: MyString
+  twitch_id: 1
+  activated_on: 2023-08-17 14:34:58
+  activator_id: 1

@@ -98,7 +98,8 @@
 }
 
 #backstage-container .panel-menu a.compact {
-  letter-spacing: -0.05em;
+  font-size: 1em;
+  padding: 1.025em 1.2em 1.025em 1.2em;
 }
 
 #backstage-container .panel-menu a.half {

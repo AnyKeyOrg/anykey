@@ -8,6 +8,7 @@
         <%= link_to("Pledges", pledges_path, class: (controller_name == 'pledges' ? 'selected ' : '') + 'item') %>
         <%= link_to("Verifications", verifications_path, class: (controller_name == 'verifications' ? 'selected ' : '') + 'item') %>
         <%= link_to("Concerns", concerns_path, class: (controller_name == 'concerns' ? 'selected ' : '') + 'item') %>
+        <%= link_to("Activation", badge_activation_path, class: (controller.action_name == 'badge_activation' ? 'selected ' : '') + 'item') %>
         <%= link_to("Validation", cert_validation_path, class: (controller.action_name == 'cert_validation' ? 'selected ' : '') + 'item') %>
         <% if current_user.is_admin? %>
         <%= link_to("Affiliates", affiliates_path(staff: true), class: (controller_name == 'affiliates' ? 'selected ' : '') + 'item') %>
@@ -51,7 +52,10 @@
     <%= link_to("Concerns", concerns_path, class: controller_name == 'concerns' ? 'selected ' : '') %>
   </div>
   <div class="row">
-    <%= link_to("Validation", cert_validation_path, class: controller.action_name == 'cert_validation' ? 'selected ' : '') %>    
+    <%= link_to("Activation", badge_activation_path, class: controller.action_name == 'badge_activation' ? 'selected ' : '') %>
+  </div>
+  <div class="row">
+    <%= link_to("Validation", cert_validation_path, class: controller.action_name == 'cert_validation' ? 'selected ' : '') %>
   </div>
   <% if current_user.is_admin? %>
   <div class="row">
@@ -75,7 +79,7 @@
     <%= link_to("Home", root_path) %>
   </div>
   <div class="row">
-    <%= link_to("Login", new_user_session_path, class: controller_name == 'sessions' ? 'selected ' : '') %>    
+    <%= link_to("Login", new_user_session_path, class: controller_name == 'sessions' ? 'selected ' : '') %>
   </div>
   <% end %>
 </div>

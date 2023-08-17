@@ -10,7 +10,8 @@
         <%= link_to("Pledges", pledges_path, class: "third") %>
         <%= link_to("Verifications", verifications_path, class: "third") %>
         <%= link_to("Concerns", concerns_path, class: "third") %>
-        <%= link_to("Cert Validation", cert_validation_path, class: "third compact") %>
+        <%= link_to("Badge Activation", badge_activation_path, class: "third compact") %>
+        <%= link_to("Batch Validation", cert_validation_path, class: "third compact") %>
         <% if current_user.is_admin? %>
         <%= link_to("Affiliates", affiliates_path(staff: true), class: "third") %>
         <%= link_to("Stories", stories_path(staff: true), class: "third") %>

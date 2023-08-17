@@ -14,11 +14,11 @@ Rails.application.routes.draw do
     end
   
     resources :pledges,        only: [ :index, :create, :show ]
-    get '/pledge',             to: 'pledges#new',    as: :new_pledge
+    get '/pledge',             to: 'pledges#new',              as: :new_pledge
     get '/take-the-pledge',    to: 'pledges#new'
-    get '/glhf',               to: 'pledges#new',    as: :glhf
-    get 'referral-lookup',     to: 'pledges#referral_lookup', as: :referral_lookup
-    post 'referral-send',      to: 'pledges#referral_send', as: :referral_send
+    get '/glhf',               to: 'pledges#new',              as: :glhf
+    get 'referral-lookup',     to: 'pledges#referral_lookup',  as: :referral_lookup
+    post 'referral-send',      to: 'pledges#referral_send',    as: :referral_send
     resources :affiliates,     only: [ :index, :new, :create, :edit, :update ]
     resources :resources,      only: [ :index ]
     get '/research',           to: 'resources#index',          as: :research
@@ -36,9 +36,9 @@ Rails.application.routes.draw do
       resources :warnings,     only: [ :new, :create ]
       resources :revocations,  only: [ :new, :create ]
     end
-    get '/report',             to: 'reports#new',                as: :short_report
-    get '/twitch_lookup',   to: 'reports#twitch_lookup',   as: :twitch_lookup
-    get '/verification',       to: 'verifications#new',  as: :new_verification
+    get '/report',             to: 'reports#new',             as: :short_report
+    get '/twitch_lookup',      to: 'reports#twitch_lookup',   as: :twitch_lookup
+    get '/verification',       to: 'verifications#new',       as: :new_verification
     resources :verifications,  only: [ :index, :show, :create ] do
       member do
         get  :verify_eligibility
@@ -54,8 +54,10 @@ Rails.application.routes.draw do
         get  :voucher
       end
     end
-    get '/cert_validation',    to: 'modtools#cert_validation',  as: :cert_validation
-    post '/validate_certs',    to: 'modtools#validate_certs',   as: :validate_certs
+    get '/badge_activation',   to: 'modtools#badge_activation',  as: :badge_activation
+    post '/activate_badge',    to: 'modtools#activate_badge',    as: :activate_badge
+    get '/cert_validation',    to: 'modtools#cert_validation',   as: :cert_validation
+    post '/validate_certs',    to: 'modtools#validate_certs',    as: :validate_certs
     get '/concern',            to: 'concerns#new',  as: :new_concern
     resources :concerns,       only: [ :index, :show, :create ] do
       member do

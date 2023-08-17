@@ -1,0 +1,27 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="inner flexbox vertical center">
+    <div class="control-panel flexbox vertical stretch">
+      <div class="flexbox vertical stretch">
+        <div class="panel-title">Badge Activation</div>
+        <form action="<%= validate_certs_path %>" id="activate_badge_form" method="POST" enctype="multipart/form-data" class="flexbox horizontal center wrap justify-space-between">
+          <div style="display:none">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          </div>
+          <div class="item flexbox vertical start flex-0">
+            <label for="activate_badge_twitch_username" class="text-field">Twitch Username</label>
+            <div class="flexbox horiztonal center">
+              <input id="activate_badge_twitch_username" name="activate_badge_twitch_username" class="text-field" type="text" autocomplete="off" data-url="<%= twitch_lookup_path %>" required tabindex="1">
+              <input id="activate_badge_twitch_id" name="activate_badge_twitch_id" type="text" value="">
+            </div>
+            <div id="activate_badge_twitch_username_status" class="status-response flexbox vertical end"></div>
+          </div>
+          <div class="activation-buttons flexbox horizontal center wrap">
+            <input id="activate_badge_submit" type="submit" class="button" value="Activate Badge" tabindex="2" disabled>
+          </div>
+        </form>
+        <div class=subheading>Instructions</div>
+        <div class="text-section">Note: Twitch user names are 4-25 alphanumeric characters (incl. underscore).</div>
+      </div>
+    </div>
+  </div>
+</div>

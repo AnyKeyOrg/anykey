@@ -7,6 +7,15 @@ class ModtoolsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_staff
   
+  
+  # GET: Show mod view with Twitch ID lookup interface
+  def badge_activation
+  end
+  
+  # POST: Set AnyKey Twitch badge and keep log if successful
+  def activate_badge
+  end
+  
   # GET: Show mod view with one page miniapp
   def cert_validation
   end

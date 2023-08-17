@@ -1,4 +1,93 @@
 /************************************/
+/*      Badge Activation Style      */
+/************************************/
+
+#backstage-container form#activate_badge_form {
+  margin-top: 1em;
+}
+
+#backstage-container form#activate_badge_form label.text-field {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+#backstage-container form#activate_badge_form input#activate_badge_twitch_username {
+  max-width: 16em;
+  color: var(--black-color);
+  background: var(--white-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  border: 3px solid var(--light-black-color);
+  outline: none;
+  padding: 0.5em 0.8em 0.5em 0.8em;
+}
+
+#backstage-container form#activate_badge_form input#activate_badge_twitch_username:hover,
+#backstage-container form#activate_badge_form input#activate_badge_twitch_username:focus {
+  border: 3px solid var(--bright-blue-color);
+}
+#backstage-container form#activate_badge_form input#activate_badge_twitch_id {
+  display: none;
+  margin-left: 0.6em;
+  padding: 3px 3px 2px 3px;
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 0.65em;
+  color: var(--white-color);
+  background: var(--twitch-purple-color);
+  border: none;
+  outline: none;
+  width: 6.5em;
+  text-align: center;
+}
+
+#backstage-container form#activate_badge_form .status-response {
+  font-family: var(--body-font), var(--icon-font);
+  font-weight: 500;
+  font-size: 0.8em;
+  margin-top: 0.8em;
+  height: 0.8em;
+}
+
+#backstage-container form#activate_badge_form .status-response.searching:before {
+  content: "\f002  Searching...";
+  color: var(--gray-color);
+}
+
+#backstage-container form#activate_badge_form .status-response.invalid:before {
+  content: "\f071  Invalid";
+  color: var(--bright-orange-color);
+}
+
+#backstage-container form#activate_badge_form .status-response.not-found:before {
+  content: "\f05e  Not Found";
+  color: var(--alert-red-color);
+}
+
+#backstage-container form#activate_badge_form .status-response.found:before {
+  content: "\f1e8  Found";
+  color: var(--bright-green-color);
+}
+
+#backstage-container .control-panel .subheading {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 1em;
+  margin-top: 1em;
+}
+
+#backstage-container .control-panel .text-section {
+  margin-top: 0.5em;
+  font-family: var(--body-font);
+  font-size: 0.9em;
+  width: 100%;
+}
+
+
+/************************************/
 /*      Cert Validation Style       */
 /************************************/
 

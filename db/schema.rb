@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_17_102446) do
+ActiveRecord::Schema.define(version: 2023_08_17_183458) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -162,6 +162,15 @@ ActiveRecord::Schema.define(version: 2023_08_17_102446) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "published", default: false
     t.datetime "published_on"
+  end
+
+  create_table "twitch_badge_activations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "twitch_username"
+    t.integer "twitch_id"
+    t.datetime "activated_on"
+    t.integer "activator_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "twitch_tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

@@ -1,0 +1,2 @@
+class TwitchBadgeActivation < ApplicationRecord
+end
