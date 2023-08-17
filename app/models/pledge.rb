@@ -47,8 +47,10 @@ class Pledge < ApplicationRecord
     self.first_name + ' ' + self.last_name
   end
   
-  def display_name
-    if !self.twitch_display_name.blank?
+  def leadboard_name
+    if self.badge_revoked
+      return '*******'
+    elsif !self.twitch_display_name.blank?
       return self.twitch_display_name
     else
       return self.first_name + ' ' + self.last_name.first + '.'
@@ -72,12 +74,21 @@ class Pledge < ApplicationRecord
   def self.cached_count
     Rails.cache.fetch(:pledge_count, expires_in: 1.day) do
       Pledge.count
-     end
+    end
   end
   
   def self.cached_leaders
-    Rails.cache.fetch(:pledge_leaders, expires_in: 6.hours) do
-      Pledge.order(referrals_count: :desc).where(badge_revoked: false).limit(10).to_a
+    Rails.cache.fetch(:pledge_leaders, expires_in: 1.day) do
+      # Compute the pledgers with the most referral during the current calendar year
+      leaders = Pledge.select("referrer_id, count(referrer_id) as counter").where('referrer_id IS NOT NULL AND signed_on >= ? AND signed_on < ?', Time.now.beginning_of_year, Time.now).group(:referrer_id).order(counter: :desc).limit(10)
+      
+      # Compose the leaderboard
+      leaderboard = []
+      leaders.each do |leader|
+        leaderboard << { leadboard_name: Pledge.find(leader[:referrer_id]).leadboard_name, referrals_count: leader[:counter] }
+      end
+      
+      leaderboard
     end
   end
   
