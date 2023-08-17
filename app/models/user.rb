@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :reviewed_reports, class_name: :Report, foreign_key: :reviewer_id
   has_many :reviewed_verifications, class_name: :Verification, foreign_key: :reviewer_id
   has_many :reviewed_concerns, class_name: :Concern, foreign_key: :reviewer_id
+  has_many :comments, class_name: :Comment, foreign_key: :commenter_id
 
   image_accessor :image
 
