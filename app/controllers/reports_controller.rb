@@ -35,12 +35,8 @@ class ReportsController < ApplicationController
   end
   
   def show
-    unless @report.reported_twitch_id == nil
-      @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
-    end
-    unless @report.reporter_twitch_id == nil
-      @reporter_pledge = Pledge.find_by(twitch_id: @report.reporter_twitch_id)
-    end
+    @pledge = @report.reported_pledge
+    @reporter_pledge = @report.reporter_pledge
     @related_reports = @report.related_reports
   end
   
@@ -68,7 +64,8 @@ class ReportsController < ApplicationController
       # Email notification to staff
       StaffMailer.notify_staff_new_report(@report).deliver_now
       
-      # TODO: Send confirmation receipt to reporter
+      # Send confirmation receipt to reporter
+      PledgeMailer.confirm_receipt(@report).deliver_now
       
       flash[:notice] = "You've successfully submitted the report. Thank you."
       redirect_to root_path

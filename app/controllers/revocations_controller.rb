@@ -9,9 +9,7 @@ class RevocationsController < ApplicationController
   around_action :display_timezone
   
   def new
-    if @report.reported_twitch_id == nil
-      redirect_to staff_index_path
-    elsif @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
+    if @pledge = @report.reported_pledge
       @revocation = Revocation.new
     else
       redirect_to staff_index_path
@@ -19,9 +17,7 @@ class RevocationsController < ApplicationController
   end
   
   def create
-    if @report.reported_twitch_id == nil
-      redirect_to staff_index_path
-    elsif @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
+    if @pledge = @report.reported_pledge
       @revocation = Revocation.new(revocation_params)
       @revocation.report = @report
       @revocation.pledge = @pledge
@@ -33,10 +29,10 @@ class RevocationsController < ApplicationController
         
         # Email reporter that action has been taken
         PledgeMailer.notify_reporter_revocation(@revocation).deliver_now
-                
+        
         # Revoke badge on Twitch (using allowlisted Helix v6 custom API endpoint)
         badge_result = HTTParty.delete(URI::Parser.new.escape("#{ENV['TWITCH_PLEDGE_BASE_URL']}?user_id=#{@pledge.twitch_id}&secret=#{ENV['TWITCH_PLEDGE_SECRET']}"), headers: {"Authorization": "Bearer #{TwitchToken.first.valid_token!}", "Client-ID": ENV['TWITCH_CLIENT_ID'], "Content-Type": "application/json"})
-
+        
         @pledge.badge_revoked = true
         @pledge.revoked_on    = Time.now
         @pledge.save

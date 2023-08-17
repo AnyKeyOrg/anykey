@@ -65,6 +65,18 @@ class Report < ApplicationRecord
     return (self.incident_description + " " + self.recommended_response).gsub(/[^\w\s]/,"").split.count
   end
   
+  def reported_pledge
+    unless self.reported_twitch_id == nil
+      Pledge.find_by(twitch_id: self.reported_twitch_id)
+    end
+  end
+  
+  def reporter_pledge
+    unless self.reporter_twitch_id == nil
+      Pledge.find_by(twitch_id: self.reporter_twitch_id)
+    end
+  end
+  
   def image_url(style = :thumb)
     if style == :original
       self.image.remote_url

@@ -9,9 +9,7 @@ class WarningsController < ApplicationController
   around_action :display_timezone
   
   def new
-    if @report.reported_twitch_id == nil
-      redirect_to staff_index_path
-    elsif @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
+    if @pledge = @report.reported_pledge
       @warning = ConductWarning.new
     else
       redirect_to staff_index_path
@@ -19,9 +17,7 @@ class WarningsController < ApplicationController
   end
   
   def create
-    if @report.reported_twitch_id == nil
-      redirect_to staff_index_path
-    elsif @pledge = Pledge.find_by(twitch_id: @report.reported_twitch_id)
+    if @pledge = @report.reported_pledge
       @warning = ConductWarning.new(conduct_warning_params)
       @warning.report = @report
       @warning.pledge = @pledge
@@ -49,7 +45,7 @@ class WarningsController < ApplicationController
       end
     else
       redirect_to staff_index_path
-    end
+    end 
   end
 
   protected
