@@ -1,6 +1,6 @@
 Hey <%= @verification.first_name %>,
 
-Our ComfyCrew has recently reviewed the status of your eligibility certificate issued on <%= l(@verification.reviewed_on, format: "%b. %-d, %Y") %>. After careful reconsideration, we've decided to withdraw your certificate for the following reason:
+Our ComfyCrew has withdrawn your eligibility certificate (code: <%= @verification.identifier %>) for the following reason:
 
 <%= @verification.refusal_reason %>
 
