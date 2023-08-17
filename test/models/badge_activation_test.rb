@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TwitchBadgeActivationTest < ActiveSupport::TestCase
+class BadgeActivationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

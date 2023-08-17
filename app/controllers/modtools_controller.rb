@@ -10,10 +10,42 @@ class ModtoolsController < ApplicationController
   
   # GET: Show mod view with Twitch ID lookup interface
   def badge_activation
+    @badge_activation = BadgeActivation.new
   end
   
   # POST: Set AnyKey Twitch badge and keep log if successful
   def activate_badge
+    unless params[:activate_badge_twitch_username].blank? || params[:activate_badge_twitch_id].blank?
+      # Attempt to set badge on Twitch (using allowlisted Helix v6 custom API endpoint)
+      url = "#{ENV['TWITCH_PLEDGE_BASE_URL']}"
+      headers = {"Authorization": "Bearer #{TwitchToken.first.valid_token!}", "Client-ID": ENV['TWITCH_CLIENT_ID'], "Content-Type": "application/json"}
+      body = {"user_id": "#{params[:activate_badge_twitch_id]}", "secret": "#{ENV['TWITCH_PLEDGE_SECRET']}"}.to_json
+      
+      badge_result = HTTParty.post(URI::Parser.new.escape(url), headers: headers, body: body)
+      
+      unless badge_result["error"].present?
+        @badge_activation = BadgeActivation.new(twitch_username: params[:activate_badge_twitch_username], twitch_id: params[:activate_badge_twitch_id])
+        @badge_activation.activator = current_user
+        @badge_activation.activated_on = Time.now
+        
+        if @badge_activation.save
+          flash[:notice] = "You activated the Twitch badge for #{@badge_activation.twitch_username}."
+          redirect_to badge_activation_path
+        else
+          flash.now[:alert] ||= ""
+          @badge_activation.errors.full_messages.each do |message|
+            flash.now[:alert] << message + ". "
+          end
+          render(action: :badge_activation)
+        end
+      else
+        flash.now[:alert] = "Badge could not be activated."
+        render(action: :badge_activation)
+      end
+    else
+      flash.now[:alert] = "Twitch username and ID are required."
+      render(action: :badge_activation)
+    end
   end
   
   # GET: Show mod view with one page miniapp

@@ -25,7 +25,7 @@ class AffiliatesController < ApplicationController
     @affiliate = Affiliate.new(affiliate_params)
   
     if @affiliate.save
-      flash[:notice] = "You've added a new affilate."
+      flash[:notice] = "You've added a new affiliate."
       redirect_to affiliates_path(staff: true)
     else      
       flash.now[:alert] ||= ""
