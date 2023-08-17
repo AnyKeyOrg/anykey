@@ -1,7 +1,7 @@
 # Preview all emails at http://localhost:3000/rails/mailers/staff_mailer
 class StaffMailerPreview < ActionMailer::Preview
   def notify_staff_new_report
-    StaffMailer.notify_staff_new_report(Report.first)
+    StaffMailer.notify_staff_new_report(Report.last)
   end
    
   def send_weekly_stats_update
