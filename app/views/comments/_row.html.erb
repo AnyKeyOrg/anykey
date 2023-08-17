@@ -3,7 +3,7 @@
   <div class="flexbox vertical">
     <div class="row-heading flexbox horizontal center">
       <div class="row-title flexbox horizontal center">
-        <%= comment.commenter.display_name %>
+        <%= link_to(comment.commenter.display_name, user_path(comment.commenter, back: request.fullpath)) %>
       </div>
       <div class="row-detail">
         <%= time_ago_in_words(comment.posted_on) + " ago" %>

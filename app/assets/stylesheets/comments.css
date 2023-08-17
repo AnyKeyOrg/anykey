@@ -24,12 +24,16 @@
 }
 
 #backstage-container .comment-row .row-heading {
-  margin-top: 0.35em;
+  margin-top: 0.1em;
 }
 
 #backstage-container .comment-row .row-title {
   font-weight: 500;
   font-size: 0.9em;
+}
+
+#backstage-container .comment-row .row-title a:hover {
+  color: var(--bright-orange-color);
 }
 
 #backstage-container .comment-row .row-detail {
