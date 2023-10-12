@@ -20,5 +20,6 @@
   <input id="ignore_submit" name="commit" type="submit" class="ignore-button button" value="Ignore" data-confirm="<%="Are you sure you want to ignore #{@verification.full_name}'s verification request?\n\nRemember, this will permanently destroy their uploaded documents and cannot be reversed 🤖" %>" tabindex="2">
   <%= link_to('Back', params[:back].present? ? params[:back] : verifications_path, class: "back-button mini button", tabindex: "4") %>
 </form>
+<%= render(partial: "verifications/requester_details") %>
 <%= render(partial: "verifications/related_requests") %>
 <%= render(partial: "verifications/comments")%>

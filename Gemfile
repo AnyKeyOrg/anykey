@@ -69,6 +69,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'dotenv-rails'
 gem 'pagy'
+gem 'ahoy_matey'
 
 # Using Dragonfly v0.9 for files & images
 # Because I can never get v1.0 to work with PJ's caching solution

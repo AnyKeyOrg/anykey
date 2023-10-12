@@ -37,5 +37,6 @@
     <%= link_to('Back', params[:back].present? ? params[:back] : verifications_path, class: "back-button mini button", tabindex: "1" ) %>
   </div>
 <% end %>
+<%= render(partial: "verifications/requester_details") %>
 <%= render(partial: "verifications/related_requests") %>
 <%= render(partial: "verifications/comments")%>

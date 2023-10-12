@@ -71,6 +71,10 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
+    ahoy_matey (5.0.2)
+      activesupport (>= 6.1)
+      device_detector (>= 1)
+      safely_block (>= 0.4)
     aliyun-sdk (0.8.0)
       nokogiri (~> 1.6)
       rest-client (~> 2.0)
@@ -101,6 +105,7 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     declarative (0.0.20)
+    device_detector (1.1.1)
     devise (4.9.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -463,6 +468,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
+    safely_block (0.4.0)
     signet (0.17.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
@@ -508,6 +514,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ahoy_matey
   aws-sdk-s3
   bootsnap (>= 1.4.2)
   byebug

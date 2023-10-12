@@ -62,6 +62,9 @@ class Verification < ApplicationRecord
   
   has_many :comments, as: :commentable
   
+  # Tracks user agent info for incoming requests
+  visitable :ahoy_visit
+    
   # Non-sequential identifier scheme
   uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
 
