@@ -1,10 +1,15 @@
 <hr class="spacer">
-<% if @verification.ahoy_visit.present? %>
 <div class="verification-item flush-top flexbox vertical stretch flex-1">
   <div class="item-title large flexbox horizontal center">
     <span class="icon">&#xf109;</span> Requester Device Details
   </div>
+  <% unless @verification.ahoy_visit.present? %>
+  <div class="item-text large empty">
+    No device details available for this request.
+  </div>
+  <% end %>
 </div>
+<% if @verification.ahoy_visit.present? %>
 <div class="flexbox horizontal end wrap justify-space-between">
   <div class="verification-item half-width flexbox vertical stretch">
     <div class="item-title">IP Address</div>
@@ -25,16 +30,6 @@
   <div class="verification-item flexbox vertical stretch">
     <div class="item-title">User Agent</div>
     <div class="item-text small"><%= @verification.ahoy_visit.user_agent %></div>
-  </div>  
-</div>
-<% else %>
-<div class="verification-item flush-top flexbox vertical stretch flex-1">
-  <div class="item-title large flexbox horizontal center">
-    <span class="icon">&#xf109;</span> Requester Device Details
-  </div>
-  <div class="item-text large empty">
-    No device details available for this request.
   </div>
 </div>
 <% end %>
-
