@@ -162,8 +162,6 @@ ActiveRecord::Schema.define(version: 2023_10_16_193538) do
     t.datetime "twitch_authed_on"
     t.integer "referrer_id"
     t.integer "referrals_count", default: 0
-    t.bigint "ahoy_visit_id"
-    t.index ["ahoy_visit_id"], name: "index_pledges_on_ahoy_visit_id"
     t.index ["email"], name: "index_pledges_on_email"
     t.index ["identifier"], name: "index_pledges_on_identifier"
     t.index ["twitch_id"], name: "index_pledges_on_twitch_id"
