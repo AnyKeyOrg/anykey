@@ -25,6 +25,9 @@ class Pledge < ApplicationRecord
   belongs_to :referrer, class_name: :Pledge, foreign_key: :referrer_id, optional: true
   has_many :referrals, class_name: :Pledge, foreign_key: :referrer_id
   
+  # Tracks user agent info for incoming pledges
+  visitable :ahoy_visit
+  
   # Non-sequential identifier scheme   
   uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
   

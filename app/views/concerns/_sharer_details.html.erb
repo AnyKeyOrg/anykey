@@ -1,0 +1,35 @@
+<hr class="spacer">
+<div class="concern-item flush-top flexbox vertical stretch flex-1">
+  <div class="item-title large flexbox horizontal center">
+    <span class="icon">&#xf109;</span> Sharer Device Details
+  </div>
+  <% unless @concern.ahoy_visit.present? %>
+  <div class="item-text large empty">
+    No device details available for this concern.
+  </div>
+  <% end %>
+</div>
+<% if @concern.ahoy_visit.present? %>
+<div class="flexbox horizontal end wrap justify-space-between">
+  <div class="concern-item half-width flexbox vertical stretch">
+    <div class="item-title">IP Address</div>
+    <div class="item-text"><%= @concern.ahoy_visit.ip %></div>
+  </div>
+  <div class="concern-item half-width flexbox vertical stretch">
+    <div class="item-title">Browser</div>
+    <div class="item-text"><%= @concern.ahoy_visit.browser %></div>
+  </div>
+  <div class="concern-item half-width flexbox vertical stretch">
+    <div class="item-title">OS</div>
+    <div class="item-text"><%= @concern.ahoy_visit.os %></div>
+  </div>
+  <div class="concern-item half-width flexbox vertical stretch">
+    <div class="item-title">Device Type</div>
+    <div class="item-text"><%= @concern.ahoy_visit.device_type %></div>
+  </div>
+  <div class="concern-item flexbox vertical stretch">
+    <div class="item-title">User Agent</div>
+    <div class="item-text small"><%= @concern.ahoy_visit.user_agent %></div>
+  </div>
+</div>
+<% end %>

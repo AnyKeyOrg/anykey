@@ -58,6 +58,9 @@ class Concern < ApplicationRecord
   
   has_many :comments, as: :commentable
   
+  # Tracks user agent info for incoming concerns
+  visitable :ahoy_visit
+  
   scope :open,         lambda { where(status: :open) }
   scope :dismissed,    lambda { where(status: :dismissed) }
   scope :reviewed,     lambda { where(status: :reviewed) }

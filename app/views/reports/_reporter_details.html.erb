@@ -1,0 +1,35 @@
+<hr class="spacer">
+<div class="report-item flush-top flexbox vertical stretch flex-1">
+  <div class="item-title large flexbox horizontal center">
+    <span class="icon">&#xf109;</span> Reporter Device Details
+  </div>
+  <% unless @report.ahoy_visit.present? %>
+  <div class="item-text large empty">
+    No device details available for this report.
+  </div>
+  <% end %>
+</div>
+<% if @report.ahoy_visit.present? %>
+<div class="flexbox horizontal end wrap justify-space-between">
+  <div class="report-item half-width flexbox vertical stretch">
+    <div class="item-title">IP Address</div>
+    <div class="item-text"><%= @report.ahoy_visit.ip %></div>
+  </div>
+  <div class="report-item half-width flexbox vertical stretch">
+    <div class="item-title">Browser</div>
+    <div class="item-text"><%= @report.ahoy_visit.browser %></div>
+  </div>
+  <div class="report-item half-width flexbox vertical stretch">
+    <div class="item-title">OS</div>
+    <div class="item-text"><%= @report.ahoy_visit.os %></div>
+  </div>
+  <div class="report-item half-width flexbox vertical stretch">
+    <div class="item-title">Device Type</div>
+    <div class="item-text"><%= @report.ahoy_visit.device_type %></div>
+  </div>
+  <div class="report-item flexbox vertical stretch">
+    <div class="item-title">User Agent</div>
+    <div class="item-text small"><%= @report.ahoy_visit.user_agent %></div>
+  </div>
+</div>
+<% end %>

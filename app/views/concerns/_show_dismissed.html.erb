@@ -14,4 +14,5 @@
   <%= link_to("Undismiss", undismiss_concern_path(@concern), method: :post, class: 'undismiss-button button', tabindex: "2") %>
   <%= link_to('Back', params[:back].present? ? params[:back] : concerns_path, class: "back-button mini button", tabindex: "1") %>
 </div>
+<%= render(partial: "concerns/sharer_details")%>
 <%= render(partial: "concerns/comments")%>

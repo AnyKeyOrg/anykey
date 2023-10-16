@@ -41,6 +41,9 @@ class Report < ApplicationRecord
                            
   image_accessor :image
   
+  # Tracks user agent info for incoming reports
+  visitable :ahoy_visit
+  
   scope :dismissed,    lambda { where(dismissed: true) }
   scope :warned,       lambda { where(warned: true) }
   scope :revoked,      lambda { where(revoked: true) }

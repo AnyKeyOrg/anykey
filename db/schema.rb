@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_12_175536) do
+ActiveRecord::Schema.define(version: 2023_10_16_193538) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -132,6 +132,8 @@ ActiveRecord::Schema.define(version: 2023_10_12_175536) do
     t.integer "reviewer_id"
     t.integer "comments_count", default: 0
     t.integer "screenshots_submitted_count", default: 0
+    t.bigint "ahoy_visit_id"
+    t.index ["ahoy_visit_id"], name: "index_concerns_on_ahoy_visit_id"
   end
 
   create_table "conduct_warnings", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
@@ -160,6 +162,8 @@ ActiveRecord::Schema.define(version: 2023_10_12_175536) do
     t.datetime "twitch_authed_on"
     t.integer "referrer_id"
     t.integer "referrals_count", default: 0
+    t.bigint "ahoy_visit_id"
+    t.index ["ahoy_visit_id"], name: "index_pledges_on_ahoy_visit_id"
     t.index ["email"], name: "index_pledges_on_email"
     t.index ["identifier"], name: "index_pledges_on_identifier"
     t.index ["twitch_id"], name: "index_pledges_on_twitch_id"
@@ -185,6 +189,8 @@ ActiveRecord::Schema.define(version: 2023_10_12_175536) do
     t.integer "reporter_twitch_id"
     t.integer "reported_twitch_id"
     t.integer "incident_stream_twitch_id"
+    t.bigint "ahoy_visit_id"
+    t.index ["ahoy_visit_id"], name: "index_reports_on_ahoy_visit_id"
     t.index ["reported_twitch_id"], name: "index_reports_on_reported_twitch_id"
     t.index ["reporter_email"], name: "index_reports_on_reporter_email"
     t.index ["reporter_twitch_id"], name: "index_reports_on_reporter_twitch_id"

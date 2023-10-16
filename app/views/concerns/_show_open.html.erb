@@ -18,4 +18,5 @@
   <%= link_to("Dismiss", dismiss_concern_path(@concern), method: :post, class: 'dismiss-button button', tabindex: "3") %>
   <%= link_to('Back', params[:back].present? ? params[:back] : concerns_path, class: "back-button mini button", tabindex: "4") %>
 </form>
+<%= render(partial: "concerns/sharer_details")%>
 <%= render(partial: "concerns/comments")%>
