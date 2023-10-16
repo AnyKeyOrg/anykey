@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_16_193538) do
+ActiveRecord::Schema.define(version: 2023_10_16_205711) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -162,6 +162,8 @@ ActiveRecord::Schema.define(version: 2023_10_16_193538) do
     t.datetime "twitch_authed_on"
     t.integer "referrer_id"
     t.integer "referrals_count", default: 0
+    t.bigint "ahoy_visit_id"
+    t.index ["ahoy_visit_id"], name: "index_pledges_on_ahoy_visit_id"
     t.index ["email"], name: "index_pledges_on_email"
     t.index ["identifier"], name: "index_pledges_on_identifier"
     t.index ["twitch_id"], name: "index_pledges_on_twitch_id"
