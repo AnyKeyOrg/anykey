@@ -131,11 +131,11 @@ class Verification < ApplicationRecord
   # Sort by most frequent matches across paramaters
   # Return ordered collection of uniques
   def related_requests
-    reqs = (Verification.where.not(id: self.id).where('lower(email) LIKE "%#{self.email.downcase}%"') +
-            Verification.where.not(id: self.id).where('lower(first_name) LIKE "%#{self.first_name.downcase}%"') +
-            Verification.where.not(id: self.id).where('lower(last_name) LIKE "%#{self.last_name.downcase}%"') +
-            Verification.where.not(id: self.id).where('lower(discord_username) LIKE "%#{self.discord_username.downcase}%"') +
-            Verification.where.not(id: self.id).where('lower(player_id) LIKE "%#{self.player_id.downcase}%"'))
+    reqs = (Verification.where.not(id: self.id).where("lower(email) LIKE '%#{self.email.downcase}%'") +
+            Verification.where.not(id: self.id).where("lower(first_name) LIKE '%#{self.first_name.downcase.gsub(/'/,'')}%'") +
+            Verification.where.not(id: self.id).where("lower(last_name) LIKE '%#{self.last_name.downcase.gsub(/'/,'')}%'") +
+            Verification.where.not(id: self.id).where("lower(discord_username) LIKE '%#{self.discord_username.downcase}%'") +
+            Verification.where.not(id: self.id).where("lower(player_id) LIKE '%#{self.player_id.downcase}%'"))
     
     reqs.uniq.sort_by { |e| -reqs.count(e)}
   end
