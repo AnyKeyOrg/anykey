@@ -1,4 +1,4 @@
-# This task imports past pledges from a CSV file using STDIN
+# This task validates eligibility for a batch of certificates from a CSV file using STDIN
 # It will work on Heroku as well as in development
 # Local usage: rake verifications:validate_certificates < /local/path/to/player_data.csv
 # Remote usage: heroku run rake verifications:validate_certificates --no-tty < /local/path/to/player_data.csv > /local/path/for/results.csv
