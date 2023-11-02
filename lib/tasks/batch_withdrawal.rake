@@ -21,9 +21,9 @@ namespace :verifications do
         cert_code = item[:certificate_code].upcase
 
         # Silences output of SQL queries when run on Heroku
-        Rails.logger.silence {
+        Rails.logger.silence do
           verification = Verification.find_by(identifier: cert_code)
-        }
+        end
         
         if verification.blank?
           puts "#{cert_code} cannot be withdrawn, it does not exist"
