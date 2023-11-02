@@ -25,7 +25,7 @@ namespace :verifications do
           puts "#{cert_code} cannot be withdrawn, it does not exist"
           # Cert code xyz does not exist
         elsif verification.withdrawn?
-          puts "#{cert_code} cannot be withdrawn, it already was"
+          puts "#{cert_code} cannot be withdrawn, it was already"
         elsif verification.denied? || verification.ignored?
           puts "#{cert_code} cannot be withdrawn, it was #{verification.status}"
         elsif verification.pending?
