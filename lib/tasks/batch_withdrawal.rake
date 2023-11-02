@@ -37,6 +37,8 @@ namespace :verifications do
         elsif verification.pending?
           puts "#{cert_code} cannot be withdrawn, it is pending"
         elsif verification.eligible?
+          # TODO: silence SQL query output here
+          # Or... remove from response using RegEx: ^.*?D,.*?$\n
           if verification.update(status: :withdrawn, refusal_reason: "Quietly withdrawn in batch cleanup.", withdrawer: User.first, withdrawn_on: Time.now)
             puts "#{cert_code} was quietly withdrawn"
           else
