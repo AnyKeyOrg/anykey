@@ -20,6 +20,8 @@ namespace :verifications do
       unless item[:certificate_code].blank?
         cert_code = item[:certificate_code].upcase
 
+        verification = nil
+        
         # Silences output of SQL queries when run on Heroku
         Rails.logger.silence do
           verification = Verification.find_by(identifier: cert_code)
