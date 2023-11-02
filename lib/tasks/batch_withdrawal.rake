@@ -1,7 +1,7 @@
 # This task queitly withdraws a batch of certificates from a CSV file using STDIN
 # It will work on Heroku as well as in development
 # Local usage: rake verifications:batch_withdrawal < /local/path/to/cert_batch.csv
-# Remote usage: heroku run rake verifications:batch_withdrawal < /local/path/to/cert_batch.csv
+# Remote usage: heroku run rake verifications:batch_withdrawal --no-tty < /local/path/to/cert_batch.csv
 
 namespace :verifications do
 
@@ -19,8 +19,12 @@ namespace :verifications do
       
       unless item[:certificate_code].blank?
         cert_code = item[:certificate_code].upcase
-        verification = Verification.find_by(identifier: cert_code)
 
+        # Silences output of SQL queries when run on Heroku
+        Rails.logger.silence {
+          verification = Verification.find_by(identifier: cert_code)
+        }
+        
         if verification.blank?
           puts "#{cert_code} cannot be withdrawn, it does not exist"
           # Cert code xyz does not exist
