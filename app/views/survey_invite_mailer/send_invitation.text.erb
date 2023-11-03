@@ -1,6 +1,6 @@
 Hey <%= @survey_invite.email.gsub(/\@.*/,"") %>,
 
-We are continually working to improve our <%= SurveyInvite::SURVEYABLE_SYSTEMS[@survey_invite.surveyable_type.downcase.to_sym] %> and today we want to hear from you directly.
+We are continually working to improve our <%= SurveyInvite::SURVEYABLE_SYSTEMS[@survey_invite.surveyable_type.downcase.to_sym] %> based on feedback from the community. Today we are inviting you to give us direct input.
 
 Please take our <%= @survey_invite.survey_title %> to share your perspective about our system and weigh in on changes we are considering.
 
