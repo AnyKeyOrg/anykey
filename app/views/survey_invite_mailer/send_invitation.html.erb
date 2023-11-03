@@ -1,0 +1,11 @@
+Hey <%= @survey_invite.email.gsub(/\@.*/,"") %>,
+<br><br>
+We are continually working to improve our <%= SurveyInvite::SURVEYABLE_SYSTEMS[@survey_invite.surveyable_type.downcase.to_sym] %> based on feedback from the community. Today we are inviting you to give us direct input.
+<br><br>
+Please take our <%= link_to(@survey_invite.survey_title, @survey_invite.url_with_code) %> to share your perspective about our system and weigh in on changes we are considering.
+<br><br>
+Participate using your unique code <strong><%= @survey_invite.survey_code %></strong> by visiting: <%= link_to(@survey_invite.url_with_code, @survey_invite.url_with_code) %>
+<br><br>
+If you have any questions to ask or further information to share, please drop by the #support-lounge in our <%= link_to("Discord server", "https://discord.gg/Vpn8QQzTtS") %> to start a ModMail conversation with us.
+<br><br>
+The AnyKey team looks forwarding to hearing from you - GLHF!

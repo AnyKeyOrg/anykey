@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_16_205711) do
+ActiveRecord::Schema.define(version: 2023_11_03_174246) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -216,6 +216,17 @@ ActiveRecord::Schema.define(version: 2023_10_16_205711) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "published", default: false
     t.datetime "published_on"
+  end
+
+  create_table "survey_invites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email"
+    t.string "survey_code"
+    t.string "surveyable_type"
+    t.string "survey_title"
+    t.string "survey_url"
+    t.datetime "sent_on"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "twitch_tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
