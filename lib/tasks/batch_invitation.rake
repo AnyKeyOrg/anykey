@@ -8,7 +8,8 @@
 # "surveyable_type": e.g. Verification, Pledge, Report, Concern
 # "surveyable_criteria": e.g. where('created_at >= ? AND created_at < ?', Time.now.beginning_of_year, Time.now.end_of_year).order(created_at: :desc)
 # "survey_title": e.g. 2020 Year End
-# "survey_url": e.g. https://forms.gle/12345678
+# "survey_url": e.g. https://docs.google.com/forms/<IDENTIFIER>/viewform?usp=pp_url&entry.<ID>=<survey_code>
+# Note: that everything but the survey_code we generate should be included in
 
 namespace :survey_invites do
 

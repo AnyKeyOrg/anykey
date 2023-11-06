@@ -23,8 +23,8 @@ class SurveyInvite < ApplicationRecord
 
 
   # Google Form pre-fille links look like:
-  # https://docs.google.com/forms/IDENTIFIER/viewform?usp=pp_url&entry.IDNUMBER=DATA
-  # Admins should provide the full link apart from DATA as the survey_url
+  # https://docs.google.com/forms/<IDENTIFIER>/viewform?usp=pp_url&entry.<ID>=<survey_code>
+  # Admins should provide the full link apart from survey_code as the survey_url
   def url_with_code
     self.survey_url+self.survey_code
   end
