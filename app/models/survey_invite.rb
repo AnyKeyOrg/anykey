@@ -21,8 +21,12 @@ class SurveyInvite < ApplicationRecord
   
   uniquify :survey_code, length: 6, chars: ('A'..'Z').to_a + ('0'..'9').to_a
 
+
+  # Google Form pre-fille links look like:
+  # https://docs.google.com/forms/IDENTIFIER/viewform?usp=pp_url&entry.IDNUMBER=DATA
+  # Admins should provide the full link apart from DATA as the survey_url
   def url_with_code
-    self.survey_url+'?code='+self.survey_code
+    self.survey_url+self.survey_code
   end
 
 end
