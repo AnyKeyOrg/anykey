@@ -20,53 +20,56 @@ namespace :survey_invites do
     require 'json'
     require 'uri'
     
-    puts "Determining eligible participants..."
+    # Silences output of SQL queries when run on Heroku
+    Rails.logger.silence do
+      puts "Determining eligible participants..."
 
-    survey_params = JSON.parse(STDIN.read).symbolize_keys
+      survey_params = JSON.parse(STDIN.read).symbolize_keys
 
-    # Gentle checks ensures admin does not accidentally create nonsenical/destructive chain of commands
-    if survey_params[:surveyable_type].blank?
-      puts "ERORR: `surveyable_type` cannot be blank. Process halting."
-    elsif !["Verification", "Pledge", "Report", "Concern"].map {|t| t == survey_params[:surveyable_type] }.include?(true) 
-      puts "ERORR: `surveyable_type` is not valid. Process halting."  
-    elsif survey_params[:surveyable_criteria].blank?
-      puts "ERORR: `surveyable_criteria` cannot be blank. Process halting."
-    elsif !survey_params[:surveyable_criteria].start_with?("where")
-      puts "ERORR: `surveyable_criteria` must begin with `where`. Process halting."
-    elsif survey_params[:survey_title].blank?
-      puts "ERORR: `survey_title` cannot be blank. Process halting."
-    elsif survey_params[:survey_url].blank?
-      puts "ERORR: `survey_url` cannot be blank. Process halting."
-    elsif !valid_url?(survey_params[:survey_url])
-      puts "ERORR: `survey_url` must be a valid URL. Process halting."
-    else
-      participants = eval "#{survey_params[:surveyable_type]}.#{survey_params[:surveyable_criteria]}" 
+      # Gentle checks ensures admin does not accidentally create nonsenical/destructive chain of commands
+      if survey_params[:surveyable_type].blank?
+        puts "ERORR: `surveyable_type` cannot be blank. Process halting."
+      elsif !["Verification", "Pledge", "Report", "Concern"].map {|t| t == survey_params[:surveyable_type] }.include?(true)
+        puts "ERORR: `surveyable_type` is not valid. Process halting."
+      elsif survey_params[:surveyable_criteria].blank?
+        puts "ERORR: `surveyable_criteria` cannot be blank. Process halting."
+      elsif !survey_params[:surveyable_criteria].start_with?("where")
+        puts "ERORR: `surveyable_criteria` must begin with `where`. Process halting."
+      elsif survey_params[:survey_title].blank?
+        puts "ERORR: `survey_title` cannot be blank. Process halting."
+      elsif survey_params[:survey_url].blank?
+        puts "ERORR: `survey_url` cannot be blank. Process halting."
+      elsif !valid_url?(survey_params[:survey_url])
+        puts "ERORR: `survey_url` must be a valid URL. Process halting."
+      else
+        participants = eval "#{survey_params[:surveyable_type]}.#{survey_params[:surveyable_criteria]}"
 
-      emails = participants.pluck(:email).uniq
+        emails = participants.pluck(:email).uniq
       
-      puts "#{participants.count} #{survey_params[:surveyable_type].downcase.pluralize} matched the criteria"
+        puts "#{participants.count} #{survey_params[:surveyable_type].downcase.pluralize} matched the criteria"
       
-      puts "#{emails.count} unique email addresses identified"
+        puts "#{emails.count} unique email addresses identified"
 
-      puts emails
+        puts emails
       
-      puts "Sending batch of invitations..."
+        puts "Sending batch of invitations..."
     
-      emails.each do |email|
-        survey_invite = SurveyInvite.new(email: email,
-                                         surveyable_type: survey_params[:surveyable_type],
-                                         survey_title: survey_params[:survey_title],
-                                         survey_url: survey_params[:survey_url],
-                                         sent_on: Time.now)
-        if survey_invite.save        
-          SurveyInviteMailer.send_invitation(survey_invite).deliver_now
-          puts "Sent survey invite to #{survey_invite.email}"
-        else
-          puts "Something went wrong creating the invite for #{email}"
-        end  
-      end
+        emails.each do |email|
+          survey_invite = SurveyInvite.new(email: email,
+                                           surveyable_type: survey_params[:surveyable_type],
+                                           survey_title: survey_params[:survey_title],
+                                           survey_url: survey_params[:survey_url],
+                                           sent_on: Time.now)
+          if survey_invite.save        
+            SurveyInviteMailer.send_invitation(survey_invite).deliver_now
+            puts "Sent survey invite to #{survey_invite.email}"
+          else
+            puts "Something went wrong creating the invite for #{email}"
+          end  
+        end
       
-      puts "Process complete."
+        puts "Process complete."
+      end
     end
   end
 
