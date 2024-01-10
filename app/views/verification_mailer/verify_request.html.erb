@@ -27,19 +27,6 @@
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <strong>Discord</strong><br>
-      <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <tr>
-          <td width="24" height="26">
-            <img src="https://anykey.org/images/discord.png" width="20px">
-          </td>
-          <td valign="top">
-            <%= @verification.discord_username %>
-          </td>
-        </tr>
-      </table>
-    </td>
-    <td width="50%" valign="top">
       <strong><%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %></strong><br>
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -52,15 +39,32 @@
         </tr>
       </table>
     </td>
+    <td width="50%" valign="top">
+      <strong>Discord</strong><br>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="24" height="26">
+            <img src="https://anykey.org/images/discord.png" width="20px">
+          </td>
+          <td valign="top">
+            <%= @verification.discord_username %>
+          </td>
+        </tr>
+      </table>
+    </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <strong>Gender</strong><br>
-      <%= @verification.gender %>
+      <strong>Date of Birth</strong><br>
+      <% if @verification.birth_date.present? %>
+      <%= l(@verification.birth_date, format: "%B %-d, %Y") %>
+      <% else %>
+      Unknown
+      <% end %>
     </td>
     <td width="50%" valign="top">
-      <strong>Pronouns</strong><br>
-      <%= @verification.pronouns %>
+      <strong>Gender & Pronouns</strong><br>
+      <%= @verification.gender %> (<%= @verification.pronouns %>)
     </td>
   </tr>
   <tr>
@@ -70,6 +74,11 @@
     </td>
     <td>
       <img src="https://anykey.org/images/eligible.png" width="160px" class="cert-stamp">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <span class="small red">Expires on <%= l(@verification.reviewed_on+1.year, format: "%B %-d, %Y") %></span>
     </td>
   </tr>
 </table>

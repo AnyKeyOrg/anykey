@@ -5,20 +5,26 @@ AnyKey issued on <%= l(@verification.reviewed_on, format: "%B %-d, %Y") %>
 Full Name
 <%= @verification.full_name %>
 
-Discord
-<%= @verification.discord_username %>
-
-Gender
-<%= @verification.gender %>
-
 Email
 <%= @verification.email %>
 
 <%= Verification::PLAYER_ID_TYPES[@verification.player_id_type.to_sym] %>
 <%= @verification.player_id %>
 
-Pronouns
-<%= @verification.pronouns %>
+Discord
+<%= @verification.discord_username %>
+
+Date of Birth
+<% if @verification.birth_date.present? %>
+<%= l(@verification.birth_date, format: "%B %-d, %Y") %>
+<% else %>
+Unknown
+<% end %>
+
+Gender & Pronouns
+<%= @verification.gender %> (<%= @verification.pronouns %>)
 
 Certificate Code
 <%= @verification.identifier %>
+
+Expires on <%= l(@verification.reviewed_on+1.year, format: "%B %-d, %Y") %>
