@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_03_174246) do
+ActiveRecord::Schema.define(version: 2024_01_10_174212) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -298,6 +298,7 @@ ActiveRecord::Schema.define(version: 2023_11_03_174246) do
     t.boolean "watched", default: false
     t.integer "comments_count", default: 0
     t.bigint "ahoy_visit_id"
+    t.date "birth_date"
     t.index ["ahoy_visit_id"], name: "index_verifications_on_ahoy_visit_id"
     t.index ["identifier"], name: "index_verifications_on_identifier"
   end

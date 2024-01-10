@@ -37,6 +37,7 @@ class Verification < ApplicationRecord
   validates_presence_of :first_name,
                         :last_name,
                         :email,
+                        :birth_date,
                         :discord_username,
                         :player_id_type,
                         :player_id,
@@ -82,6 +83,10 @@ class Verification < ApplicationRecord
                                                    lower(player_id) LIKE :search OR
                                                    lower(identifier) LIKE :search",
                                                    search: "%#{search.downcase}%") }
+
+  # Param used on form front-end as persuaisve UX
+  # Not actually stored or validated at the model level
+  attr_accessor :player_id_and_discord
   
   def to_param
     identifier
