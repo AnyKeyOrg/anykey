@@ -1,7 +1,7 @@
 Hey <%= @verification.first_name %>,
 <br><br>
-Our ComfyCrew has completed their review of your eligibility verification request submitted on <%= l(@verification.requested_on, format: "%b. %-d, %Y") %>. After careful consideration of your materials, we've decided to deny your application for the following reason:
+Our ComfyCrew has completed their review of your eligibility verification request submitted on <%= l(@verification.requested_on, format: "%b. %-d, %Y") %>. After careful consideration of your materials, we are unable to approve your application for the following reason:
 <br><br>
-<%= @verification.refusal_reason %>
+<span style="white-space:preserve;"><%= @verification.refusal_reason %></span>
 <br><br>
-If you have any questions about this decision, you can drop by the #verification-lounge in our <%= link_to("Discord server", "https://discord.gg/Vpn8QQzTtS") %> to ask.
+If you have questions or need assistance, you can drop by the #verification-lounge in our <%= link_to("Discord server", "https://discord.gg/Vpn8QQzTtS") %> to start a ModMail conversation with us.
