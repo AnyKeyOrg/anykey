@@ -67,7 +67,7 @@ class Verification < ApplicationRecord
   visitable :ahoy_visit
     
   # Non-sequential identifier scheme
-  uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
+  uniquify :identifier, length: 8, chars: ('A'..'Z').to_a
 
   scope :pending,         lambda { where(status: :pending) }  
   scope :voice_requested, lambda { where(status: :pending, voice_requested: true) }
