@@ -24,7 +24,7 @@
     <% if @verification.birth_date.present? %>
     <div class="item-text"><%= l(@verification.birth_date, format: "%B %-d, %Y") %></div>
     <% else %>
-    <div class="item-text empty">Not provided</div>
+    <div class="item-text empty">Unknown</div>
     <% end %>
   </div>
   <div class="verification-item half-width flexbox vertical stretch">
