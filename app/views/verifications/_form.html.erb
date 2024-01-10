@@ -7,7 +7,7 @@
   </div>
   <%= display_alerts %>
   <div class="intro">
-    Submit the full name, date of birth, email, Discord username, player ID, gender, and pronouns that you would like to appear on the confirmation certificate you will receive if your request is verified as eligible.
+    Submit the full name, email, date of birth, player ID, Discord username, gender, and pronouns that you would like to appear on the confirmation certificate you will receive if your request is verified as eligible.
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
@@ -41,22 +41,22 @@
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
-      <label for="gender" class="text-field">What is your gender?</label>
-      <input id="verification_gender" name="verification[gender]" class="text-field" type="text" value="<%= @verification.gender %>" autocomplete="off" required tabindex="7">
+      <label for="discord_username" class="text-field">Discord Username</label>
+      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required tabindex="7">
     </div>
     <div class="item half-width flexbox vertical stretch">
-      <label for="pronouns" class="text-field">What are your pronouns?</label>
-      <input id="verification_pronouns" name="verification[pronouns]" class="text-field" type="text" value="<%= @verification.pronouns %>" autocomplete="off" required tabindex="8">
+      <label class="text-field">Are your Player ID and Discord linked?</label>
+      <%= select(:verification, :player_id_and_discord, [["Yes, my accounts are linked", true]], {selected: @verification.player_id_and_discord, include_blank: true}, {tabindex: "8", required: true}) %>
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
-      <label for="discord_username" class="text-field">Discord Username</label>
-      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required tabindex="9">
+      <label for="gender" class="text-field">What is your gender?</label>
+      <input id="verification_gender" name="verification[gender]" class="text-field" type="text" value="<%= @verification.gender %>" autocomplete="off" required tabindex="9">
     </div>
     <div class="item half-width flexbox vertical stretch">
-      <label class="text-field">Are your Player ID and Discord linked?</label>
-      <%= select(:verification, :player_id_and_discord, [["Yes, my accounts are linked", true]], {selected: @verification.player_id_and_discord, include_blank: true}, {tabindex: "10", required: true}) %>
+      <label for="pronouns" class="text-field">What are your pronouns?</label>
+      <input id="verification_pronouns" name="verification[pronouns]" class="text-field" type="text" value="<%= @verification.pronouns %>" autocomplete="off" required tabindex="10">
     </div>
   </div>
   <div class="subtitle flexbox vertical center">
@@ -92,7 +92,7 @@
   <div class="item flexbox vertical stretch">
     <label for="additional_notes" class="text-field">Additional Notes°</label>
     <div class="flexbox horizontal center wrap justify-space-between">
-      <div class="description">Explain if your preferred name differs from your photo ID or doctor’s note<br>Provide direct links to gender-related posts if verifying via social media</div>
+      <div class="description">Explain if your preferred name differs from your photo ID or doctor’s note and provide direct links to gender-related posts if verifying via social media</div>
       <div class="flexbox vertical end flex-1">
       <div id="additional-notes-counter" data-max-length="500">500</div>
     </div>

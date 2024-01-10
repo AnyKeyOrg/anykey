@@ -68,6 +68,7 @@
   font-weight: 400;
   font-size: 0.8em;
   margin-bottom: 0.3em;
+  max-width: 40em;
 }
 
 #verification form .description.smaller {
