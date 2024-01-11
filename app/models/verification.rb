@@ -37,7 +37,6 @@ class Verification < ApplicationRecord
   validates_presence_of :first_name,
                         :last_name,
                         :email,
-                        :birth_date,
                         :discord_username,
                         :player_id_type,
                         :player_id,
