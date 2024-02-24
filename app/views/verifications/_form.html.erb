@@ -7,29 +7,26 @@
   </div>
   <%= display_alerts %>
   <div class="intro">
-    Submit the full name, email, Discord username, player ID, gender, and pronouns that you would like to appear on the confirmation certificate you will receive if your request is verified as eligible.<br><br>
-    Fields marked (°) are optional, but you must choose at least one means of identity verification for our moderators to review your request. All documents are automatically destroyed after the process is completed.
+    Submit the full name, email, date of birth, player ID, Discord username, gender, and pronouns that you would like to appear on the confirmation certificate you will receive if your request is verified as eligible.
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
-      <label for="first_name" class="text-field">First Name</label>
-      <input id="verification_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off"  tabindex="1">
+      <label for="first_name" class="text-field">Preferred First Name</label>
+      <input id="verification_first_name" name="verification[first_name]" class="text-field" type="text" value="<%= @verification.first_name %>" autocomplete="off" required tabindex="1">
     </div>
     <div class="item half-width flexbox vertical stretch">
-      <label for="last_name" class="text-field">Last Name</label>
+      <label for="last_name" class="text-field">Preferred Last Name</label>
       <input id="verification_last_name" name="verification[last_name]" class="text-field" type="text" value="<%= @verification.last_name %>" autocomplete="off" required tabindex="2">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="email" class="text-field">Email</label>
-      <div class="description">To receive your certificate</div>
       <input id="verification_email" name="verification[email]" class="text-field" type="email" value="<%= @verification.email %>" autocomplete="off" required pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+.[A-Za-z]" tabindex="3">
     </div>
     <div class="item half-width flexbox vertical stretch">
-      <label for="discord_username" class="text-field">Discord Username</label>
-      <div class="description">New or old style (# not mandatory)</div>
-      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required tabindex="4">
+      <label for="birth_date" class="text-field">Date of Birth</label>
+      <input id="verification_birth_date" name="verification[birth_date]" class="text-field small-font" type="date" value="<%= @verification.birth_date %>" autocomplete="off" required tabindex="4">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
@@ -44,47 +41,63 @@
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
-      <label for="gender" class="text-field">What is your gender?</label>
-      <input id="verification_gender" name="verification[gender]" class="text-field" type="text" value="<%= @verification.gender %>" autocomplete="off" required tabindex="7">
+      <label for="discord_username" class="text-field">Discord Username</label>
+      <input id="verification_discord_username" name="verification[discord_username]" class="text-field" type="text" value="<%= @verification.discord_username %>" autocomplete="off" required tabindex="7">
     </div>
     <div class="item half-width flexbox vertical stretch">
-      <label for="pronouns" class="text-field">What are your pronouns?</label>
-      <input id="verification_pronouns" name="verification[pronouns]" class="text-field" type="text" value="<%= @verification.pronouns %>" autocomplete="off" required tabindex="8">
+      <label class="text-field">Are your Player ID and Discord linked?</label>
+      <%= select(:verification, :player_id_and_discord, [["Yes, my accounts are linked", true]], {selected: @verification.player_id_and_discord, include_blank: true}, {tabindex: "8", required: true}) %>
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
-      <label for="photo_id" class="text-field">Photo ID°</label>
-      <div class="description smaller">Physical credentials with gender/sex marker</div>
-      <input id="verification_photo_id" name="verification[photo_id]" type="file" tabindex="9">
-    </div>  
+      <label for="gender" class="text-field">What is your gender?</label>
+      <input id="verification_gender" name="verification[gender]" class="text-field" type="text" value="<%= @verification.gender %>" autocomplete="off" required tabindex="9">
+    </div>
+    <div class="item half-width flexbox vertical stretch">
+      <label for="pronouns" class="text-field">What are your pronouns?</label>
+      <input id="verification_pronouns" name="verification[pronouns]" class="text-field" type="text" value="<%= @verification.pronouns %>" autocomplete="off" required tabindex="10">
+    </div>
+  </div>
+  <div class="subtitle flexbox vertical center">
+    Verification Method
+  </div>
+  <div class="midway">
+    Photo identification is required. If your ID does not show your preferred name, or if it is not gender affirming, you must provide additional (°) information for verification. All uploaded documents are automatically destroyed after review.
+  </div>
+  <div class="flexbox horizontal wrap justify-space-between">
+    <div class="item half-width flexbox vertical stretch">
+      <label for="photo_id" class="text-field">Photo ID</label>
+      <div class="description smaller">Include note with Player ID and date</div>
+      <input id="verification_photo_id" name="verification[photo_id]" type="file" required tabindex="11">
+    </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="doctors_note" class="text-field">Doctor's Note°</label>
       <div class="description">Official document affirming your gender</div>
-      <input id="verification_doctors_note" name="verification[doctors_note]" type="file" tabindex="10">
+      <input id="verification_doctors_note" name="verification[doctors_note]" type="file" tabindex="12">
     </div>
   </div>
   <div class="flexbox horizontal wrap justify-space-between">
     <div class="item half-width flexbox vertical stretch">
       <label for="social_profile" class="text-field">Social Media Profile°</label>
-      <div class="description">URL with your public identity</div>
-      <input id="verification_social_profile" name="verification[social_profile]" class="text-field" type="url" value="<%= @verification.social_profile %>" autocomplete="off" tabindex="11">
+      <div class="description">Public URL with history discussing gender</div>
+      <input id="verification_social_profile" name="verification[social_profile]" class="text-field" type="url" value="<%= @verification.social_profile %>" autocomplete="off" tabindex="13">
     </div>
     <div class="item half-width flexbox vertical stretch">
       <label for="voice_requested" class="text-field">Request Voice Chat°</label>
       <div class="description">Do you prefer to speak to our staff?</div>
-      <%= select(:verification, :voice_requested, [["No, that's unnecessary", false],["Yes, verify me by voice", true]], {selected: @verification.voice_requested}, {tabindex: "12"}) %>
+      <%= select(:verification, :voice_requested, [["No, that's unnecessary", false],["Yes, verify me by voice", true]], {selected: @verification.voice_requested}, {tabindex: "14"}) %>
     </div>
   </div>
   <div class="item flexbox vertical stretch">
     <label for="additional_notes" class="text-field">Additional Notes°</label>
-    <div class="flexbox horizontal wrap justify-space-between">
-      <div class="description">Anything else our mods should consider while reviewing your request?</div>
+    <div class="flexbox horizontal center wrap justify-space-between">
+      <div class="description">Explain if your preferred name differs from your photo ID or doctor’s note and provide direct links to gender-related posts if verifying via social media</div>
       <div class="flexbox vertical end flex-1">
       <div id="additional-notes-counter" data-max-length="500">500</div>
     </div>
     </div>
-    <textarea id="verification_additional_notes" name="verification[additional_notes]" class="text-field" type="text" autocomplete="off" tabindex="13"><%= @verification.additional_notes %></textarea>
+    <textarea id="verification_additional_notes" name="verification[additional_notes]" class="text-field" type="text" autocomplete="off" tabindex="15"><%= @verification.additional_notes %></textarea>
   </div>
-  <input id="verificationsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="14" onClick="gtag('event', 'ButtonClick', {'event_category': 'Verification', 'event_label': 'FormSubmit'});">
+  <input id="verificationsubmit" name="commit" type="submit" class="button" value="Submit" tabindex="16" onClick="gtag('event', 'ButtonClick', {'event_category': 'Verification', 'event_label': 'FormSubmit'});">
 </form>

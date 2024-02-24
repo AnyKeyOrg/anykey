@@ -66,7 +66,7 @@ class Verification < ApplicationRecord
   visitable :ahoy_visit
     
   # Non-sequential identifier scheme
-  uniquify :identifier, length: 8, chars: ('A'..'Z').to_a + ('0'..'9').to_a
+  uniquify :identifier, length: 8, chars: ('A'..'Z').to_a
 
   scope :pending,         lambda { where(status: :pending) }  
   scope :voice_requested, lambda { where(status: :pending, voice_requested: true) }
@@ -82,6 +82,10 @@ class Verification < ApplicationRecord
                                                    lower(player_id) LIKE :search OR
                                                    lower(identifier) LIKE :search",
                                                    search: "%#{search.downcase}%") }
+
+  # Param used on form front-end as persuaisve UX
+  # Not actually stored or validated at the model level
+  attr_accessor :player_id_and_discord
   
   def to_param
     identifier

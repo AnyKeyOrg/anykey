@@ -28,19 +28,19 @@ namespace :survey_invites do
 
       # Gentle checks ensures admin does not accidentally create nonsenical/destructive chain of commands
       if survey_params[:surveyable_type].blank?
-        puts "ERORR: `surveyable_type` cannot be blank. Process halting."
+        puts "ERROR: `surveyable_type` cannot be blank. Process halting."
       elsif !["Verification", "Pledge", "Report", "Concern"].map {|t| t == survey_params[:surveyable_type] }.include?(true)
-        puts "ERORR: `surveyable_type` is not valid. Process halting."
+        puts "ERROR: `surveyable_type` is not valid. Process halting."
       elsif survey_params[:surveyable_criteria].blank?
-        puts "ERORR: `surveyable_criteria` cannot be blank. Process halting."
+        puts "ERROR: `surveyable_criteria` cannot be blank. Process halting."
       elsif !survey_params[:surveyable_criteria].start_with?("where")
-        puts "ERORR: `surveyable_criteria` must begin with `where`. Process halting."
+        puts "ERROR: `surveyable_criteria` must begin with `where`. Process halting."
       elsif survey_params[:survey_title].blank?
-        puts "ERORR: `survey_title` cannot be blank. Process halting."
+        puts "ERROR: `survey_title` cannot be blank. Process halting."
       elsif survey_params[:survey_url].blank?
-        puts "ERORR: `survey_url` cannot be blank. Process halting."
+        puts "ERROR: `survey_url` cannot be blank. Process halting."
       elsif !valid_url?(survey_params[:survey_url])
-        puts "ERORR: `survey_url` must be a valid URL. Process halting."
+        puts "ERROR: `survey_url` must be a valid URL. Process halting."
       else
         participants = eval "#{survey_params[:surveyable_type]}.#{survey_params[:surveyable_criteria]}"
 

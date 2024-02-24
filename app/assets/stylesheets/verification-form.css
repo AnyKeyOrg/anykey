@@ -24,6 +24,22 @@
   margin-bottom: 2.5em;
 }
 
+#verification form .subtitle {
+  font-family: var(--title-font);
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#verification form .midway {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  margin-bottom: 2.5em;
+}
+
 #verification form .item {
   margin-bottom: 1.2em;
   width: 100%;
@@ -52,6 +68,7 @@
   font-weight: 400;
   font-size: 0.8em;
   margin-bottom: 0.3em;
+  max-width: 40em;
 }
 
 #verification form .description.smaller {

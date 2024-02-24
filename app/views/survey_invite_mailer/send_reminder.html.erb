@@ -1,0 +1,7 @@
+Hey <%= @survey_invite.email.gsub(/\@.*/,"") %>,
+<br><br>
+Just a friendly reminder that we hope you will share your feedback on our <%= SurveyInvite::SURVEYABLE_SYSTEMS[@survey_invite.surveyable_type.downcase.to_sym] %> in the <%= link_to(@survey_invite.survey_title, @survey_invite.url_with_code) %>.
+<br><br>
+Please participate using code <strong><%= @survey_invite.survey_code %></strong> by visiting this: <%= link_to("unique survey link", @survey_invite.url_with_code) %>
+<br><br>
+The AnyKey team values your input - GLHF!

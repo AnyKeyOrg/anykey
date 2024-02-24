@@ -20,11 +20,15 @@
     </div>
   </div>
   <div class="verification-item half-width flexbox vertical stretch">
-    <div class="item-title">Gender</div>
-    <div class="item-text"><%= @verification.gender %></div>
+    <div class="item-title">Date of Birth</div>
+    <% if @verification.birth_date.present? %>
+    <div class="item-text"><%= l(@verification.birth_date, format: "%B %-d, %Y") %></div>
+    <% else %>
+    <div class="item-text empty">Unknown</div>
+    <% end %>
   </div>
   <div class="verification-item half-width flexbox vertical stretch">
-    <div class="item-title">Pronouns</div>
-    <div class="item-text"><%= @verification.pronouns %></div>
+    <div class="item-title">Gender & Pronouns</div>
+    <div class="item-text"><%= @verification.gender %> (<%= @verification.pronouns %>)</div>
   </div>
 </div>

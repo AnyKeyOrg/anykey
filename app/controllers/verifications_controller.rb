@@ -212,7 +212,7 @@ class VerificationsController < ApplicationController
     end
     
     def verification_params
-      params.require(:verification).permit(:first_name, :last_name, :email, :discord_username, :player_id_type, :player_id, :gender, :pronouns, :photo_id, :doctors_note, :social_profile, :voice_requested, :additional_notes)
+      params.require(:verification).permit(:first_name, :last_name, :email, :birth_date, :discord_username, :player_id_type, :player_id, :player_id_and_discord, :gender, :pronouns, :photo_id, :doctors_note, :social_profile, :voice_requested, :additional_notes)
     end
     
 end

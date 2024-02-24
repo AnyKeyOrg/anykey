@@ -19,7 +19,7 @@ class VerificationMailer < ApplicationMailer
   
   def deny_request(verification)
     @verification = verification
-    mail(to: verification.email, subject: "Your eligibility verification request has been denied")
+    mail(to: verification.email, subject: "Your eligibility verification request was not approved")
   end
   
   def withdraw_certificate(verification)
