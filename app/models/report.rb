@@ -6,7 +6,8 @@ class Report < ApplicationRecord
     warned:     "Warned",
     revoked:    "Revoked",
     watched:    "Watched",
-    all:        "All"
+    all:        "All", 
+    spam: "Spam"
   }.freeze
     
   IMAGE_STYLES = {
