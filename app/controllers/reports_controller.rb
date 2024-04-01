@@ -169,13 +169,16 @@ class ReportsController < ApplicationController
       client_ip = request.remote_ip
       rate_limit_key = "rate_limit:#{client_ip}"
       rate_limit_count = Rails.cache.read(rate_limit_key).to_i
+
+      # count = Redis.current.get(key).to_i
   
       if rate_limit_count >= 3
         render json: { error: 'Rate limit exceeded. Please try again later.' }, status: :too_many_requests
         return
       end
-      
+
       Rails.cache.write(rate_limit_key, rate_limit_count + 1, expires_in: 60.seconds)
+      # Redis.current.set(key, count + 1, ex: interval)
     end
   
 end
