@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_10_174212) do
+ActiveRecord::Schema.define(version: 2024_04_01_033626) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.integer "reported_twitch_id"
     t.integer "incident_stream_twitch_id"
     t.bigint "ahoy_visit_id"
+    t.boolean "spam", default: false
     t.index ["ahoy_visit_id"], name: "index_reports_on_ahoy_visit_id"
     t.index ["reported_twitch_id"], name: "index_reports_on_reported_twitch_id"
     t.index ["reporter_email"], name: "index_reports_on_reporter_email"
