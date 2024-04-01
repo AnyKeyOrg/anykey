@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch ]
+  before_action :limit_request_rate,        only: [:create]
   around_action :display_timezone
   
   def index
@@ -162,6 +163,19 @@ class ReportsController < ApplicationController
     
     def report_params
       params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reporter_twitch_id, :reported_twitch_name, :reported_twitch_id, :incident_stream, :incident_stream_twitch_id, :incident_occurred, :incident_description, :recommended_response, :image,)
+    end
+
+    def limit_request_rate
+      client_ip = request.remote_ip
+      rate_limit_key = "rate_limit:#{client_ip}"
+      rate_limit_count = Rails.cache.read(rate_limit_key).to_i
+  
+      if rate_limit_count >= 3
+        render json: { error: 'Rate limit exceeded. Please try again later.' }, status: :too_many_requests
+        return
+      end
+      
+      Rails.cache.write(rate_limit_key, rate_limit_count + 1, expires_in: 60.seconds)
     end
   
 end
