@@ -172,10 +172,7 @@ class ReportsController < ApplicationController
   
       if rate_limit_count >= 9
         flash[:alert] = "Rate limit exceeded. Please try again later."
-        puts " Exxceeded #{rate_limit_count}"
         redirect_to new_report_path
-
-        return
       end
 
       Rails.cache.write(rate_limit_key, rate_limit_count + 1, expires_in: 60.seconds)
