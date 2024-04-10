@@ -166,8 +166,7 @@ class ReportsController < ApplicationController
     end
 
     def apply_request_rate
-      puts "applying rate limit"
-      limit_create_request("reports", new_report_path, 9)
+      limit_create_request("reports", new_report_path)
     end
   
 end
