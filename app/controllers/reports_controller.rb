@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  
+  include RateLimitable
   layout "backstage",                       only: [ :index, :show ]
   
   skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch, :twitch_lookup ]
@@ -7,7 +7,7 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch ]
-  before_action :limit_request_rate,        only: [ :create]
+  before_action :apply_request_rate,        only: [ :create]
   around_action :display_timezone
   
   def index
@@ -165,17 +165,9 @@ class ReportsController < ApplicationController
       params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reporter_twitch_id, :reported_twitch_name, :reported_twitch_id, :incident_stream, :incident_stream_twitch_id, :incident_occurred, :incident_description, :recommended_response, :image,)
     end
 
-    def limit_request_rate
-      client_ip = request.remote_ip
-      rate_limit_key = "rate_limit:#{client_ip}"
-      rate_limit_count = Rails.cache.read(rate_limit_key).to_i
-  
-      if rate_limit_count >= 9
-        flash[:alert] = "Rate limit exceeded. Please try again later."
-        redirect_to new_report_path
-      end
-
-      Rails.cache.write(rate_limit_key, rate_limit_count + 1, expires_in: 60.seconds)
+    def apply_request_rate
+      puts "applying rate limit"
+      limit_create_request("reports", new_report_path, 1)
     end
   
 end
