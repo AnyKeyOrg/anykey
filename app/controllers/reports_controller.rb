@@ -7,7 +7,7 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch ]
-  before_action :limit_request_rate,        only: [:create]
+  before_action :limit_request_rate,        only: [ :create]
   around_action :display_timezone
   
   def index
@@ -169,16 +169,16 @@ class ReportsController < ApplicationController
       client_ip = request.remote_ip
       rate_limit_key = "rate_limit:#{client_ip}"
       rate_limit_count = Rails.cache.read(rate_limit_key).to_i
-
-      # count = Redis.current.get(key).to_i
   
-      if rate_limit_count >= 3
-        render json: { error: 'Rate limit exceeded. Please try again later.' }, status: :too_many_requests
+      if rate_limit_count >= 9
+        flash[:alert] = "Rate limit exceeded. Please try again later."
+        puts " Exxceeded #{rate_limit_count}"
+        redirect_to new_report_path
+
         return
       end
 
       Rails.cache.write(rate_limit_key, rate_limit_count + 1, expires_in: 60.seconds)
-      # Redis.current.set(key, count + 1, ex: interval)
     end
   
 end
