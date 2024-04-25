@@ -162,6 +162,7 @@ class ReportsController < ApplicationController
       )
       
       # Check if the number of matches is greater than 5
+      # Need to determine what a better threshold
       if report_matches.count > 5
         report_matches.update_all(spam: true)
       end
