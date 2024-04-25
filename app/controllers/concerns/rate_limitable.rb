@@ -1,5 +1,4 @@
 module RateLimitable
-
     private 
 
     def limit_create_request(base_key, redirection_path, limit = 9)
