@@ -60,6 +60,8 @@ class ReportsController < ApplicationController
     if @report.incident_stream && @report.incident_stream_twitch_id.blank?
       @report.incident_stream_twitch_id = lookup_twitch_id(@report.incident_stream)
     end
+
+    find_report_matches()
     
     if @report.save
       # Email notification to staff
@@ -147,6 +149,22 @@ class ReportsController < ApplicationController
       @report = Report.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to staff_index_path
+    end
+
+    def find_report_matches
+      # Fetch reports with matching required attributes
+      report_matches = Report.where(
+        reporter_email: @report.reporter_email, 
+        reported_twitch_id: @report.reported_twitch_id, 
+        incident_stream_twitch_id: @report.incident_stream_twitch_id, 
+        incident_description: @report.incident_description, 
+        incident_occurred: @report.incident_occurred
+      )
+      
+      # Check if the number of matches is greater than 5
+      if report_matches.count > 5
+        report_matches.update_all(spam: true)
+      end
     end
 
   private          
