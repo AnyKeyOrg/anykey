@@ -122,9 +122,19 @@ The AnyKey app uses several external services:
 * Stripe for donation payments
 * Twitch for GLHF pledge badge assignment and moderation
 
-In order to test all of the features in your development environment you will have to add additional credentials to your `.env` file. These credentials are only available to trusted collaborators and can be obtained from the repository manager.
 
-Note that the `TWITCH_REDIRECT_URL` must be set in both the external Twitch app and the local development environment. A separate Twitch app should be created by the developer for local testing purposes.
+### Notes for Twitch API
+
+* Make sure to run
+  ```shell
+  rake twitch_token:request
+  ```
+* Note that the `TWITCH_REDIRECT_URL` must be set in both the external Twitch app and the local development environment.
+* A separate Twitch app should be created by the developer for local testing purposes.
+
+### Environment Credentials
+
+In order to test all of the features in your development environment you will have to add additional credentials to your `.env` file. These credentials are only available to trusted collaborators and can be obtained from the repository manager.
 
 ```shell
 SENDGRID_USERNAME=XXX
