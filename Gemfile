@@ -73,6 +73,7 @@ gem 'ahoy_matey'
 
 # Paola Dev Gems 
 # gem 'rack-attack'
+gem 'tf-idf-similarity'
 
 # Using Dragonfly v0.9 for files & images
 # Because I can never get v1.0 to work with PJ's caching solution

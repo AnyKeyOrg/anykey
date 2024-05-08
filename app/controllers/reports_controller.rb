@@ -1,5 +1,8 @@
 class ReportsController < ApplicationController
   include RateLimitable
+  require 'tf-idf-similarity'
+  require 'matrix'
+
   layout "backstage",                       only: [ :index, :show ]
   
   skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch, :twitch_lookup ]
@@ -7,7 +10,6 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
   before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch ]
-  before_action :apply_request_rate,        only: [ :create]
   around_action :display_timezone
   
   def index
@@ -158,25 +160,47 @@ class ReportsController < ApplicationController
     end
 
     def check_report_matches
-      # Fetch reports with matching required attributes
-      report_matches = Report.where(
-        reporter_email: @report.reporter_email, 
-        reported_twitch_id: @report.reported_twitch_id, 
-        incident_stream_twitch_id: @report.incident_stream_twitch_id, 
-        incident_description: @report.incident_description, 
-        incident_occurred: @report.incident_occurred
+      time_threshold = 2.hour
+      current_time = Time.current
+      time_window_start = current_time - time_threshold
+      time_window_end = current_time + time_threshold
+
+      potential_matches = Report.where(
+        reporter_email: @report.reporter_email,
+        reported_twitch_id: @report.reported_twitch_id,
+        created_at: time_window_start..time_window_end # time range
       )
       
-      # Check if the number of matches is greater than 5
-      # Need to determine what a better threshold
-      if report_matches.count > 5
-        report_matches.update_all(spam: true)
+      # mark as spam based on a similarity threshold
+      spam_found = false
+      potential_matches.find_each do |match|
+        if similarity_score(@report, match) >= 0.9
+          match.update(spam: true, dismissed: false, warned: false, revoked: false, watched: false)
+        end
+      end
+
+      if spam_found
+        @report.update(spam: true)
       end
     end
 
-  def check_report_device
+    def similarity_score(report1, report2)
+      # weighted average of description and time similarities
+      description_similarity = text_similarity(report1.incident_description, report2.incident_description)
+    end
 
-  end
+    def text_similarity(text1, text2)
+
+      documents = [
+        TfIdfSimilarity::Document.new(text1),
+        TfIdfSimilarity::Document.new(text2)
+      ]
+
+      model = TfIdfSimilarity::TfIdfModel.new(documents)
+      matrix = model.similarity_matrix
+
+      return matrix[0, 1]
+    end
 
   private          
     def ensure_staff
