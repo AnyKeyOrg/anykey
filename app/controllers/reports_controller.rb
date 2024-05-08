@@ -180,7 +180,7 @@ class ReportsController < ApplicationController
       end
 
       if spam_found
-        @report.update(spam: true)
+        @report.update(spam: true, dismissed: false, warned: false, revoked: false, watched: false)
       end
     end
 
