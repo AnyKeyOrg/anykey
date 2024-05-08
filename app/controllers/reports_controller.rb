@@ -47,7 +47,13 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-     
+
+    # First check IP-based rate limiting
+    return unless limit_request_by_ip('report_create', new_report_path)
+
+    # Fallback to device signature-based limiting (may not be needed)
+    return unless limit_request_by_signature('report_create', new_report_path)
+
     # Lookup Twitch IDs (if not fetched via Ajax)
     if @report.reporter_twitch_name && @report.reporter_twitch_id.blank?
       @report.reporter_twitch_id = lookup_twitch_id(@report.reporter_twitch_name)
@@ -61,7 +67,7 @@ class ReportsController < ApplicationController
       @report.incident_stream_twitch_id = lookup_twitch_id(@report.incident_stream)
     end
 
-    find_report_matches()
+    check_report_matches()
     
     if @report.save
       # Email notification to staff
@@ -151,7 +157,7 @@ class ReportsController < ApplicationController
       redirect_to staff_index_path
     end
 
-    def find_report_matches
+    def check_report_matches
       # Fetch reports with matching required attributes
       report_matches = Report.where(
         reporter_email: @report.reporter_email, 
@@ -168,6 +174,10 @@ class ReportsController < ApplicationController
       end
     end
 
+  def check_report_device
+
+  end
+
   private          
     def ensure_staff
       unless current_user.is_moderator? || current_user.is_admin?
@@ -183,9 +193,4 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reporter_twitch_id, :reported_twitch_name, :reported_twitch_id, :incident_stream, :incident_stream_twitch_id, :incident_occurred, :incident_description, :recommended_response, :image,)
     end
-
-    def apply_request_rate
-      limit_create_request("reports", new_report_path)
-    end
-  
 end

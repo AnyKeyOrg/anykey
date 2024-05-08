@@ -106,7 +106,7 @@ class Report < ApplicationRecord
   
   protected
     def ensure_sane_review
-      if (self.dismissed || self.warned || self.revoked) && !(self.dismissed ^ self.warned ^ self.revoked)
+      if (self.dismissed || self.warned || self.revoked || self.spam) && !(self.dismissed ^ self.warned ^ self.revoked ^ self.spam)
         if self.dismissed
           errors.add(:dismissed, "must be the only status flag set")
         end
@@ -115,6 +115,9 @@ class Report < ApplicationRecord
         end
         if self.revoked
           errors.add(:revoked, "must be the only status flag set")
+        end
+        if self.spam
+          errors.add(:spam, "must be the only status flag set")
         end
       end
     end
