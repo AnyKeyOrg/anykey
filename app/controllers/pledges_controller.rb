@@ -6,7 +6,6 @@ class PledgesController < ApplicationController
   before_action :ensure_staff, only: [ :index ]
   before_action :find_pledge, only: [ :show ]
   before_action :handle_twitch_auth, only: [ :new ]
-  before_action :apply_request_rate,        only: [ :create]
   
   def index
     # f is used to filter reports by scope
@@ -40,6 +39,12 @@ class PledgesController < ApplicationController
   def create
     @pledge = Pledge.find_by(email: pledge_params[:email])
     
+    # First check IP-based rate limiting
+    return unless limit_request_by_ip('pledge_create', new_pledge_path)
+
+    # Fallback to device signature-based limiting (may not be needed)
+    return unless limit_request_by_signature('pledge_create', new_pledge_path)
+
     if @pledge
       
       # Set cookie to enforce single visit to redirect page
@@ -220,8 +225,4 @@ class PledgesController < ApplicationController
       params.require(:pledge).permit(:first_name, :last_name, :email)
     end
 
-    def apply_request_rate
-      limit_create_request("pledges", new_pledge_path)
-    end
-  
 end

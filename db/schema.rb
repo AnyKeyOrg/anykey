@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_01_033626) do
+ActiveRecord::Schema.define(version: 2024_05_10_134850) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -208,6 +208,16 @@ ActiveRecord::Schema.define(version: 2024_04_01_033626) do
     t.index ["reviewer_id"], name: "index_revocations_on_reviewer_id"
   end
 
+  create_table "spam_reports", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.text "description"
+    t.bigint "report1_id", null: false
+    t.bigint "report2_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["report1_id"], name: "index_spam_reports_on_report1_id"
+    t.index ["report2_id"], name: "index_spam_reports_on_report2_id"
+  end
+
   create_table "stories", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "headline"
     t.text "description"
@@ -309,4 +319,6 @@ ActiveRecord::Schema.define(version: 2024_04_01_033626) do
   add_foreign_key "conduct_warnings", "users", column: "reviewer_id"
   add_foreign_key "reports", "users", column: "reviewer_id"
   add_foreign_key "revocations", "users", column: "reviewer_id"
+  add_foreign_key "spam_reports", "reports", column: "report1_id"
+  add_foreign_key "spam_reports", "reports", column: "report2_id"
 end

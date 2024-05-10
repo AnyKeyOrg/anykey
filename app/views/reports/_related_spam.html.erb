@@ -1,0 +1,21 @@
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="report-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center">
+      <span class="icon">&#xf002;</span> Related Report Spams Descriptions <%= @spam_reports.present? ? "(#{@spam_reports.size})" : ''%>
+    </div>
+    <% if @spam_reports.present? %>
+    <div class="item-list">
+        <% @spam_reports.each do |spam_report| %>
+          &nbsp;·&nbsp; <li>
+            <%= spam_report.description %>
+          </li>
+        <% end %>
+    </div>
+    <% else %>
+    <div class="item-text large empty">
+      No related automated spam description dectection.
+    </div>
+    <% end %>
+  </div>
+</div>

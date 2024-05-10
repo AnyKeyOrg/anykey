@@ -39,6 +39,10 @@ class Report < ApplicationRecord
   has_one :revocation
   
   has_many :comments, as: :commentable
+
+  # report can be referenced by multiple SpamReports in two different fields
+  has_many :spam_reports_as_report1, class_name: "SpamReport", foreign_key: "report1_id"
+  has_many :spam_reports_as_report2, class_name: "SpamReport", foreign_key: "report2_id"
                            
   image_accessor :image
   
@@ -48,7 +52,7 @@ class Report < ApplicationRecord
   scope :dismissed,    lambda { where(dismissed: true) }
   scope :warned,       lambda { where(warned: true) }
   scope :revoked,      lambda { where(revoked: true) }
-  scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
+  scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE AND #{table_name}.spam IS FALSE") }
   scope :watched,      lambda { where(watched: true) }
   scope :search,       lambda { |search| where("lower(reported_twitch_name) LIKE :search OR
                                                 lower(reported_twitch_id) LIKE :search OR
@@ -63,9 +67,9 @@ class Report < ApplicationRecord
   
   
   def unresolved?
-    self.dismissed == false && self.warned == false && self.revoked == false
+    self.dismissed == false && self.warned == false && self.revoked == false && self.spam == false
   end
-  
+
   def word_count
     return (self.incident_description + " " + self.recommended_response).gsub(/[^\w\s]/,"").split.count
   end
@@ -102,6 +106,16 @@ class Report < ApplicationRecord
     unless self.reported_twitch_id.blank?
       Report.where.not(id: self.id).where(reported_twitch_id: self.reported_twitch_id)
     end
+  end
+
+  def related_spam_reports
+    unless self.reported_twitch_id.blank?
+  
+      # all related SpamReport records
+      SpamReport.where("report1_id = ? OR report2_id = ?", self.id, self.id).distinct
+    
+    end
+
   end
   
   protected
