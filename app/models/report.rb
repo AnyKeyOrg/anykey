@@ -39,6 +39,10 @@ class Report < ApplicationRecord
   has_one :revocation
   
   has_many :comments, as: :commentable
+
+  # report can be referenced by multiple SpamReports in two different fields
+  has_many :spam_reports_as_report1, class_name: "SpamReport", foreign_key: "report1_id"
+  has_many :spam_reports_as_report2, class_name: "SpamReport", foreign_key: "report2_id"
                            
   image_accessor :image
   
@@ -63,9 +67,9 @@ class Report < ApplicationRecord
   
   
   def unresolved?
-    self.dismissed == false && self.warned == false && self.revoked == false
+    self.dismissed == false && self.warned == false && self.revoked == false && self.spam == false
   end
-  
+
   def word_count
     return (self.incident_description + " " + self.recommended_response).gsub(/[^\w\s]/,"").split.count
   end
@@ -101,6 +105,12 @@ class Report < ApplicationRecord
   def related_reports
     unless self.reported_twitch_id.blank?
       Report.where.not(id: self.id).where(reported_twitch_id: self.reported_twitch_id)
+    end
+  end
+
+  def related_spam_reports
+    unless self.reported_twitch_id.blank?
+      SpamReport.where("report1_id = ? or report2_id = ?", self.id, self.id).distinct #unique
     end
   end
   

@@ -1,0 +1,25 @@
+<hr class="spacer">
+<div class="flexbox horizontal end wrap-reverse justify-space-between">
+  <div class="report-item flush-top flexbox vertical stretch flex-1">
+    <div class="item-title large flexbox horizontal center">
+      <span class="icon">&#xf002;</span> Related Report Spams <%= @spam_reports.present? ? "(#{@spam_reports.size})" : ''%>
+    </div>
+    <% if @spam_reports.present? %>
+    <div class="item-list">
+      <ul>
+        <% @spam_reports.each do |spam_report| %>
+          <li>
+            <strong>Description:</strong> <%= spam_report.description %><br>
+            <strong>Related as Report1 ID:</strong> <%= spam_report.report1_id %><br>
+            <strong>Related as Report2 ID:</strong> <%= spam_report.report2_id %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <% else %>
+    <div class="item-text large empty">
+      No related badge abuse reports found.
+    </div>
+    <% end %>
+  </div>
+</div>
