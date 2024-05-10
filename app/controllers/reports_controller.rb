@@ -175,9 +175,17 @@ class ReportsController < ApplicationController
       # mark as spam based on a similarity threshold
       spam_found = false
       potential_matches.find_each do |match|
-        if similarity_score(@report, match) >= 0.70
-          match.update(spam: true, dismissed: false, warned: false, revoked: false, watched: false)
-          spam_found = true
+        score, spam_report = similarity_score(@report, match)
+
+        if score >= 0.80
+          if spam_report.save
+            match.update(spam: true, dismissed: false, warned: false, revoked: false, watched: false)
+            spam_found = true
+            puts "SpamReport created successfully."
+          else
+            puts "Failed to create SpamReport: #{spam_report.errors.full_messages.join(", ")}"
+          end
+
         end
       end
 
@@ -191,10 +199,10 @@ class ReportsController < ApplicationController
     
       # recommended_response_similarity based on whether the responses exist
 
-      if report1.recommended_response.empty? && report2.recommended_response.empty?
+      if report1.recommended_response.blank? && report2.recommended_response.blank?
         recommended_response_similarity = 1.0  # nil values as a perfect match
 
-      elsif !report1.recommended_response.empty? && !report2.recommended_response.empty?
+      elsif !report1.recommended_response.blank? && !report2.recommended_response.blank?
         recommended_response_similarity = text_similarity(report1.recommended_response, report2.recommended_response)
       else
         recommended_response_similarity = 0 
@@ -209,13 +217,8 @@ class ReportsController < ApplicationController
         report2: report2
       )
       
-      if spam_report.save
-        puts "SpamReport created successfully."
-      else
-        puts "Failed to create SpamReport: #{spam_report.errors.full_messages.join(", ")}"
-      end
 
-      return (0.5 * description_similarity + 0.5 * recommended_response_similarity)
+      return (description_similarity + recommended_response_similarity)/2, spam_report
 
     end
 

@@ -10,8 +10,7 @@
         <% @spam_reports.each do |spam_report| %>
           <li>
             <strong>Description:</strong> <%= spam_report.description %><br>
-            <strong>Related as Report1 ID:</strong> <%= spam_report.report1_id %><br>
-            <strong>Related as Report2 ID:</strong> <%= spam_report.report2_id %>
+             -- Related as Reports: <%= spam_report.report1_id %> and <%= spam_report.report2_id %>
           </li>
         <% end %>
       </ul>

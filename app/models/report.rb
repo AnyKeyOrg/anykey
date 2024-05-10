@@ -52,7 +52,7 @@ class Report < ApplicationRecord
   scope :dismissed,    lambda { where(dismissed: true) }
   scope :warned,       lambda { where(warned: true) }
   scope :revoked,      lambda { where(revoked: true) }
-  scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE") }
+  scope :unresolved,   lambda { where("#{table_name}.dismissed IS FALSE AND #{table_name}.warned IS FALSE AND #{table_name}.revoked IS FALSE AND #{table_name}.spam IS FALSE") }
   scope :watched,      lambda { where(watched: true) }
   scope :search,       lambda { |search| where("lower(reported_twitch_name) LIKE :search OR
                                                 lower(reported_twitch_id) LIKE :search OR
