@@ -10,7 +10,6 @@ class VerificationsController < ApplicationController
                                             :verify, :deny, :ignore, :withdraw, :voucher, :resend_cert, :watch, :unwatch ]
   before_action :find_verification,  only: [ :show, :verify_eligibility, :deny_eligibility, :withdraw_eligibility,
                                             :verify, :deny, :ignore, :withdraw, :voucher, :resend_cert, :watch, :unwatch ]
-  before_action :apply_request_rate,        only: [ :create]
   around_action :display_timezone
 
   
@@ -49,6 +48,12 @@ class VerificationsController < ApplicationController
 
   def create
     @verification = Verification.new(verification_params)
+
+    # First check IP-based rate limiting
+    return unless limit_request_by_ip('verificate_create', new_verification_path)
+
+    # Fallback to device signature-based limiting (may not be needed)
+    return unless limit_request_by_signature('verificate_create', new_verification_path)
 
     if @verification.save
       # TODO: send notification to staff
@@ -217,8 +222,4 @@ class VerificationsController < ApplicationController
       params.require(:verification).permit(:first_name, :last_name, :email, :birth_date, :discord_username, :player_id_type, :player_id, :player_id_and_discord, :gender, :pronouns, :photo_id, :doctors_note, :social_profile, :voice_requested, :additional_notes)
     end
 
-    def apply_request_rate
-      limit_create_request("verification", new_verification_path)
-    end
-    
 end
