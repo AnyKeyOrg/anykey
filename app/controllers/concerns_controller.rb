@@ -1,5 +1,5 @@
 class ConcernsController < ApplicationController
-  
+  include RateLimitable
   layout "backstage",                only: [ :index, :show ]
   
   skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch ]
@@ -8,7 +8,8 @@ class ConcernsController < ApplicationController
   before_action :ensure_staff,       only: [ :index, :show, :dismiss, :undismiss, :review, :watch, :unwatch ]
   before_action :find_concern,       only: [ :show, :dismiss, :undismiss, :review, :watch, :unwatch ]
   around_action :display_timezone
-  
+  before_action :apply_request_rate,        only: [ :create]
+
   def index
     # f is used to filter reports by scope
     # q is used to search for keywords
@@ -131,6 +132,10 @@ class ConcernsController < ApplicationController
     
     def concern_params
       params.require(:concern).permit(:concerning_player_id, :concerning_player_id_type, :background, :description, :recommended_response, :concerned_email, :concerned_cert_code, screenshots: [])
+    end
+
+    def apply_request_rate
+      limit_create_request("concerns", new_concern_path)
     end
  
 end

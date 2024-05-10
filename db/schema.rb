@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_10_174212) do
+ActiveRecord::Schema.define(version: 2024_05_10_134850) do
 
-  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.string "mixer"
   end
 
-  create_table "ahoy_events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "ahoy_events", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.bigint "visit_id"
     t.bigint "user_id"
     t.string "name"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.index ["visit_id"], name: "index_ahoy_events_on_visit_id"
   end
 
-  create_table "ahoy_visits", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "ahoy_visits", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "visit_token"
     t.string "visitor_token"
     t.bigint "user_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.index ["visitor_token", "started_at"], name: "index_ahoy_visits_on_visitor_token_and_started_at"
   end
 
-  create_table "badge_activations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "badge_activations", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "twitch_username"
     t.integer "twitch_id"
     t.datetime "activated_on"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.integer "commenter_id"
     t.integer "commentable_id"
     t.string "commentable_type"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "concerns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "concerns", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "concerning_player_id"
     t.string "concerning_player_id_type"
     t.text "background"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.integer "reported_twitch_id"
     t.integer "incident_stream_twitch_id"
     t.bigint "ahoy_visit_id"
+    t.boolean "spam", default: false
     t.index ["ahoy_visit_id"], name: "index_reports_on_ahoy_visit_id"
     t.index ["reported_twitch_id"], name: "index_reports_on_reported_twitch_id"
     t.index ["reporter_email"], name: "index_reports_on_reporter_email"
@@ -207,6 +208,16 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.index ["reviewer_id"], name: "index_revocations_on_reviewer_id"
   end
 
+  create_table "spam_reports", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.text "description"
+    t.bigint "report1_id", null: false
+    t.bigint "report2_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["report1_id"], name: "index_spam_reports_on_report1_id"
+    t.index ["report2_id"], name: "index_spam_reports_on_report2_id"
+  end
+
   create_table "stories", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "headline"
     t.text "description"
@@ -218,7 +229,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.datetime "published_on"
   end
 
-  create_table "survey_invites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "survey_invites", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "email"
     t.string "survey_code"
     t.string "surveyable_type"
@@ -229,7 +240,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "twitch_tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "twitch_tokens", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "access_token"
     t.integer "expires_in"
     t.datetime "created_at", precision: 6, null: false
@@ -271,7 +282,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "verifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "verifications", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -308,4 +319,6 @@ ActiveRecord::Schema.define(version: 2024_01_10_174212) do
   add_foreign_key "conduct_warnings", "users", column: "reviewer_id"
   add_foreign_key "reports", "users", column: "reviewer_id"
   add_foreign_key "revocations", "users", column: "reviewer_id"
+  add_foreign_key "spam_reports", "reports", column: "report1_id"
+  add_foreign_key "spam_reports", "reports", column: "report2_id"
 end

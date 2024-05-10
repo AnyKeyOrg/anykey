@@ -1,14 +1,18 @@
 class ReportsController < ApplicationController
-  
+  include RateLimitable
+  require 'tf-idf-similarity'
+  require 'matrix'
+
   layout "backstage",                       only: [ :index, :show ]
   
   skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch, :twitch_lookup ]
   
-  before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
-  before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
-  before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch ]
+  before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
+  before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
+  before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
+  # after_action :check_report_matches, only: [ :create]
   around_action :display_timezone
-  
+
   def index
     # f is used to filter reports by scope
     # q is used to search for keywords
@@ -38,6 +42,7 @@ class ReportsController < ApplicationController
     @pledge = @report.reported_pledge
     @reporter_pledge = @report.reporter_pledge
     @related_reports = @report.related_reports
+    @spam_reports = @report.related_spam_reports
   end
   
   def new
@@ -46,7 +51,14 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-     
+
+    # First check IP-based rate limiting
+    return unless limit_request_by_ip('report_create', new_report_path)
+
+    # Fallback to device signature-based limiting (may not be needed)
+    return unless limit_request_by_signature('report_create', new_report_path)
+
+    puts "here"
     # Lookup Twitch IDs (if not fetched via Ajax)
     if @report.reporter_twitch_name && @report.reporter_twitch_id.blank?
       @report.reporter_twitch_id = lookup_twitch_id(@report.reporter_twitch_name)
@@ -68,6 +80,8 @@ class ReportsController < ApplicationController
       PledgeMailer.confirm_receipt(@report).deliver_now
       
       flash[:notice] = "You've successfully submitted the report. Thank you."
+      check_report_matches()
+
       redirect_to root_path
     else      
       flash.now[:alert] ||= ""
@@ -113,6 +127,26 @@ class ReportsController < ApplicationController
       end
     end
   end
+
+  def spam 
+    if @report.update(spam: true)
+      flash[:success] = "Report has been marked as spam."
+    else
+      flash[:error] = "Unable to update the report."
+    end
+    
+    redirect_to report_path(@report)
+  end 
+
+  def unspam
+    if @report.update(spam: false)
+      flash[:success] = "Report has been marked as not spam."
+    else
+      flash[:error] = "Unable to update the report."
+    end
+    redirect_to report_path(@report)
+  end
+
   
   def twitch_lookup
     if params[:twitch_username].blank?
@@ -148,6 +182,86 @@ class ReportsController < ApplicationController
       redirect_to staff_index_path
     end
 
+    def check_report_matches
+      time_threshold = 2.hour
+      current_time = Time.current
+      time_window_start = current_time - time_threshold
+      time_window_end = current_time + time_threshold
+
+      potential_matches = Report.where(
+        reporter_email: @report.reporter_email,
+        reported_twitch_id: @report.reported_twitch_id,
+        created_at: time_window_start..time_window_end # time range
+      )
+      
+      # mark as spam based on a similarity threshold
+      spam_found = false
+      potential_matches.find_each do |match|
+        if match != @report
+        score, spam_report = similarity_score(@report, match)
+
+          if score >= 0.70
+            if spam_report.save
+              match.update(spam: true, dismissed: false, warned: false, revoked: false, watched: false)
+              spam_found = true
+              puts "SpamReport created successfully."
+            else
+              puts "Failed to create SpamReport: #{spam_report.errors.full_messages.join(", ")}"
+            end
+
+          end
+
+        end
+      end
+
+      if spam_found
+        @report.update(spam: true, dismissed: false, warned: false, revoked: false, watched: false)
+      end
+    end
+
+    def similarity_score(report1, report2)
+      description_similarity = text_similarity(report1.incident_description, report2.incident_description)
+    
+      # recommended_response_similarity based on whether the responses exist
+
+      if report1.recommended_response.blank? && report2.recommended_response.blank?
+        recommended_response_similarity = 1.0  # nil values as a perfect match
+
+      elsif !report1.recommended_response.blank? && !report2.recommended_response.blank?
+        recommended_response_similarity = text_similarity(report1.recommended_response, report2.recommended_response)
+      else
+        recommended_response_similarity = 0 
+      end
+    
+      # weighted avg of both where required weighs more
+      spam_info_value = "Description Simillarity of #{description_similarity} and Recommend Simillarity of #{recommended_response_similarity} for #{report1.id} & #{report2.id}"
+      
+      # flash[:notice] << spam_info_value
+
+      spam_report = SpamReport.new(
+        description: spam_info_value,
+        report1: report1,
+        report2: report2
+      )
+      
+
+      return (description_similarity + recommended_response_similarity)/2, spam_report
+
+    end
+
+    def text_similarity(text1, text2)
+
+      documents = [
+        TfIdfSimilarity::Document.new(text1),
+        TfIdfSimilarity::Document.new(text2)
+      ]
+
+      model = TfIdfSimilarity::TfIdfModel.new(documents)
+      matrix = model.similarity_matrix
+
+      return matrix[0, 1]
+    end
+
   private          
     def ensure_staff
       unless current_user.is_moderator? || current_user.is_admin?
@@ -163,5 +277,4 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(:reporter_email, :reporter_twitch_name, :reporter_twitch_id, :reported_twitch_name, :reported_twitch_id, :incident_stream, :incident_stream_twitch_id, :incident_occurred, :incident_description, :recommended_response, :image,)
     end
-  
 end
