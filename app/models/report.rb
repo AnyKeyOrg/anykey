@@ -110,8 +110,12 @@ class Report < ApplicationRecord
 
   def related_spam_reports
     unless self.reported_twitch_id.blank?
-      SpamReport.where("report1_id = ? or report2_id = ?", self.id, self.id).distinct #unique
+  
+      # all related SpamReport records
+      SpamReport.where("report1_id = ? OR report2_id = ?", self.id, self.id).distinct
+    
     end
+
   end
   
   protected

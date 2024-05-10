@@ -8,9 +8,13 @@
     </div>
     <div class="flexbox horizontal center">
       <% if report.unresolved? %>
-      <div class="row-detail">
-        <%= l(report.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %>
-      </div>
+        <div class="row-detail">
+          <%= l(report.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %>
+        </div>
+      <% elsif report.spam? %>
+        <div class="row-detail">
+        (SPAM) <%= l(report.created_at, format: "%b. %-d, %Y · %-l:%M%P ") %>
+        </div>
       <% elsif report.dismissed %>
       <div class="row-detail">
         <%= l(report.updated_at, format: "%b. %-d, %Y") %>&nbsp;·&nbsp;

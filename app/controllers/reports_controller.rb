@@ -209,7 +209,7 @@ class ReportsController < ApplicationController
       end
     
       # weighted avg of both where required weighs more
-      spam_info_value = "Description Simillarity of #{description_similarity} and Recommend Simillarity of #{recommended_response_similarity}"
+      spam_info_value = "Description Simillarity of #{description_similarity} and Recommend Simillarity of #{recommended_response_similarity} for #{report1.id} & #{report2.id}"
       
       spam_report = SpamReport.new(
         description: spam_info_value,
