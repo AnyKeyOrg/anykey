@@ -7,9 +7,9 @@ class ReportsController < ApplicationController
   
   skip_before_action :verify_authenticity_token, only: [ :watch, :unwatch, :twitch_lookup ]
   
-  before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
-  before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch ]
-  before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch ]
+  before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
+  before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
+  before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
   after_action :check_report_matches, only: [ :create]
   around_action :display_timezone
 
@@ -125,6 +125,26 @@ class ReportsController < ApplicationController
       end
     end
   end
+
+  def spam 
+    if @report.update(spam: true)
+      flash[:success] = "Report has been marked as spam."
+    else
+      flash[:error] = "Unable to update the report."
+    end
+    
+    redirect_to report_path(@report)
+  end 
+
+  def unspam
+    if @report.update(spam: false)
+      flash[:success] = "Report has been marked as not spam."
+    else
+      flash[:error] = "Unable to update the report."
+    end
+    redirect_to report_path(@report)
+  end
+
   
   def twitch_lookup
     if params[:twitch_username].blank?
