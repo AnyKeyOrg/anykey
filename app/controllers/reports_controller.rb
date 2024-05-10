@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
   before_action :authenticate_user!,        only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
   before_action :ensure_staff,              only: [ :index, :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
   before_action :find_report,               only: [ :show, :dismiss, :undismiss, :watch, :unwatch, :unspam, :spam]
-  after_action :check_report_matches, only: [ :create]
+  # after_action :check_report_matches, only: [ :create]
   around_action :display_timezone
 
   def index
@@ -80,6 +80,8 @@ class ReportsController < ApplicationController
       PledgeMailer.confirm_receipt(@report).deliver_now
       
       flash[:notice] = "You've successfully submitted the report. Thank you."
+      check_report_matches()
+
       redirect_to root_path
     else      
       flash.now[:alert] ||= ""
@@ -195,15 +197,18 @@ class ReportsController < ApplicationController
       # mark as spam based on a similarity threshold
       spam_found = false
       potential_matches.find_each do |match|
+        if match != @report
         score, spam_report = similarity_score(@report, match)
 
-        if score >= 0.80
-          if spam_report.save
-            match.update(spam: true, dismissed: false, warned: false, revoked: false, watched: false)
-            spam_found = true
-            puts "SpamReport created successfully."
-          else
-            puts "Failed to create SpamReport: #{spam_report.errors.full_messages.join(", ")}"
+          if score >= 0.70
+            if spam_report.save
+              match.update(spam: true, dismissed: false, warned: false, revoked: false, watched: false)
+              spam_found = true
+              puts "SpamReport created successfully."
+            else
+              puts "Failed to create SpamReport: #{spam_report.errors.full_messages.join(", ")}"
+            end
+
           end
 
         end
@@ -231,6 +236,8 @@ class ReportsController < ApplicationController
       # weighted avg of both where required weighs more
       spam_info_value = "Description Simillarity of #{description_similarity} and Recommend Simillarity of #{recommended_response_similarity} for #{report1.id} & #{report2.id}"
       
+      # flash[:notice] << spam_info_value
+
       spam_report = SpamReport.new(
         description: spam_info_value,
         report1: report1,
