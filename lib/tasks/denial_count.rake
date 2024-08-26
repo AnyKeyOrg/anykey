@@ -1,6 +1,6 @@
 # This tasks counts the number of players that applied for verification using a BattleTag who were never certified.
 # Uses emails as proxy for unique applicants.
-# Hardcoded to work only for BattleTags.
+# Hardcoded to work only for Blizzard BattleTags.
 # Should be updated to allow date ranges and different player ID types.
 
 namespace :verifications do
@@ -9,7 +9,9 @@ namespace :verifications do
 
   task :count_denials, [:filename] => :environment do |task, args|
    
-    emails = Verification.where(player_id_type: "blizzard").map{ |v| v.email.downcase }
+    emails = Verification.where(player_id_type: "blizzard").map{ |v| v.email.downcase }.uniq
+    
+    puts "#{emails.count} unique email addresses applied with Blizzard BattleTags"
     
     denied_never_certified = []
    
@@ -32,7 +34,9 @@ namespace :verifications do
       end
     end
     
-    puts "#{denied_never_certified.count} requests were denied but never certified"
+    puts denied_never_certified
+    
+    puts "#{denied_never_certified.count} email addresses were denied but never certified"
     
   end
 end
