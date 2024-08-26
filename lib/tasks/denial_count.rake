@@ -9,12 +9,12 @@ namespace :verifications do
 
   task :count_denials, [:filename] => :environment do |task, args|
    
-    emails = Verification.where(player_id_type: "battletag").map{ |v| v.email.downcase }
+    emails = Verification.where(player_id_type: "blizzard").map{ |v| v.email.downcase }
     
     denied_never_certified = []
    
     emails.each do |e|
-      requests = Verification.where(email: e, player_id_type: "battletag")
+      requests = Verification.where(email: e, player_id_type: "blizzard")
       
       was_denied = false
       was_certified = false
