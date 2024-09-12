@@ -47,7 +47,7 @@ class ConcernsController < ApplicationController
     if @concern.save
                   
       # TODO: Send notification to staff
-      
+      send_discord_notification(@concern) 
       # Email confirmation to concerned player
       ConcernMailer.confirm_receipt(@concern).deliver_now
       
@@ -132,5 +132,38 @@ class ConcernsController < ApplicationController
     def concern_params
       params.require(:concern).permit(:concerning_player_id, :concerning_player_id_type, :background, :description, :recommended_response, :concerned_email, :concerned_cert_code, screenshots: [])
     end
+
+    def send_discord_notification(concern)
+      discord_webhook_url = 'https://discord.com/api/webhooks/1180257401870499921/yxNYyaQ28EmiO3mUEPBrwc9koZLSgWECosknNV8RMuOsNT1xbXH8FH0LjBt5cyWvxtrE'
+    
+      # Concern contents to be sent to the discord server
+      concern_content =  "New consern has been submitted\n\n"
+      concern_content += "Player being reported / ID: #{concern.concerning_player_id}\n"
+      concern_content += "Type of ID : #{concern.concerning_player_id_type}\n\n"
+      concern_content += "Background information: #{concern.background}\n\n"
+      concern_content += "Description: #{concern.description}\n\n"
+      concern_content += "Recommended Response: #{concern.recommended_response}"
  
+      payload = {
+        content: concern_content
+      }
+
+      uri = URI.parse(discord_webhook_url)
+      # Set up HTTP connction and send POST request
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+
+      request = Net::HTTP::Post.new(uri.path, { 'Content-Type' => 'application/json' })
+      request.body = payload.to_json # Payload in the request body
+
+      response = http.request(request)
+
+      # For troubleshotting or debugging purposes
+      if response.code.to_i == 204
+        Rails.logger.info("Discord notification sent successfully.")
+      else
+        Rails.logger.error("Failed to send Discord notification. HTTP Status: #{response.code}, Response Body: #{response.body}")
+      end
+    end
+
 end
