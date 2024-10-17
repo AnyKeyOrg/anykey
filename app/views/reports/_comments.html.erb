@@ -8,7 +8,7 @@
       <%= render(partial: "comments/row", collection: @report.comments, as: :comment) %>
     </div>
     <div class="flexbox horizontal start">
-      <%= image_tag(user_image_src(current_user, :thumb), size: "28x28", class: "commenter-avatar") %>
+      <!-- TODO: <%= image_tag(user_image_src(current_user, :thumb), size: "28x28", class: "commenter-avatar") %> -->
       <form action="<%= comments_path %>" id="comment_box" method="POST" enctype="multipart/form-data" class="flexbox vertical end flex-1">
         <div style="display:none">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
