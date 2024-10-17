@@ -16,7 +16,6 @@
         <%= link_to("Staff", users_path, class: ((controller_name == 'users' || controller_name == 'invitations') ? 'selected ' : '') + 'item') %>
         <% end %>     
         <div id="header-avatar-container" class="flexbox vertical end">
-          <!-- TODO: <%= image_tag(user_image_src(current_user, :tiny), size: "28x28", class: "header-avatar") %> -->
           <div id="dropdown-container" style="display:none">
             <div class="outer-caret"></div>
             <div class="inner-caret"></div>
