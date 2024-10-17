@@ -6,7 +6,7 @@ class Thumbnail
   attr_accessor :id, :uid
   class_attribute :redis
 
-  self.redis ||= Redis::Namespace.new('thumbnails', :redis => $redis)
+  self.redis ||= Redis::Namespace.new('thumbnails', :redis => $redis, ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE })
 
   def self.find(id)
     if uid = redis.get(id)
