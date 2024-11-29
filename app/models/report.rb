@@ -6,7 +6,8 @@ class Report < ApplicationRecord
     warned:     "Warned",
     revoked:    "Revoked",
     watched:    "Watched",
-    all:        "All"
+    all:        "All", 
+    spam: "Spam"
   }.freeze
     
   IMAGE_STYLES = {
@@ -58,6 +59,7 @@ class Report < ApplicationRecord
                                                 lower(incident_stream_twitch_id) LIKE :search OR
                                                 lower(incident_description) LIKE :search",
                                                 search: "%#{search.downcase}%") }
+  scope :spam,         lambda { where(spam: true) }  
   
   
   def unresolved?

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0'
@@ -70,6 +70,9 @@ gem 'devise_invitable'
 gem 'dotenv-rails'
 gem 'pagy'
 gem 'ahoy_matey'
+
+# Paola Dev Gems 
+# gem 'rack-attack'
 
 # Using Dragonfly v0.9 for files & images
 # Because I can never get v1.0 to work with PJ's caching solution

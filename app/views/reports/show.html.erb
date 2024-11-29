@@ -9,6 +9,8 @@
       <%= render(partial: "reports/show_warned") %>
       <% elsif @report.revoked? %>
       <%= render(partial: "reports/show_revoked") %>
+      <% elsif @report.spam? %>
+      <%= render(partial: "reports/show_spam") %>
       <% end %>
     </div>
   </div>

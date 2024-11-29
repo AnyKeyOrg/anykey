@@ -1,11 +1,12 @@
 class PledgesController < ApplicationController
-  
+  include RateLimitable
   layout "backstage", only: [ :index ]
   
   before_action :authenticate_user!, only: [ :index ]
   before_action :ensure_staff, only: [ :index ]
   before_action :find_pledge, only: [ :show ]
   before_action :handle_twitch_auth, only: [ :new ]
+  before_action :apply_request_rate,        only: [ :create]
   
   def index
     # f is used to filter reports by scope
@@ -217,6 +218,10 @@ class PledgesController < ApplicationController
       
     def pledge_params
       params.require(:pledge).permit(:first_name, :last_name, :email)
+    end
+
+    def apply_request_rate
+      limit_create_request("pledges", new_pledge_path)
     end
   
 end
