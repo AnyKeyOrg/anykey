@@ -32,6 +32,8 @@ Rails.application.routes.draw do
         post :undismiss
         post :watch
         post :unwatch
+        post :unspam
+        post :spam
       end
       resources :warnings,     only: [ :new, :create ]
       resources :revocations,  only: [ :new, :create ]

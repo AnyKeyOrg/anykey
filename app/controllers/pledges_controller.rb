@@ -1,5 +1,5 @@
 class PledgesController < ApplicationController
-  
+  include RateLimitable
   layout "backstage", only: [ :index ]
   
   before_action :authenticate_user!, only: [ :index ]
@@ -39,6 +39,12 @@ class PledgesController < ApplicationController
   def create
     @pledge = Pledge.find_by(email: pledge_params[:email])
     
+    # First check IP-based rate limiting
+    return unless limit_request_by_ip('pledge_create', new_pledge_path)
+
+    # Fallback to device signature-based limiting (may not be needed)
+    return unless limit_request_by_signature('pledge_create', new_pledge_path)
+
     if @pledge
       
       # Set cookie to enforce single visit to redirect page
@@ -218,5 +224,5 @@ class PledgesController < ApplicationController
     def pledge_params
       params.require(:pledge).permit(:first_name, :last_name, :email)
     end
-  
+
 end

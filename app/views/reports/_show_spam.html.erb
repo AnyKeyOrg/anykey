@@ -1,0 +1,28 @@
+<div class="flexbox horizontal center wrap justify-space-between">
+  <div class="panel-title">Spam Badge</div>
+  <div class="flexbox horizontal center">
+    <div class="panel-descriptor">
+      Spam <%= l(@report.created_at, format: "%b. %-d, %Y · %-l:%M%P") %>
+    </div>
+    <%= render(partial: "reports/watchable_toggle")%>
+  </div>
+</div>
+<%= render(partial: "reports/identifiers") %>
+<%= render(partial: "reports/materials") %>
+<%= render(partial: "reports/associated_pledge") %>
+
+<div class="report-buttons flexbox horizontal-reverse wrap-reverse center">
+  <% if @pledge %>
+    <%= link_to("Revoke", new_report_revocation_path(@report, back: request.fullpath), class: 'revoke-button button') %>
+    <%= link_to("Warn", new_report_warning_path(@report, back: request.fullpath), class: 'warn-button button') %>
+    <%= link_to("Unspam", new_report_warning_path(@report, back: request.fullpath), class: 'warn-button button') %>
+  <% end %>
+    <%= link_to("Dismiss", dismiss_report_path(@report), method: :post, class: 'dismiss-button button') %>
+    <%= link_to("Unspam", unspam_report_path(@report), method: :post, class: 'warn-button button') %>
+    <%= link_to('Back', params[:back].present? ? params[:back] : reports_path, class: "back-button mini button") %>
+</div>
+
+<%= render(partial: "reports/reporter_details") %>
+<%= render(partial: "reports/related_spam") %>
+<%= render(partial: "reports/related_reports") %>
+<%= render(partial: "reports/comments")%>
